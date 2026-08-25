@@ -1,0 +1,42 @@
+name: US Market Scan
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 15 minutes during a broad UTC window covering the US regular session year-round.
+    # The Python job is quick and harmless outside the exact session; edit if you want tighter timing.
+    - cron: '*/15 13-21 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: market-scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
+      - name: Run scanner
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
+          RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
+          MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
+        run: python run.py
+      - name: Publish latest dashboard data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html data/signals.json
+          git diff --cached --quiet || git commit -m "chore: update trading signals"
+          git push
