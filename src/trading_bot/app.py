@@ -19,20 +19,16 @@ def load_config():
 def run() -> int:
     cfg = load_config()
     settings = cfg["settings"]
-   account_equity = float(
-    os.getenv("ACCOUNT_EQUITY_USD")
-    or settings.get("account_equity_usd")
-    or 10000
-)
-    risk_pct = float(os.getenv("risk_pct = float(
-    os.getenv("RISK_PER_TRADE_PCT")
-    or settings.get("risk_per_trade_pct")
-    or 0.5
-)", settings.get("risk_pct = float(
-    os.getenv("RISK_PER_TRADE_PCT")
-    or settings.get("risk_per_trade_pct")
-    or 0.5
-)", 0.5)))
+    account_equity = float(
+        os.getenv("ACCOUNT_EQUITY_USD")
+        or settings.get("account_equity_usd")
+        or 10000
+    )
+    risk_pct = float(
+        os.getenv("RISK_PER_TRADE_PCT")
+        or settings.get("risk_per_trade_pct")
+        or 0.5
+    )
     max_position_pct = float(os.getenv("MAX_POSITION_PCT", settings.get("max_position_pct", 15)))
     min_score_alert = int(settings.get("min_score_alert", 80))
     results = []
