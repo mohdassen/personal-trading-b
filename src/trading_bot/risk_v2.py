@@ -10,7 +10,11 @@ def portfolio_correlation_gate(portfolio,symbol_group,max_same_group=2):
     groups=[str(p.get('group','OTHER')) for p in portfolio.get('positions',[])];same=sum(1 for g in groups if g==symbol_group)
     return (False,'Too much exposure to same market group') if same>=max_same_group else (True,'OK')
 def _today_rows(trades):
-    today=datetime.now(timezone.utc).date().isoformat();return [t for t in (trades or []) if str(t.get('timestamp') or t.get('date') or '').startswith(today)]
+    today=datetime.now(timezone.utc).date().isoformat();rows=[]
+    for t in trades or []:
+        ts=str(t.get('timestamp') or t.get('time') or t.get('date') or '')
+        if ts.startswith(today):rows.append(t)
+    return rows
 def daily_loss_guard(trades,equity,max_daily_loss_pct=1.5):
     pnl=sum(float(t.get('realized_pnl',0) or 0) for t in _today_rows(trades));pct=pnl/max(float(equity),.01)*100
     return (pct>-abs(max_daily_loss_pct),round(pct,2))
