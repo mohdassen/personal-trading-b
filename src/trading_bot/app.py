@@ -11,146 +11,87 @@ from .regime import detect
 from .decision import finalize
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
+from .signal_tracker import evaluate as evaluate_signals
 from .position_manager import advice
 from .dashboard import render
 from .telegram import enabled as telegram_enabled, send, signal_message
 ROOT=Path(__file__).resolve().parents[2]
-
-def load_yaml(p): return yaml.safe_load(Path(p).read_text(encoding="utf-8"))
+def load_yaml(p):return yaml.safe_load(Path(p).read_text(encoding='utf-8'))
 def load_json(p,d):
-    try:return json.loads(Path(p).read_text(encoding="utf-8"))
+    try:return json.loads(Path(p).read_text(encoding='utf-8'))
     except Exception:return d
-def write_json(p,d): Path(p).write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding="utf-8")
+def write_json(p,d):Path(p).write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8')
 def env_num(n,d):
-    v=os.getenv(n); return float(v) if v and v.strip() else float(d)
+    v=os.getenv(n);return float(v) if v and v.strip() else float(d)
 def market_open():
-    n=datetime.now(ZoneInfo("America/New_York"))
-    return n.weekday()<5 and 570<=n.hour*60+n.minute<=960
-
+    n=datetime.now(ZoneInfo('America/New_York'));return n.weekday()<5 and 570<=n.hour*60+n.minute<=960
 def scan_symbol(symbol,s,regime,portfolio,equity):
     daily=quote_daily(symbol)
     if len(daily)<55:return []
-    price=float(daily["Close"].iloc[-1]); av=float(daily["Volume"].tail(20).mean())
-    if price<float(s.get("min_price",5)) or av<float(s.get("min_avg_daily_volume",1_000_000)):return []
-    out=[]
-    sw=swing_setup(symbol,daily)
-    if sw: out.append(finalize(sw,regime,s,portfolio,equity))
+    price=float(daily['Close'].iloc[-1]);av=float(daily['Volume'].tail(20).mean())
+    if price<float(s.get('min_price',5)) or av<float(s.get('min_avg_daily_volume',1_000_000)):return []
+    out=[];sw=swing_setup(symbol,daily)
+    if sw:out.append(finalize(sw,regime,s,portfolio,equity))
     try:
-        intr=quote_intraday(symbol,s.get("intraday_period","5d"),s.get("intraday_interval","15m"))
-        day=intraday_setup(symbol,intr)
-        if day: out.append(finalize(day,regime,s,portfolio,equity))
-    except Exception as e: print(f"{symbol} intraday warning: {e}")
+        intr=quote_intraday(symbol,s.get('intraday_period','5d'),s.get('intraday_interval','15m'));day=intraday_setup(symbol,intr)
+        if day:out.append(finalize(day,regime,s,portfolio,equity))
+    except Exception as e:print(f'{symbol} intraday warning: {e}')
     return out
-
 def should_alert(sig,state,cooldown):
-    k=f"{sig['symbol']}:{sig['strategy']}"; p=state.get(k)
+    k=f"{sig['symbol']}:{sig['strategy']}";p=state.get(k)
     if not p:return True
     try:
-        t=datetime.fromisoformat(p["sent_at"])
-        if t.tzinfo is None:t=t.replace(tzinfo=timezone.utc)
-        age=(datetime.now(timezone.utc)-t).total_seconds()/3600
+        t=datetime.fromisoformat(p['sent_at']);t=t if t.tzinfo else t.replace(tzinfo=timezone.utc);age=(datetime.now(timezone.utc)-t).total_seconds()/3600
     except Exception:return True
-    old=float(p.get("price",sig["price"]))
-    move=abs(float(sig["price"])-old)/max(old,.01)*100
-    return age>=cooldown or int(sig["score"])>=int(p.get("score",0))+8 or move>=1
-
+    old=float(p.get('price',sig['price']));move=abs(float(sig['price'])-old)/max(old,.01)*100
+    return age>=cooldown or int(sig['score'])>=int(p.get('score',0))+8 or move>=1
 def run():
-    s=load_yaml(ROOT/"config/settings.yml")["settings"]
-    universe=load_yaml(ROOT/"config/universe.yml")["universe"]
-    event_name=os.getenv("GITHUB_EVENT_NAME","local")
-    telegram_ok=telegram_enabled()
-    print(f"Telegram configured: {telegram_ok}; event: {event_name}")
-    if event_name in ("workflow_dispatch","push") and not telegram_ok:
-        print("TELEGRAM_CONFIG_ERROR: required GitHub Actions secrets are missing")
-        return 3
-    if os.getenv("FORCE_RUN")!="1" and not market_open():
-        print("US market closed; scheduled scan skipped."); return 0
-    reset_health()
-    equity=env_num("ACCOUNT_EQUITY_USD",s.get("account_equity_usd",10000))
-    s["risk_per_trade_pct"]=env_num("RISK_PER_TRADE_PCT",s.get("risk_per_trade_pct",.5))
-    s["max_position_pct"]=env_num("MAX_POSITION_PCT",s.get("max_position_pct",15))
-    store=PortfolioStore(ROOT/"data"); portfolio=store.portfolio()
-    try: regime=detect()
-    except Exception as e:
-        print("DATA_ERROR regime:",e)
-        if telegram_ok:
-            try: send("⛔ <b>DATA ERROR</b>\nتعذر تحميل بيانات السوق. لا توجد إشارات تداول.")
-            except Exception as te: print("Telegram error:",te)
-        return 2
+    s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled()
+    print(f'Telegram configured: {telegram_ok}; event: {event_name}')
+    if event_name in ('workflow_dispatch','push') and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
+    if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
+    reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
+    try:regime=detect()
+    except Exception as e:print('DATA_ERROR regime:',e);return 2
     signals=[]
-    with ThreadPoolExecutor(max_workers=int(s.get("max_intraday_workers",6))) as pool:
+    with ThreadPoolExecutor(max_workers=int(s.get('max_intraday_workers',6))) as pool:
         fut={pool.submit(scan_symbol,x,s,regime,portfolio,equity):x for x in universe}
         for f in as_completed(fut):
-            try: signals.extend(f.result())
-            except Exception as e: print("ERROR",fut[f],e)
-    h=health_snapshot(); print("Market-data health:",h)
-    total=h["success"]+h["failures"]
-    if h["success"]<8 or (total and h["success"]/total<.35):
-        reason=f"unreliable market data: {h['success']}/{total} successful requests"
-        write_json(ROOT/"data/data_health.json",{"status":"DATA_ERROR","reason":reason,"health":h,
-            "timestamp":datetime.now(timezone.utc).isoformat()})
-        if telegram_ok:
-            try: send("⛔ <b>DATA ERROR — NO TRADING SIGNALS</b>\n"+reason)
-            except Exception as te: print("Telegram error:",te)
-        print("DATA_ERROR:",reason); return 2
-    write_json(ROOT/"data/data_health.json",{"status":"OK","health":h,
-        "timestamp":datetime.now(timezone.utc).isoformat()})
-    signals=sorted(signals,key=lambda x:x["score"],reverse=True)
-    final=[]; seen={}
+            try:signals.extend(f.result())
+            except Exception as e:print('ERROR',fut[f],e)
+    h=health_snapshot();total=h['success']+h['failures'];print('Market-data health:',h)
+    if h['success']<8 or (total and h['success']/total<.35):
+        reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()});return 2
+    write_json(ROOT/'data/data_health.json',{'status':'OK','health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
+    signals=sorted(signals,key=lambda x:x['score'],reverse=True);final=[];seen={}
     for x in signals:
-        if x["symbol"] not in seen:
-            final.append(x); seen[x["symbol"]]=x
-        elif x["score"]>=90 and seen[x["symbol"]]["strategy"]!=x["strategy"]: final.append(x)
-    final=final[:30]; write_json(ROOT/"data/signals.json",final)
-    hist=load_json(ROOT/"data/signal_history.json",[]); now=datetime.now(timezone.utc).isoformat()
-    for x in final: hist.append({"timestamp":now,"symbol":x["symbol"],"strategy":x["strategy"],
-        "signal":x["signal"],"score":x["score"],"price":x["price"],"stop_loss":x["stop_loss"],
-        "target1":x["target1"],"target2":x["target2"]})
-    write_json(ROOT/"data/signal_history.json",hist[-10000:])
-    perf=save_performance(ROOT/"data")
-    updates=[]
-    for p in portfolio.get("positions",[]):
+        if x['symbol'] not in seen:final.append(x);seen[x['symbol']]=x
+        elif x['score']>=90 and seen[x['symbol']]['strategy']!=x['strategy']:final.append(x)
+    final=final[:30];write_json(ROOT/'data/signals.json',final);hist=load_json(ROOT/'data/signal_history.json',[]);now=datetime.now(timezone.utc).isoformat()
+    for x in final:hist.append({'timestamp':now,'symbol':x['symbol'],'strategy':x['strategy'],'signal':x['signal'],'score':x['score'],'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2']})
+    write_json(ROOT/'data/signal_history.json',hist[-10000:])
+    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);print('Signal accuracy:',accuracy)
+    perf=save_performance(ROOT/'data');updates=[]
+    for p in portfolio.get('positions',[]):
         try:
-            d=quote_intraday(p["symbol"],"1d","15m")
-            if not d.empty:
-                cp=float(d["Close"].iloc[-1]); updates.append({"symbol":p["symbol"],"current_price":cp,**advice(p,cp)})
-        except Exception as e: print("Position monitor",p["symbol"],e)
-    write_json(ROOT/"data/position_advice.json",updates)
-    render(final,ROOT/"docs/index.html",s.get("timezone","Asia/Riyadh"),regime,portfolio,perf)
-    state=load_json(ROOT/"data/alert_state.json",{}); cooldown=float(s.get("alert_cooldown_hours",4))
-    alerts_sent=0
+            d=quote_intraday(p['symbol'],'1d','15m')
+            if not d.empty:cp=float(d['Close'].iloc[-1]);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp)})
+        except Exception as e:print('Position monitor',p['symbol'],e)
+    write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,perf)
+    state=load_json(ROOT/'data/alert_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0
     if telegram_ok:
-        for x in [z for z in final if z["signal"] in ("STRONG_BUY","BUY")][:int(s.get("top_n_alerts",3))]:
+        for x in [z for z in final if z['signal'] in ('STRONG_BUY','BUY')][:int(s.get('top_n_alerts',3))]:
             if should_alert(x,state,cooldown):
-                try:
-                    send(signal_message(x)); alerts_sent+=1; state[f"{x['symbol']}:{x['strategy']}"]={
-                        "sent_at":datetime.now(timezone.utc).isoformat(),"score":x["score"],"price":x["price"]}
-                except Exception as e: print("Telegram signal error:",e)
-        for u in updates:
-            if u["action"] in ("EXIT","TAKE_PARTIAL","TIGHTEN/EXIT"):
-                try:
-                    send(f"🔔 <b>{u['symbol']} — {u['action']}</b>\n{u['reason']}\nP/L: {u['pnl_pct']}%"); alerts_sent+=1
-                except Exception as e: print("Telegram position error:",e)
-        write_json(ROOT/"data/alert_state.json",state)
-        if event_name in ("workflow_dispatch","push"):
-            best=final[0] if final else None
-            buys=sum(1 for z in final if z["signal"] in ("STRONG_BUY","BUY"))
-            lines=[
-                "✅ <b>Trading Bot — Scan Completed</b>",
-                f"Market regime: <b>{regime}</b>",
-                f"Setups ranked: <b>{len(final)}</b>",
-                f"Qualified BUY signals: <b>{buys}</b>",
-                f"Trade/exit alerts sent: <b>{alerts_sent}</b>",
-                f"Market data: <b>{h['success']}/{total} successful</b>"
-            ]
-            if best:
-                lines += ["",f"Top setup: <b>{best['symbol']}</b> — {best['signal']} {best['score']}/100",f"Price: ${best['price']:.2f} | Strategy: {best['strategy']}"]
-            if buys==0:
-                lines += ["","ℹ️ No qualified BUY signal now. The bot is online and monitoring."]
-            try:
-                send("\n".join(lines)); print("Telegram status message: sent")
-            except Exception as e:
-                print("TELEGRAM_SEND_ERROR:",e); return 3
-    print(f"Completed: {len(final)} ranked setups; Telegram alerts: {alerts_sent}."); return 0
-
-if __name__=="__main__": raise SystemExit(run())
+                try:send(signal_message(x));alerts_sent+=1;state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':datetime.now(timezone.utc).isoformat(),'score':x['score'],'price':x['price']}
+                except Exception as e:print('Telegram signal error:',e)
+        write_json(ROOT/'data/alert_state.json',state)
+        if event_name in ('workflow_dispatch','push'):
+            best=final[0] if final else None;buys=sum(1 for z in final if z['signal'] in ('STRONG_BUY','BUY'));lines=['✅ <b>Trading Bot — Scan Completed</b>',f"Qualified BUY signals: <b>{buys}</b>",f"Market data: <b>{h['success']}/{total} successful</b>"]
+            if accuracy['samples']>=10:lines += [f"Measured accuracy: <b>{accuracy['win_rate']}%</b> from {accuracy['samples']} completed signals"]
+            else:lines += [f"Accuracy learning: <b>{accuracy['samples']}/10</b> completed signals collected"]
+            if best:lines += ['',f"Top setup: <b>{best['symbol']}</b> — {best['simple_decision_ar']} ({best['score']}/100)"]
+            if buys==0:lines += ['','ℹ️ لا توجد فرصة شراء مؤكدة الآن. الانتظار قرار صحيح أيضًا.']
+            try:send('\n'.join(lines))
+            except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
+    print(f'Completed: {len(final)} ranked setups; Telegram alerts: {alerts_sent}.');return 0
+if __name__=='__main__':raise SystemExit(run())
