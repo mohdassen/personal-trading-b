@@ -5,7 +5,9 @@ settings:
   max_position_pct: 15
   max_total_exposure_pct: 60
   max_open_positions: 5
+  max_same_group_positions: 2
   max_daily_new_trades: 3
+  max_daily_loss_pct: 1.5
   min_price: 5
   min_avg_daily_volume: 1000000
   max_intraday_workers: 6
@@ -20,5 +22,11 @@ settings:
   intraday_period: 5d
   swing_period: 6mo
   swing_interval: 1d
+  day_signal_expiry_minutes: 45
+  swing_signal_expiry_hours: 24
   backtest_horizon_days: 5
   backtest_min_score: 85
+  backtest_years: 3
+  backtest_transaction_cost_bps: 10
+  adaptive_min_samples: 12
+  adaptive_positive_min_samples: 20
