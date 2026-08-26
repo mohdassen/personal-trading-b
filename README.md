@@ -1,63 +1,38 @@
-# Personal US Trading Bot
+# Personal Trading Assistant Ultimate
 
-بوت شخصي لتحليل الأسهم الأمريكية وإرسال فرص التداول، مع تنفيذ الشراء والبيع يدويًا في منصة Sahm.
+Decision-support system for US stocks with manual execution in Sahm.
 
-## ما الذي يفعله؟
-- يراقب قائمة أسهم محددة في `config/watchlist.yml`.
-- يجلب بيانات 15 دقيقة من Yahoo Finance عبر `yfinance`.
-- يحسب EMA 9/21/50 وRSI وVWAP وATR وحجم التداول والزخم.
-- يعطي Score من 100 وإشارة `BUY / WATCH / WAIT`.
-- يحسب نطاق دخول، Stop Loss، Target 1/2، والكمية المقترحة حسب مخاطرة الحساب.
-- يولد Dashboard عربي Static في `docs/index.html`.
-- يرسل أفضل إشارات BUY إلى Telegram عند إعداد الأسرار.
-- يعمل مجدولًا عبر GitHub Actions.
+## Included in this single release
+- Dynamic scanner across ~80 liquid US stocks
+- Separate DAY and SWING strategy engines
+- SPY/QQQ/VIX market-regime filter
+- Earnings/news event-risk protection
+- STRONG_BUY / BUY / WATCH / WAIT / BLOCKED decisions
+- Exact entry zone, stop-loss, targets and risk/reward
+- Position sizing from account equity and risk limits
+- Portfolio exposure gates and max-open-position limits
+- Position monitoring with HOLD / TAKE_PARTIAL / EXIT guidance
+- Telegram alerts with duplicate suppression
+- Trade journal and realized performance metrics
+- Weekly simplified swing backtest
+- Mobile GitHub Pages command center
+- GitHub Action to record manual Sahm BUY/SELL executions
 
-## تنبيه مهم
-هذه الأداة للتحليل والمساعدة فقط وليست توصية مالية. بيانات Yahoo Finance قد تكون متأخرة أو غير مناسبة للتنفيذ اللحظي. قارن السعر دائمًا مع Sahm قبل تنفيذ أي أمر.
+## GitHub Secrets
+Keep these existing secrets:
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
 
-## تشغيل محلي
-```bash
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\\Scripts\\activate
-pip install -r requirements.txt
-python run.py
-```
-ثم افتح `docs/index.html`.
+## GitHub Variables
+Recommended:
+- `ACCOUNT_EQUITY_USD`
+- `RISK_PER_TRADE_PCT`
+- `MAX_POSITION_PCT`
 
-## إعداد GitHub
-1. أنشئ Repository وارفع الملفات إليه.
-2. من `Settings > Pages` اختر **GitHub Actions** كمصدر النشر.
-3. من `Settings > Secrets and variables > Actions` أضف عند الحاجة:
-   - Secret: `TELEGRAM_BOT_TOKEN`
-   - Secret: `TELEGRAM_CHAT_ID`
-4. من تبويب **Variables** يفضل إضافة:
-   - `ACCOUNT_EQUITY_USD` — رأس المال الذي تريد أن يستخدمه البوت لحساب حجم الصفقة.
-   - `RISK_PER_TRADE_PCT` — مثال `0.5`.
-   - `MAX_POSITION_PCT` — مثال `15`.
-5. افتح `Actions > US Market Scan > Run workflow` لتجربة أول Scan يدويًا.
+## Workflows
+- **Trading Decision Engine**: scheduled every 15 minutes on weekdays; Python skips scans outside the regular US session.
+- **Record Manual Sahm Trade**: after you actually buy/sell in Sahm, record the execution so the bot can manage the position and calculate performance.
+- **Weekly Backtest**: simplified historical validation for the swing engine.
 
-## إعداد Telegram
-- أنشئ Bot عبر BotFather واحصل على Token.
-- أرسل أي رسالة للبوت.
-- استخرج Chat ID بالطريقة الرسمية المتاحة لك، ثم خزنه كـSecret.
-- لا تضع Token داخل الكود.
-
-## الاستراتيجية الحالية
-التقييم الافتراضي يجمع:
-- اتجاه EMA حتى 25 نقطة.
-- السعر مقارنة بـVWAP حتى 15 نقطة.
-- RSI حتى 20 نقطة.
-- Volume Ratio حتى 20 نقطة.
-- زخم ساعة حتى 20 نقطة.
-
-`BUY >= 80`, و`WATCH >= 65`، والباقي `WAIT`.
-
-## إدارة المخاطر
-افتراضيًا:
-- مخاطرة الصفقة: 0.5% من رأس المال.
-- الحد الأقصى لقيمة المركز: 15% من رأس المال.
-- Stop Loss مبني على ATR مع حد أدنى 1.5% تقريبًا.
-- Target 1 عند R:R = 1:2 وTarget 2 عند 1:3.
-
-## الخصوصية
-لا يوجد أي ربط بحساب Sahm ولا تخزين لبيانات دخول Sahm. التنفيذ يدوي بالكامل.
+## Important limitations
+This is not a guaranteed-profit system. Yahoo Finance can be delayed, incomplete or rate-limited and is not execution-grade data. News/earnings data can also be incomplete. Confirm live price, corporate events and order details in Sahm before executing. Start with paper/small-size validation and evaluate the actual trade journal before increasing capital.

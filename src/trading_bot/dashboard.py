@@ -3,31 +3,6 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 from jinja2 import Template
-
-TEMPLATE = r'''<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Personal US Trading Bot</title>
-<style>
-:root{--bg:#0b1020;--panel:#11182a;--text:#eef2ff;--muted:#9aa4bf;--line:#24304b;--good:#22c55e;--warn:#f59e0b;--idle:#94a3b8}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Tahoma,Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:20px}.head{display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap}.sub{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.top{display:flex;justify-content:space-between;align-items:center}.score{font-size:1.55rem;font-weight:800}.sig{font-weight:800}.BUY{color:var(--good)}.WATCH{color:var(--warn)}.WAIT{color:var(--idle)}.price{font-size:1.35rem;margin:10px 0}.levels{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.94rem}.levels div{background:#0d1425;padding:8px;border-radius:10px}.reason{color:#d6ddf2;font-size:.9rem;line-height:1.7}.warn{color:#fbbf24}.footer{color:var(--muted);font-size:.82rem;margin:24px 0}.badge{padding:4px 8px;border-radius:999px;background:#0d1425;border:1px solid var(--line)}
-</style></head>
-<body><div class="wrap"><div class="head"><div><h1>بوت التداول الشخصي — السوق الأمريكي</h1><div class="sub">تحليل آلي، والتنفيذ يدوي عبر منصة سهم</div></div><div class="sub">آخر تحديث: {{ updated }}</div></div>
-<div class="grid">
-{% for s in signals %}
-<div class="card"><div class="top"><div><b>{{ s.symbol }}</b> <span class="sig {{ s.signal }}">{{ s.signal }}</span></div><div class="score">{{ s.score }}/100</div></div>
-<div class="price">${{ '%.2f'|format(s.price) }}</div>
-<div class="levels"><div>الدخول<br><b>${{ '%.2f'|format(s.entry_low) }} - ${{ '%.2f'|format(s.entry_high) }}</b></div><div>وقف الخسارة<br><b>${{ '%.2f'|format(s.stop_loss) }}</b></div><div>الهدف 1<br><b>${{ '%.2f'|format(s.target1) }}</b></div><div>الهدف 2<br><b>${{ '%.2f'|format(s.target2) }}</b></div><div>RSI<br><b>{{ s.rsi }}</b></div><div>الحجم<br><b>{{ s.vol_ratio }}x</b></div><div>الكمية المقترحة<br><b>{{ s.suggested_shares }}</b></div><div>قيمة تقريبية<br><b>${{ '%.2f'|format(s.suggested_value) }}</b></div></div>
-{% if s.reasons %}<p class="reason">{% for r in s.reasons %}✓ {{ r }}<br>{% endfor %}</p>{% endif %}
-{% if s.warnings %}<p class="reason warn">{% for w in s.warnings %}⚠ {{ w }}<br>{% endfor %}</p>{% endif %}
-</div>{% endfor %}
-</div><div class="footer">هذه الأداة للمساعدة في التحليل فقط وليست توصية استثمارية. بيانات Yahoo Finance قد تكون متأخرة أو غير مناسبة للتنفيذ اللحظي. تأكد من السعر داخل Sahm قبل أي أمر.</div></div></body></html>'''
-
-
-def render(signals: list[dict], output: str, timezone: str = "Asia/Riyadh") -> None:
-    signals = sorted(signals, key=lambda x: x["score"], reverse=True)
-    updated = datetime.now(ZoneInfo(timezone)).strftime("%Y-%m-%d %H:%M %Z")
-    html = Template(TEMPLATE).render(signals=signals, updated=updated)
-    Path(output).parent.mkdir(parents=True, exist_ok=True)
-    Path(output).write_text(html, encoding="utf-8")
+TPL=r'''<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="300"><title>Personal Trading Command Center</title><style>:root{--b:#07101e;--p:#101a2c;--q:#0b1424;--t:#edf3ff;--m:#98a7c4;--l:#263754;--g:#22c55e;--a:#f59e0b;--r:#ef4444}*{box-sizing:border-box}body{margin:0;background:var(--b);color:var(--t);font-family:system-ui,-apple-system,Segoe UI,Tahoma,Arial}.w{max-width:1250px;margin:auto;padding:16px}.h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end}.m{color:var(--m)}.kpis,.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:14px 0}.grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.k,.c{background:var(--p);border:1px solid var(--l);border-radius:16px;padding:14px}.k b{font-size:1.25rem;display:block}.top{display:flex;justify-content:space-between}.score{font-size:1.5rem;font-weight:900}.STRONG_BUY,.BUY{color:var(--g)}.WATCH{color:var(--a)}.BLOCKED{color:var(--r)}.lv{display:grid;grid-template-columns:1fr 1fr;gap:7px}.lv div{background:var(--q);padding:8px;border-radius:9px}.small{font-size:.86rem;line-height:1.65}</style></head><body><div class="w"><div class="h"><div><h1>Personal Trading Command Center</h1><div class="m">Day + Swing • Dynamic Scanner • Portfolio Risk • Telegram • Manual Sahm execution</div></div><div class="m">{{ updated }}</div></div><div class="kpis"><div class="k">Market Regime<b>{{ regime.label }}</b></div><div class="k">VIX<b>{{ '%.1f'|format(regime.vix) }}</b></div><div class="k">أفضل فرصة<b>{{ best.symbol if best else '-' }} {{ best.score if best else 0 }}/100</b></div><div class="k">Cash<b>${{ '%.0f'|format(portfolio.cash) }}</b></div><div class="k">Open Positions<b>{{ portfolio.positions|length }}</b></div><div class="k">Win Rate<b>{{ performance.win_rate }}%</b></div></div><div class="grid">{% for s in signals %}<div class="c"><div class="top"><b>{{ s.symbol }} · {{ s.strategy }}</b><span class="{{ s.signal }}"><b>{{ s.signal }} {{ s.score }}/100</b></span></div><h2>${{ '%.2f'|format(s.price) }}</h2><div class="lv"><div>Entry<b><br>${{ '%.2f'|format(s.entry_low) }}–${{ '%.2f'|format(s.entry_high) }}</b></div><div>Stop<b><br>${{ '%.2f'|format(s.stop_loss) }}</b></div><div>Target 1<b><br>${{ '%.2f'|format(s.target1) }}</b></div><div>Target 2<b><br>${{ '%.2f'|format(s.target2) }}</b></div><div>Qty<b><br>{{ s.suggested_shares }}</b></div><div>Risk<b><br>${{ s.risk_dollars }} / {{ s.risk_pct_equity }}%</b></div><div>Market<b><br>{{ s.market_regime }}</b></div><div>Event Risk<b><br>{{ s.event_risk }}</b></div></div><p class="small">{% for r in s.reasons[:5] %}✓ {{ r }}<br>{% endfor %}{% for n in s.event_notes[:3] %}<span style="color:#fbbf24">⚠ {{ n }}</span><br>{% endfor %}</p></div>{% endfor %}</div><p class="m small">هذه أداة تحليل ومساعدة قرار وليست ضمانًا للربح. تحقق من الأسعار والأحداث داخل منصة التداول قبل التنفيذ.</p></div></body></html>'''
+def render(signals,output,timezone,regime,portfolio,performance):
+    signals=sorted(signals,key=lambda x:x['score'],reverse=True);best=signals[0] if signals else None;updated=datetime.now(ZoneInfo(timezone)).strftime('%Y-%m-%d %H:%M %Z');html=Template(TPL).render(signals=signals,updated=updated,regime=regime,portfolio=portfolio,performance=performance,best=best);p=Path(output);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(html,encoding='utf-8')

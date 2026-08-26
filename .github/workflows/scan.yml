@@ -1,42 +1,55 @@
-name: US Market Scan
-
+name: Trading Decision Engine
 on:
   workflow_dispatch:
+    inputs:
+      force_run:
+        description: Force scan outside regular US session
+        required: false
+        default: '1'
   schedule:
-    # Every 15 minutes during a broad UTC window covering the US regular session year-round.
-    # The Python job is quick and harmless outside the exact session; edit if you want tighter timing.
     - cron: '*/15 13-21 * * 1-5'
-
 permissions:
   contents: write
-
+  pages: write
+  id-token: write
 concurrency:
-  group: market-scan
+  group: trading-engine
   cancel-in-progress: true
-
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
+          cache: pip
       - run: pip install -r requirements.txt
-      - name: Run scanner
+      - name: Run engine
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
           RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
           MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
+          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force_run || '0' }}
         run: python run.py
-      - name: Publish latest dashboard data
+      - name: Commit state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html data/signals.json
-          git diff --cached --quiet || git commit -m "chore: update trading signals"
+          git add docs data
+          git diff --cached --quiet || git commit -m "chore: update trading engine state"
+          git pull --rebase
           git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - name: Deploy Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

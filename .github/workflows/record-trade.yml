@@ -1,0 +1,53 @@
+name: Record Manual Sahm Trade
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: BUY or SELL
+        type: choice
+        options: [BUY, SELL]
+        required: true
+      symbol:
+        description: Ticker
+        required: true
+      qty:
+        description: Quantity
+        required: true
+      price:
+        description: Execution price
+        required: true
+      stop:
+        description: Stop loss (BUY only)
+        required: false
+        default: '0'
+      target1:
+        description: Target 1 (BUY only)
+        required: false
+        default: '0'
+      target2:
+        description: Target 2 (BUY only)
+        required: false
+        default: '0'
+      strategy:
+        description: DAY or SWING
+        required: false
+        default: 'manual'
+permissions:
+  contents: write
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python manage_trade.py --action "${{ inputs.action }}" --symbol "${{ inputs.symbol }}" --qty "${{ inputs.qty }}" --price "${{ inputs.price }}" --stop "${{ inputs.stop }}" --target1 "${{ inputs.target1 }}" --target2 "${{ inputs.target2 }}" --strategy "${{ inputs.strategy }}"
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/portfolio.json data/trades.json
+          git commit -m "trade: ${{ inputs.action }} ${{ inputs.symbol }}"
+          git pull --rebase
+          git push
