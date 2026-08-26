@@ -13,6 +13,7 @@ from .decision import finalize
 from .precision import precision_context
 from .risk_v2 import daily_loss_guard,daily_trade_count_guard
 from .macro_guard import assess as assess_macro
+from .validation_policy import derive as derive_validation
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
 from .signal_tracker import evaluate as evaluate_signals
@@ -70,7 +71,7 @@ def should_alert(sig,state,cooldown):
     return age>=cooldown or p.get('action')!=sig.get('action') or int(sig['score'])>=int(p.get('score',0))+6 or move>=1
 def audit_append(final,now,macro):
     path=ROOT/'data/decision_audit.json';rows=load_json(path,[])
-    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
+    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'setup_adjustment':x.get('setup_adjustment'),'validation_blocked':x.get('validation_blocked'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
     write_json(path,rows[-15000:])
 def run():
     s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled();notify_allowed=event_name in ('schedule','workflow_dispatch')
@@ -79,7 +80,8 @@ def run():
     reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
     for p in portfolio.get('positions',[]):p['group']=group_for(p.get('symbol'),groups)
     trades=load_json(ROOT/'data/trades.json',[]);daily_ok,daily_pnl_pct=daily_loss_guard(trades,equity,float(s.get('max_daily_loss_pct',1.5)));trade_count_ok,today_entries=daily_trade_count_guard(trades,int(s.get('max_daily_new_trades',3)));s['daily_loss_block']=not daily_ok or not trade_count_ok or bool(macro.get('blocked'))
-    prior_accuracy=load_json(ROOT/'data/signal_accuracy.json',{});s['strategy_score_adjustments']=strategy_adjustments(prior_accuracy)
+    prior_accuracy=load_json(ROOT/'data/signal_accuracy.json',{});live_adj=strategy_adjustments(prior_accuracy);validation=derive_validation(load_json(ROOT/'data/backtest.json',{}));val_adj=validation.get('strategy_adjustments',{})
+    s['strategy_score_adjustments']={n:max(-12,min(4,int(live_adj.get(n,0))+int(val_adj.get(n,0)))) for n in ('DAY','SWING')};s['setup_score_adjustments']=validation.get('setup_adjustments',{});s['disabled_strategies']=validation.get('disabled_strategies',[]);s['disabled_setup_types']=validation.get('disabled_setup_types',[]);write_json(ROOT/'data/validation_policy.json',validation)
     try:regime=detect()
     except Exception as e:print('DATA_ERROR regime:',e);return 2
     signals=[]
@@ -103,7 +105,7 @@ def run():
     hist=load_json(ROOT/'data/signal_history.json',[])
     for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
     write_json(ROOT/'data/signal_history.json',hist[-10000:])
-    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'adjustments':strategy_adjustments(accuracy),'accuracy':accuracy})
+    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'live_adjustments':live_adj,'validation':validation,'effective_adjustments':s['strategy_score_adjustments'],'accuracy':accuracy})
     perf=save_performance(ROOT/'data');updates=[]
     for p in portfolio.get('positions',[]):
         try:
@@ -135,7 +137,6 @@ def run():
             else:lines += ['','ℹ️ لا توجد صفقة تستحق الدخول الآن. الانتظار جزء من الاستراتيجية.']
             try:send('\n'.join(lines))
             except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
-    else:
-        write_json(ROOT/'data/decision_state.json',current)
-    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected, {alerts_sent} alerts; event={event_name}.');return 0
+    else:write_json(ROOT/'data/decision_state.json',current)
+    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected, {alerts_sent} alerts; event={event_name}; validation={validation}.');return 0
 if __name__=='__main__':raise SystemExit(run())
