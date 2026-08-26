@@ -27,6 +27,52 @@ def _trade_instruction(setup, signal, score):
         return "NO_TRADE", "Trade blocked by event or portfolio risk"
     return "NO_TRADE", "No qualified setup"
 
+def _simple_view(signal, action, score, event_level, risk_pct, low, high, stop, target1):
+    if action == "BUY_NOW":
+        decision_ar="اشترِ الآن"
+        decision_en="BUY NOW"
+        next_step=f"ادخل فقط بين ${low:.2f} و ${high:.2f}. ضع وقف الخسارة عند ${stop:.2f}. الهدف الأول ${target1:.2f}."
+    elif action == "WAIT_FOR_ENTRY":
+        decision_ar="انتظر السعر المناسب"
+        decision_en="WAIT"
+        next_step=f"لا تشترِ الآن. انتظر وصول السعر إلى منطقة ${low:.2f}–${high:.2f}."
+    elif action == "DO_NOT_CHASE":
+        decision_ar="لا تطارد السعر"
+        decision_en="DO NOT BUY NOW"
+        next_step=f"السعر ارتفع فوق منطقة الدخول. انتظر رجوعه إلى ${low:.2f}–${high:.2f}."
+    elif action == "WATCH":
+        decision_ar="راقب فقط"
+        decision_en="WATCH"
+        next_step="الفرصة لم تكتمل بعد. لا تدخل الصفقة الآن."
+    else:
+        decision_ar="لا تدخل"
+        decision_en="NO TRADE"
+        next_step="لا توجد فرصة مناسبة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح."
+
+    if score >= 90:
+        confidence="عالية"
+    elif score >= 82:
+        confidence="جيدة"
+    elif score >= 70:
+        confidence="متوسطة"
+    else:
+        confidence="ضعيفة"
+
+    if event_level == "HIGH" or risk_pct >= 0.75:
+        risk_label="مرتفعة"
+    elif event_level == "MEDIUM" or risk_pct >= 0.45:
+        risk_label="متوسطة"
+    else:
+        risk_label="منخفضة"
+
+    return {
+        "simple_decision_ar":decision_ar,
+        "simple_decision_en":decision_en,
+        "simple_next_step":next_step,
+        "confidence_label":confidence,
+        "risk_label":risk_label,
+    }
+
 def finalize(setup, regime, settings, portfolio, equity):
     event=assess(setup.symbol, int(settings.get("earnings_block_days",2)))
     score=max(0,min(100, setup.raw_score + regime.score_adjustment + event.score_adjustment))
@@ -66,11 +112,15 @@ def finalize(setup, regime, settings, portfolio, equity):
 
     action, instruction = _trade_instruction(setup, signal, score)
 
-    # Never recommend a zero-size trade.
     if signal in ("BUY","STRONG_BUY") and sizing["shares"] <= 0:
         signal="BLOCKED"
         action="NO_TRADE"
         instruction="Position sizing returned zero shares; capital/risk settings block the trade"
+
+    simple=_simple_view(
+        signal, action, score, event.level, sizing["risk_pct_equity"],
+        float(setup.entry_low), float(setup.entry_high), float(setup.stop_loss), float(setup.target1)
+    )
 
     return {
         **setup.to_dict(),
@@ -78,6 +128,7 @@ def finalize(setup, regime, settings, portfolio, equity):
         "signal":signal,
         "action":action,
         "instruction":instruction,
+        **simple,
         "market_regime":regime.label,
         "event_risk":event.level,
         "event_notes":event.notes,
