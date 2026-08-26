@@ -26,26 +26,28 @@ def _stats(rows):
     if not rows:return {'samples':0,'win_rate':0.0,'avg_return_pct':0.0,'avg_r':0.0,'profit_factor_r':0.0}
     wins=[x for x in rows if x['r_multiple']>0];gp=sum(x['r_multiple'] for x in rows if x['r_multiple']>0);gl=abs(sum(x['r_multiple'] for x in rows if x['r_multiple']<=0))
     return {'samples':len(rows),'win_rate':round(len(wins)/len(rows)*100,1),'avg_return_pct':round(sum(x['return_pct'] for x in rows)/len(rows),3),'avg_r':round(sum(x['r_multiple'] for x in rows)/len(rows),3),'profit_factor_r':round(gp/gl,2) if gl else (999.0 if gp else 0.0)}
-def _keep(s,threshold,min_rr):return bool(s and s.raw_score>=threshold and float(s.rr1)>=min_rr)
+def _keep(s,threshold,min_rr):
+    return bool(s and s.raw_score>=threshold and float(s.rr1)>=min_rr and float(s.entry_low)<=float(s.price)<=float(s.entry_high))
+def _row(symbol,strategy,date,s,o):
+    return {'symbol':symbol,'strategy':strategy,'setup_type':s.setup_type,'date':str(date),'score':s.raw_score,'rr1':round(s.rr1,2),'outcome':o[0],'return_pct':o[1],'r_multiple':o[2]}
 def _swing(symbol,df,threshold,min_rr,cost):
     rows=[]
     for i in range(220,len(df)-6,5):
         s=swing_setup(symbol,df.iloc[:i+1])
         if not _keep(s,threshold,min_rr):continue
         o=_outcome(s,df.iloc[i+1:i+6],cost)
-        if o:rows.append({'symbol':symbol,'strategy':'SWING','date':str(df.index[i].date()),'score':s.raw_score,'rr1':round(s.rr1,2),'outcome':o[0],'return_pct':o[1],'r_multiple':o[2]})
+        if o:rows.append(_row(symbol,'SWING',df.index[i].date(),s,o))
     return rows
 def _day(symbol,df,threshold,min_rr,cost):
     rows=[]
     if len(df)<100:return rows
-    # Global history creates indicators; future bars are restricted to the same trading day.
     for i in range(60,len(df)-4,8):
         signal_time=df.index[i];history=df.iloc[:i+1].tail(350);s=intraday_setup(symbol,history)
         if not _keep(s,threshold,min_rr):continue
         same_day=df[(df.index>signal_time)&(df.index.date==signal_time.date())].head(12)
         if same_day.empty:continue
         o=_outcome(s,same_day,cost)
-        if o:rows.append({'symbol':symbol,'strategy':'DAY','date':str(signal_time.date()),'score':s.raw_score,'rr1':round(s.rr1,2),'outcome':o[0],'return_pct':o[1],'r_multiple':o[2]})
+        if o:rows.append(_row(symbol,'DAY',signal_time.date(),s,o))
     return rows
 def _one(symbol,years,threshold,min_rr,cost):
     rows=[]
@@ -65,5 +67,5 @@ def run_backtest():
             try:rows.extend(f.result())
             except Exception as e:print('BT',fut[f],e)
     rows=sorted(rows,key=lambda x:x['date']);cut=int(len(rows)*.70);dev=rows[:cut];val=rows[cut:]
-    out={'engine':'V4-Precision','method':'Conservative chronological validation. Signal uses only prior data; RR>=configured minimum; same-bar ambiguity counts stop first; round-trip costs included.','threshold':threshold,'min_rr':min_rr,'transaction_cost_bps':cost,'overall':_stats(rows),'development':_stats(dev),'validation':_stats(val),'by_strategy':{n:_stats([x for x in val if x['strategy']==n]) for n in ('DAY','SWING')},'validation_by_threshold':{str(t):_threshold_view(val,t) for t in (85,88,90,92,95)},'validation_samples':val[-500:]}
+    out={'engine':'V4-Precision','method':'Conservative actionable-entry validation: signal bar must already be inside technical entry zone; prior data only; RR>=minimum; same-bar ambiguity counts stop first; costs included.','threshold':threshold,'min_rr':min_rr,'transaction_cost_bps':cost,'overall':_stats(rows),'development':_stats(dev),'validation':_stats(val),'by_strategy':{n:_stats([x for x in val if x['strategy']==n]) for n in ('DAY','SWING')},'by_setup_type':{n:_stats([x for x in val if x['setup_type']==n]) for n in ('BREAKOUT','PULLBACK')},'validation_by_threshold':{str(t):_threshold_view(val,t) for t in (85,88,90,92,95)},'validation_samples':val[-500:]}
     (ROOT/'data/backtest.json').write_text(json.dumps(out,indent=2),encoding='utf-8');print(json.dumps({k:v for k,v in out.items() if k!='validation_samples'},indent=2));return 0
