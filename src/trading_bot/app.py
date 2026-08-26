@@ -57,6 +57,12 @@ def should_alert(sig,state,cooldown):
 def run():
     s=load_yaml(ROOT/"config/settings.yml")["settings"]
     universe=load_yaml(ROOT/"config/universe.yml")["universe"]
+    event_name=os.getenv("GITHUB_EVENT_NAME","local")
+    telegram_ok=telegram_enabled()
+    print(f"Telegram configured: {telegram_ok}; event: {event_name}")
+    if event_name in ("workflow_dispatch","push") and not telegram_ok:
+        print("TELEGRAM_CONFIG_ERROR: required GitHub Actions secrets are missing")
+        return 3
     if os.getenv("FORCE_RUN")!="1" and not market_open():
         print("US market closed; scheduled scan skipped."); return 0
     reset_health()
@@ -67,9 +73,9 @@ def run():
     try: regime=detect()
     except Exception as e:
         print("DATA_ERROR regime:",e)
-        if telegram_enabled():
+        if telegram_ok:
             try: send("⛔ <b>DATA ERROR</b>\nتعذر تحميل بيانات السوق. لا توجد إشارات تداول.")
-            except Exception: pass
+            except Exception as te: print("Telegram error:",te)
         return 2
     signals=[]
     with ThreadPoolExecutor(max_workers=int(s.get("max_intraday_workers",6))) as pool:
@@ -83,9 +89,9 @@ def run():
         reason=f"unreliable market data: {h['success']}/{total} successful requests"
         write_json(ROOT/"data/data_health.json",{"status":"DATA_ERROR","reason":reason,"health":h,
             "timestamp":datetime.now(timezone.utc).isoformat()})
-        if telegram_enabled():
+        if telegram_ok:
             try: send("⛔ <b>DATA ERROR — NO TRADING SIGNALS</b>\n"+reason)
-            except Exception: pass
+            except Exception as te: print("Telegram error:",te)
         print("DATA_ERROR:",reason); return 2
     write_json(ROOT/"data/data_health.json",{"status":"OK","health":h,
         "timestamp":datetime.now(timezone.utc).isoformat()})
@@ -112,18 +118,39 @@ def run():
     write_json(ROOT/"data/position_advice.json",updates)
     render(final,ROOT/"docs/index.html",s.get("timezone","Asia/Riyadh"),regime,portfolio,perf)
     state=load_json(ROOT/"data/alert_state.json",{}); cooldown=float(s.get("alert_cooldown_hours",4))
-    if telegram_enabled():
+    alerts_sent=0
+    if telegram_ok:
         for x in [z for z in final if z["signal"] in ("STRONG_BUY","BUY")][:int(s.get("top_n_alerts",3))]:
             if should_alert(x,state,cooldown):
                 try:
-                    send(signal_message(x)); state[f"{x['symbol']}:{x['strategy']}"]={
+                    send(signal_message(x)); alerts_sent+=1; state[f"{x['symbol']}:{x['strategy']}"]={
                         "sent_at":datetime.now(timezone.utc).isoformat(),"score":x["score"],"price":x["price"]}
-                except Exception as e: print("Telegram",e)
+                except Exception as e: print("Telegram signal error:",e)
         for u in updates:
             if u["action"] in ("EXIT","TAKE_PARTIAL","TIGHTEN/EXIT"):
-                try: send(f"🔔 <b>{u['symbol']} — {u['action']}</b>\n{u['reason']}\nP/L: {u['pnl_pct']}%")
-                except Exception: pass
+                try:
+                    send(f"🔔 <b>{u['symbol']} — {u['action']}</b>\n{u['reason']}\nP/L: {u['pnl_pct']}%"); alerts_sent+=1
+                except Exception as e: print("Telegram position error:",e)
         write_json(ROOT/"data/alert_state.json",state)
-    print(f"Completed: {len(final)} ranked setups."); return 0
+        if event_name in ("workflow_dispatch","push"):
+            best=final[0] if final else None
+            buys=sum(1 for z in final if z["signal"] in ("STRONG_BUY","BUY"))
+            lines=[
+                "✅ <b>Trading Bot — Scan Completed</b>",
+                f"Market regime: <b>{regime}</b>",
+                f"Setups ranked: <b>{len(final)}</b>",
+                f"Qualified BUY signals: <b>{buys}</b>",
+                f"Trade/exit alerts sent: <b>{alerts_sent}</b>",
+                f"Market data: <b>{h['success']}/{total} successful</b>"
+            ]
+            if best:
+                lines += ["",f"Top setup: <b>{best['symbol']}</b> — {best['signal']} {best['score']}/100",f"Price: ${best['price']:.2f} | Strategy: {best['strategy']}"]
+            if buys==0:
+                lines += ["","ℹ️ No qualified BUY signal now. The bot is online and monitoring."]
+            try:
+                send("\n".join(lines)); print("Telegram status message: sent")
+            except Exception as e:
+                print("TELEGRAM_SEND_ERROR:",e); return 3
+    print(f"Completed: {len(final)} ranked setups; Telegram alerts: {alerts_sent}."); return 0
 
 if __name__=="__main__": raise SystemExit(run())
