@@ -70,7 +70,7 @@ def should_alert(sig,state,cooldown):
     return age>=cooldown or p.get('action')!=sig.get('action') or int(sig['score'])>=int(p.get('score',0))+6 or move>=1
 def audit_append(final,now,macro):
     path=ROOT/'data/decision_audit.json';rows=load_json(path,[])
-    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
+    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
     write_json(path,rows[-15000:])
 def run():
     s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled()
@@ -101,7 +101,7 @@ def run():
     final=final[:30];now=datetime.now(timezone.utc).isoformat();write_json(ROOT/'data/signals.json',final);audit_append(final,now,macro)
     opportunities=[] if s['daily_loss_block'] else select_opportunities(final,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
     hist=load_json(ROOT/'data/signal_history.json',[])
-    for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
+    for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
     write_json(ROOT/'data/signal_history.json',hist[-10000:])
     accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'adjustments':strategy_adjustments(accuracy),'accuracy':accuracy})
     perf=save_performance(ROOT/'data');updates=[]
