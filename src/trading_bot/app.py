@@ -16,6 +16,7 @@ from .macro_guard import assess as assess_macro
 from .validation_policy import derive as derive_validation
 from .paper_trader import sync as sync_paper
 from .protection_engine import evaluate as evaluate_protections
+from .session_notifier import closed_summary,opening_summary
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
 from .signal_tracker import evaluate as evaluate_signals
@@ -77,7 +78,13 @@ def audit_append(final,now,macro,protection):
 def run():
     s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled();notify_allowed=event_name in ('schedule','workflow_dispatch')
     if notify_allowed and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
-    if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
+    if os.getenv('FORCE_RUN')!='1' and not market_open():
+        if event_name=='schedule' and telegram_ok:
+            msg=closed_summary(ROOT/'data',ENGINE_VERSION)
+            if msg:
+                try:send(msg)
+                except Exception as e:print('Close summary Telegram error:',e)
+        print('US market closed; scheduled scan skipped.');return 0
     reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
     for p in portfolio.get('positions',[]):p['group']=group_for(p.get('symbol'),groups)
     paper_book=load_json(ROOT/'data/paper_trades.json',{'closed':[],'open':[]});protection=evaluate_protections(paper_book,s);write_json(ROOT/'data/protection_state.json',protection)
@@ -115,6 +122,11 @@ def run():
     write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'paper_validation':paper,'protection_state':protection,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
     state=load_json(ROOT/'data/alert_state.json',{});prev=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price']} for x in final}
     if notify_allowed and telegram_ok:
+        if event_name=='schedule':
+            msg=opening_summary(ROOT/'data',ENGINE_VERSION,opportunities,protection)
+            if msg:
+                try:send(msg)
+                except Exception as e:print('Opening summary Telegram error:',e)
         if protection.get('blocked'):
             try:send('🛡️ <b>تم إيقاف الصفقات الجديدة مؤقتًا</b>\n'+'\n'.join(protection.get('reasons',[])[:3]))
             except Exception:pass
