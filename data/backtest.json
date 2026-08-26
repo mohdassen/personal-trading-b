@@ -1,0 +1,216 @@
+{
+  "engine": "V4-Precision",
+  "method": "Conservative chronological walk-forward proxy; signals use only prior data. Same-bar stop/target ambiguity counts stop first. Round-trip transaction costs included.",
+  "threshold": 85,
+  "transaction_cost_bps": 10.0,
+  "overall": {
+    "samples": 71,
+    "win_rate": 53.5,
+    "avg_return_pct": -1.056,
+    "profit_factor": 0.54
+  },
+  "development": {
+    "samples": 49,
+    "win_rate": 55.1,
+    "avg_return_pct": -1.112,
+    "profit_factor": 0.46
+  },
+  "validation": {
+    "samples": 22,
+    "win_rate": 50.0,
+    "avg_return_pct": -0.93,
+    "profit_factor": 0.68
+  },
+  "by_strategy": {
+    "DAY": {
+      "samples": 0,
+      "win_rate": 0.0,
+      "avg_return_pct": 0.0,
+      "profit_factor": 0.0
+    },
+    "SWING": {
+      "samples": 22,
+      "win_rate": 50.0,
+      "avg_return_pct": -0.93,
+      "profit_factor": 0.68
+    }
+  },
+  "validation_samples": [
+    {
+      "symbol": "BAC",
+      "strategy": "SWING",
+      "date": "2025-10-15",
+      "score": 88,
+      "outcome": "TIME_EXIT",
+      "return_pct": -2.457
+    },
+    {
+      "symbol": "BAC",
+      "strategy": "SWING",
+      "date": "2025-11-12",
+      "score": 93,
+      "outcome": "TIME_EXIT",
+      "return_pct": -4.063
+    },
+    {
+      "symbol": "ABBV",
+      "strategy": "SWING",
+      "date": "2025-11-12",
+      "score": 100,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.337
+    },
+    {
+      "symbol": "SLB",
+      "strategy": "SWING",
+      "date": "2025-12-04",
+      "score": 87,
+      "outcome": "TIME_EXIT",
+      "return_pct": 5.624
+    },
+    {
+      "symbol": "AVGO",
+      "strategy": "SWING",
+      "date": "2025-12-11",
+      "score": 88,
+      "outcome": "STOP",
+      "return_pct": -10.745
+    },
+    {
+      "symbol": "ROKU",
+      "strategy": "SWING",
+      "date": "2025-12-11",
+      "score": 88,
+      "outcome": "TIME_EXIT",
+      "return_pct": 4.099
+    },
+    {
+      "symbol": "SBUX",
+      "strategy": "SWING",
+      "date": "2025-12-18",
+      "score": 94,
+      "outcome": "TIME_EXIT",
+      "return_pct": -5.053
+    },
+    {
+      "symbol": "JNJ",
+      "strategy": "SWING",
+      "date": "2026-01-12",
+      "score": 88,
+      "outcome": "TARGET1",
+      "return_pct": 2.408
+    },
+    {
+      "symbol": "KLAC",
+      "strategy": "SWING",
+      "date": "2026-01-20",
+      "score": 88,
+      "outcome": "TARGET1",
+      "return_pct": 6.203
+    },
+    {
+      "symbol": "PFE",
+      "strategy": "SWING",
+      "date": "2026-01-27",
+      "score": 100,
+      "outcome": "TARGET1",
+      "return_pct": 0.366
+    },
+    {
+      "symbol": "MU",
+      "strategy": "SWING",
+      "date": "2026-03-18",
+      "score": 88,
+      "outcome": "STOP",
+      "return_pct": -14.803
+    },
+    {
+      "symbol": "BA",
+      "strategy": "SWING",
+      "date": "2026-04-23",
+      "score": 93,
+      "outcome": "TIME_EXIT",
+      "return_pct": -2.387
+    },
+    {
+      "symbol": "AMAT",
+      "strategy": "SWING",
+      "date": "2026-05-14",
+      "score": 88,
+      "outcome": "TIME_EXIT",
+      "return_pct": -3.196
+    },
+    {
+      "symbol": "TGT",
+      "strategy": "SWING",
+      "date": "2026-05-21",
+      "score": 88,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.529
+    },
+    {
+      "symbol": "GS",
+      "strategy": "SWING",
+      "date": "2026-05-21",
+      "score": 86,
+      "outcome": "TIME_EXIT",
+      "return_pct": 3.584
+    },
+    {
+      "symbol": "MRK",
+      "strategy": "SWING",
+      "date": "2026-05-29",
+      "score": 88,
+      "outcome": "TARGET1",
+      "return_pct": 3.515
+    },
+    {
+      "symbol": "VRTX",
+      "strategy": "SWING",
+      "date": "2026-06-22",
+      "score": 87,
+      "outcome": "TIME_EXIT",
+      "return_pct": 6.84
+    },
+    {
+      "symbol": "MS",
+      "strategy": "SWING",
+      "date": "2026-07-14",
+      "score": 88,
+      "outcome": "TARGET1",
+      "return_pct": 1.03
+    },
+    {
+      "symbol": "ABNB",
+      "strategy": "SWING",
+      "date": "2026-07-28",
+      "score": 100,
+      "outcome": "TIME_EXIT",
+      "return_pct": -2.283
+    },
+    {
+      "symbol": "REGN",
+      "strategy": "SWING",
+      "date": "2026-07-28",
+      "score": 87,
+      "outcome": "TIME_EXIT",
+      "return_pct": 9.219
+    },
+    {
+      "symbol": "SPOT",
+      "strategy": "SWING",
+      "date": "2026-07-28",
+      "score": 87,
+      "outcome": "STOP",
+      "return_pct": -9.822
+    },
+    {
+      "symbol": "AMD",
+      "strategy": "SWING",
+      "date": "2026-08-04",
+      "score": 88,
+      "outcome": "TIME_EXIT",
+      "return_pct": -8.735
+    }
+  ]
+}
