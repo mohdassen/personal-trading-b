@@ -10,21 +10,21 @@ def safe(v,d=0.0):
     try:return d if pd.isna(v) else float(v)
     except Exception:return d
 
-def _trade_levels(df,entry,a,strategy):
+def _trade_levels(df,entry_ref,entry_high,a,strategy):
     look=20 if strategy=='DAY' else 30
     r=df.iloc[-look:-1] if len(df)>look else df.iloc[:-1]
-    support=safe(r['Low'].min(),entry-a);resistance=safe(r['High'].max(),entry+2*a)
+    support=safe(r['Low'].min(),entry_ref-a);resistance=safe(r['High'].max(),entry_high+2*a)
     if strategy=='DAY':
-        atr_stop=entry-1.25*a;structure_stop=support-.10*a;max_depth=max(1.9*a,entry*.018)
+        atr_stop=entry_ref-1.25*a;structure_stop=support-.10*a;max_depth=max(1.9*a,entry_ref*.018)
     else:
-        atr_stop=entry-1.60*a;structure_stop=support-.15*a;max_depth=max(2.5*a,entry*.05)
-    stop=max(entry-max_depth,min(atr_stop,structure_stop if structure_stop<entry else atr_stop))
-    risk=max(entry-stop,.01)
-    raw_t1=entry+2*risk;raw_t2=entry+3*risk
-    # If visible resistance sits before 2R, use it as T1; live decision will reject RR<2.
-    t1=resistance if entry<resistance<raw_t1 else raw_t1
+        atr_stop=entry_ref-1.60*a;structure_stop=support-.15*a;max_depth=max(2.5*a,entry_ref*.05)
+    stop=max(entry_ref-max_depth,min(atr_stop,structure_stop if structure_stop<entry_ref else atr_stop))
+    worst_risk=max(entry_high-stop,.01)
+    raw_t1=entry_high+2*worst_risk;raw_t2=entry_high+3*worst_risk
+    # Conservative: nearby resistance becomes T1 and will invalidate the trade if worst-case RR falls below 2.
+    t1=resistance if entry_high<resistance<raw_t1 else raw_t1
     t2=max(raw_t2,t1)
-    return stop,t1,t2,(t1-entry)/risk,(t2-entry)/risk
+    return stop,t1,t2,(t1-entry_high)/worst_risk,(t2-entry_high)/worst_risk
 
 def intraday_setup(symbol,df):
     if len(df)<55:return None
@@ -48,7 +48,7 @@ def intraday_setup(symbol,df):
         if p>h20 and h20>0:warnings.append('Breakout without enough volume confirmation')
         setup_type='PULLBACK';entry_ref=min(p,max(vw,e21))
     entry_low=entry_ref-.08*a;entry_high=entry_ref+.12*a
-    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,a,'DAY')
+    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,entry_high,a,'DAY')
     return Setup(symbol,'DAY',min(100,sc),p,entry_low,entry_high,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings,setup_type)
 
 def swing_setup(symbol,df):
@@ -72,5 +72,5 @@ def swing_setup(symbol,df):
         setup_type='PULLBACK';entry_ref=min(p,e20 if e20>0 else p)
     if p>e20:sc+=10
     entry_low=entry_ref-.15*a;entry_high=entry_ref+.20*a
-    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,a,'SWING')
+    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,entry_high,a,'SWING')
     return Setup(symbol,'SWING',min(100,sc),p,entry_low,entry_high,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings,setup_type)
