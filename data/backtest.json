@@ -1,216 +1,483 @@
 {
   "engine": "V4-Precision",
-  "method": "Conservative chronological walk-forward proxy; signals use only prior data. Same-bar stop/target ambiguity counts stop first. Round-trip transaction costs included.",
+  "method": "Conservative chronological validation. Signal uses only prior data; RR>=configured minimum; same-bar ambiguity counts stop first; round-trip costs included.",
   "threshold": 85,
+  "min_rr": 2.0,
   "transaction_cost_bps": 10.0,
   "overall": {
-    "samples": 71,
-    "win_rate": 53.5,
-    "avg_return_pct": -1.056,
-    "profit_factor": 0.54
+    "samples": 131,
+    "win_rate": 34.4,
+    "avg_return_pct": -0.511,
+    "avg_r": -0.149,
+    "profit_factor_r": 0.53
   },
   "development": {
-    "samples": 49,
-    "win_rate": 55.1,
-    "avg_return_pct": -1.112,
-    "profit_factor": 0.46
+    "samples": 91,
+    "win_rate": 33.0,
+    "avg_return_pct": -0.744,
+    "avg_r": -0.22,
+    "profit_factor_r": 0.37
   },
   "validation": {
-    "samples": 22,
-    "win_rate": 50.0,
-    "avg_return_pct": -0.93,
-    "profit_factor": 0.68
+    "samples": 40,
+    "win_rate": 37.5,
+    "avg_return_pct": 0.018,
+    "avg_r": 0.011,
+    "profit_factor_r": 1.04
   },
   "by_strategy": {
     "DAY": {
+      "samples": 40,
+      "win_rate": 37.5,
+      "avg_return_pct": 0.018,
+      "avg_r": 0.011,
+      "profit_factor_r": 1.04
+    },
+    "SWING": {
       "samples": 0,
       "win_rate": 0.0,
       "avg_return_pct": 0.0,
-      "profit_factor": 0.0
+      "avg_r": 0.0,
+      "profit_factor_r": 0.0
+    }
+  },
+  "validation_by_threshold": {
+    "85": {
+      "samples": 40,
+      "win_rate": 37.5,
+      "avg_return_pct": 0.018,
+      "avg_r": 0.011,
+      "profit_factor_r": 1.04
     },
-    "SWING": {
-      "samples": 22,
-      "win_rate": 50.0,
-      "avg_return_pct": -0.93,
-      "profit_factor": 0.68
+    "88": {
+      "samples": 29,
+      "win_rate": 34.5,
+      "avg_return_pct": -0.016,
+      "avg_r": -0.013,
+      "profit_factor_r": 0.95
+    },
+    "90": {
+      "samples": 29,
+      "win_rate": 34.5,
+      "avg_return_pct": -0.016,
+      "avg_r": -0.013,
+      "profit_factor_r": 0.95
+    },
+    "92": {
+      "samples": 20,
+      "win_rate": 35.0,
+      "avg_return_pct": 0.013,
+      "avg_r": -0.0,
+      "profit_factor_r": 1.0
+    },
+    "95": {
+      "samples": 10,
+      "win_rate": 30.0,
+      "avg_return_pct": 0.092,
+      "avg_r": 0.046,
+      "profit_factor_r": 1.2
     }
   },
   "validation_samples": [
     {
-      "symbol": "BAC",
-      "strategy": "SWING",
-      "date": "2025-10-15",
-      "score": 88,
-      "outcome": "TIME_EXIT",
-      "return_pct": -2.457
-    },
-    {
-      "symbol": "BAC",
-      "strategy": "SWING",
-      "date": "2025-11-12",
+      "symbol": "QCOM",
+      "strategy": "DAY",
+      "date": "2026-08-06",
       "score": 93,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -4.063
+      "return_pct": -0.498,
+      "r_multiple": -0.249
     },
     {
-      "symbol": "ABBV",
-      "strategy": "SWING",
-      "date": "2025-11-12",
+      "symbol": "NVDA",
+      "strategy": "DAY",
+      "date": "2026-08-07",
       "score": 100,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -0.337
-    },
-    {
-      "symbol": "SLB",
-      "strategy": "SWING",
-      "date": "2025-12-04",
-      "score": 87,
-      "outcome": "TIME_EXIT",
-      "return_pct": 5.624
-    },
-    {
-      "symbol": "AVGO",
-      "strategy": "SWING",
-      "date": "2025-12-11",
-      "score": 88,
-      "outcome": "STOP",
-      "return_pct": -10.745
-    },
-    {
-      "symbol": "ROKU",
-      "strategy": "SWING",
-      "date": "2025-12-11",
-      "score": 88,
-      "outcome": "TIME_EXIT",
-      "return_pct": 4.099
-    },
-    {
-      "symbol": "SBUX",
-      "strategy": "SWING",
-      "date": "2025-12-18",
-      "score": 94,
-      "outcome": "TIME_EXIT",
-      "return_pct": -5.053
-    },
-    {
-      "symbol": "JNJ",
-      "strategy": "SWING",
-      "date": "2026-01-12",
-      "score": 88,
-      "outcome": "TARGET1",
-      "return_pct": 2.408
-    },
-    {
-      "symbol": "KLAC",
-      "strategy": "SWING",
-      "date": "2026-01-20",
-      "score": 88,
-      "outcome": "TARGET1",
-      "return_pct": 6.203
-    },
-    {
-      "symbol": "PFE",
-      "strategy": "SWING",
-      "date": "2026-01-27",
-      "score": 100,
-      "outcome": "TARGET1",
-      "return_pct": 0.366
-    },
-    {
-      "symbol": "MU",
-      "strategy": "SWING",
-      "date": "2026-03-18",
-      "score": 88,
-      "outcome": "STOP",
-      "return_pct": -14.803
-    },
-    {
-      "symbol": "BA",
-      "strategy": "SWING",
-      "date": "2026-04-23",
-      "score": 93,
-      "outcome": "TIME_EXIT",
-      "return_pct": -2.387
+      "return_pct": -0.137,
+      "r_multiple": -0.069
     },
     {
       "symbol": "AMAT",
-      "strategy": "SWING",
-      "date": "2026-05-14",
-      "score": 88,
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "STOP",
+      "return_pct": -2.2,
+      "r_multiple": -1.1
+    },
+    {
+      "symbol": "PANW",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 91,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -3.196
+      "return_pct": -0.563,
+      "r_multiple": -0.281
     },
     {
-      "symbol": "TGT",
-      "strategy": "SWING",
-      "date": "2026-05-21",
-      "score": 88,
+      "symbol": "SNOW",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 93,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": 0.529
+      "return_pct": 0.158,
+      "r_multiple": 0.079
     },
     {
-      "symbol": "GS",
-      "strategy": "SWING",
-      "date": "2026-05-21",
-      "score": 86,
+      "symbol": "BKNG",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 94,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": 3.584
+      "return_pct": 1.151,
+      "r_multiple": 0.575
     },
     {
-      "symbol": "MRK",
-      "strategy": "SWING",
-      "date": "2026-05-29",
-      "score": 88,
-      "outcome": "TARGET1",
-      "return_pct": 3.515
-    },
-    {
-      "symbol": "VRTX",
-      "strategy": "SWING",
-      "date": "2026-06-22",
-      "score": 87,
-      "outcome": "TIME_EXIT",
-      "return_pct": 6.84
-    },
-    {
-      "symbol": "MS",
-      "strategy": "SWING",
-      "date": "2026-07-14",
-      "score": 88,
-      "outcome": "TARGET1",
-      "return_pct": 1.03
-    },
-    {
-      "symbol": "ABNB",
-      "strategy": "SWING",
-      "date": "2026-07-28",
+      "symbol": "HD",
+      "strategy": "DAY",
+      "date": "2026-08-07",
       "score": 100,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -2.283
+      "return_pct": -0.014,
+      "r_multiple": -0.01
     },
     {
-      "symbol": "REGN",
-      "strategy": "SWING",
-      "date": "2026-07-28",
-      "score": 87,
+      "symbol": "ABBV",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 85,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": 9.219
+      "return_pct": -0.188,
+      "r_multiple": -0.164
+    },
+    {
+      "symbol": "GILD",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.842,
+      "r_multiple": -0.777
+    },
+    {
+      "symbol": "BA",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.612,
+      "r_multiple": -0.313
+    },
+    {
+      "symbol": "RBLX",
+      "strategy": "DAY",
+      "date": "2026-08-07",
+      "score": 93,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.187,
+      "r_multiple": -0.093
+    },
+    {
+      "symbol": "WMT",
+      "strategy": "DAY",
+      "date": "2026-08-10",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.21,
+      "r_multiple": 0.178
+    },
+    {
+      "symbol": "CMCSA",
+      "strategy": "DAY",
+      "date": "2026-08-11",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.529,
+      "r_multiple": 0.309
+    },
+    {
+      "symbol": "AXP",
+      "strategy": "DAY",
+      "date": "2026-08-12",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.396,
+      "r_multiple": 0.374
+    },
+    {
+      "symbol": "TSLA",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 85,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 1.507,
+      "r_multiple": 0.826
+    },
+    {
+      "symbol": "QCOM",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.138,
+      "r_multiple": -0.069
+    },
+    {
+      "symbol": "CRWD",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.685,
+      "r_multiple": -0.342
+    },
+    {
+      "symbol": "DDOG",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.579,
+      "r_multiple": -0.289
+    },
+    {
+      "symbol": "NET",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 90,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 3.452,
+      "r_multiple": 1.726
+    },
+    {
+      "symbol": "VZ",
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 85,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.996,
+      "r_multiple": 0.786
     },
     {
       "symbol": "SPOT",
-      "strategy": "SWING",
-      "date": "2026-07-28",
-      "score": 87,
-      "outcome": "STOP",
-      "return_pct": -9.822
+      "strategy": "DAY",
+      "date": "2026-08-13",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.434,
+      "r_multiple": -0.34
     },
     {
-      "symbol": "AMD",
-      "strategy": "SWING",
-      "date": "2026-08-04",
-      "score": 88,
+      "symbol": "MRK",
+      "strategy": "DAY",
+      "date": "2026-08-14",
+      "score": 87,
+      "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -8.735
+      "return_pct": -0.193,
+      "r_multiple": -0.121
+    },
+    {
+      "symbol": "ADBE",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 1.565,
+      "r_multiple": 0.782
+    },
+    {
+      "symbol": "CRM",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 3.073,
+      "r_multiple": 1.536
+    },
+    {
+      "symbol": "PLTR",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "STOP",
+      "return_pct": -2.2,
+      "r_multiple": -1.1
+    },
+    {
+      "symbol": "NOW",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "TARGET1",
+      "return_pct": 3.8,
+      "r_multiple": 1.9
+    },
+    {
+      "symbol": "BKNG",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.849,
+      "r_multiple": 0.425
+    },
+    {
+      "symbol": "NKE",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 93,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.157,
+      "r_multiple": 0.084
+    },
+    {
+      "symbol": "LOW",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 90,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.161,
+      "r_multiple": 0.081
+    },
+    {
+      "symbol": "AXP",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 85,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.692,
+      "r_multiple": 0.784
+    },
+    {
+      "symbol": "VZ",
+      "strategy": "DAY",
+      "date": "2026-08-19",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.495,
+      "r_multiple": -0.396
+    },
+    {
+      "symbol": "ADBE",
+      "strategy": "DAY",
+      "date": "2026-08-21",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.954,
+      "r_multiple": -0.477
+    },
+    {
+      "symbol": "CRM",
+      "strategy": "DAY",
+      "date": "2026-08-21",
+      "score": 93,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.669,
+      "r_multiple": -0.334
+    },
+    {
+      "symbol": "QCOM",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.355,
+      "r_multiple": -0.178
+    },
+    {
+      "symbol": "INTC",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 91,
+      "rr1": 2.0,
+      "outcome": "STOP",
+      "return_pct": -2.2,
+      "r_multiple": -1.1
+    },
+    {
+      "symbol": "PLTR",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "STOP",
+      "return_pct": -2.2,
+      "r_multiple": -1.1
+    },
+    {
+      "symbol": "UBER",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.438,
+      "r_multiple": -0.219
+    },
+    {
+      "symbol": "BAC",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.416,
+      "r_multiple": -0.434
+    },
+    {
+      "symbol": "PYPL",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 87,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.553,
+      "r_multiple": -0.277
+    },
+    {
+      "symbol": "GILD",
+      "strategy": "DAY",
+      "date": "2026-08-25",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.234,
+      "r_multiple": -0.166
     }
   ]
 }
