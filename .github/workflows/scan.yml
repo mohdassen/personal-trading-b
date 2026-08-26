@@ -22,7 +22,7 @@ permissions:
   id-token: write
 concurrency:
   group: trading-engine
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -32,11 +32,17 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Sync latest state before engine
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
       - name: Run engine
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -47,15 +53,30 @@ jobs:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_run) || (github.event_name == 'push' && '1') || '0' }}
         run: python run.py
-      - name: Commit state
+      - name: Commit state safely
         if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs data
-          git diff --cached --quiet || git commit -m "chore: update trading engine state"
-          git pull --rebase
-          git push
+          if git diff --cached --quiet; then
+            echo "No state changes"
+            exit 0
+          fi
+          git commit -m "chore: update trading engine state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push conflict on attempt $attempt; rebasing state commit on latest main"
+            git fetch origin main
+            git rebase -X theirs origin/main || {
+              git rebase --abort || true
+              exit 1
+            }
+          done
+          echo "Unable to persist state after 3 attempts"
+          exit 1
       - uses: actions/configure-pages@v5
         if: success()
       - uses: actions/upload-pages-artifact@v3
