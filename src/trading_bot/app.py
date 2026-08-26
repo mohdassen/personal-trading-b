@@ -12,6 +12,7 @@ from .decision import finalize
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
 from .signal_tracker import evaluate as evaluate_signals
+from .opportunity_selector import select as select_opportunities
 from .position_manager import advice
 from .dashboard import render
 from .telegram import enabled as telegram_enabled, send, signal_message
@@ -57,7 +58,7 @@ def should_alert(sig,state,cooldown):
     old=float(p.get('price',sig['price']));move=abs(float(sig['price'])-old)/max(old,.01)*100
     return age>=cooldown or int(sig['score'])>=int(p.get('score',0))+8 or move>=1
 def run():
-    s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled()
+    s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled()
     print(f'Telegram configured: {telegram_ok}; event: {event_name}')
     if event_name in ('workflow_dispatch','push') and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
     if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
@@ -79,7 +80,9 @@ def run():
     for x in signals:
         if x['symbol'] not in seen:final.append(x);seen[x['symbol']]=x
         elif x['score']>=90 and seen[x['symbol']]['strategy']!=x['strategy']:final.append(x)
-    final=final[:30];write_json(ROOT/'data/signals.json',final);hist=load_json(ROOT/'data/signal_history.json',[]);now=datetime.now(timezone.utc).isoformat()
+    final=final[:30];write_json(ROOT/'data/signals.json',final)
+    opportunities=select_opportunities(final,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
+    hist=load_json(ROOT/'data/signal_history.json',[]);now=datetime.now(timezone.utc).isoformat()
     for x in final:hist.append({'timestamp':now,'symbol':x['symbol'],'strategy':x['strategy'],'signal':x['signal'],'score':x['score'],'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2']})
     write_json(ROOT/'data/signal_history.json',hist[-10000:])
     accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'adjustments':strategy_adjustments(accuracy),'accuracy':accuracy});print('Signal accuracy:',accuracy)
@@ -92,21 +95,21 @@ def run():
     write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,perf)
     state=load_json(ROOT/'data/alert_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0
     if telegram_ok:
-        for x in [z for z in final if z['signal'] in ('STRONG_BUY','BUY')][:int(s.get('top_n_alerts',3))]:
+        for x in opportunities:
             if should_alert(x,state,cooldown):
                 try:send(signal_message(x));alerts_sent+=1;state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':datetime.now(timezone.utc).isoformat(),'score':x['score'],'price':x['price']}
                 except Exception as e:print('Telegram signal error:',e)
         write_json(ROOT/'data/alert_state.json',state)
         if event_name in ('workflow_dispatch','push'):
-            best=final[0] if final else None;buys=sum(1 for z in final if z['signal'] in ('STRONG_BUY','BUY'));lines=['✅ <b>Trading Bot — Scan Completed</b>',f"Qualified BUY signals: <b>{buys}</b>",f"Market data: <b>{h['success']}/{total} successful</b>"]
+            best=opportunities[0] if opportunities else (final[0] if final else None);lines=['✅ <b>Trading Bot — Scan Completed</b>',f"أفضل الفرص المؤكدة الآن: <b>{len(opportunities)}</b>",f"Market data: <b>{h['success']}/{total} successful</b>"]
             if accuracy['samples']>=10:
                 lines += [f"Measured accuracy: <b>{accuracy['win_rate']}%</b> from {accuracy['samples']} completed signals"]
                 for name in ('DAY','SWING'):
                     a=accuracy['by_strategy'].get(name,{});lines += [f"{name}: {a.get('win_rate',0)}% ({a.get('samples',0)} samples)"]
             else:lines += [f"Accuracy learning: <b>{accuracy['samples']}/10</b> completed signals collected"]
-            if best:lines += ['',f"Top setup: <b>{best['symbol']}</b> — {best['simple_decision_ar']} ({best['score']}/100)"]
-            if buys==0:lines += ['','ℹ️ لا توجد فرصة شراء مؤكدة الآن. الانتظار قرار صحيح أيضًا.']
+            if best:lines += ['',f"أفضل فرصة: <b>{best['symbol']}</b> — {best['simple_decision_ar']} ({best['score']}/100)"]
+            if not opportunities:lines += ['','ℹ️ لا توجد فرصة شراء مؤكدة الآن. الانتظار قرار صحيح أيضًا.']
             try:send('\n'.join(lines))
             except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
-    print(f'Completed: {len(final)} ranked setups; Telegram alerts: {alerts_sent}.');return 0
+    print(f'Completed: {len(final)} ranked setups; selected opportunities: {len(opportunities)}; Telegram alerts: {alerts_sent}.');return 0
 if __name__=='__main__':raise SystemExit(run())
