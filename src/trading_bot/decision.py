@@ -12,8 +12,9 @@ def _confirmation_gate(setup,regime,signal):
     passed=sum(1 for ok,_ in checks if ok);required=3 if signal=='STRONG_BUY' else 2
     return passed>=required,f'{passed}/{len(checks)} confirmations',[t for ok,t in checks if ok]
 
-def _action(setup,signal,precision,daily_loss_block=False):
+def _action(setup,signal,precision,daily_loss_block=False,validation_block=False):
     p=float(setup.price);lo=float(setup.entry_low);hi=float(setup.entry_high);blockers=precision.get('blockers',[])
+    if validation_block:return 'NO_TRADE','تم إيقاف هذا النوع مؤقتًا لأن نتائج التحقق التاريخي غير كافية أو ضعيفة'
     if daily_loss_block:return 'NO_TRADE','تم إيقاف الصفقات الجديدة بسبب حد الحماية اليومي'
     if signal not in ('BUY','STRONG_BUY'):
         return ('WATCH','الفرصة لم تكتمل بعد') if signal=='WATCH' else ('NO_TRADE','لا توجد صفقة مناسبة الآن')
@@ -36,10 +37,12 @@ def _simple(action,score,grade,event,risk,setup):
 def finalize(setup,regime,settings,portfolio,equity,precision=None):
     precision=precision or {'adjustment':0,'blockers':[],'market_v2':{'label':regime.label},'group':'OTHER'}
     event=assess(setup.symbol,int(settings.get('earnings_block_days',2)))
-    strategy=str(setup.strategy).upper();learned=int(settings.get('strategy_score_adjustments',{}).get(strategy,0));prec=int(precision.get('adjustment',0))
-    score=max(0,min(100,int(setup.raw_score)+int(regime.score_adjustment)+int(event.score_adjustment)+learned+prec))
+    strategy=str(setup.strategy).upper();setup_type=str(getattr(setup,'setup_type','')).upper();learned=int(settings.get('strategy_score_adjustments',{}).get(strategy,0));setup_adj=int(settings.get('setup_score_adjustments',{}).get(setup_type,0));prec=int(precision.get('adjustment',0))
+    score=max(0,min(100,int(setup.raw_score)+int(regime.score_adjustment)+int(event.score_adjustment)+learned+setup_adj+prec))
     strong=int(settings.get('strong_buy_score',92));buy=int(settings.get('buy_score',85));watch=int(settings.get('watch_score',72));rr=float(settings.get('min_risk_reward',2.0))
-    if event.level=='HIGH':signal='BLOCKED'
+    validation_block=strategy in settings.get('disabled_strategies',[]) or setup_type in settings.get('disabled_setup_types',[])
+    if validation_block:signal='BLOCKED'
+    elif event.level=='HIGH':signal='BLOCKED'
     elif setup.rr1<rr:signal='WATCH'
     elif score>=strong:signal='STRONG_BUY'
     elif score>=buy:signal='BUY'
@@ -56,6 +59,6 @@ def finalize(setup,regime,settings,portfolio,equity,precision=None):
     gate,gate_reason=portfolio_gate(portfolio,setup.symbol,sizing['position_value'],equity,float(settings.get('max_total_exposure_pct',60)),int(settings.get('max_open_positions',5)))
     corr,corr_reason=portfolio_correlation_gate(portfolio,precision.get('group','OTHER'),int(settings.get('max_same_group_positions',2)))
     if signal in ('BUY','STRONG_BUY') and (not gate or not corr or sizing['shares']<=0):signal='BLOCKED'
-    action,instruction=_action(setup,signal,precision,bool(settings.get('daily_loss_block')))
+    action,instruction=_action(setup,signal,precision,bool(settings.get('daily_loss_block')),validation_block)
     simple=_simple(action,score,grade,event.level,sizing['risk_pct_equity'],setup)
-    return {**setup.to_dict(),'score':score,'signal':signal,'action':action,'instruction':instruction,**simple,'market_regime':regime.label,'market_regime_v2':precision.get('market_v2',{}).get('label',regime.label),'event_risk':event.level,'event_notes':event.notes,'strategy_adjustment':learned,'precision_adjustment':prec,'precision':precision,'confirmation_passed':confirmed,'confirmation_reason':confirmation_reason,'confirmation_notes':confirmation_notes,'planned_entry_price':round(planned_entry,2),'suggested_shares':sizing['shares'],'suggested_value':sizing['position_value'],'risk_dollars':sizing['risk_dollars'],'risk_pct_equity':sizing['risk_pct_equity'],'risk_multiplier':multiplier,'portfolio_gate':gate_reason,'correlation_gate':corr_reason,'daily_loss_blocked':bool(settings.get('daily_loss_block'))}
+    return {**setup.to_dict(),'score':score,'signal':signal,'action':action,'instruction':instruction,**simple,'market_regime':regime.label,'market_regime_v2':precision.get('market_v2',{}).get('label',regime.label),'event_risk':event.level,'event_notes':event.notes,'strategy_adjustment':learned,'setup_adjustment':setup_adj,'precision_adjustment':prec,'precision':precision,'validation_blocked':validation_block,'confirmation_passed':confirmed,'confirmation_reason':confirmation_reason,'confirmation_notes':confirmation_notes,'planned_entry_price':round(planned_entry,2),'suggested_shares':sizing['shares'],'suggested_value':sizing['position_value'],'risk_dollars':sizing['risk_dollars'],'risk_pct_equity':sizing['risk_pct_equity'],'risk_multiplier':multiplier,'portfolio_gate':gate_reason,'correlation_gate':corr_reason,'daily_loss_blocked':bool(settings.get('daily_loss_block'))}
