@@ -73,8 +73,8 @@ def audit_append(final,now,macro):
     for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
     write_json(path,rows[-15000:])
 def run():
-    s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled()
-    if event_name in ('workflow_dispatch','push') and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
+    s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled();notify_allowed=event_name in ('schedule','workflow_dispatch')
+    if notify_allowed and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
     if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
     reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
     for p in portfolio.get('positions',[]):p['group']=group_for(p.get('symbol'),groups)
@@ -91,7 +91,7 @@ def run():
     h=health_snapshot();total=h['success']+h['failures'];print('Market-data health:',h)
     if h['success']<8 or (total and h['success']/total<.35):
         reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
-        if telegram_ok:send('⛔ <b>DATA ERROR</b>\nبيانات السوق غير موثوقة، لذلك تم إيقاف إشارات الشراء.')
+        if notify_allowed and telegram_ok:send('⛔ <b>DATA ERROR</b>\nبيانات السوق غير موثوقة، لذلك تم إيقاف إشارات الشراء.')
         return 2
     write_json(ROOT/'data/data_health.json',{'status':'OK','health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
     signals=sorted(signals,key=lambda x:(x['score'],x.get('quality_grade')=='A+'),reverse=True);final=[];seen={}
@@ -113,7 +113,7 @@ def run():
         except Exception as e:print('Position monitor',p['symbol'],e)
     write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
     state=load_json(ROOT/'data/alert_state.json',{});prev_decisions=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price'],'expires_at':x.get('expires_at')} for x in final}
-    if telegram_ok:
+    if notify_allowed and telegram_ok:
         if macro.get('blocked'):
             try:send('⛔ <b>توقف مؤقت للصفقات الجديدة</b>\n'+macro.get('reason','حدث اقتصادي عالي التأثير')+'\n'+', '.join(macro.get('events',[])))
             except Exception:pass
@@ -127,7 +127,7 @@ def run():
                 try:send(f'⚠️ <b>{sym} — ألغي الدخول السابق</b>\nالفرصة لم تعد تحقق شروط اشترِ الآن. لا تدخل اعتمادًا على التنبيه القديم.');alerts_sent+=1
                 except Exception:pass
         write_json(ROOT/'data/alert_state.json',state);write_json(ROOT/'data/decision_state.json',current)
-        if event_name in ('workflow_dispatch','push'):
+        if event_name=='workflow_dispatch':
             best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص الآن: <b>{len(opportunities)}</b>",f"حماية خسارة اليوم: <b>{'مفعلة' if not daily_ok else 'طبيعية'}</b>",f"عدد صفقات اليوم: <b>{today_entries}/{s.get('max_daily_new_trades',3)}</b>",f"الحماية الاقتصادية: <b>{'مفعلة' if macro.get('blocked') else 'طبيعية'}</b>"]
             if accuracy.get('samples',0)>=10:lines.append(f"الدقة المقاسة: <b>{accuracy['win_rate']}%</b> من {accuracy['samples']} إشارة مكتملة")
             else:lines.append(f"تعلم الدقة: <b>{accuracy.get('samples',0)}/10</b> نتائج مكتملة")
@@ -135,5 +135,7 @@ def run():
             else:lines += ['','ℹ️ لا توجد صفقة تستحق الدخول الآن. الانتظار جزء من الاستراتيجية.']
             try:send('\n'.join(lines))
             except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
-    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected, {alerts_sent} alerts.');return 0
+    else:
+        write_json(ROOT/'data/decision_state.json',current)
+    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected, {alerts_sent} alerts; event={event_name}.');return 0
 if __name__=='__main__':raise SystemExit(run())
