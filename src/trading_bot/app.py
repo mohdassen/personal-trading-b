@@ -25,6 +25,17 @@ def env_num(n,d):
     v=os.getenv(n);return float(v) if v and v.strip() else float(d)
 def market_open():
     n=datetime.now(ZoneInfo('America/New_York'));return n.weekday()<5 and 570<=n.hour*60+n.minute<=960
+def strategy_adjustments(accuracy):
+    out={'DAY':0,'SWING':0}
+    for name in out:
+        x=(accuracy or {}).get('by_strategy',{}).get(name,{})
+        samples=int(x.get('samples',0));wr=float(x.get('win_rate',0));avg=float(x.get('avg_return_pct',0))
+        if samples<12:continue
+        if wr<40 or avg<-.5:out[name]=-8
+        elif wr<50 or avg<0:out[name]=-4
+        elif samples>=20 and wr>=65 and avg>1:out[name]=4
+        elif samples>=20 and wr>=58 and avg>.3:out[name]=2
+    return out
 def scan_symbol(symbol,s,regime,portfolio,equity):
     daily=quote_daily(symbol)
     if len(daily)<55:return []
@@ -51,6 +62,7 @@ def run():
     if event_name in ('workflow_dispatch','push') and not telegram_ok:print('TELEGRAM_CONFIG_ERROR');return 3
     if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
     reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
+    prior_accuracy=load_json(ROOT/'data/signal_accuracy.json',{});s['strategy_score_adjustments']=strategy_adjustments(prior_accuracy);print('Adaptive strategy weights:',s['strategy_score_adjustments'])
     try:regime=detect()
     except Exception as e:print('DATA_ERROR regime:',e);return 2
     signals=[]
@@ -70,7 +82,7 @@ def run():
     final=final[:30];write_json(ROOT/'data/signals.json',final);hist=load_json(ROOT/'data/signal_history.json',[]);now=datetime.now(timezone.utc).isoformat()
     for x in final:hist.append({'timestamp':now,'symbol':x['symbol'],'strategy':x['strategy'],'signal':x['signal'],'score':x['score'],'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2']})
     write_json(ROOT/'data/signal_history.json',hist[-10000:])
-    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);print('Signal accuracy:',accuracy)
+    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'adjustments':strategy_adjustments(accuracy),'accuracy':accuracy});print('Signal accuracy:',accuracy)
     perf=save_performance(ROOT/'data');updates=[]
     for p in portfolio.get('positions',[]):
         try:
@@ -87,7 +99,10 @@ def run():
         write_json(ROOT/'data/alert_state.json',state)
         if event_name in ('workflow_dispatch','push'):
             best=final[0] if final else None;buys=sum(1 for z in final if z['signal'] in ('STRONG_BUY','BUY'));lines=['✅ <b>Trading Bot — Scan Completed</b>',f"Qualified BUY signals: <b>{buys}</b>",f"Market data: <b>{h['success']}/{total} successful</b>"]
-            if accuracy['samples']>=10:lines += [f"Measured accuracy: <b>{accuracy['win_rate']}%</b> from {accuracy['samples']} completed signals"]
+            if accuracy['samples']>=10:
+                lines += [f"Measured accuracy: <b>{accuracy['win_rate']}%</b> from {accuracy['samples']} completed signals"]
+                for name in ('DAY','SWING'):
+                    a=accuracy['by_strategy'].get(name,{});lines += [f"{name}: {a.get('win_rate',0)}% ({a.get('samples',0)} samples)"]
             else:lines += [f"Accuracy learning: <b>{accuracy['samples']}/10</b> completed signals collected"]
             if best:lines += ['',f"Top setup: <b>{best['symbol']}</b> — {best['simple_decision_ar']} ({best['score']}/100)"]
             if buys==0:lines += ['','ℹ️ لا توجد فرصة شراء مؤكدة الآن. الانتظار قرار صحيح أيضًا.']
