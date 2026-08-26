@@ -14,6 +14,7 @@ from .precision import precision_context
 from .risk_v2 import daily_loss_guard,daily_trade_count_guard
 from .macro_guard import assess as assess_macro
 from .validation_policy import derive as derive_validation
+from .paper_trader import sync as sync_paper
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
 from .signal_tracker import evaluate as evaluate_signals
@@ -21,7 +22,7 @@ from .opportunity_selector import select as select_opportunities
 from .position_manager import advice
 from .dashboard import render
 from .telegram import enabled as telegram_enabled,send,signal_message
-ROOT=Path(__file__).resolve().parents[2];ENGINE_VERSION='V4-Precision'
+ROOT=Path(__file__).resolve().parents[2];ENGINE_VERSION='V4.1-Precision'
 def load_yaml(p):return yaml.safe_load(Path(p).read_text(encoding='utf-8'))
 def load_json(p,d):
     try:return json.loads(Path(p).read_text(encoding='utf-8'))
@@ -54,24 +55,23 @@ def scan_symbol(symbol,s,regime,portfolio,equity,groups):
     if price<float(s.get('min_price',5)) or av<float(s.get('min_avg_daily_volume',1_000_000)):return []
     group=group_for(symbol,groups);out=[];sw=swing_setup(symbol,daily)
     if sw:
-        z=finalize(sw,regime,s,portfolio,equity,precision_context(sw,daily,regime,group));z['expires_at']=expiry_for('SWING',s);out.append(z)
+        z=finalize(sw,regime,s,portfolio,equity,precision_context(sw,daily,regime,group));z['expires_at']=expiry_for('SWING',s);z['engine']=ENGINE_VERSION;out.append(z)
     try:
         intr=quote_intraday(symbol,s.get('intraday_period','5d'),s.get('intraday_interval','15m'));day=intraday_setup(symbol,intr)
         if day:
-            z=finalize(day,regime,s,portfolio,equity,precision_context(day,daily,regime,group));z['expires_at']=expiry_for('DAY',s);out.append(z)
+            z=finalize(day,regime,s,portfolio,equity,precision_context(day,daily,regime,group));z['expires_at']=expiry_for('DAY',s);z['engine']=ENGINE_VERSION;out.append(z)
     except Exception as e:print(f'{symbol} intraday warning: {e}')
     return out
 def should_alert(sig,state,cooldown):
     k=f"{sig['symbol']}:{sig['strategy']}";p=state.get(k)
     if not p:return True
-    try:
-        t=datetime.fromisoformat(p['sent_at']);t=t if t.tzinfo else t.replace(tzinfo=timezone.utc);age=(datetime.now(timezone.utc)-t).total_seconds()/3600
+    try:t=datetime.fromisoformat(p['sent_at']);t=t if t.tzinfo else t.replace(tzinfo=timezone.utc);age=(datetime.now(timezone.utc)-t).total_seconds()/3600
     except Exception:return True
     old=float(p.get('price',sig['price']));move=abs(float(sig['price'])-old)/max(old,.01)*100
     return age>=cooldown or p.get('action')!=sig.get('action') or int(sig['score'])>=int(p.get('score',0))+6 or move>=1
 def audit_append(final,now,macro):
     path=ROOT/'data/decision_audit.json';rows=load_json(path,[])
-    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'precision_adjustment':x.get('precision_adjustment'),'strategy_adjustment':x.get('strategy_adjustment'),'setup_adjustment':x.get('setup_adjustment'),'validation_blocked':x.get('validation_blocked'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
+    for x in final:rows.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'decision':x['simple_decision_ar'],'action':x['action'],'signal':x['signal'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'entry':[x['entry_low'],x['entry_high']],'stop':x['stop_loss'],'target1':x['target1'],'market':x.get('market_regime_v2'),'event_risk':x.get('event_risk'),'blockers':x.get('precision',{}).get('blockers',[]),'macro_guard':macro,'expires_at':x.get('expires_at')})
     write_json(path,rows[-15000:])
 def run():
     s=load_yaml(ROOT/'config/settings.yml')['settings'];universe=load_yaml(ROOT/'config/universe.yml')['universe'];groups=(load_yaml(ROOT/'config/groups.yml') or {}).get('groups',{});macro_events=(load_yaml(ROOT/'config/economic_events.yml') or {}).get('events',[]);macro=assess_macro(macro_events);event_name=os.getenv('GITHUB_EVENT_NAME','local');telegram_ok=telegram_enabled();notify_allowed=event_name in ('schedule','workflow_dispatch')
@@ -92,9 +92,7 @@ def run():
             except Exception as e:print('ERROR',fut[f],e)
     h=health_snapshot();total=h['success']+h['failures'];print('Market-data health:',h)
     if h['success']<8 or (total and h['success']/total<.35):
-        reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
-        if notify_allowed and telegram_ok:send('⛔ <b>DATA ERROR</b>\nبيانات السوق غير موثوقة، لذلك تم إيقاف إشارات الشراء.')
-        return 2
+        reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()});return 2
     write_json(ROOT/'data/data_health.json',{'status':'OK','health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
     signals=sorted(signals,key=lambda x:(x['score'],x.get('quality_grade')=='A+'),reverse=True);final=[];seen={}
     for x in signals:
@@ -102,41 +100,33 @@ def run():
         elif x['score']>=92 and seen[x['symbol']]['strategy']!=x['strategy']:final.append(x)
     final=final[:30];now=datetime.now(timezone.utc).isoformat();write_json(ROOT/'data/signals.json',final);audit_append(final,now,macro)
     opportunities=[] if s['daily_loss_block'] else select_opportunities(final,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
+    paper=sync_paper(ROOT/'data',opportunities,int(s.get('max_open_positions',5)));write_json(ROOT/'data/paper_validation.json',paper)
     hist=load_json(ROOT/'data/signal_history.json',[])
     for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
-    write_json(ROOT/'data/signal_history.json',hist[-10000:])
-    accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy);write_json(ROOT/'data/strategy_weights.json',{'generated_at':now,'live_adjustments':live_adj,'validation':validation,'effective_adjustments':s['strategy_score_adjustments'],'accuracy':accuracy})
+    write_json(ROOT/'data/signal_history.json',hist[-10000:]);accuracy=evaluate_signals(ROOT/'data',int(s.get('backtest_horizon_days',5)),int(s.get('backtest_min_score',85)));write_json(ROOT/'data/signal_accuracy.json',accuracy)
     perf=save_performance(ROOT/'data');updates=[]
     for p in portfolio.get('positions',[]):
         try:
             d=quote_intraday(p['symbol'],'1d','15m')
-            if not d.empty:
-                z=add_intraday(d).iloc[-1];cp=float(z['Close']);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp,vwap=float(z['VWAP']) if z['VWAP']==z['VWAP'] else None,ema21=float(z['EMA21']) if z['EMA21']==z['EMA21'] else None,atr=float(z['ATR14']) if z['ATR14']==z['ATR14'] else None)})
+            if not d.empty:z=add_intraday(d).iloc[-1];cp=float(z['Close']);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp,vwap=float(z['VWAP']),ema21=float(z['EMA21']),atr=float(z['ATR14']))})
         except Exception as e:print('Position monitor',p['symbol'],e)
-    write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
-    state=load_json(ROOT/'data/alert_state.json',{});prev_decisions=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price'],'expires_at':x.get('expires_at')} for x in final}
+    write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'paper_validation':paper,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
+    state=load_json(ROOT/'data/alert_state.json',{});prev=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price']} for x in final}
     if notify_allowed and telegram_ok:
-        if macro.get('blocked'):
-            try:send('⛔ <b>توقف مؤقت للصفقات الجديدة</b>\n'+macro.get('reason','حدث اقتصادي عالي التأثير')+'\n'+', '.join(macro.get('events',[])))
-            except Exception:pass
         for x in opportunities:
             if should_alert(x,state,cooldown):
-                try:send(signal_message(x));alerts_sent+=1;state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':now,'score':x['score'],'price':x['price'],'action':x['action'],'expires_at':x.get('expires_at')}
+                try:send(signal_message(x));alerts_sent+=1;state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':now,'score':x['score'],'price':x['price'],'action':x['action']}
                 except Exception as e:print('Telegram signal error:',e)
-        for key,p in prev_decisions.items():
+        for key,p in prev.items():
             if p.get('action')=='BUY_NOW' and current.get(key,{}).get('action')!='BUY_NOW':
-                sym=key.split(':')[0]
-                try:send(f'⚠️ <b>{sym} — ألغي الدخول السابق</b>\nالفرصة لم تعد تحقق شروط اشترِ الآن. لا تدخل اعتمادًا على التنبيه القديم.');alerts_sent+=1
+                try:send(f"⚠️ <b>{key.split(':')[0]} — ألغي الدخول السابق</b>\nالفرصة لم تعد تحقق شروط اشترِ الآن.")
                 except Exception:pass
         write_json(ROOT/'data/alert_state.json',state);write_json(ROOT/'data/decision_state.json',current)
         if event_name=='workflow_dispatch':
-            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص الآن: <b>{len(opportunities)}</b>",f"حماية خسارة اليوم: <b>{'مفعلة' if not daily_ok else 'طبيعية'}</b>",f"عدد صفقات اليوم: <b>{today_entries}/{s.get('max_daily_new_trades',3)}</b>",f"الحماية الاقتصادية: <b>{'مفعلة' if macro.get('blocked') else 'طبيعية'}</b>"]
-            if accuracy.get('samples',0)>=10:lines.append(f"الدقة المقاسة: <b>{accuracy['win_rate']}%</b> من {accuracy['samples']} إشارة مكتملة")
-            else:lines.append(f"تعلم الدقة: <b>{accuracy.get('samples',0)}/10</b> نتائج مكتملة")
-            if best:lines += ['',f"🥇 أفضل فرصة: <b>{best['symbol']}</b> — {best['simple_decision_ar']}",f"الجودة: <b>{best.get('quality_grade','-')}</b> | المخاطرة: {best.get('risk_label','-')}"]
-            else:lines += ['','ℹ️ لا توجد صفقة تستحق الدخول الآن. الانتظار جزء من الاستراتيجية.']
+            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص: <b>{len(opportunities)}</b>",f"Paper validation: <b>{paper.get('status')}</b> — {paper.get('samples',0)} صفقة",f"Expectancy: <b>{paper.get('expectancy_r',0)}R</b> | Profit Factor: <b>{paper.get('profit_factor',0)}</b>"]
+            lines += ['',f"🥇 {best['symbol']} — {best['simple_decision_ar']}"] if best else ['','ℹ️ لا توجد صفقة تستحق الدخول الآن.']
             try:send('\n'.join(lines))
             except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
     else:write_json(ROOT/'data/decision_state.json',current)
-    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected, {alerts_sent} alerts; event={event_name}; validation={validation}.');return 0
+    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected; paper={paper}.');return 0
 if __name__=='__main__':raise SystemExit(run())
