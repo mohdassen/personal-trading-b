@@ -1,14 +1,24 @@
 name: Weekly Backtest
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'src/trading_bot/backtester.py'
+      - 'src/trading_bot/strategies.py'
+      - 'config/settings.yml'
+      - 'config/universe.yml'
+      - '.github/workflows/backtest.yml'
   schedule:
     - cron: '15 2 * * 0'
 permissions:
   contents: write
+concurrency:
+  group: trading-backtest
+  cancel-in-progress: true
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,6 +31,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/backtest.json
-          git diff --cached --quiet || git commit -m "chore: weekly backtest"
+          git diff --cached --quiet || git commit -m "chore: V4 backtest results"
           git pull --rebase
           git push
