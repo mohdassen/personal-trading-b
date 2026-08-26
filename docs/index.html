@@ -1,535 +1,505 @@
 <!doctype html><html lang="ar" dir="rtl"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="refresh" content="300"><title>Personal Trading Command Center</title>
+<meta http-equiv="refresh" content="300"><title>مساعد التداول الشخصي</title>
 <style>
 :root{--b:#07101e;--p:#101a2c;--q:#0b1424;--t:#edf3ff;--m:#98a7c4;--l:#263754;--g:#22c55e;--a:#f59e0b;--r:#ef4444;--c:#38bdf8}
 *{box-sizing:border-box}body{margin:0;background:var(--b);color:var(--t);font-family:system-ui,-apple-system,Segoe UI,Tahoma,Arial}
-.w{max-width:1300px;margin:auto;padding:16px}.h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end}.m{color:var(--m)}
-.kpis,.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:14px 0}.grid{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
-.k,.c{background:var(--p);border:1px solid var(--l);border-radius:16px;padding:14px}.k b{font-size:1.25rem;display:block}
-.top{display:flex;justify-content:space-between}.score{font-size:1.5rem;font-weight:900}.STRONG_BUY,.BUY{color:var(--g)}.WATCH{color:var(--a)}.BLOCKED{color:var(--r)}.WAIT{color:var(--m)}
-.lv{display:grid;grid-template-columns:1fr 1fr;gap:7px}.lv div{background:var(--q);padding:8px;border-radius:9px}.small{font-size:.86rem;line-height:1.65}
-.action{margin:10px 0;padding:10px;border:1px solid var(--c);border-radius:10px;background:#08243a;color:#dff6ff}
+.w{max-width:1200px;margin:auto;padding:16px}.h{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end}.m{color:var(--m)}
+.kpis,.grid{display:grid;gap:12px}.kpis{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin:14px 0}.grid{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+.k,.c{background:var(--p);border:1px solid var(--l);border-radius:16px;padding:14px}.k b{font-size:1.25rem;display:block;margin-top:6px}
+.top{display:flex;justify-content:space-between;gap:10px}.score{font-size:1.3rem;font-weight:900}.STRONG_BUY,.BUY{color:var(--g)}.WATCH{color:var(--a)}.BLOCKED{color:var(--r)}.WAIT{color:var(--m)}
+.lv{display:grid;grid-template-columns:1fr 1fr;gap:7px}.lv div{background:var(--q);padding:9px;border-radius:9px}.small{font-size:.86rem;line-height:1.65}
+.action{margin:10px 0;padding:12px;border:1px solid var(--c);border-radius:10px;background:#08243a;color:#dff6ff;font-size:1.02rem}
+.buy{border-color:var(--g)}.wait{border-color:var(--a)}.no{border-color:var(--r)}
 </style></head><body><div class="w">
-<div class="h"><div><h1>Personal Trading Command Center</h1><div class="m">Day + Swing • Decision Engine • Risk Control • Telegram • Manual Sahm execution</div></div><div class="m">2026-08-26 20:36 +03</div></div>
+<div class="h"><div><h1>مساعد التداول الشخصي</h1><div class="m">الهدف: قرار واضح وبسيط — اشترِ، انتظر، أو لا تدخل</div></div><div class="m">آخر تحديث: 2026-08-26 20:44 +03</div></div>
 <div class="kpis">
-<div class="k">Market Regime<b>MIXED</b></div>
-<div class="k">VIX<b>15.5</b></div>
-<div class="k">Best Setup<b>CAT 73/100</b></div>
-<div class="k">Cash<b>$10000</b></div>
-<div class="k">Open Positions<b>0</b></div>
-<div class="k">Win Rate<b>0.0%</b></div>
+<div class="k">حالة السوق<b>MIXED</b></div>
+<div class="k">أفضل فرصة<b>SHOP 69/100</b></div>
+<div class="k">الكاش المتاح<b>$10000</b></div>
+<div class="k">صفقات مفتوحة<b>0</b></div>
+<div class="k">نسبة نجاح الصفقات<b>0.0%</b></div>
 </div>
 <div class="grid">
 <div class="c">
-<div class="top"><b>CAT · DAY</b><span class="WATCH"><b>WATCH 73/100</b></span></div>
-<h2>$823.90</h2>
-<div class="action"><b>ACTION: WATCH</b><br>Setup is developing but not ready for entry</div>
+<div class="top"><b>SHOP</b><span class="WAIT"><b>لا تدخل · 69/100</b></span></div>
+<h2>$151.90</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$823.58–$824.11</b></div>
-<div>Stop<b><br>$814.01</b></div>
-<div>Target 1<b><br>$843.67</b></div>
-<div>Target 2<b><br>$853.56</b></div>
-<div>Qty<b><br>1</b></div>
-<div>Risk<b><br>$9.89 / 0.099%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$150.70–$152.50</b></div>
+<div>وقف الخسارة<b><br>$141.09</b></div>
+<div>الهدف الأول<b><br>$173.52</b></div>
+<div>الهدف الثاني<b><br>$184.33</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$608</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 65.4<br>✓ 20-bar breakout<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>PLTR · DAY</b><span class="WATCH"><b>WATCH 70/100</b></span></div>
-<h2>$177.23</h2>
-<div class="action"><b>ACTION: WATCH</b><br>Setup is developing but not ready for entry</div>
-<div class="lv">
-<div>Entry<b><br>$177.10–$177.31</b></div>
-<div>Stop<b><br>$175.10</b></div>
-<div>Target 1<b><br>$181.48</b></div>
-<div>Target 2<b><br>$183.61</b></div>
-<div>Qty<b><br>8</b></div>
-<div>Risk<b><br>$17.01 / 0.17%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
-</div>
-<p class="small">✓ Short-term EMA momentum<br>✓ Price above VWAP<br>✓ RSI momentum 66.3<br>✓ 1h momentum +1.34%<br>✓ 20-bar breakout<br>
-</p>
-</div>
-<div class="c">
-<div class="top"><b>SHOP · SWING</b><span class="WAIT"><b>WAIT 69/100</b></span></div>
-<h2>$151.69</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
-<div class="lv">
-<div>Entry<b><br>$150.49–$152.29</b></div>
-<div>Stop<b><br>$140.88</b></div>
-<div>Target 1<b><br>$173.31</b></div>
-<div>Target 2<b><br>$184.12</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$43.24 / 0.432%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
-</div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 61.6<br>✓ 5-day momentum +3.49%<br>
-</p>
-</div>
-<div class="c">
-<div class="top"><b>HOOD · SWING</b><span class="WAIT"><b>WAIT 69/100</b></span></div>
+<div class="top"><b>HOOD</b><span class="WAIT"><b>لا تدخل · 69/100</b></span></div>
 <h2>$109.32</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$108.08–$109.94</b></div>
-<div>Stop<b><br>$98.19</b></div>
-<div>Target 1<b><br>$131.58</b></div>
-<div>Target 2<b><br>$142.72</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$44.53 / 0.445%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$108.08–$109.94</b></div>
+<div>وقف الخسارة<b><br>$98.19</b></div>
+<div>الهدف الأول<b><br>$131.58</b></div>
+<div>الهدف الثاني<b><br>$142.72</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$437</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 60.2<br>✓ 5-day momentum +14.15%<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>DE · SWING</b><span class="WAIT"><b>WAIT 69/100</b></span></div>
-<h2>$638.34</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>DE</b><span class="WAIT"><b>لا تدخل · 69/100</b></span></div>
+<h2>$637.56</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$634.32–$640.35</b></div>
-<div>Stop<b><br>$602.17</b></div>
-<div>Target 1<b><br>$710.68</b></div>
-<div>Target 2<b><br>$746.85</b></div>
-<div>Qty<b><br>1</b></div>
-<div>Risk<b><br>$36.17 / 0.362%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$633.54–$639.57</b></div>
+<div>وقف الخسارة<b><br>$601.39</b></div>
+<div>الهدف الأول<b><br>$709.90</b></div>
+<div>الهدف الثاني<b><br>$746.07</b></div>
+<div>الكمية المقترحة<b><br>1 سهم</b></div>
+<div>قيمة الصفقة<b><br>$638</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 57.9<br>✓ 5-day momentum +9.94%<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>SPOT · SWING</b><span class="WAIT"><b>WAIT 69/100</b></span></div>
-<h2>$547.65</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>SPOT</b><span class="WAIT"><b>لا تدخل · 69/100</b></span></div>
+<h2>$548.82</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$543.56–$549.70</b></div>
-<div>Stop<b><br>$510.82</b></div>
-<div>Target 1<b><br>$621.32</b></div>
-<div>Target 2<b><br>$658.15</b></div>
-<div>Qty<b><br>1</b></div>
-<div>Risk<b><br>$36.83 / 0.368%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$544.73–$550.87</b></div>
+<div>وقف الخسارة<b><br>$511.99</b></div>
+<div>الهدف الأول<b><br>$622.48</b></div>
+<div>الهدف الثاني<b><br>$659.31</b></div>
+<div>الكمية المقترحة<b><br>1 سهم</b></div>
+<div>قيمة الصفقة<b><br>$549</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 63.8<br>✓ 5-day momentum +2.68%<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>SBUX · SWING</b><span class="WAIT"><b>WAIT 65/100</b></span></div>
-<h2>$107.50</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>SBUX</b><span class="WAIT"><b>لا تدخل · 65/100</b></span></div>
+<h2>$107.32</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$106.96–$107.77</b></div>
-<div>Stop<b><br>$102.62</b></div>
-<div>Target 1<b><br>$117.26</b></div>
-<div>Target 2<b><br>$122.14</b></div>
-<div>Qty<b><br>10</b></div>
-<div>Risk<b><br>$48.8 / 0.488%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>MEDIUM</b></div>
+<div>منطقة الدخول<b><br>$106.78–$107.59</b></div>
+<div>وقف الخسارة<b><br>$102.44</b></div>
+<div>الهدف الأول<b><br>$117.08</b></div>
+<div>الهدف الثاني<b><br>$121.96</b></div>
+<div>الكمية المقترحة<b><br>10 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1073</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 55.4<br>✓ 5-day momentum +2.40%<br>
-<span style="color:#fbbf24">⚠ 1 negative-risk headline(s)</span><br></p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>MSFT · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$494.89</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>GILD</b><span class="WAIT"><b>لا تدخل · 65/100</b></span></div>
+<h2>$148.81</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$494.74–$494.98</b></div>
-<div>Stop<b><br>$488.95</b></div>
-<div>Target 1<b><br>$506.76</b></div>
-<div>Target 2<b><br>$512.70</b></div>
-<div>Qty<b><br>3</b></div>
-<div>Risk<b><br>$17.82 / 0.178%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$148.76–$148.85</b></div>
+<div>وقف الخسارة<b><br>$147.02</b></div>
+<div>الهدف الأول<b><br>$152.38</b></div>
+<div>الهدف الثاني<b><br>$154.17</b></div>
+<div>الكمية المقترحة<b><br>10 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1488</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 63.8<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>META · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$577.29</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>META</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$578.38</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$576.80–$577.61</b></div>
-<div>Stop<b><br>$570.36</b></div>
-<div>Target 1<b><br>$591.14</b></div>
-<div>Target 2<b><br>$598.07</b></div>
-<div>Qty<b><br>2</b></div>
-<div>Risk<b><br>$13.85 / 0.139%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$577.88–$578.70</b></div>
+<div>وقف الخسارة<b><br>$571.43</b></div>
+<div>الهدف الأول<b><br>$592.26</b></div>
+<div>الهدف الثاني<b><br>$599.20</b></div>
+<div>الكمية المقترحة<b><br>2 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1157</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 57.1<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>AAPL · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$313.18</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>MSFT</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$494.52</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$313.08–$313.24</b></div>
-<div>Stop<b><br>$309.42</b></div>
-<div>Target 1<b><br>$320.70</b></div>
-<div>Target 2<b><br>$324.45</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$15.03 / 0.15%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$494.37–$494.62</b></div>
+<div>وقف الخسارة<b><br>$488.59</b></div>
+<div>الهدف الأول<b><br>$506.39</b></div>
+<div>الهدف الثاني<b><br>$512.32</b></div>
+<div>الكمية المقترحة<b><br>3 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1484</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 60.5<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>MU · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$942.30</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>QCOM</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$161.63</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$941.70–$942.70</b></div>
-<div>Stop<b><br>$930.99</b></div>
-<div>Target 1<b><br>$964.92</b></div>
-<div>Target 2<b><br>$976.22</b></div>
-<div>Qty<b><br>1</b></div>
-<div>Risk<b><br>$11.31 / 0.113%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$161.55–$161.68</b></div>
+<div>وقف الخسارة<b><br>$159.69</b></div>
+<div>الهدف الأول<b><br>$165.51</b></div>
+<div>الهدف الثاني<b><br>$167.45</b></div>
+<div>الكمية المقترحة<b><br>9 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1455</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 60.8<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>LRCX · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$313.89</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>MU</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$941.70</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$313.71–$314.01</b></div>
-<div>Stop<b><br>$310.12</b></div>
-<div>Target 1<b><br>$321.42</b></div>
-<div>Target 2<b><br>$325.19</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$15.07 / 0.151%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$941.10–$942.10</b></div>
+<div>وقف الخسارة<b><br>$930.40</b></div>
+<div>الهدف الأول<b><br>$964.30</b></div>
+<div>الهدف الثاني<b><br>$975.60</b></div>
+<div>الكمية المقترحة<b><br>1 سهم</b></div>
+<div>قيمة الصفقة<b><br>$942</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 56.6<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>QCOM · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$161.71</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>LRCX</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$313.64</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$161.64–$161.76</b></div>
-<div>Stop<b><br>$159.77</b></div>
-<div>Target 1<b><br>$165.60</b></div>
-<div>Target 2<b><br>$167.54</b></div>
-<div>Qty<b><br>9</b></div>
-<div>Risk<b><br>$17.47 / 0.175%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$313.46–$313.76</b></div>
+<div>وقف الخسارة<b><br>$309.88</b></div>
+<div>الهدف الأول<b><br>$321.17</b></div>
+<div>الهدف الثاني<b><br>$324.93</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1255</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 58.4<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>JPM · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$357.40</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>JPM</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$357.28</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$357.30–$357.47</b></div>
-<div>Stop<b><br>$353.11</b></div>
-<div>Target 1<b><br>$365.98</b></div>
-<div>Target 2<b><br>$370.27</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$17.16 / 0.172%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$357.18–$357.35</b></div>
+<div>وقف الخسارة<b><br>$352.99</b></div>
+<div>الهدف الأول<b><br>$365.85</b></div>
+<div>الهدف الثاني<b><br>$370.14</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1429</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 57.8<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>BAC · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$62.47</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>BAC</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$62.40</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$62.45–$62.48</b></div>
-<div>Stop<b><br>$61.72</b></div>
-<div>Target 1<b><br>$63.96</b></div>
-<div>Target 2<b><br>$64.71</b></div>
-<div>Qty<b><br>24</b></div>
-<div>Risk<b><br>$17.99 / 0.18%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$62.39–$62.42</b></div>
+<div>وقف الخسارة<b><br>$61.66</b></div>
+<div>الهدف الأول<b><br>$63.90</b></div>
+<div>الهدف الثاني<b><br>$64.65</b></div>
+<div>الكمية المقترحة<b><br>24 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1498</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 58.2<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>V · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$383.24</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>MA</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$598.00</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$383.16–$383.30</b></div>
-<div>Stop<b><br>$378.65</b></div>
-<div>Target 1<b><br>$392.44</b></div>
-<div>Target 2<b><br>$397.04</b></div>
-<div>Qty<b><br>3</b></div>
-<div>Risk<b><br>$13.8 / 0.138%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$597.87–$598.09</b></div>
+<div>وقف الخسارة<b><br>$590.82</b></div>
+<div>الهدف الأول<b><br>$612.35</b></div>
+<div>الهدف الثاني<b><br>$619.53</b></div>
+<div>الكمية المقترحة<b><br>2 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1196</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 58.5<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>MA · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$598.09</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>V</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$383.36</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$597.96–$598.18</b></div>
-<div>Stop<b><br>$590.91</b></div>
-<div>Target 1<b><br>$612.44</b></div>
-<div>Target 2<b><br>$619.62</b></div>
-<div>Qty<b><br>2</b></div>
-<div>Risk<b><br>$14.35 / 0.144%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$383.27–$383.42</b></div>
+<div>وقف الخسارة<b><br>$378.76</b></div>
+<div>الهدف الأول<b><br>$392.56</b></div>
+<div>الهدف الثاني<b><br>$397.16</b></div>
+<div>الكمية المقترحة<b><br>3 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1150</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 55.5<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>COIN · SWING</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$181.49</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>COIN</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$181.66</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$179.42–$182.53</b></div>
-<div>Stop<b><br>$162.81</b></div>
-<div>Target 1<b><br>$218.86</b></div>
-<div>Target 2<b><br>$237.54</b></div>
-<div>Qty<b><br>2</b></div>
-<div>Risk<b><br>$37.36 / 0.374%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$179.58–$182.70</b></div>
+<div>وقف الخسارة<b><br>$162.98</b></div>
+<div>الهدف الأول<b><br>$219.02</b></div>
+<div>الهدف الثاني<b><br>$237.71</b></div>
+<div>الكمية المقترحة<b><br>2 سهم</b></div>
+<div>قيمة الصفقة<b><br>$363</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Price above EMA20/50<br>✓ Daily RSI 60.9<br>✓ 5-day momentum +13.29%<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>UNH · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$402.21</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>UNH</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$402.33</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$402.07–$402.30</b></div>
-<div>Stop<b><br>$397.38</b></div>
-<div>Target 1<b><br>$411.86</b></div>
-<div>Target 2<b><br>$416.69</b></div>
-<div>Qty<b><br>3</b></div>
-<div>Risk<b><br>$14.48 / 0.145%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$402.19–$402.42</b></div>
+<div>وقف الخسارة<b><br>$397.50</b></div>
+<div>الهدف الأول<b><br>$411.99</b></div>
+<div>الهدف الثاني<b><br>$416.81</b></div>
+<div>الكمية المقترحة<b><br>3 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1207</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 58.9<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>PFE · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$28.42</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>PFE</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$28.40</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$28.42–$28.43</b></div>
-<div>Stop<b><br>$28.08</b></div>
-<div>Target 1<b><br>$29.11</b></div>
-<div>Target 2<b><br>$29.45</b></div>
-<div>Qty<b><br>52</b></div>
-<div>Risk<b><br>$17.74 / 0.177%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$28.39–$28.40</b></div>
+<div>وقف الخسارة<b><br>$28.05</b></div>
+<div>الهدف الأول<b><br>$29.08</b></div>
+<div>الهدف الثاني<b><br>$29.42</b></div>
+<div>الكمية المقترحة<b><br>52 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1477</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 56.0<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>HON · DAY</b><span class="WAIT"><b>WAIT 63/100</b></span></div>
-<h2>$219.81</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>CAT</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$823.58</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$219.73–$219.87</b></div>
-<div>Stop<b><br>$217.17</b></div>
-<div>Target 1<b><br>$225.09</b></div>
-<div>Target 2<b><br>$227.72</b></div>
-<div>Qty<b><br>6</b></div>
-<div>Risk<b><br>$15.83 / 0.158%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$823.26–$823.79</b></div>
+<div>وقف الخسارة<b><br>$813.70</b></div>
+<div>الهدف الأول<b><br>$843.35</b></div>
+<div>الهدف الثاني<b><br>$853.23</b></div>
+<div>الكمية المقترحة<b><br>1 سهم</b></div>
+<div>قيمة الصفقة<b><br>$824</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 65.5<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>GS · SWING</b><span class="WAIT"><b>WAIT 62/100</b></span></div>
-<h2>$1041.73</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>HON</b><span class="WAIT"><b>لا تدخل · 63/100</b></span></div>
+<h2>$219.43</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$1036.06–$1044.57</b></div>
-<div>Stop<b><br>$990.70</b></div>
-<div>Target 1<b><br>$1143.80</b></div>
-<div>Target 2<b><br>$1194.83</b></div>
-<div>Qty<b><br>0</b></div>
-<div>Risk<b><br>$0.0 / 0.0%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$219.34–$219.48</b></div>
+<div>وقف الخسارة<b><br>$216.79</b></div>
+<div>الهدف الأول<b><br>$224.69</b></div>
+<div>الهدف الثاني<b><br>$227.32</b></div>
+<div>الكمية المقترحة<b><br>6 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1317</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 50.1<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>GILD · DAY</b><span class="WAIT"><b>WAIT 59/100</b></span></div>
-<h2>$148.66</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>PLTR</b><span class="WAIT"><b>لا تدخل · 62/100</b></span></div>
+<h2>$177.17</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$148.61–$148.70</b></div>
-<div>Stop<b><br>$146.88</b></div>
-<div>Target 1<b><br>$152.23</b></div>
-<div>Target 2<b><br>$154.01</b></div>
-<div>Qty<b><br>10</b></div>
-<div>Risk<b><br>$17.84 / 0.178%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$175.60–$177.96</b></div>
+<div>وقف الخسارة<b><br>$163.04</b></div>
+<div>الهدف الأول<b><br>$205.43</b></div>
+<div>الهدف الثاني<b><br>$219.57</b></div>
+<div>الكمية المقترحة<b><br>3 سهم</b></div>
+<div>قيمة الصفقة<b><br>$532</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 53.0<br>
-<span style="color:#fbbf24">⚠ 1 positive headline(s)</span><br></p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>ADBE · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$271.60</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>UBER</b><span class="WAIT"><b>لا تدخل · 61/100</b></span></div>
+<h2>$79.64</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$269.54–$272.63</b></div>
-<div>Stop<b><br>$253.03</b></div>
-<div>Target 1<b><br>$308.73</b></div>
-<div>Target 2<b><br>$327.30</b></div>
-<div>Qty<b><br>2</b></div>
-<div>Risk<b><br>$37.13 / 0.371%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$79.11–$79.90</b></div>
+<div>وقف الخسارة<b><br>$74.89</b></div>
+<div>الهدف الأول<b><br>$89.12</b></div>
+<div>الهدف الثاني<b><br>$93.87</b></div>
+<div>الكمية المقترحة<b><br>10 سهم</b></div>
+<div>قيمة الصفقة<b><br>$796</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 59.3<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>NOW · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$125.03</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>INTC</b><span class="WAIT"><b>لا تدخل · 60/100</b></span></div>
+<h2>$87.79</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$123.86–$125.61</b></div>
-<div>Stop<b><br>$114.51</b></div>
-<div>Target 1<b><br>$146.06</b></div>
-<div>Target 2<b><br>$156.58</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$42.07 / 0.421%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$87.74–$87.83</b></div>
+<div>وقف الخسارة<b><br>$86.74</b></div>
+<div>الهدف الأول<b><br>$89.90</b></div>
+<div>الهدف الثاني<b><br>$90.96</b></div>
+<div>الكمية المقترحة<b><br>17 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1493</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 57.3<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>NET · DAY</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$285.30</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>AAPL</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$312.72</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$285.09–$285.43</b></div>
-<div>Stop<b><br>$281.87</b></div>
-<div>Target 1<b><br>$292.14</b></div>
-<div>Target 2<b><br>$295.57</b></div>
-<div>Qty<b><br>5</b></div>
-<div>Risk<b><br>$17.12 / 0.171%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>MEDIUM</b></div>
+<div>منطقة الدخول<b><br>$311.30–$313.43</b></div>
+<div>وقف الخسارة<b><br>$299.97</b></div>
+<div>الهدف الأول<b><br>$338.22</b></div>
+<div>الهدف الثاني<b><br>$350.97</b></div>
+<div>الكمية المقترحة<b><br>3 سهم</b></div>
+<div>قيمة الصفقة<b><br>$938</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ EMA 9/21/50 bullish alignment<br>✓ Price above VWAP<br>✓ RSI momentum 61.6<br>
-<span style="color:#fbbf24">⚠ 2 negative-risk headline(s)</span><br></p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>BKNG · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$209.40</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>ADBE</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$271.80</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$208.06–$210.07</b></div>
-<div>Stop<b><br>$197.36</b></div>
-<div>Target 1<b><br>$233.48</b></div>
-<div>Target 2<b><br>$245.51</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$48.15 / 0.482%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$269.74–$272.83</b></div>
+<div>وقف الخسارة<b><br>$253.23</b></div>
+<div>الهدف الأول<b><br>$308.93</b></div>
+<div>الهدف الثاني<b><br>$327.50</b></div>
+<div>الكمية المقترحة<b><br>2 سهم</b></div>
+<div>قيمة الصفقة<b><br>$544</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 58.0<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>JNJ · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$270.21</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>NOW</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$125.10</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$269.11–$270.77</b></div>
-<div>Stop<b><br>$260.29</b></div>
-<div>Target 1<b><br>$290.06</b></div>
-<div>Target 2<b><br>$299.99</b></div>
-<div>Qty<b><br>5</b></div>
-<div>Risk<b><br>$49.62 / 0.496%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$123.93–$125.68</b></div>
+<div>وقف الخسارة<b><br>$114.58</b></div>
+<div>الهدف الأول<b><br>$146.13</b></div>
+<div>الهدف الثاني<b><br>$156.65</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$500</b></div>
+<div>المخاطرة<b><br>منخفضة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 59.7<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>ABBV · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$260.76</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>SNOW</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$315.83</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$259.59–$261.34</b></div>
-<div>Stop<b><br>$250.27</b></div>
-<div>Target 1<b><br>$281.74</b></div>
-<div>Target 2<b><br>$292.23</b></div>
-<div>Qty<b><br>4</b></div>
-<div>Risk<b><br>$41.96 / 0.42%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$313.22–$317.14</b></div>
+<div>وقف الخسارة<b><br>$292.26</b></div>
+<div>الهدف الأول<b><br>$362.99</b></div>
+<div>الهدف الثاني<b><br>$386.57</b></div>
+<div>الكمية المقترحة<b><br>2 سهم</b></div>
+<div>قيمة الصفقة<b><br>$632</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 57.3<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div>
 <div class="c">
-<div class="top"><b>XOM · SWING</b><span class="WAIT"><b>WAIT 55/100</b></span></div>
-<h2>$159.70</h2>
-<div class="action"><b>ACTION: NO_TRADE</b><br>No qualified setup</div>
+<div class="top"><b>NET</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$285.90</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
 <div class="lv">
-<div>Entry<b><br>$158.98–$160.05</b></div>
-<div>Stop<b><br>$153.25</b></div>
-<div>Target 1<b><br>$172.59</b></div>
-<div>Target 2<b><br>$179.04</b></div>
-<div>Qty<b><br>7</b></div>
-<div>Risk<b><br>$45.14 / 0.451%</b></div>
-<div>Market<b><br>MIXED</b></div>
-<div>Event Risk<b><br>LOW</b></div>
+<div>منطقة الدخول<b><br>$285.69–$286.04</b></div>
+<div>وقف الخسارة<b><br>$282.47</b></div>
+<div>الهدف الأول<b><br>$292.76</b></div>
+<div>الهدف الثاني<b><br>$296.19</b></div>
+<div>الكمية المقترحة<b><br>5 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1430</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
 </div>
-<p class="small">✓ Daily trend bullish<br>✓ Daily RSI 54.2<br>
-</p>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
+</div>
+<div class="c">
+<div class="top"><b>BKNG</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$209.84</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
+<div class="lv">
+<div>منطقة الدخول<b><br>$208.50–$210.51</b></div>
+<div>وقف الخسارة<b><br>$197.80</b></div>
+<div>الهدف الأول<b><br>$233.92</b></div>
+<div>الهدف الثاني<b><br>$245.95</b></div>
+<div>الكمية المقترحة<b><br>4 سهم</b></div>
+<div>قيمة الصفقة<b><br>$839</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
+</div>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
+</div>
+<div class="c">
+<div class="top"><b>JNJ</b><span class="WAIT"><b>لا تدخل · 55/100</b></span></div>
+<h2>$270.42</h2>
+<div class="action no"><b>القرار: لا تدخل</b><br>الشروط غير مكتملة حاليًا. احتفظ بالكاش وانتظر فرصة أوضح.</div>
+<div class="lv">
+<div>منطقة الدخول<b><br>$269.32–$270.98</b></div>
+<div>وقف الخسارة<b><br>$260.50</b></div>
+<div>الهدف الأول<b><br>$290.27</b></div>
+<div>الهدف الثاني<b><br>$300.20</b></div>
+<div>الكمية المقترحة<b><br>5 سهم</b></div>
+<div>قيمة الصفقة<b><br>$1352</b></div>
+<div>المخاطرة<b><br>متوسطة</b></div>
+<div>قوة الفرصة<b><br>ضعيفة</b></div>
+</div>
+<p class="small m">التحليل الفني والأخبار والمخاطر تُحسب في الخلفية. لا تحتاج لفهم المؤشرات لاتخاذ القرار المعروض.</p>
 </div></div>
-<p class="m small">هذه أداة دعم قرار وليست ضمانًا للربح. لا تنفذ إذا كان السعر خارج منطقة الدخول المحددة.</p>
+<p class="m small">هذه أداة دعم قرار وليست ضمانًا للربح. التزم بمنطقة الدخول ووقف الخسارة، ولا تدخل إذا تغير السعر بشكل كبير.</p>
 </div></body></html>
