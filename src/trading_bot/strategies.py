@@ -4,28 +4,27 @@ import pandas as pd
 from .indicators import add_intraday,add_daily
 @dataclass
 class Setup:
-    symbol:str; strategy:str; raw_score:int; price:float; entry_low:float; entry_high:float; stop_loss:float; target1:float; target2:float; rr1:float; rr2:float; atr:float; rsi:float; vol_ratio:float; momentum:float; reasons:list[str]; warnings:list[str]
+    symbol:str; strategy:str; raw_score:int; price:float; entry_low:float; entry_high:float; stop_loss:float; target1:float; target2:float; rr1:float; rr2:float; atr:float; rsi:float; vol_ratio:float; momentum:float; reasons:list[str]; warnings:list[str]; setup_type:str
     def to_dict(self):return asdict(self)
 def safe(v,d=0.0):
     try:return d if pd.isna(v) else float(v)
     except Exception:return d
 
-def _levels(df,p,a,strategy):
+def _trade_levels(df,entry,a,strategy):
     look=20 if strategy=='DAY' else 30
     r=df.iloc[-look:-1] if len(df)>look else df.iloc[:-1]
-    support=safe(r['Low'].min(),p-a); resistance=safe(r['High'].max(),p+2*a)
+    support=safe(r['Low'].min(),entry-a);resistance=safe(r['High'].max(),entry+2*a)
     if strategy=='DAY':
-        vol_stop=p-1.4*a; structure_stop=support-.15*a; floor=p-max(2.0*a,p*.02)
+        atr_stop=entry-1.25*a;structure_stop=support-.10*a;max_depth=max(1.9*a,entry*.018)
     else:
-        vol_stop=p-1.7*a; structure_stop=support-.20*a; floor=p-max(2.8*a,p*.06)
-    stop=max(floor,min(vol_stop,structure_stop if structure_stop<p else vol_stop))
-    risk=max(p-stop,.01)
-    raw_t1=p+2*risk; raw_t2=p+3*risk
-    # Do not pretend a target is attractive when obvious resistance is directly in front.
-    t1=raw_t1 if resistance<=p or resistance>=p+1.5*risk else resistance
-    t2=max(t1,raw_t2)
-    rr1=(t1-p)/risk; rr2=(t2-p)/risk
-    return stop,t1,t2,rr1,rr2,support,resistance
+        atr_stop=entry-1.60*a;structure_stop=support-.15*a;max_depth=max(2.5*a,entry*.05)
+    stop=max(entry-max_depth,min(atr_stop,structure_stop if structure_stop<entry else atr_stop))
+    risk=max(entry-stop,.01)
+    raw_t1=entry+2*risk;raw_t2=entry+3*risk
+    # If visible resistance sits before 2R, use it as T1; live decision will reject RR<2.
+    t1=resistance if entry<resistance<raw_t1 else raw_t1
+    t2=max(raw_t2,t1)
+    return stop,t1,t2,(t1-entry)/risk,(t2-entry)/risk
 
 def intraday_setup(symbol,df):
     if len(df)<55:return None
@@ -43,11 +42,14 @@ def intraday_setup(symbol,df):
     elif vr>=1.2:sc+=11;reasons.append(f'Volume confirmation {vr:.2f}x')
     if mom>=.8:sc+=12;reasons.append(f'1h momentum +{mom:.2f}%')
     elif mom>0:sc+=6
-    breakout=p>h20 and h20>0
-    if breakout and vr>=1.2:sc+=10;reasons.append('Confirmed 20-bar breakout')
-    elif breakout:warnings.append('Breakout without enough volume confirmation')
-    stop,t1,t2,rr1,rr2,_,_= _levels(x,p,a,'DAY')
-    return Setup(symbol,'DAY',min(100,sc),p,p-.10*a,p+.06*a,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings)
+    breakout=p>h20 and h20>0 and vr>=1.2
+    if breakout:sc+=10;reasons.append('Confirmed 20-bar breakout');setup_type='BREAKOUT';entry_ref=h20
+    else:
+        if p>h20 and h20>0:warnings.append('Breakout without enough volume confirmation')
+        setup_type='PULLBACK';entry_ref=min(p,max(vw,e21))
+    entry_low=entry_ref-.08*a;entry_high=entry_ref+.12*a
+    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,a,'DAY')
+    return Setup(symbol,'DAY',min(100,sc),p,entry_low,entry_high,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings,setup_type)
 
 def swing_setup(symbol,df):
     if len(df)<55:return None
@@ -63,9 +65,12 @@ def swing_setup(symbol,df):
     elif vr>=1.1:sc+=9
     if mom>=2:sc+=14;reasons.append(f'5-day momentum +{mom:.2f}%')
     elif mom>0:sc+=7
-    breakout=p>h20 and h20>0
-    if breakout and vr>=1.1:sc+=12;reasons.append('Confirmed 20-day breakout')
-    elif breakout:warnings.append('Breakout lacks volume confirmation')
+    breakout=p>h20 and h20>0 and vr>=1.1
+    if breakout:sc+=12;reasons.append('Confirmed 20-day breakout');setup_type='BREAKOUT';entry_ref=h20
+    else:
+        if p>h20 and h20>0:warnings.append('Breakout lacks volume confirmation')
+        setup_type='PULLBACK';entry_ref=min(p,e20 if e20>0 else p)
     if p>e20:sc+=10
-    stop,t1,t2,rr1,rr2,_,_= _levels(x,p,a,'SWING')
-    return Setup(symbol,'SWING',min(100,sc),p,p-.16*a,p+.08*a,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings)
+    entry_low=entry_ref-.15*a;entry_high=entry_ref+.20*a
+    stop,t1,t2,rr1,rr2=_trade_levels(x,entry_ref,a,'SWING')
+    return Setup(symbol,'SWING',min(100,sc),p,entry_low,entry_high,stop,t1,t2,rr1,rr2,a,rs,vr,mom,reasons,warnings,setup_type)
