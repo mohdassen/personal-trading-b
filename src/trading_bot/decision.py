@@ -14,7 +14,7 @@ def _confirmation_gate(setup,regime,signal):
 
 def _action(setup,signal,precision,daily_loss_block=False):
     p=float(setup.price);lo=float(setup.entry_low);hi=float(setup.entry_high);blockers=precision.get('blockers',[])
-    if daily_loss_block:return 'NO_TRADE','تم إيقاف الصفقات الجديدة بسبب حد خسارة اليوم'
+    if daily_loss_block:return 'NO_TRADE','تم إيقاف الصفقات الجديدة بسبب حد الحماية اليومي'
     if signal not in ('BUY','STRONG_BUY'):
         return ('WATCH','الفرصة لم تكتمل بعد') if signal=='WATCH' else ('NO_TRADE','لا توجد صفقة مناسبة الآن')
     if p>hi:return 'DO_NOT_CHASE','السعر أعلى من منطقة الدخول المناسبة'
@@ -50,11 +50,12 @@ def finalize(setup,regime,settings,portfolio,equity,precision=None):
     grade=opportunity_grade(score,precision)
     if signal in ('BUY','STRONG_BUY') and grade=='C':signal='WATCH'
     if settings.get('daily_loss_block') and signal in ('BUY','STRONG_BUY'):signal='BLOCKED'
-    cash=float(portfolio.get('cash',equity));base=size_position(setup.price,setup.stop_loss,equity,float(settings.get('risk_per_trade_pct',.5)),float(settings.get('max_position_pct',15)),cash)
+    cash=float(portfolio.get('cash',equity));planned_entry=(float(setup.entry_low)+float(setup.entry_high))/2
+    base=size_position(planned_entry,setup.stop_loss,equity,float(settings.get('risk_per_trade_pct',.5)),float(settings.get('max_position_pct',15)),cash)
     multiplier=quality_risk_multiplier(grade,precision.get('market_v2',{}).get('label',regime.label));sizing=scale_sizing(base,multiplier)
     gate,gate_reason=portfolio_gate(portfolio,setup.symbol,sizing['position_value'],equity,float(settings.get('max_total_exposure_pct',60)),int(settings.get('max_open_positions',5)))
     corr,corr_reason=portfolio_correlation_gate(portfolio,precision.get('group','OTHER'),int(settings.get('max_same_group_positions',2)))
     if signal in ('BUY','STRONG_BUY') and (not gate or not corr or sizing['shares']<=0):signal='BLOCKED'
     action,instruction=_action(setup,signal,precision,bool(settings.get('daily_loss_block')))
     simple=_simple(action,score,grade,event.level,sizing['risk_pct_equity'],setup)
-    return {**setup.to_dict(),'score':score,'signal':signal,'action':action,'instruction':instruction,**simple,'market_regime':regime.label,'market_regime_v2':precision.get('market_v2',{}).get('label',regime.label),'event_risk':event.level,'event_notes':event.notes,'strategy_adjustment':learned,'precision_adjustment':prec,'precision':precision,'confirmation_passed':confirmed,'confirmation_reason':confirmation_reason,'confirmation_notes':confirmation_notes,'suggested_shares':sizing['shares'],'suggested_value':sizing['position_value'],'risk_dollars':sizing['risk_dollars'],'risk_pct_equity':sizing['risk_pct_equity'],'risk_multiplier':multiplier,'portfolio_gate':gate_reason,'correlation_gate':corr_reason,'daily_loss_blocked':bool(settings.get('daily_loss_block'))}
+    return {**setup.to_dict(),'score':score,'signal':signal,'action':action,'instruction':instruction,**simple,'market_regime':regime.label,'market_regime_v2':precision.get('market_v2',{}).get('label',regime.label),'event_risk':event.level,'event_notes':event.notes,'strategy_adjustment':learned,'precision_adjustment':prec,'precision':precision,'confirmation_passed':confirmed,'confirmation_reason':confirmation_reason,'confirmation_notes':confirmation_notes,'planned_entry_price':round(planned_entry,2),'suggested_shares':sizing['shares'],'suggested_value':sizing['position_value'],'risk_dollars':sizing['risk_dollars'],'risk_pct_equity':sizing['risk_pct_equity'],'risk_multiplier':multiplier,'portfolio_gate':gate_reason,'correlation_gate':corr_reason,'daily_loss_blocked':bool(settings.get('daily_loss_block'))}
