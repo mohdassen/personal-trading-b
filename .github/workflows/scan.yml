@@ -39,6 +39,7 @@ jobs:
           FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force_run || '0' }}
         run: python run.py
       - name: Commit state
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -47,9 +48,12 @@ jobs:
           git pull --rebase
           git push
       - uses: actions/configure-pages@v5
+        if: success()
       - uses: actions/upload-pages-artifact@v3
+        if: success()
         with:
           path: docs
       - name: Deploy Pages
         id: deploy
+        if: success()
         uses: actions/deploy-pages@v4
