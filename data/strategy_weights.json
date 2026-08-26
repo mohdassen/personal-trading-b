@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T18:42:55.246902+00:00",
+  "generated_at": "2026-08-26T18:58:44.692464+00:00",
   "live_adjustments": {
     "DAY": 0,
     "SWING": 0
@@ -7,10 +7,10 @@
   "validation": {
     "strategies": {
       "DAY": {
-        "samples": 38,
+        "samples": 7,
         "adjustment": 0,
         "disabled": false,
-        "reason": "validation acceptable"
+        "reason": "insufficient validation sample"
       },
       "SWING": {
         "samples": 0,
@@ -19,14 +19,30 @@
         "reason": "insufficient validation sample"
       }
     },
-    "setup_types": {},
+    "setup_types": {
+      "BREAKOUT": {
+        "samples": 7,
+        "adjustment": 0,
+        "disabled": false,
+        "reason": "insufficient validation sample"
+      },
+      "PULLBACK": {
+        "samples": 0,
+        "adjustment": 0,
+        "disabled": false,
+        "reason": "insufficient validation sample"
+      }
+    },
     "disabled_strategies": [],
     "disabled_setup_types": [],
     "strategy_adjustments": {
       "DAY": 0,
       "SWING": 0
     },
-    "setup_adjustments": {}
+    "setup_adjustments": {
+      "BREAKOUT": 0,
+      "PULLBACK": 0
+    }
   },
   "effective_adjustments": {
     "DAY": 0,

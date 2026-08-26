@@ -1,10 +1,10 @@
 {
   "strategies": {
     "DAY": {
-      "samples": 38,
+      "samples": 7,
       "adjustment": 0,
       "disabled": false,
-      "reason": "validation acceptable"
+      "reason": "insufficient validation sample"
     },
     "SWING": {
       "samples": 0,
@@ -13,12 +13,28 @@
       "reason": "insufficient validation sample"
     }
   },
-  "setup_types": {},
+  "setup_types": {
+    "BREAKOUT": {
+      "samples": 7,
+      "adjustment": 0,
+      "disabled": false,
+      "reason": "insufficient validation sample"
+    },
+    "PULLBACK": {
+      "samples": 0,
+      "adjustment": 0,
+      "disabled": false,
+      "reason": "insufficient validation sample"
+    }
+  },
   "disabled_strategies": [],
   "disabled_setup_types": [],
   "strategy_adjustments": {
     "DAY": 0,
     "SWING": 0
   },
-  "setup_adjustments": {}
+  "setup_adjustments": {
+    "BREAKOUT": 0,
+    "PULLBACK": 0
+  }
 }
