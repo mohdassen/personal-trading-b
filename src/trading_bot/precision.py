@@ -3,7 +3,11 @@ from functools import lru_cache
 import pandas as pd
 from .market import quote_daily
 from .indicators import add_daily
-SECTOR_ETF={'TECH':'XLK','SEMIS':'SMH','CYBER':'CIBR','FINANCE':'XLF','HEALTH':'XLV','ENERGY':'XLE','INDUSTRIAL':'XLI','CONSUMER':'XLY','COMM':'XLC','TRAVEL':'PEJ','CRYPTO':'BITQ','OTHER':'SPY'}
+SECTOR_ETF={
+ 'MEGA_TECH':'XLK','CLOUD_SECURITY':'CIBR','CONSUMER_TRAVEL':'XLY','FINANCIALS':'XLF',
+ 'HEALTHCARE':'XLV','ENERGY_INDUSTRIAL':'XLI','MEDIA_TELECOM':'XLC','OTHER':'SPY',
+ 'TECH':'XLK','SEMIS':'SMH','CYBER':'CIBR','FINANCE':'XLF','HEALTH':'XLV','ENERGY':'XLE','INDUSTRIAL':'XLI','CONSUMER':'XLY','COMM':'XLC','TRAVEL':'PEJ','CRYPTO':'BITQ'
+}
 BREADTH_ETFS=('XLK','XLF','XLV','XLE','XLI','XLY','XLC','SMH')
 def _ret(df,n):
     if df is None or len(df)<=n:return 0.0
