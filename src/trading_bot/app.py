@@ -7,10 +7,11 @@ from zoneinfo import ZoneInfo
 import yaml
 from .market import quote_daily,quote_intraday,health_snapshot,reset_health
 from .strategies import intraday_setup,swing_setup
+from .indicators import add_intraday
 from .regime import detect
 from .decision import finalize
 from .precision import precision_context
-from .risk_v2 import daily_loss_guard
+from .risk_v2 import daily_loss_guard,daily_trade_count_guard
 from .macro_guard import assess as assess_macro
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
@@ -44,8 +45,7 @@ def strategy_adjustments(accuracy):
         elif samples>=20 and wr>=58 and avg>.3:out[name]=2
     return out
 def expiry_for(strategy,s):
-    now=datetime.now(timezone.utc)
-    return (now+timedelta(minutes=int(s.get('day_signal_expiry_minutes',45))) if strategy=='DAY' else now+timedelta(hours=int(s.get('swing_signal_expiry_hours',24)))).isoformat()
+    now=datetime.now(timezone.utc);return (now+timedelta(minutes=int(s.get('day_signal_expiry_minutes',45))) if strategy=='DAY' else now+timedelta(hours=int(s.get('swing_signal_expiry_hours',24)))).isoformat()
 def scan_symbol(symbol,s,regime,portfolio,equity,groups):
     daily=quote_daily(symbol)
     if len(daily)<55:return []
@@ -78,7 +78,7 @@ def run():
     if os.getenv('FORCE_RUN')!='1' and not market_open():print('US market closed; scheduled scan skipped.');return 0
     reset_health();equity=env_num('ACCOUNT_EQUITY_USD',s.get('account_equity_usd',10000));s['risk_per_trade_pct']=env_num('RISK_PER_TRADE_PCT',s.get('risk_per_trade_pct',.5));s['max_position_pct']=env_num('MAX_POSITION_PCT',s.get('max_position_pct',15));portfolio=PortfolioStore(ROOT/'data').portfolio()
     for p in portfolio.get('positions',[]):p['group']=group_for(p.get('symbol'),groups)
-    trades=load_json(ROOT/'data/trades.json',[]);daily_ok,daily_pnl_pct=daily_loss_guard(trades,equity,float(s.get('max_daily_loss_pct',1.5)));s['daily_loss_block']=not daily_ok or bool(macro.get('blocked'))
+    trades=load_json(ROOT/'data/trades.json',[]);daily_ok,daily_pnl_pct=daily_loss_guard(trades,equity,float(s.get('max_daily_loss_pct',1.5)));trade_count_ok,today_entries=daily_trade_count_guard(trades,int(s.get('max_daily_new_trades',3)));s['daily_loss_block']=not daily_ok or not trade_count_ok or bool(macro.get('blocked'))
     prior_accuracy=load_json(ROOT/'data/signal_accuracy.json',{});s['strategy_score_adjustments']=strategy_adjustments(prior_accuracy)
     try:regime=detect()
     except Exception as e:print('DATA_ERROR regime:',e);return 2
@@ -90,7 +90,7 @@ def run():
             except Exception as e:print('ERROR',fut[f],e)
     h=health_snapshot();total=h['success']+h['failures'];print('Market-data health:',h)
     if h['success']<8 or (total and h['success']/total<.35):
-        reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()});
+        reason=f"unreliable market data: {h['success']}/{total} successful requests";write_json(ROOT/'data/data_health.json',{'status':'DATA_ERROR','reason':reason,'health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
         if telegram_ok:send('⛔ <b>DATA ERROR</b>\nبيانات السوق غير موثوقة، لذلك تم إيقاف إشارات الشراء.')
         return 2
     write_json(ROOT/'data/data_health.json',{'status':'OK','health':h,'timestamp':datetime.now(timezone.utc).isoformat()})
@@ -99,7 +99,7 @@ def run():
         if x['symbol'] not in seen:final.append(x);seen[x['symbol']]=x
         elif x['score']>=92 and seen[x['symbol']]['strategy']!=x['strategy']:final.append(x)
     final=final[:30];now=datetime.now(timezone.utc).isoformat();write_json(ROOT/'data/signals.json',final);audit_append(final,now,macro)
-    opportunities=[] if macro.get('blocked') else select_opportunities(final,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
+    opportunities=[] if s['daily_loss_block'] else select_opportunities(final,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
     hist=load_json(ROOT/'data/signal_history.json',[])
     for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
     write_json(ROOT/'data/signal_history.json',hist[-10000:])
@@ -108,7 +108,8 @@ def run():
     for p in portfolio.get('positions',[]):
         try:
             d=quote_intraday(p['symbol'],'1d','15m')
-            if not d.empty:cp=float(d['Close'].iloc[-1]);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp)})
+            if not d.empty:
+                z=add_intraday(d).iloc[-1];cp=float(z['Close']);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp,vwap=float(z['VWAP']) if z['VWAP']==z['VWAP'] else None,ema21=float(z['EMA21']) if z['EMA21']==z['EMA21'] else None,atr=float(z['ATR14']) if z['ATR14']==z['ATR14'] else None)})
         except Exception as e:print('Position monitor',p['symbol'],e)
     write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
     state=load_json(ROOT/'data/alert_state.json',{});prev_decisions=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price'],'expires_at':x.get('expires_at')} for x in final}
@@ -127,7 +128,7 @@ def run():
                 except Exception:pass
         write_json(ROOT/'data/alert_state.json',state);write_json(ROOT/'data/decision_state.json',current)
         if event_name in ('workflow_dispatch','push'):
-            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص الآن: <b>{len(opportunities)}</b>",f"حماية خسارة اليوم: <b>{'مفعلة' if not daily_ok else 'طبيعية'}</b>",f"الحماية الاقتصادية: <b>{'مفعلة' if macro.get('blocked') else 'طبيعية'}</b>"]
+            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص الآن: <b>{len(opportunities)}</b>",f"حماية خسارة اليوم: <b>{'مفعلة' if not daily_ok else 'طبيعية'}</b>",f"عدد صفقات اليوم: <b>{today_entries}/{s.get('max_daily_new_trades',3)}</b>",f"الحماية الاقتصادية: <b>{'مفعلة' if macro.get('blocked') else 'طبيعية'}</b>"]
             if accuracy.get('samples',0)>=10:lines.append(f"الدقة المقاسة: <b>{accuracy['win_rate']}%</b> من {accuracy['samples']} إشارة مكتملة")
             else:lines.append(f"تعلم الدقة: <b>{accuracy.get('samples',0)}/10</b> نتائج مكتملة")
             if best:lines += ['',f"🥇 أفضل فرصة: <b>{best['symbol']}</b> — {best['simple_decision_ar']}",f"الجودة: <b>{best.get('quality_grade','-')}</b> | المخاطرة: {best.get('risk_label','-')}"]
