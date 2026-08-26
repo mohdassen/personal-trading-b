@@ -6,6 +6,14 @@ on:
         description: Force scan outside regular US session
         required: false
         default: '1'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'run.py'
+      - 'requirements.txt'
+      - '.github/workflows/scan.yml'
   schedule:
     - cron: '*/15 13-21 * * 1-5'
 permissions:
@@ -36,7 +44,8 @@ jobs:
           ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
           RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
           MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
-          FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force_run || '0' }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_run) || (github.event_name == 'push' && '1') || '0' }}
         run: python run.py
       - name: Commit state
         if: success()
