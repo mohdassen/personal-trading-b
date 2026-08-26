@@ -1,5 +1,6 @@
 from __future__ import annotations
 import json
+from concurrent.futures import ThreadPoolExecutor,as_completed
 from pathlib import Path
 import pandas as pd
 import yfinance as yf
@@ -19,8 +20,7 @@ def _outcome(s,future,cost_bps):
         if lo<=s.stop_loss:out='STOP';exit_price=s.stop_loss;break
         if hi>=s.target2:out='TARGET2';exit_price=s.target2;break
         if hi>=s.target1:out='TARGET1';exit_price=s.target1;break
-    ret=(exit_price-s.price)/s.price*100-(2*cost_bps/100)
-    return out,round(ret,3)
+    return out,round((exit_price-s.price)/s.price*100-(2*cost_bps/100),3)
 def _stats(rows):
     if not rows:return {'samples':0,'win_rate':0.0,'avg_return_pct':0.0,'profit_factor':0.0}
     wins=[x['return_pct'] for x in rows if x['return_pct']>0];loss=[x['return_pct'] for x in rows if x['return_pct']<=0];gp=sum(wins);gl=abs(sum(loss))
@@ -40,24 +40,28 @@ def _day(symbol,df,threshold,cost):
     for day in sorted(set(dates)):
         d=df[dates==day]
         if len(d)<30:continue
-        # Evaluate a few spaced decision points; future is strictly after the signal bar.
         for i in range(55,len(d)-4,8):
-            history=df[df.index<=d.index[i]].tail(300)
-            s=intraday_setup(symbol,history)
+            history=df[df.index<=d.index[i]].tail(300);s=intraday_setup(symbol,history)
             if not s or s.raw_score<threshold:continue
-            future=d.iloc[i+1:min(i+14,len(d))];o=_outcome(s,future,cost)
+            o=_outcome(s,d.iloc[i+1:min(i+14,len(d))],cost)
             if o:rows.append({'symbol':symbol,'strategy':'DAY','date':str(day),'score':s.raw_score,'outcome':o[0],'return_pct':o[1]})
+    return rows
+def _one(symbol,years,threshold,cost):
+    rows=[]
+    try:
+        daily=_norm(yf.download(symbol,period=f'{years}y',interval='1d',auto_adjust=False,progress=False,threads=False,timeout=20),symbol);rows.extend(_swing(symbol,daily,threshold,cost))
+    except Exception as e:print('BT SWING',symbol,e)
+    try:
+        intra=_norm(yf.download(symbol,period='60d',interval='15m',auto_adjust=False,progress=False,threads=False,timeout=20),symbol);rows.extend(_day(symbol,intra,threshold,cost))
+    except Exception as e:print('BT DAY',symbol,e)
     return rows
 def run_backtest():
     cfg=yaml.safe_load((ROOT/'config/settings.yml').read_text())['settings'];universe=yaml.safe_load((ROOT/'config/universe.yml').read_text())['universe'];threshold=int(cfg.get('backtest_min_score',85));years=int(cfg.get('backtest_years',3));cost=float(cfg.get('backtest_transaction_cost_bps',10));rows=[]
-    for symbol in universe:
-        try:
-            daily=_norm(yf.download(symbol,period=f'{years}y',interval='1d',auto_adjust=False,progress=False,threads=False),symbol);rows.extend(_swing(symbol,daily,threshold,cost))
-        except Exception as e:print('BT SWING',symbol,e)
-        try:
-            intra=_norm(yf.download(symbol,period='60d',interval='15m',auto_adjust=False,progress=False,threads=False),symbol);rows.extend(_day(symbol,intra,threshold,cost))
-        except Exception as e:print('BT DAY',symbol,e)
-    # Walk-forward style reporting by chronology: earlier 70% development, later 30% validation.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        fut={pool.submit(_one,s,years,threshold,cost):s for s in universe}
+        for f in as_completed(fut):
+            try:rows.extend(f.result())
+            except Exception as e:print('BT',fut[f],e)
     rows=sorted(rows,key=lambda x:x['date']);cut=int(len(rows)*.70);dev=rows[:cut];val=rows[cut:]
-    out={'engine':'V4-Precision','method':'Conservative chronological walk-forward proxy; no future bars used in signal construction. Transaction costs included.','threshold':threshold,'transaction_cost_bps':cost,'overall':_stats(rows),'development':_stats(dev),'validation':_stats(val),'by_strategy':{n:_stats([x for x in val if x['strategy']==n]) for n in ('DAY','SWING')},'validation_samples':val[-500:]}
+    out={'engine':'V4-Precision','method':'Conservative chronological walk-forward proxy; signals use only prior data. Same-bar stop/target ambiguity counts stop first. Round-trip transaction costs included.','threshold':threshold,'transaction_cost_bps':cost,'overall':_stats(rows),'development':_stats(dev),'validation':_stats(val),'by_strategy':{n:_stats([x for x in val if x['strategy']==n]) for n in ('DAY','SWING')},'validation_samples':val[-500:]}
     (ROOT/'data/backtest.json').write_text(json.dumps(out,indent=2),encoding='utf-8');print(json.dumps({k:v for k,v in out.items() if k!='validation_samples'},indent=2));return 0
