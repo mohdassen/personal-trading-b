@@ -22,48 +22,46 @@ def send(text):
     r.raise_for_status()
     return True
 
-def signal_message(s):
-    icon={
-        "STRONG_BUY":"🔥",
-        "BUY":"🟢",
-        "WATCH":"🟡",
-        "BLOCKED":"⛔",
-        "WAIT":"⚪"
-    }.get(s["signal"],"⚪")
-
-    action_icon={
+def _decision_icon(action):
+    return {
         "BUY_NOW":"✅",
         "WAIT_FOR_ENTRY":"⏳",
         "DO_NOT_CHASE":"🚫",
         "NO_TRADE":"⛔",
         "WATCH":"👀"
-    }.get(s.get("action",""),"ℹ️")
+    }.get(action,"ℹ️")
 
-    reasons="\n".join(f"✓ {x}" for x in s.get("reasons",[])[:5])
-    events="\n".join(f"⚠ {x}" for x in s.get("event_notes",[])[:3])
+def signal_message(s):
+    action=s.get("action","WATCH")
+    icon=_decision_icon(action)
+    decision=s.get("simple_decision_ar",s.get("simple_decision_en",action))
+    next_step=s.get("simple_next_step",s.get("instruction",""))
+    risk=s.get("risk_label","متوسطة")
+    confidence=s.get("confidence_label","متوسطة")
 
-    return "\n".join([
-        f"{icon} <b>{s['symbol']} — {s['signal']} {s['score']}/100</b>",
-        f"Strategy: <b>{s['strategy']}</b>",
-        f"Market: {s['market_regime']} | Event risk: {s['event_risk']}",
+    lines=[
+        f"{icon} <b>{s['symbol']} — {decision}</b>",
         "",
-        f"{action_icon} <b>ACTION: {s.get('action','WATCH')}</b>",
-        s.get("instruction",""),
+        f"🎯 <b>ماذا أفعل؟</b> {next_step}",
         "",
-        f"Current: <b>${s['price']:.2f}</b>",
-        f"Entry: ${s['entry_low']:.2f} - ${s['entry_high']:.2f}",
-        f"Stop: <b>${s['stop_loss']:.2f}</b>",
-        f"Target 1: ${s['target1']:.2f}",
-        f"Target 2: ${s['target2']:.2f}",
-        f"R:R: 1:{s.get('rr1',2):.1f} / 1:{s.get('rr2',3):.1f}",
+        f"💵 السعر الآن: <b>${s['price']:.2f}</b>",
+        f"📍 منطقة الدخول: <b>${s['entry_low']:.2f} – ${s['entry_high']:.2f}</b>",
+        f"🛑 وقف الخسارة: <b>${s['stop_loss']:.2f}</b>",
+        f"🏁 الهدف الأول: <b>${s['target1']:.2f}</b>",
+        f"🚀 الهدف الثاني: ${s['target2']:.2f}",
         "",
-        f"Suggested quantity: <b>{s['suggested_shares']} shares</b>",
-        f"Capital: ${s['suggested_value']:.0f}",
-        f"Max planned risk: ${s['risk_dollars']:.2f} ({s['risk_pct_equity']:.2f}% equity)",
+        f"📦 الكمية المقترحة: <b>{s['suggested_shares']} سهم</b>",
+        f"💰 قيمة الصفقة تقريبًا: <b>${s['suggested_value']:.0f}</b>",
+        f"⚠️ مستوى المخاطرة: <b>{risk}</b>",
+        f"⭐ قوة الفرصة: <b>{confidence}</b> ({s['score']}/100)",
+    ]
+
+    if s.get("event_risk") in ("HIGH","MEDIUM"):
+        lines += ["", "📰 يوجد حدث/خبر قد يؤثر على السهم، لذلك التزم بالقرار والوقف المحدد."]
+
+    lines += [
         "",
-        reasons,
-        events,
-        "",
-        "📱 Execution remains manual in Sahm.",
-        "⚠️ Decision support only; profit is not guaranteed."
-    ])
+        "📱 التنفيذ يدوي في Sahm.",
+        "ملاحظة: لا تشترِ إذا تغير السعر وأصبح خارج منطقة الدخول."
+    ]
+    return "\n".join(lines)
