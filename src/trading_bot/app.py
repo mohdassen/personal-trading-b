@@ -20,11 +20,11 @@ from .session_notifier import closed_summary,opening_summary
 from .portfolio import PortfolioStore
 from .performance import save as save_performance
 from .signal_tracker import evaluate as evaluate_signals
-from .opportunity_selector import select as select_opportunities
+from .opportunity_selector import select as select_opportunities,watchlist as select_watchlist
 from .position_manager import advice
 from .dashboard import render
 from .telegram import enabled as telegram_enabled,send,signal_message
-ROOT=Path(__file__).resolve().parents[2];ENGINE_VERSION='V4.2-Verified'
+ROOT=Path(__file__).resolve().parents[2];ENGINE_VERSION='V4.3-Market-Discovery'
 def load_yaml(p):return yaml.safe_load(Path(p).read_text(encoding='utf-8'))
 def load_json(p,d):
     try:return json.loads(Path(p).read_text(encoding='utf-8'))
@@ -106,9 +106,9 @@ def run():
     for x in signals:
         if x['symbol'] not in seen:final.append(x);seen[x['symbol']]=x
         elif x['score']>=92 and seen[x['symbol']]['strategy']!=x['strategy']:final.append(x)
-    final=final[:30];now=datetime.now(timezone.utc).isoformat();write_json(ROOT/'data/signals.json',final);audit_append(final,now,macro,protection)
+    final=final[:40];now=datetime.now(timezone.utc).isoformat();write_json(ROOT/'data/signals.json',final);audit_append(final,now,macro,protection)
     candidates=[x for x in final if x.get('strategy') not in s['disabled_strategies'] and x.get('setup_type') not in s['disabled_setup_types']]
-    opportunities=[] if s['daily_loss_block'] else select_opportunities(candidates,groups,int(s.get('top_n_alerts',3)));write_json(ROOT/'data/top_opportunities.json',opportunities)
+    opportunities=[] if s['daily_loss_block'] else select_opportunities(candidates,groups,int(s.get('top_n_alerts',3)));watch=select_watchlist(candidates,groups,5);write_json(ROOT/'data/top_opportunities.json',opportunities);write_json(ROOT/'data/strong_watchlist.json',watch)
     paper=sync_paper(ROOT/'data',opportunities,int(s.get('max_open_positions',5)));write_json(ROOT/'data/paper_validation.json',paper)
     hist=load_json(ROOT/'data/signal_history.json',[])
     for x in final:hist.append({'timestamp':now,'engine':ENGINE_VERSION,'symbol':x['symbol'],'strategy':x['strategy'],'setup_type':x.get('setup_type'),'signal':x['signal'],'action':x['action'],'score':x['score'],'grade':x.get('quality_grade'),'price':x['price'],'stop_loss':x['stop_loss'],'target1':x['target1'],'target2':x['target2'],'market':x.get('market_regime_v2'),'expires_at':x.get('expires_at')})
@@ -119,11 +119,11 @@ def run():
             d=quote_intraday(p['symbol'],'1d','15m')
             if not d.empty:z=add_intraday(d).iloc[-1];cp=float(z['Close']);updates.append({'symbol':p['symbol'],'current_price':cp,**advice(p,cp,vwap=float(z['VWAP']),ema21=float(z['EMA21']),atr=float(z['ATR14']))})
         except Exception as e:print('Position monitor',p['symbol'],e)
-    write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'paper_validation':paper,'protection_state':protection,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION})
-    state=load_json(ROOT/'data/alert_state.json',{});prev=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));alerts_sent=0;current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price']} for x in final}
+    write_json(ROOT/'data/position_advice.json',updates);render(final,ROOT/'docs/index.html',s.get('timezone','Asia/Riyadh'),regime,portfolio,{**perf,'signal_accuracy':accuracy,'paper_validation':paper,'protection_state':protection,'daily_pnl_pct':daily_pnl_pct,'engine':ENGINE_VERSION,'strong_watchlist':watch})
+    state=load_json(ROOT/'data/alert_state.json',{});prev=load_json(ROOT/'data/decision_state.json',{});cooldown=float(s.get('alert_cooldown_hours',4));current={f"{x['symbol']}:{x['strategy']}":{'action':x['action'],'score':x['score'],'price':x['price']} for x in final}
     if notify_allowed and telegram_ok:
         if event_name=='schedule':
-            msg=opening_summary(ROOT/'data',ENGINE_VERSION,opportunities,protection)
+            msg=opening_summary(ROOT/'data',ENGINE_VERSION,opportunities,protection,watch)
             if msg:
                 try:send(msg)
                 except Exception as e:print('Opening summary Telegram error:',e)
@@ -132,7 +132,7 @@ def run():
             except Exception:pass
         for x in opportunities:
             if should_alert(x,state,cooldown):
-                try:send(signal_message(x));alerts_sent+=1;state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':now,'score':x['score'],'price':x['price'],'action':x['action']}
+                try:send(signal_message(x));state[f"{x['symbol']}:{x['strategy']}"]={'sent_at':now,'score':x['score'],'price':x['price'],'action':x['action']}
                 except Exception as e:print('Telegram signal error:',e)
         for key,p in prev.items():
             if p.get('action')=='BUY_NOW' and current.get(key,{}).get('action')!='BUY_NOW':
@@ -140,10 +140,11 @@ def run():
                 except Exception:pass
         write_json(ROOT/'data/alert_state.json',state);write_json(ROOT/'data/decision_state.json',current)
         if event_name=='workflow_dispatch':
-            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"أفضل الفرص: <b>{len(opportunities)}</b>",f"Paper validation: <b>{paper.get('status')}</b> — {paper.get('samples',0)} صفقة",f"Expectancy: <b>{paper.get('expectancy_r',0)}R</b> | Profit Factor: <b>{paper.get('profit_factor',0)}</b>",f"Protections: <b>{'مفعلة' if protection.get('blocked') else 'طبيعية'}</b>"]
-            lines += ['',f"🥇 {best['symbol']} — {best['simple_decision_ar']}"] if best else ['','ℹ️ لا توجد صفقة تستحق الدخول الآن.']
+            best=opportunities[0] if opportunities else None;lines=[f'✅ <b>Trading Assistant {ENGINE_VERSION}</b>',f"جاهزة/قريبة للدخول: <b>{len(opportunities)}</b>",f"قوية تحت المراقبة: <b>{len(watch)}</b>",f"Paper validation: <b>{paper.get('status')}</b> — {paper.get('samples',0)} صفقة",f"Protections: <b>{'مفعلة' if protection.get('blocked') else 'طبيعية'}</b>"]
+            if best:lines+=['',f"🥇 {best['symbol']} — {best['simple_decision_ar']}"]
+            if watch:lines+=['',"👀 المراقبة: "+', '.join(x['symbol'] for x in watch[:5])]
             try:send('\n'.join(lines))
             except Exception as e:print('TELEGRAM_SEND_ERROR:',e);return 3
     else:write_json(ROOT/'data/decision_state.json',current)
-    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} selected; paper={paper}; protection={protection}.');return 0
+    print(f'{ENGINE_VERSION}: {len(final)} ranked, {len(opportunities)} actionable, {len(watch)} strong-watch; paper={paper}.');return 0
 if __name__=='__main__':raise SystemExit(run())
