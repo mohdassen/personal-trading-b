@@ -8,7 +8,9 @@ on:
       - 'watchdog.py'
       - '.github/workflows/watchdog.yml'
   schedule:
-    - cron: '7,22,37,52 * * * 1-5'
+    # Seven minutes after the primary scan. If one scan is missed, the next
+    # watchdog can self-heal instead of waiting for another hour.
+    - cron: '13,28,43,58 * * * 1-5'
 
 permissions:
   contents: write
@@ -41,7 +43,7 @@ jobs:
           ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
           RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
           MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
-          WATCHDOG_MAX_STALE_MINUTES: '25'
+          WATCHDOG_MAX_STALE_MINUTES: '22'
           WATCHDOG_MIN_EXPECTED_SUCCESS: '8'
           WATCHDOG_SELF_HEAL: '1'
         run: python watchdog.py
