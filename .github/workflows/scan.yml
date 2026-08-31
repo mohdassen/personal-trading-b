@@ -12,6 +12,7 @@ on:
       - 'src/**'
       - 'config/**'
       - 'run.py'
+      - 'diagnostics.py'
       - 'requirements.txt'
       - '.github/workflows/scan.yml'
   schedule:
@@ -55,6 +56,13 @@ jobs:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
           FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_run) || (github.event_name == 'push' && '1') || '0' }}
         run: python run.py
+      - name: Market Discovery Diagnostics
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          DIAGNOSTICS_NOTIFY_ON_PUSH: ${{ github.event_name == 'push' && contains(github.event.head_commit.message, 'Market Discovery Diagnostics') }}
+        run: python diagnostics.py
       - name: Commit state safely
         if: success()
         run: |
