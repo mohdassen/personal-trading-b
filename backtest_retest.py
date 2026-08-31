@@ -9,15 +9,16 @@ sys.path.insert(0, str(ROOT / 'src'))
 
 import trading_bot.backtester as bt
 
-bt.ENGINE = 'V4.4.2-Retest-Validation'
+bt.ENGINE = 'V4.4.3-Retest-Risk-Validation'
 
 
 def _confirmed_retest(s, confirm_bar, prior_history, strategy):
-    """Wait one candle after a breakout and only enter if the level holds.
+    """Wait one candle after a breakout and enter only after a clean retest hold.
 
-    This is deliberately conservative: no same-candle breakout entry, no close
-    back under resistance, no badly extended close, and the confirmation candle
-    must finish in its upper half with reasonable volume.
+    Risk is anchored to the retest structure rather than inheriting the original
+    pre-breakout stop. Targets are NOT pushed farther away: nearby resistance and
+    the original conservative targets remain intact. This keeps the test honest
+    while making the stop represent the actual post-retest invalidation point.
     """
     if s.setup_type != 'BREAKOUT':
         return s
@@ -38,8 +39,6 @@ def _confirmed_retest(s, confirm_bar, prior_history, strategy):
         max_extension = 0.65 * a if strategy == 'DAY' else 0.85 * a
         min_volume = 1.05 if strategy == 'DAY' else 0.90
 
-        # Must revisit/hold the breakout neighborhood, close above it, avoid chase,
-        # and finish with buyers controlling the confirmation candle.
         if lo > level + retest_tolerance:
             return None
         if close < level:
@@ -50,12 +49,22 @@ def _confirmed_retest(s, confirm_bar, prior_history, strategy):
             return None
         if vol_ratio < min_volume:
             return None
-        if close <= float(s.stop_loss):
+
+        # After a successful retest, the trade is invalid if price loses the
+        # retest structure. Use the tighter of that structural invalidation and
+        # the old stop, but never place a stop at/above the actual entry.
+        buffer = 0.18 * a if strategy == 'DAY' else 0.25 * a
+        retest_stop = min(lo, level) - buffer
+        old_stop = float(s.stop_loss)
+        stop = max(old_stop, retest_stop)
+        if stop >= close - 0.05 * a:
             return None
 
-        risk = max(close - float(s.stop_loss), 0.01)
-        rr1 = (float(s.target1) - close) / risk
-        rr2 = (float(s.target2) - close) / risk
+        risk = max(close - stop, 0.01)
+        target1 = float(s.target1)
+        target2 = float(s.target2)
+        rr1 = (target1 - close) / risk
+        rr2 = (target2 - close) / risk
         if rr1 <= 0 or rr2 <= 0:
             return None
 
@@ -64,9 +73,15 @@ def _confirmed_retest(s, confirm_bar, prior_history, strategy):
             price=close,
             entry_low=close - 0.03 * a,
             entry_high=close + 0.03 * a,
+            stop_loss=stop,
+            target1=target1,
+            target2=target2,
             rr1=rr1,
             rr2=rr2,
-            reasons=list(s.reasons) + [f'Breakout retest held; confirmation volume {vol_ratio:.2f}x'],
+            reasons=list(s.reasons) + [
+                f'Breakout retest held; confirmation volume {vol_ratio:.2f}x',
+                'Stop anchored to retest invalidation structure',
+            ],
             warnings=list(s.warnings),
         )
     except Exception:
