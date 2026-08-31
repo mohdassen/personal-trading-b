@@ -2,6 +2,11 @@ name: Trading Bot Watchdog
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'watchdog.py'
+      - '.github/workflows/watchdog.yml'
   schedule:
     - cron: '7,22,37,52 * * * 1-5'
 
