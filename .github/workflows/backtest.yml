@@ -27,7 +27,7 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Run conservative V4.4.2 retest validation
+      - name: Run conservative V4.4.3 retest risk validation
         run: |
           python backtest_retest.py
           cp data/backtest.json /tmp/backtest.json
@@ -44,7 +44,7 @@ jobs:
               echo "Backtest result already current"
               exit 0
             fi
-            git commit -m "chore: V4.4.2 retest validation results"
+            git commit -m "chore: V4.4.3 retest risk validation results"
             if git push origin HEAD:main; then
               exit 0
             fi
