@@ -6,6 +6,7 @@ on:
       - 'src/trading_bot/backtester.py'
       - 'src/trading_bot/strategies.py'
       - 'backtest_retest.py'
+      - 'backtest_pullback.py'
       - 'config/settings.yml'
       - 'config/universe.yml'
       - '.github/workflows/backtest.yml'
@@ -27,9 +28,9 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Run conservative V4.4.3 retest risk validation
+      - name: Run V4.6 pullback trend-continuation robust validation
         run: |
-          python backtest_retest.py
+          python backtest_pullback.py
           cp data/backtest.json /tmp/backtest.json
       - name: Publish backtest result safely
         run: |
@@ -44,7 +45,7 @@ jobs:
               echo "Backtest result already current"
               exit 0
             fi
-            git commit -m "chore: V4.4.3 retest risk validation results"
+            git commit -m "chore: V4.6 pullback robust validation results"
             if git push origin HEAD:main; then
               exit 0
             fi
