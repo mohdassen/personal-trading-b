@@ -5,49 +5,49 @@
   "min_rr": 2.0,
   "transaction_cost_bps": 10.0,
   "overall": {
-    "samples": 17,
-    "win_rate": 47.1,
-    "avg_return_pct": -0.012,
-    "avg_r": -0.132,
-    "profit_factor_r": 0.64
+    "samples": 19,
+    "win_rate": 36.8,
+    "avg_return_pct": -0.797,
+    "avg_r": -0.23,
+    "profit_factor_r": 0.33
   },
   "development": {
-    "samples": 11,
-    "win_rate": 45.5,
-    "avg_return_pct": 0.148,
-    "avg_r": -0.111,
-    "profit_factor_r": 0.74
+    "samples": 13,
+    "win_rate": 46.2,
+    "avg_return_pct": -0.812,
+    "avg_r": -0.233,
+    "profit_factor_r": 0.35
   },
   "validation": {
     "samples": 6,
-    "win_rate": 50.0,
-    "avg_return_pct": -0.304,
-    "avg_r": -0.169,
-    "profit_factor_r": 0.31
+    "win_rate": 16.7,
+    "avg_return_pct": -0.764,
+    "avg_r": -0.222,
+    "profit_factor_r": 0.26
   },
   "by_strategy": {
     "DAY": {
-      "samples": 6,
-      "win_rate": 50.0,
-      "avg_return_pct": -0.304,
-      "avg_r": -0.169,
-      "profit_factor_r": 0.31
+      "samples": 5,
+      "win_rate": 20.0,
+      "avg_return_pct": -0.347,
+      "avg_r": -0.201,
+      "profit_factor_r": 0.32
     },
     "SWING": {
-      "samples": 0,
+      "samples": 1,
       "win_rate": 0.0,
-      "avg_return_pct": 0.0,
-      "avg_r": 0.0,
+      "avg_return_pct": -2.847,
+      "avg_r": -0.33,
       "profit_factor_r": 0.0
     }
   },
   "by_setup_type": {
     "BREAKOUT": {
       "samples": 6,
-      "win_rate": 50.0,
-      "avg_return_pct": -0.304,
-      "avg_r": -0.169,
-      "profit_factor_r": 0.31
+      "win_rate": 16.7,
+      "avg_return_pct": -0.764,
+      "avg_r": -0.222,
+      "profit_factor_r": 0.26
     },
     "PULLBACK": {
       "samples": 0,
@@ -60,106 +60,106 @@
   "validation_by_threshold": {
     "85": {
       "samples": 6,
-      "win_rate": 50.0,
-      "avg_return_pct": -0.304,
-      "avg_r": -0.169,
-      "profit_factor_r": 0.31
+      "win_rate": 16.7,
+      "avg_return_pct": -0.764,
+      "avg_r": -0.222,
+      "profit_factor_r": 0.26
     },
     "88": {
-      "samples": 3,
-      "win_rate": 33.3,
-      "avg_return_pct": -0.703,
-      "avg_r": -0.385,
-      "profit_factor_r": 0.04
+      "samples": 4,
+      "win_rate": 25.0,
+      "avg_return_pct": -0.994,
+      "avg_r": -0.168,
+      "profit_factor_r": 0.41
     },
     "90": {
-      "samples": 3,
-      "win_rate": 33.3,
-      "avg_return_pct": -0.703,
-      "avg_r": -0.385,
-      "profit_factor_r": 0.04
+      "samples": 4,
+      "win_rate": 25.0,
+      "avg_return_pct": -0.994,
+      "avg_r": -0.168,
+      "profit_factor_r": 0.41
     },
     "92": {
-      "samples": 3,
-      "win_rate": 33.3,
-      "avg_return_pct": -0.703,
-      "avg_r": -0.385,
-      "profit_factor_r": 0.04
+      "samples": 4,
+      "win_rate": 25.0,
+      "avg_return_pct": -0.994,
+      "avg_r": -0.168,
+      "profit_factor_r": 0.41
     },
     "95": {
-      "samples": 0,
+      "samples": 1,
       "win_rate": 0.0,
-      "avg_return_pct": 0.0,
-      "avg_r": 0.0,
+      "avg_return_pct": -2.847,
+      "avg_r": -0.33,
       "profit_factor_r": 0.0
     }
   },
   "validation_samples": [
     {
-      "symbol": "HD",
+      "symbol": "ABNB",
       "strategy": "DAY",
       "setup_type": "BREAKOUT",
-      "date": "2026-07-10",
-      "score": 87,
-      "rr1": 2.0,
-      "outcome": "TIME_EXIT",
-      "return_pct": -0.311,
-      "r_multiple": -0.262
-    },
-    {
-      "symbol": "PYPL",
-      "strategy": "DAY",
-      "setup_type": "BREAKOUT",
-      "date": "2026-07-29",
-      "score": 93,
-      "rr1": 2.0,
-      "outcome": "TIME_EXIT",
-      "return_pct": -1.402,
-      "r_multiple": -0.776
-    },
-    {
-      "symbol": "SPOT",
-      "strategy": "DAY",
-      "setup_type": "BREAKOUT",
-      "date": "2026-07-30",
-      "score": 87,
-      "rr1": 2.0,
-      "outcome": "TIME_EXIT",
-      "return_pct": 0.33,
-      "r_multiple": 0.188
-    },
-    {
-      "symbol": "PFE",
-      "strategy": "DAY",
-      "setup_type": "BREAKOUT",
-      "date": "2026-08-05",
-      "score": 87,
-      "rr1": 2.0,
-      "outcome": "TIME_EXIT",
-      "return_pct": 0.267,
-      "r_multiple": 0.215
-    },
-    {
-      "symbol": "VZ",
-      "strategy": "DAY",
-      "setup_type": "BREAKOUT",
-      "date": "2026-08-11",
+      "date": "2026-07-31",
       "score": 94,
       "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": 0.055,
-      "r_multiple": 0.042
+      "return_pct": -0.633,
+      "r_multiple": -0.36
     },
     {
-      "symbol": "PANW",
+      "symbol": "LLY",
       "strategy": "DAY",
       "setup_type": "BREAKOUT",
-      "date": "2026-08-21",
-      "score": 93,
+      "date": "2026-08-06",
+      "score": 87,
       "rr1": 2.0,
       "outcome": "TIME_EXIT",
-      "return_pct": -0.761,
-      "r_multiple": -0.42
+      "return_pct": -0.069,
+      "r_multiple": -0.045
+    },
+    {
+      "symbol": "JPM",
+      "strategy": "DAY",
+      "setup_type": "BREAKOUT",
+      "date": "2026-08-12",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": 0.335,
+      "r_multiple": 0.467
+    },
+    {
+      "symbol": "DIS",
+      "strategy": "DAY",
+      "setup_type": "BREAKOUT",
+      "date": "2026-08-12",
+      "score": 85,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.538,
+      "r_multiple": -0.617
+    },
+    {
+      "symbol": "DE",
+      "strategy": "SWING",
+      "setup_type": "BREAKOUT",
+      "date": "2026-08-21",
+      "score": 100,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -2.847,
+      "r_multiple": -0.33
+    },
+    {
+      "symbol": "PLTR",
+      "strategy": "DAY",
+      "setup_type": "BREAKOUT",
+      "date": "2026-08-28",
+      "score": 94,
+      "rr1": 2.0,
+      "outcome": "TIME_EXIT",
+      "return_pct": -0.831,
+      "r_multiple": -0.449
     }
   ]
 }
