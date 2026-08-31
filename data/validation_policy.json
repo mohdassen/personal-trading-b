@@ -1,26 +1,26 @@
 {
-  "source_engine": "V4.4.1-Qualification",
+  "source_engine": "V4.4.2-Retest-Validation",
   "qualification_aware": true,
   "strategies": {
     "DAY": {
-      "samples": 12,
-      "adjustment": -12,
-      "disabled": true,
-      "reason": "qualification validation strongly negative"
+      "samples": 0,
+      "adjustment": 0,
+      "disabled": false,
+      "reason": "insufficient validation sample"
     },
     "SWING": {
-      "samples": 12,
-      "adjustment": -12,
-      "disabled": true,
-      "reason": "qualification validation strongly negative"
+      "samples": 0,
+      "adjustment": 0,
+      "disabled": false,
+      "reason": "insufficient validation sample"
     }
   },
   "setup_types": {
     "BREAKOUT": {
-      "samples": 24,
-      "adjustment": -12,
-      "disabled": true,
-      "reason": "qualification validation strongly negative"
+      "samples": 0,
+      "adjustment": 0,
+      "disabled": false,
+      "reason": "insufficient validation sample"
     },
     "PULLBACK": {
       "samples": 0,
@@ -29,19 +29,14 @@
       "reason": "insufficient validation sample"
     }
   },
-  "disabled_strategies": [
-    "DAY",
-    "SWING"
-  ],
-  "disabled_setup_types": [
-    "BREAKOUT"
-  ],
+  "disabled_strategies": [],
+  "disabled_setup_types": [],
   "strategy_adjustments": {
-    "DAY": -12,
-    "SWING": -12
+    "DAY": 0,
+    "SWING": 0
   },
   "setup_adjustments": {
-    "BREAKOUT": -12,
+    "BREAKOUT": 0,
     "PULLBACK": 0
   }
 }
