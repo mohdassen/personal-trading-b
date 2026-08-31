@@ -7,9 +7,10 @@ import yfinance as yf
 import yaml
 from .strategies import swing_setup,intraday_setup
 from .indicators import add_daily
+from .robust_validation import evaluate as robust_evaluate
 
 ROOT=Path(__file__).resolve().parents[2]
-ENGINE='V4.4.1-Qualification'
+ENGINE='V4.5-Robust-Validation'
 SCORE_GRID=(70,75,80,82,85,87,88,90,92,95)
 RR_GRID=(1.2,1.4,1.5,1.7,1.9,2.0)
 COLLECT_MIN_SCORE=55
@@ -199,7 +200,8 @@ def run_backtest():
     top_validated=[x for x in val_ranked if x['samples']>=30 and x['expectancy_r']>0 and x['profit_factor_r']>1][:10]
     live_dev=_view(dev,live_score,live_rr,True);live_val=_view(val,live_score,live_rr,True);live_all=_view(rows,live_score,live_rr,True)
     live_val_rows=[x for x in val if _eligible_row(x,live_score,live_rr,True)]
-    out={'engine':ENGINE,'method':'Historical qualification-aware validation. Candidate-first score/RR sensitivity plus no-lookahead confirmation, SPY bullish-regime gate, SWING weekly alignment, conservative stop-first handling and transaction costs. These gates mirror important live qualification protections without using current benchmark data for past decisions.','collection_floor':{'score':COLLECT_MIN_SCORE,'min_rr':COLLECT_MIN_RR},'live_parameters':{'score':live_score,'min_rr':live_rr},'transaction_cost_bps':cost,'years_requested':years,'candidate_pool_samples':len(rows),'qualified_pool_samples':sum(bool(x.get('qualification_passed')) for x in rows),'split_date':cut_date,'candidate_pool_raw':_stats(rows),'qualified_pool':_stats([x for x in rows if x.get('qualification_passed')]),'development_pool_qualified':_stats([x for x in dev if x.get('qualification_passed')]),'validation_pool_qualified':_stats([x for x in val if x.get('qualification_passed')]),'live_parameters_overall':live_all,'live_parameters_development':live_dev,'live_parameters_validation':live_val,'live_validation_by_strategy':{n:_stats([x for x in live_val_rows if x['strategy']==n]) for n in ('DAY','SWING')},'live_validation_by_setup_type':{n:_stats([x for x in live_val_rows if x['setup_type']==n]) for n in ('BREAKOUT','PULLBACK')},'qualification_failure_counts':{},'development_sensitivity':sensitivity_dev,'validation_sensitivity':sensitivity_val,'top_validated_parameter_sets':top_validated,'validation_samples':live_val_rows[-1000:]}
+    robust=robust_evaluate(rows)
+    out={'engine':ENGINE,'method':'Qualification-aware candidate-first validation plus V4.5 multi-window robustness gate. The robustness gate requires chronological consistency, neighboring-parameter support, and a final untouched holdout before a setup can advance to Shadow/Paper.','collection_floor':{'score':COLLECT_MIN_SCORE,'min_rr':COLLECT_MIN_RR},'live_parameters':{'score':live_score,'min_rr':live_rr},'transaction_cost_bps':cost,'years_requested':years,'candidate_pool_samples':len(rows),'qualified_pool_samples':sum(bool(x.get('qualification_passed')) for x in rows),'split_date':cut_date,'candidate_pool_raw':_stats(rows),'qualified_pool':_stats([x for x in rows if x.get('qualification_passed')]),'development_pool_qualified':_stats([x for x in dev if x.get('qualification_passed')]),'validation_pool_qualified':_stats([x for x in val if x.get('qualification_passed')]),'live_parameters_overall':live_all,'live_parameters_development':live_dev,'live_parameters_validation':live_val,'live_validation_by_strategy':{n:_stats([x for x in live_val_rows if x['strategy']==n]) for n in ('DAY','SWING')},'live_validation_by_setup_type':{n:_stats([x for x in live_val_rows if x['setup_type']==n]) for n in ('BREAKOUT','PULLBACK')},'robust_validation':robust,'qualification_failure_counts':{},'development_sensitivity':sensitivity_dev,'validation_sensitivity':sensitivity_val,'top_validated_parameter_sets':top_validated,'validation_samples':live_val_rows[-1000:]}
     for x in val:
         if not x.get('qualification_passed'):
             for reason in x.get('qualification_reasons',[]):out['qualification_failure_counts'][reason]=out['qualification_failure_counts'].get(reason,0)+1
