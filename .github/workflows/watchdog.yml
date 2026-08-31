@@ -1,0 +1,60 @@
+name: Trading Bot Watchdog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trading-watchdog
+  cancel-in-progress: false
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync latest state
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Check trading scan health
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          WATCHDOG_MAX_STALE_MINUTES: '35'
+          WATCHDOG_MIN_EXPECTED_SUCCESS: '8'
+        run: python watchdog.py
+      - name: Persist watchdog state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/watchdog_state.json
+          if git diff --cached --quiet; then
+            echo "No watchdog state changes"
+            exit 0
+          fi
+          git commit -m "chore: update watchdog state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git fetch origin main
+            git rebase -X theirs origin/main || {
+              git rebase --abort || true
+              exit 1
+            }
+          done
+          exit 1
