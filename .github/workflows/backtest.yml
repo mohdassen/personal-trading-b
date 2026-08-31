@@ -8,6 +8,7 @@ on:
       - 'backtest_retest.py'
       - 'backtest_pullback.py'
       - 'backtest_evidence_momentum.py'
+      - 'backtest_adaptive_momentum.py'
       - 'config/settings.yml'
       - 'config/universe.yml'
       - '.github/workflows/backtest.yml'
@@ -29,9 +30,9 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Run V4.7 evidence-based momentum position validation
+      - name: Run V4.8 adaptive momentum leadership validation
         run: |
-          python backtest_evidence_momentum.py
+          python backtest_adaptive_momentum.py
           cp data/backtest.json /tmp/backtest.json
       - name: Publish backtest result safely
         run: |
@@ -46,7 +47,7 @@ jobs:
               echo "Backtest result already current"
               exit 0
             fi
-            git commit -m "chore: V4.7 evidence momentum validation results"
+            git commit -m "chore: V4.8 adaptive momentum validation results"
             if git push origin HEAD:main; then
               exit 0
             fi
