@@ -128,6 +128,40 @@ def _market_open():
     minutes = now.hour * 60 + now.minute
     return now.weekday() < 5 and 570 <= minutes <= 960, now.date().isoformat()
 
+def _summary(rows):
+    return {
+        'eligible_count': sum(1 for r in rows if r.get('eligible')),
+        'watch_count': sum(1 for r in rows if r.get('action') in ('WATCH', 'WAIT_FOR_ENTRY', 'DO_NOT_CHASE')),
+        'top': [
+            {
+                'symbol': r.get('symbol'),
+                'score': int(r.get('score', 0)),
+                'grade': r.get('quality_grade'),
+                'action': r.get('action'),
+                'eligible': bool(r.get('eligible')),
+            }
+            for r in rows[:5]
+        ],
+    }
+
+def _material_change(previous, current):
+    if not previous:
+        return True
+    if previous.get('eligible_count') != current.get('eligible_count'):
+        return True
+    if previous.get('watch_count') != current.get('watch_count'):
+        return True
+    ptop = previous.get('top', [])
+    ctop = current.get('top', [])
+    if [x.get('symbol') for x in ptop] != [x.get('symbol') for x in ctop]:
+        return True
+    for old, new in zip(ptop, ctop):
+        if old.get('action') != new.get('action') or old.get('grade') != new.get('grade') or old.get('eligible') != new.get('eligible'):
+            return True
+        if abs(int(old.get('score', 0)) - int(new.get('score', 0))) >= 5:
+            return True
+    return False
+
 def _message(rows, engine):
     lines = [
         f'🔎 <b>Market Discovery Diagnostics — {engine}</b>',
@@ -171,11 +205,15 @@ def run():
     market_is_open, market_day = _market_open()
     state_path = ROOT / 'data/diagnostics_notify_state.json'
     state = _load_json(state_path, {})
+    current_summary = _summary(rows)
+    previous_summary = state.get('last_summary', {})
+    material_change = _material_change(previous_summary, current_summary)
 
     should_notify = event_name == 'workflow_dispatch'
-    if event_name == 'schedule' and market_is_open and state.get('market_day') != market_day:
-        should_notify = True
-    if event_name == 'push' and notify_on_push:
+    if event_name == 'schedule' and market_is_open:
+        if state.get('market_day') != market_day or material_change:
+            should_notify = True
+    if event_name == 'push' and (notify_on_push or material_change):
         should_notify = True
 
     if should_notify:
@@ -187,11 +225,15 @@ def run():
         except Exception as exc:
             print('MARKET_DISCOVERY_TELEGRAM_SEND_ERROR:', exc)
             return 3
-        if event_name in ('schedule', 'push'):
-            state['market_day'] = market_day
-            state['sent_at'] = datetime.now(ZoneInfo('UTC')).isoformat()
-            _save_json(state_path, state)
+        state['market_day'] = market_day
+        state['sent_at'] = datetime.now(ZoneInfo('UTC')).isoformat()
+        state['last_summary'] = current_summary
+        _save_json(state_path, state)
         print('Market Discovery Diagnostics Telegram: sent')
+    else:
+        state['last_summary'] = current_summary
+        _save_json(state_path, state)
+        print('Market Discovery Diagnostics Telegram: skipped (no material change)')
 
     return 0
 
