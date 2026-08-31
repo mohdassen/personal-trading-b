@@ -3,23 +3,23 @@
     "symbol": "CRWD",
     "strategy": "SWING",
     "raw_score": 88,
-    "price": 230.17999267578125,
-    "entry_low": 204.8391783757688,
-    "entry_high": 209.15019324737938,
-    "stop_loss": 179.39242769104524,
+    "price": 229.90499877929688,
+    "entry_low": 203.554640281295,
+    "entry_high": 207.6493098448962,
+    "stop_loss": 179.48514710876356,
     "target1": 229.0800018310547,
-    "target2": 298.42348991638175,
-    "rr1": 0.6697347133119381,
-    "rr2": 2.999999999999999,
-    "atr": 12.317185347458777,
-    "rsi": 62.721740431617306,
-    "vol_ratio": 1.6863931776761458,
-    "momentum": 20.71533538768433,
+    "target2": 292.14179805329417,
+    "rr1": 0.7609206134384531,
+    "rr2": 3.0,
+    "atr": 11.699055896003424,
+    "rsi": 64.77061964548469,
+    "vol_ratio": 2.930370696293037,
+    "momentum": 19.773379752274202,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 62.7",
-      "Previous completed-day volume 1.69x",
-      "5-day momentum +20.72%"
+      "Daily RSI 64.8",
+      "Previous completed-day volume 2.93x",
+      "5-day momentum +19.77%"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session",
@@ -45,22 +45,22 @@
     "precision": {
       "adjustment": 1,
       "relative_strength": {
-        "stock_20d": 13.65,
-        "vs_market": 12.53,
-        "vs_sector": 7.03,
+        "stock_20d": 20.46,
+        "vs_market": 17.9,
+        "vs_sector": 11.46,
         "score": 9
       },
       "sector_strength": {
         "etf": "CIBR",
         "trend": "BULLISH",
-        "return_20d": 6.62,
-        "vs_spy": 5.5,
+        "return_20d": 8.99,
+        "vs_spy": 6.44,
         "score": 3
       },
       "entry_quality": {
         "score": -15,
-        "position": 5.88,
-        "extension_atr": 1.71,
+        "position": 6.44,
+        "extension_atr": 1.9,
         "blockers": [
           "السعر أعلى من منطقة الدخول",
           "السعر ممتد بعد حركة سريعة",
@@ -72,7 +72,7 @@
         "score": 0,
         "support": 181.24,
         "resistance": 229.08,
-        "room_to_resistance_pct": -0.48,
+        "room_to_resistance_pct": -0.36,
         "blockers": []
       },
       "market_v2": {
@@ -103,7 +103,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 206.99,
+    "planned_entry_price": 205.6,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -112,36 +112,141 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:16.767678+00:00",
+    "expires_at": "2026-09-01T19:16:56.952195+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "DE",
+    "strategy": "DAY",
+    "raw_score": 60,
+    "price": 650.1500244140625,
+    "entry_low": 649.8644289455875,
+    "entry_high": 650.3555148868751,
+    "stop_loss": 645.1744399395125,
+    "target1": 657.1699829101562,
+    "target2": 665.8987397289629,
+    "rr1": 1.315261425961424,
+    "rr2": 3.0,
+    "atr": 2.455429706437692,
+    "rsi": 60.706396881414626,
+    "vol_ratio": 0.0,
+    "momentum": -0.08375397137244667,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 60.7"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 89,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "عالية",
+    "risk_label": "منخفضة",
+    "quality_grade": "A",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 15,
+    "precision": {
+      "adjustment": 15,
+      "relative_strength": {
+        "stock_20d": 9.7,
+        "vs_market": 7.14,
+        "vs_sector": 12.24,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLI",
+        "trend": "MIXED",
+        "return_20d": -2.54,
+        "vs_spy": -5.1,
+        "score": 0
+      },
+      "entry_quality": {
+        "score": 5,
+        "position": 0.58,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل منطقة دخول مريحة"
+        ]
+      },
+      "structure": {
+        "score": 2,
+        "support": 579.31,
+        "resistance": 660.7,
+        "room_to_resistance_pct": 1.62,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [],
+      "group": "INDUSTRIALS"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 650.11,
+    "suggested_shares": 1,
+    "suggested_value": 650.11,
+    "risk_dollars": 4.93,
+    "risk_pct_equity": 0.05,
+    "risk_multiplier": 0.68,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:05.240619+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "NVDA",
     "strategy": "SWING",
-    "raw_score": 88,
-    "price": 218.78199768066406,
-    "entry_low": 214.84765644012143,
-    "entry_high": 217.4479603729482,
-    "stop_loss": 204.07496871841053,
+    "raw_score": 81,
+    "price": 218.8800048828125,
+    "entry_low": 214.64970437522976,
+    "entry_high": 217.3148391978807,
+    "stop_loss": 203.60843153853295,
     "target1": 230.47000122070312,
-    "target2": 257.5669353365612,
-    "rr1": 0.973756746743827,
-    "rr2": 3.000000000000002,
-    "atr": 7.429439808076469,
-    "rsi": 53.21093874864898,
-    "vol_ratio": 1.5549664762181026,
-    "momentum": 4.941482235345318,
+    "target2": 258.43406217592394,
+    "rr1": 0.9597819027256661,
+    "rr2": 3.0,
+    "atr": 7.614670921859868,
+    "rsi": 53.33528867670806,
+    "vol_ratio": 2.5625863767549744,
+    "momentum": 1.9374085499531235,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 53.2",
-      "Previous completed-day volume 1.55x",
-      "5-day momentum +4.94%"
+      "Daily RSI 53.3",
+      "Previous completed-day volume 2.56x"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
     ],
     "setup_type": "PULLBACK",
-    "score": 91,
+    "score": 86,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -156,26 +261,26 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": -5,
+    "precision_adjustment": -3,
     "precision": {
-      "adjustment": -5,
+      "adjustment": -3,
       "relative_strength": {
-        "stock_20d": 5.88,
-        "vs_market": 4.76,
-        "vs_sector": 4.26,
-        "score": 7
+        "stock_20d": 9.03,
+        "vs_market": 6.48,
+        "vs_sector": 6.46,
+        "score": 9
       },
       "sector_strength": {
         "etf": "SMH",
         "trend": "BEARISH",
-        "return_20d": 1.62,
-        "vs_spy": 0.51,
+        "return_20d": 2.57,
+        "vs_spy": 0.02,
         "score": -4
       },
       "entry_quality": {
         "score": -6,
-        "position": 1.51,
-        "extension_atr": 0.18,
+        "position": 1.59,
+        "extension_atr": 0.21,
         "blockers": [
           "السعر أعلى من منطقة الدخول"
         ],
@@ -183,9 +288,9 @@
       },
       "structure": {
         "score": -6,
-        "support": 196.85,
+        "support": 194.95,
         "resistance": 230.47,
-        "room_to_resistance_pct": 5.34,
+        "room_to_resistance_pct": 5.3,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -218,7 +323,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 216.15,
+    "planned_entry_price": 215.98,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -227,120 +332,7 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:13.128842+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "MU",
-    "strategy": "SWING",
-    "raw_score": 72,
-    "price": 940.4600219726562,
-    "entry_low": 921.7382456274762,
-    "entry_high": 941.9387070368831,
-    "stop_loss": 838.050619788505,
-    "target1": 1036.1300048828125,
-    "target2": 1253.6029687820176,
-    "rr1": 0.9066611999577445,
-    "rr2": 3.0,
-    "atr": 57.71560402687673,
-    "rsi": 51.625252057409604,
-    "vol_ratio": 0.7134233303134263,
-    "momentum": 3.2984446402755108,
-    "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 51.6",
-      "5-day momentum +3.30%"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 87,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 4,
-    "precision": {
-      "adjustment": 4,
-      "relative_strength": {
-        "stock_20d": 13.38,
-        "vs_market": 12.26,
-        "vs_sector": 11.76,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "SMH",
-        "trend": "BEARISH",
-        "return_20d": 1.62,
-        "vs_spy": 0.51,
-        "score": -4
-      },
-      "entry_quality": {
-        "score": 1,
-        "position": 0.93,
-        "extension_atr": 0.0,
-        "blockers": [],
-        "notes": [
-          "السعر داخل المنطقة لكن قريب من طرفها"
-        ]
-      },
-      "structure": {
-        "score": -6,
-        "support": 770.1,
-        "resistance": 1036.13,
-        "room_to_resistance_pct": 10.17,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "مقاومة قريبة تقلل مساحة الربح",
-        "القطاع ضعيف حاليًا"
-      ],
-      "group": "SEMICONDUCTORS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 931.84,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:15.502968+00:00",
+    "expires_at": "2026-09-01T19:16:53.707311+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
@@ -366,7 +358,7 @@
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 84,
+    "score": 86,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -381,21 +373,21 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 10,
+    "precision_adjustment": 12,
     "precision": {
-      "adjustment": 10,
+      "adjustment": 12,
       "relative_strength": {
-        "stock_20d": 11.16,
-        "vs_market": 10.05,
-        "vs_sector": 10.85,
+        "stock_20d": 13.67,
+        "vs_market": 11.12,
+        "vs_sector": 10.51,
         "score": 9
       },
       "sector_strength": {
         "etf": "XLC",
         "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
-        "score": 1
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
+        "score": 3
       },
       "entry_quality": {
         "score": -6,
@@ -408,7 +400,7 @@
       },
       "structure": {
         "score": 2,
-        "support": 72.18,
+        "support": 71.11,
         "resistance": 82.46,
         "room_to_resistance_pct": 1.16,
         "blockers": []
@@ -448,137 +440,29 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:15.739591+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "COP",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 132.0800018310547,
-    "entry_low": 131.93276960623695,
-    "entry_high": 132.00281969018351,
-    "stop_loss": 131.06498106154234,
-    "target1": 132.6199951171875,
-    "target2": 134.81633557610704,
-    "rr1": 0.658082753424441,
-    "rr2": 3.0,
-    "atr": 0.350250419732893,
-    "rsi": 56.18474289092612,
-    "vol_ratio": 0.0,
-    "momentum": 0.2771176428747024,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 56.2"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 84,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "متوسطة",
-    "risk_label": "منخفضة",
-    "quality_grade": "B",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 10,
-    "precision": {
-      "adjustment": 10,
-      "relative_strength": {
-        "stock_20d": 10.84,
-        "vs_market": 9.73,
-        "vs_sector": 2.52,
-        "score": 7
-      },
-      "sector_strength": {
-        "etf": "XLE",
-        "trend": "BULLISH",
-        "return_20d": 8.32,
-        "vs_spy": 7.2,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 2.1,
-        "extension_atr": 0.22,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 114.71,
-        "resistance": 135.88,
-        "room_to_resistance_pct": 2.88,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول"
-      ],
-      "group": "ENERGY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 131.97,
-    "suggested_shares": 5,
-    "suggested_value": 659.84,
-    "risk_dollars": 4.51,
-    "risk_pct_equity": 0.045,
-    "risk_multiplier": 0.48,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:24.186025+00:00",
+    "expires_at": "2026-08-31T20:01:56.123103+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "CRM",
     "strategy": "DAY",
     "raw_score": 60,
-    "price": 260.6600036621094,
-    "entry_low": 260.500110995449,
-    "entry_high": 260.7346729073185,
-    "stop_loss": 258.28271294054963,
+    "price": 260.6000061035156,
+    "entry_low": 260.4712518063229,
+    "entry_high": 260.7066708261723,
+    "stop_loss": 258.2822843865597,
     "target1": 262.2799987792969,
-    "target2": 268.0905528076251,
-    "rr1": 0.6302410695614944,
+    "target2": 267.97983014501006,
+    "rr1": 0.648959228371201,
     "rr2": 3.0,
-    "atr": 1.1728095593472894,
-    "rsi": 52.95229125700311,
+    "atr": 1.177095099246843,
+    "rsi": 52.599818289934994,
     "vol_ratio": 0.0,
-    "momentum": -0.10347182050756132,
+    "momentum": -0.12646555839812557,
     "reasons": [
       "EMA 9/21/50 bullish alignment",
       "Price above VWAP",
-      "RSI momentum 53.0"
+      "RSI momentum 52.6"
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
@@ -601,21 +485,21 @@
     "precision": {
       "adjustment": 15,
       "relative_strength": {
-        "stock_20d": 40.18,
+        "stock_20d": 41.62,
         "vs_market": 39.06,
-        "vs_sector": 35.72,
+        "vs_sector": 35.54,
         "score": 9
       },
       "sector_strength": {
         "etf": "XLK",
         "trend": "BULLISH",
-        "return_20d": 4.46,
-        "vs_spy": 3.34,
+        "return_20d": 6.07,
+        "vs_spy": 3.52,
         "score": 3
       },
       "entry_quality": {
         "score": 5,
-        "position": 0.68,
+        "position": 0.55,
         "extension_atr": 0.0,
         "blockers": [],
         "notes": [
@@ -623,13 +507,11 @@
         ]
       },
       "structure": {
-        "score": -6,
-        "support": 183.0,
-        "resistance": 263.53,
-        "room_to_resistance_pct": 1.1,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
+        "score": 0,
+        "support": 177.03,
+        "resistance": 254.48,
+        "room_to_resistance_pct": -2.35,
+        "blockers": []
       },
       "market_v2": {
         "label": "CAUTIOUS_RISK_ON",
@@ -648,25 +530,23 @@
         ]
       },
       "weekly_aligned": true,
-      "blockers": [
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
+      "blockers": [],
       "group": "MEGA_TECH"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 260.62,
+    "planned_entry_price": 260.59,
     "suggested_shares": 2,
-    "suggested_value": 521.24,
-    "risk_dollars": 4.67,
-    "risk_pct_equity": 0.047,
+    "suggested_value": 521.18,
+    "risk_dollars": 4.61,
+    "risk_pct_equity": 0.046,
     "risk_multiplier": 0.48,
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:14.984297+00:00",
+    "expires_at": "2026-08-31T20:01:55.364127+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
@@ -692,7 +572,7 @@
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 79,
+    "score": 81,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -707,20 +587,20 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 5,
+    "precision_adjustment": 7,
     "precision": {
-      "adjustment": 5,
+      "adjustment": 7,
       "relative_strength": {
-        "stock_20d": 6.24,
-        "vs_market": 5.12,
-        "vs_sector": 1.78,
-        "score": 7
+        "stock_20d": 16.02,
+        "vs_market": 13.46,
+        "vs_sector": 9.94,
+        "score": 9
       },
       "sector_strength": {
         "etf": "XLK",
         "trend": "BULLISH",
-        "return_20d": 4.46,
-        "vs_spy": 3.34,
+        "return_20d": 6.07,
+        "vs_spy": 3.52,
         "score": 3
       },
       "entry_quality": {
@@ -735,7 +615,7 @@
       },
       "structure": {
         "score": 2,
-        "support": 130.21,
+        "support": 125.7,
         "resistance": 159.26,
         "room_to_resistance_pct": 5.7,
         "blockers": []
@@ -776,707 +656,35 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:14.720853+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "NET",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 307.69000244140625,
-    "entry_low": 304.65411847043964,
-    "entry_high": 304.9782384013778,
-    "stop_loss": 299.29765864684424,
-    "target1": 307.489990234375,
-    "target2": 322.0199776649784,
-    "rr1": 0.4421646982409936,
-    "rr2": 3.0,
-    "atr": 1.6205996546907444,
-    "rsi": 63.944563224109835,
-    "vol_ratio": 0.0,
-    "momentum": 0.629564436985075,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 63.9"
-    ],
-    "warnings": [
-      "Breakout rejected: weak confirmation or excessive extension"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 79,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 5,
-    "precision": {
-      "adjustment": 5,
-      "relative_strength": {
-        "stock_20d": 8.82,
-        "vs_market": 7.71,
-        "vs_sector": 2.21,
-        "score": 7
-      },
-      "sector_strength": {
-        "etf": "CIBR",
-        "trend": "BULLISH",
-        "return_20d": 6.62,
-        "vs_spy": 5.5,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 9.37,
-        "extension_atr": 1.67,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 272.29,
-        "resistance": 332.22,
-        "room_to_resistance_pct": 7.97,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة"
-      ],
-      "group": "CLOUD_SECURITY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 304.82,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:18.025174+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "SLB",
-    "strategy": "SWING",
-    "raw_score": 70,
-    "price": 59.8849983215332,
-    "entry_low": 53.45790357379978,
-    "entry_high": 54.089169871608995,
-    "stop_loss": 50.84265748287591,
-    "target1": 57.41999816894531,
-    "target2": 63.82870703780826,
-    "rr1": 1.0259712265062797,
-    "rr2": 3.0,
-    "atr": 1.803617993740604,
-    "rsi": 76.15858345810439,
-    "vol_ratio": 1.8695950994192119,
-    "momentum": 10.898145039876294,
-    "reasons": [
-      "Daily trend bullish",
-      "Previous completed-day volume 1.87x",
-      "5-day momentum +10.90%"
-    ],
-    "warnings": [
-      "Daily RSI overbought",
-      "Current daily volume is partial; SWING score uses last completed session",
-      "Breakout rejected: weak confirmation or excessive extension"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 97,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 1,
-    "precision": {
-      "adjustment": 1,
-      "relative_strength": {
-        "stock_20d": 21.45,
-        "vs_market": 20.33,
-        "vs_sector": 13.13,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "CIBR",
-        "trend": "BULLISH",
-        "return_20d": 8.32,
-        "vs_spy": 7.2,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -15,
-        "position": 10.18,
-        "extension_atr": 3.21,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة",
-          "السهم ارتفع كثيرًا خلال خمسة أيام"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 0,
-        "support": 48.3,
-        "resistance": 57.42,
-        "room_to_resistance_pct": -4.12,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "السهم ارتفع كثيرًا خلال خمسة أيام"
-      ],
-      "group": "ENERGY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 53.77,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:23.915740+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "GILD",
-    "strategy": "DAY",
-    "raw_score": 57,
-    "price": 146.47000122070312,
-    "entry_low": 146.19437511570226,
-    "entry_high": 146.2673439290863,
-    "stop_loss": 145.29351742436265,
-    "target1": 146.71499633789062,
-    "target2": 149.1888234432573,
-    "rr1": 0.4596839443503799,
-    "rr2": 3.0,
-    "atr": 0.3648440669203593,
-    "rsi": 55.06666083618873,
-    "vol_ratio": 0.0,
-    "momentum": 0.0614813054301111,
-    "reasons": [
-      "Short-term EMA momentum",
-      "Price above VWAP",
-      "RSI momentum 55.1"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 78,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 7,
-    "precision": {
-      "adjustment": 7,
-      "relative_strength": {
-        "stock_20d": 11.68,
-        "vs_market": 10.57,
-        "vs_sector": 6.57,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLV",
-        "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 3.78,
-        "extension_atr": 0.56,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 129.02,
-        "resistance": 149.62,
-        "room_to_resistance_pct": 2.15,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة"
-      ],
-      "group": "HEALTHCARE"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 146.23,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:23.652283+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "NVDA",
-    "strategy": "SWING",
-    "raw_score": 65,
-    "price": 104.93000030517578,
-    "entry_low": 100.4843183078845,
-    "entry_high": 102.57538635319705,
-    "stop_loss": 90.54383042198658,
-    "target1": 112.44999694824219,
-    "target2": 138.67005414682842,
-    "rr1": 0.8207259851928131,
-    "rr2": 2.9999999999999987,
-    "atr": 5.974480129464435,
-    "rsi": 54.71062130239749,
-    "vol_ratio": 0.8635436755334256,
-    "momentum": 1.2642323141001555,
-    "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 54.7"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 89,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -7,
-    "precision": {
-      "adjustment": -7,
-      "relative_strength": {
-        "stock_20d": 16.15,
-        "vs_market": 15.04,
-        "vs_sector": 15.44,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLF",
-        "trend": "BULLISH",
-        "return_20d": 0.71,
-        "vs_spy": -0.41,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 2.13,
-        "extension_atr": 0.39,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 85.3,
-        "resistance": 112.45,
-        "room_to_resistance_pct": 7.17,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "مقاومة قريبة تقلل مساحة الربح",
-        "القطاع ضعيف حاليًا"
-      ],
-      "group": "SEMICONDUCTORS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 101.53,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:21.498454+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "DE",
-    "strategy": "SWING",
-    "raw_score": 65,
-    "price": 649.8699951171875,
-    "entry_low": 619.050695981871,
-    "entry_high": 626.0570488879853,
-    "stop_loss": 576.3072748845448,
-    "target1": 660.7000122070312,
-    "target2": 775.3063708983068,
-    "rr1": 0.6963441344808963,
-    "rr2": 3.0,
-    "atr": 20.018151160326813,
-    "rsi": 60.36990280467319,
-    "vol_ratio": 0.5407723113599918,
-    "momentum": 0.18962451297683813,
-    "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 60.4"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 75,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -4,
-    "precision": {
-      "adjustment": -4,
-      "relative_strength": {
-        "stock_20d": 7.41,
-        "vs_market": 6.29,
-        "vs_sector": 11.72,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLI",
-        "trend": "MIXED",
-        "return_20d": -4.32,
-        "vs_spy": -5.43,
-        "score": 0
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 4.4,
-        "extension_atr": 1.19,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 579.31,
-        "resistance": 660.7,
-        "room_to_resistance_pct": 1.67,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "INDUSTRIALS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 622.56,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:24.772257+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "DIS",
-    "strategy": "DAY",
-    "raw_score": 57,
-    "price": 107.70999908447266,
-    "entry_low": 107.6174697610823,
-    "entry_high": 107.65425062645767,
-    "stop_loss": 107.30160926213654,
-    "target1": 108.04499816894531,
-    "target2": 108.71217471942106,
-    "rr1": 1.1080592976943402,
-    "rr2": 3.0,
-    "atr": 0.1839043268768393,
-    "rsi": 52.84162032065595,
-    "vol_ratio": 0.0,
-    "momentum": 0.1161872018066834,
-    "reasons": [
-      "Short-term EMA momentum",
-      "Price above VWAP",
-      "RSI momentum 52.8"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 75,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 10,
-    "precision": {
-      "adjustment": 10,
-      "relative_strength": {
-        "stock_20d": 9.75,
-        "vs_market": 8.64,
-        "vs_sector": 9.44,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLC",
-        "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 2.52,
-        "extension_atr": 0.3,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 97.21,
-        "resistance": 111.87,
-        "room_to_resistance_pct": 3.86,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول"
-      ],
-      "group": "MEDIA_TELECOM"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 107.64,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:25.564064+00:00",
+    "expires_at": "2026-08-31T20:01:55.130234+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "JNJ",
     "strategy": "SWING",
-    "raw_score": 58,
-    "price": 265.989990234375,
-    "entry_low": 264.63023417213765,
-    "entry_high": 266.4685020964615,
-    "stop_loss": 257.0145527713673,
+    "raw_score": 67,
+    "price": 266.0,
+    "entry_low": 264.3641092962155,
+    "entry_high": 266.22952674574276,
+    "stop_loss": 256.63595129103106,
     "target1": 276.4700012207031,
-    "target2": 294.83035007174425,
-    "rr1": 1.0579175728913592,
+    "target2": 295.01025310987785,
+    "rr1": 1.0674304406425403,
     "rr2": 3.0,
-    "atr": 5.252194069496793,
-    "rsi": 53.11342102721125,
-    "vol_ratio": 0.886901451890411,
-    "momentum": -2.582045887017681,
+    "atr": 5.329764141506504,
+    "rsi": 53.66553674261888,
+    "vol_ratio": 1.1160723151068916,
+    "momentum": -1.5689721682929814,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 53.1"
+      "Daily RSI 53.7",
+      "Previous completed-day volume 1.12x"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
     ],
     "setup_type": "PULLBACK",
-    "score": 74,
+    "score": 80,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -1491,25 +699,25 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 5,
+    "precision_adjustment": 2,
     "precision": {
-      "adjustment": 5,
+      "adjustment": 2,
       "relative_strength": {
-        "stock_20d": 4.55,
-        "vs_market": 3.44,
-        "vs_sector": -0.56,
-        "score": 3
+        "stock_20d": 3.76,
+        "vs_market": 1.21,
+        "vs_sector": -1.16,
+        "score": 0
       },
       "sector_strength": {
         "etf": "XLV",
         "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
         "score": 3
       },
       "entry_quality": {
         "score": 1,
-        "position": 0.74,
+        "position": 0.88,
         "extension_atr": 0.0,
         "blockers": [],
         "notes": [
@@ -1551,7 +759,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 265.55,
+    "planned_entry_price": 265.3,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -1560,33 +768,33 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:22.034368+00:00",
+    "expires_at": "2026-09-01T19:17:02.228201+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "ADBE",
     "strategy": "DAY",
     "raw_score": 66,
-    "price": 293.54998779296875,
-    "entry_low": 292.28848323628284,
-    "entry_high": 292.44873921218795,
-    "stop_loss": 290.2399708890006,
+    "price": 293.510009765625,
+    "entry_low": 292.2846204242902,
+    "entry_high": 292.44544751487166,
+    "stop_loss": 290.23968533166243,
     "target1": 293.7699890136719,
-    "target2": 299.07504418175006,
-    "rr1": 0.5981839686913363,
+    "target2": 299.06273406449935,
+    "rr1": 0.6004915257333405,
     "rr2": 3.0,
-    "atr": 0.8012798795255123,
-    "rsi": 64.48715908957492,
+    "atr": 0.8041354529072087,
+    "rsi": 64.00143264032602,
     "vol_ratio": 0.0,
-    "momentum": 0.3212475610758325,
+    "momentum": 0.307584996793997,
     "reasons": [
       "EMA 9/21/50 bullish alignment",
       "Price above VWAP",
-      "RSI momentum 64.5"
+      "RSI momentum 64.0"
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 73,
+    "score": 79,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -1601,26 +809,26 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": -1,
+    "precision_adjustment": 5,
     "precision": {
-      "adjustment": -1,
+      "adjustment": 5,
       "relative_strength": {
-        "stock_20d": 16.79,
-        "vs_market": 15.68,
-        "vs_sector": 12.34,
+        "stock_20d": 17.21,
+        "vs_market": 14.66,
+        "vs_sector": 11.14,
         "score": 9
       },
       "sector_strength": {
         "etf": "XLK",
         "trend": "BULLISH",
-        "return_20d": 4.46,
-        "vs_spy": 3.34,
+        "return_20d": 6.07,
+        "vs_spy": 3.52,
         "score": 3
       },
       "entry_quality": {
         "score": -11,
-        "position": 7.87,
-        "extension_atr": 1.37,
+        "position": 7.62,
+        "extension_atr": 1.32,
         "blockers": [
           "السعر أعلى من منطقة الدخول",
           "السعر ممتد بعد حركة سريعة"
@@ -1628,13 +836,348 @@
         "notes": []
       },
       "structure": {
-        "score": -6,
-        "support": 245.46,
-        "resistance": 294.09,
-        "room_to_resistance_pct": 0.18,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
+        "score": 0,
+        "support": 241.23,
+        "resistance": 291.18,
+        "room_to_resistance_pct": -0.79,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
         ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "MEGA_TECH"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 292.37,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:01:55.368032+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "PLTR",
+    "strategy": "DAY",
+    "raw_score": 66,
+    "price": 187.5800018310547,
+    "entry_low": 186.65619625840066,
+    "entry_high": 186.80917614906448,
+    "stop_loss": 184.8835167685353,
+    "target1": 187.94000244140625,
+    "target2": 192.58615429065208,
+    "rr1": 0.5872410789653774,
+    "rr2": 3.0,
+    "atr": 0.7648994533190985,
+    "rsi": 62.189687220453145,
+    "vol_ratio": 0.0,
+    "momentum": 0.21905415724763344,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 62.2"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 79,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 5,
+    "precision": {
+      "adjustment": 5,
+      "relative_strength": {
+        "stock_20d": 52.43,
+        "vs_market": 49.87,
+        "vs_sector": 43.43,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "CIBR",
+        "trend": "BULLISH",
+        "return_20d": 8.99,
+        "vs_spy": 6.44,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 6.04,
+        "extension_atr": 1.01,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 0,
+        "support": 119.62,
+        "resistance": 186.86,
+        "room_to_resistance_pct": -0.38,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "CLOUD_SECURITY"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 186.73,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:01:57.423244+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "NET",
+    "strategy": "DAY",
+    "raw_score": 66,
+    "price": 307.92498779296875,
+    "entry_low": 304.67413800168964,
+    "entry_high": 305.00161486622153,
+    "stop_loss": 299.3186364300474,
+    "target1": 307.489990234375,
+    "target2": 322.050550174744,
+    "rr1": 0.43786465074618036,
+    "rr2": 3.0,
+    "atr": 1.6373843226594944,
+    "rsi": 64.5669686204498,
+    "vol_ratio": 0.0,
+    "momentum": 0.7064160518870155,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 64.6"
+    ],
+    "warnings": [
+      "Breakout rejected: weak confirmation or excessive extension"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 79,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 5,
+    "precision": {
+      "adjustment": 5,
+      "relative_strength": {
+        "stock_20d": 10.38,
+        "vs_market": 7.82,
+        "vs_sector": 1.38,
+        "score": 7
+      },
+      "sector_strength": {
+        "etf": "CIBR",
+        "trend": "BULLISH",
+        "return_20d": 8.99,
+        "vs_spy": 6.44,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 9.93,
+        "extension_atr": 1.79,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 272.29,
+        "resistance": 332.22,
+        "room_to_resistance_pct": 7.89,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "CLOUD_SECURITY"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 304.84,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:01:58.531531+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "SLB",
+    "strategy": "SWING",
+    "raw_score": 70,
+    "price": 59.915000915527344,
+    "entry_low": 53.0424116488809,
+    "entry_high": 53.70546775492613,
+    "stop_loss": 50.29546492383638,
+    "target1": 55.88999938964844,
+    "target2": 63.9354762481954,
+    "rr1": 0.6406245809550195,
+    "rr2": 3.0,
+    "atr": 1.8944460172720863,
+    "rsi": 75.89379956503488,
+    "vol_ratio": 1.6009116931151106,
+    "momentum": 11.221462972899076,
+    "reasons": [
+      "Daily trend bullish",
+      "Previous completed-day volume 1.60x",
+      "5-day momentum +11.22%"
+    ],
+    "warnings": [
+      "Daily RSI overbought",
+      "Current daily volume is partial; SWING score uses last completed session",
+      "Breakout rejected: weak confirmation or excessive extension"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 79,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 1,
+    "precision": {
+      "adjustment": 1,
+      "relative_strength": {
+        "stock_20d": 20.82,
+        "vs_market": 18.27,
+        "vs_sector": 13.86,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLE",
+        "trend": "BULLISH",
+        "return_20d": 6.96,
+        "vs_spy": 4.41,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -15,
+        "position": 10.37,
+        "extension_atr": 3.28,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة",
+          "السهم ارتفع كثيرًا خلال خمسة أيام"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 0,
+        "support": 48.3,
+        "resistance": 55.89,
+        "room_to_resistance_pct": -6.72,
+        "blockers": []
       },
       "market_v2": {
         "label": "CAUTIOUS_RISK_ON",
@@ -1656,15 +1199,15 @@
       "blockers": [
         "السعر أعلى من منطقة الدخول",
         "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح"
+        "السهم ارتفع كثيرًا خلال خمسة أيام"
       ],
-      "group": "MEGA_TECH"
+      "group": "ENERGY"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 292.37,
+    "planned_entry_price": 53.37,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -1673,144 +1216,33 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:14.987901+00:00",
+    "expires_at": "2026-09-01T19:17:03.824189+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "PLTR",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 187.54359436035156,
-    "entry_low": 186.65349027494727,
-    "entry_high": 186.80496069908477,
-    "stop_loss": 184.88427150179845,
-    "target1": 187.94000244140625,
-    "target2": 192.56702829094374,
-    "rr1": 0.5909554465788319,
-    "rr2": 3.0,
-    "atr": 0.7573521206874366,
-    "rsi": 61.87913098584376,
-    "vol_ratio": 0.0,
-    "momentum": 0.19960260461671098,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 61.9"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 72,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 4,
-    "precision": {
-      "adjustment": 4,
-      "relative_strength": {
-        "stock_20d": 49.26,
-        "vs_market": 48.14,
-        "vs_sector": 42.64,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLC",
-        "trend": "BULLISH",
-        "return_20d": 6.62,
-        "vs_spy": 5.5,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 5.88,
-        "extension_atr": 0.98,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 123.66,
-        "resistance": 188.37,
-        "room_to_resistance_pct": 0.44,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "MEDIA_TELECOM"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 186.73,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:17.028562+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "HOOD",
+    "symbol": "GILD",
     "strategy": "DAY",
     "raw_score": 57,
-    "price": 543.3699951171875,
-    "entry_low": 541.6774664904357,
-    "entry_high": 541.8840835122829,
-    "stop_loss": 536.1767207859514,
-    "target1": 543.6199951171875,
-    "target2": 559.0061716912776,
-    "rr1": 0.3041530192037298,
+    "price": 146.47999572753906,
+    "entry_low": 146.19522659576515,
+    "entry_high": 146.2683381878183,
+    "stop_loss": 145.2934460350281,
+    "target1": 146.71499633789062,
+    "target2": 149.1930146461889,
+    "rr1": 0.45816160156173097,
     "rr2": 3.0,
-    "atr": 1.0330851092360975,
-    "rsi": 60.927693435996204,
+    "atr": 0.3655579602657834,
+    "rsi": 55.21089823267509,
     "vol_ratio": 0.0,
-    "momentum": 0.19545971185590538,
+    "momentum": 0.06830908689108295,
     "reasons": [
       "Short-term EMA momentum",
       "Price above VWAP",
-      "RSI momentum 60.9"
+      "RSI momentum 55.2"
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 72,
+    "score": 78,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -1829,22 +1261,22 @@
     "precision": {
       "adjustment": 7,
       "relative_strength": {
-        "stock_20d": 15.43,
-        "vs_market": 14.32,
-        "vs_sector": 10.32,
+        "stock_20d": 12.5,
+        "vs_market": 9.94,
+        "vs_sector": 7.57,
         "score": 9
       },
       "sector_strength": {
         "etf": "XLV",
         "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
         "score": 3
       },
       "entry_quality": {
         "score": -11,
-        "position": 8.19,
-        "extension_atr": 1.44,
+        "position": 3.89,
+        "extension_atr": 0.58,
         "blockers": [
           "السعر أعلى من منطقة الدخول",
           "السعر ممتد بعد حركة سريعة"
@@ -1853,9 +1285,9 @@
       },
       "structure": {
         "score": 2,
-        "support": 465.51,
-        "resistance": 555.69,
-        "room_to_resistance_pct": 2.27,
+        "support": 128.76,
+        "resistance": 149.62,
+        "room_to_resistance_pct": 2.14,
         "blockers": []
       },
       "market_v2": {
@@ -1885,7 +1317,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 541.78,
+    "planned_entry_price": 146.23,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -1894,39 +1326,38 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:23.366037+00:00",
+    "expires_at": "2026-08-31T20:02:04.297152+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "AAPL",
-    "strategy": "SWING",
-    "raw_score": 65,
-    "price": 316.0050048828125,
-    "entry_low": 312.0531127090934,
-    "entry_high": 314.5875049564726,
-    "stop_loss": 301.55348768423653,
-    "target1": 340.6555395009448,
-    "target2": 353.6895567731809,
-    "rr1": 2.0,
+    "symbol": "ISRG",
+    "strategy": "DAY",
+    "raw_score": 66,
+    "price": 375.1650085449219,
+    "entry_low": 373.8870316758436,
+    "entry_high": 374.06590721998793,
+    "stop_loss": 372.0605561244122,
+    "target1": 375.3599853515625,
+    "target2": 380.0819605067152,
+    "rr1": 0.6453125013518036,
     "rr2": 3.0,
-    "atr": 7.2411207067978225,
-    "rsi": 53.17217934985745,
-    "vol_ratio": 0.8085769495527882,
-    "momentum": 1.825420059215932,
+    "atr": 0.8943777207217797,
+    "rsi": 61.99441781424937,
+    "vol_ratio": 0.0,
+    "momentum": 0.09338102830351858,
     "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 53.2"
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 62.0"
     ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
+    "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 71,
-    "signal": "WAIT",
-    "action": "NO_TRADE",
-    "instruction": "لا توجد صفقة مناسبة الآن",
-    "simple_decision_ar": "لا تدخل",
-    "simple_next_step": "احتفظ بالكاش وانتظر فرصة أوضح.",
+    "score": 77,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
     "confidence_label": "ضعيفة",
     "risk_label": "منخفضة",
     "quality_grade": "C",
@@ -1936,26 +1367,358 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": -2,
+    "precision_adjustment": 3,
     "precision": {
-      "adjustment": -2,
+      "adjustment": 3,
       "relative_strength": {
-        "stock_20d": 4.15,
-        "vs_market": 3.03,
-        "vs_sector": -0.31,
-        "score": 3
+        "stock_20d": 6.18,
+        "vs_market": 3.62,
+        "vs_sector": 1.26,
+        "score": 5
       },
       "sector_strength": {
-        "etf": "XLK",
+        "etf": "XLV",
         "trend": "BULLISH",
-        "return_20d": 4.46,
-        "vs_spy": 3.34,
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 7.14,
+        "extension_atr": 1.23,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 348.88,
+        "resistance": 405.34,
+        "room_to_resistance_pct": 8.04,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "HEALTHCARE"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 373.98,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:03.152931+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "DIS",
+    "strategy": "DAY",
+    "raw_score": 57,
+    "price": 107.69000244140625,
+    "entry_low": 107.61426443383606,
+    "entry_high": 107.65141487827303,
+    "stop_loss": 107.30142447260573,
+    "target1": 108.04499816894531,
+    "target2": 108.70138609527493,
+    "rr1": 1.12455451434981,
+    "rr2": 3.0,
+    "atr": 0.18575222218489462,
+    "rsi": 52.13842159411256,
+    "vol_ratio": 0.0,
+    "momentum": 0.09760036977939368,
+    "reasons": [
+      "Short-term EMA momentum",
+      "Price above VWAP",
+      "RSI momentum 52.1"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 77,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 12,
+    "precision": {
+      "adjustment": 12,
+      "relative_strength": {
+        "stock_20d": 11.96,
+        "vs_market": 9.4,
+        "vs_sector": 8.79,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLC",
+        "trend": "BULLISH",
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
         "score": 3
       },
       "entry_quality": {
         "score": -6,
-        "position": 1.56,
-        "extension_atr": 0.2,
+        "position": 2.04,
+        "extension_atr": 0.21,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 95.6,
+        "resistance": 111.87,
+        "room_to_resistance_pct": 3.88,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول"
+      ],
+      "group": "MEDIA_TELECOM"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 107.63,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:05.911030+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "MU",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 940.75,
+    "entry_low": 921.1866440373354,
+    "entry_high": 941.9555457390148,
+    "stop_loss": 835.1440512732348,
+    "target1": 1036.1300048828125,
+    "target2": 1262.3900291363548,
+    "rr1": 0.8816884326430713,
+    "rr2": 2.999999999999999,
+    "atr": 59.33971914765554,
+    "rsi": 51.61093406054024,
+    "vol_ratio": 0.8557525049273611,
+    "momentum": -2.692445903729135,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 51.6"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 73,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 4,
+    "precision": {
+      "adjustment": 4,
+      "relative_strength": {
+        "stock_20d": 14.3,
+        "vs_market": 11.75,
+        "vs_sector": 11.73,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "SMH",
+        "trend": "BEARISH",
+        "return_20d": 2.57,
+        "vs_spy": 0.02,
+        "score": -4
+      },
+      "entry_quality": {
+        "score": 1,
+        "position": 0.94,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل المنطقة لكن قريب من طرفها"
+        ]
+      },
+      "structure": {
+        "score": -6,
+        "support": 770.1,
+        "resistance": 1036.13,
+        "room_to_resistance_pct": 10.14,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "مقاومة قريبة تقلل مساحة الربح",
+        "القطاع ضعيف حاليًا"
+      ],
+      "group": "SEMICONDUCTORS"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 931.57,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:16:55.827916+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "AAPL",
+    "strategy": "SWING",
+    "raw_score": 72,
+    "price": 316.010009765625,
+    "entry_low": 311.40631651133754,
+    "entry_high": 313.9260372925634,
+    "stop_loss": 300.96747327483035,
+    "target1": 339.84316532802956,
+    "target2": 352.8017293457626,
+    "rr1": 2.0,
+    "rr2": 3.0,
+    "atr": 7.199202232073909,
+    "rsi": 54.00160190247669,
+    "vol_ratio": 0.6500710644263994,
+    "momentum": 2.1529023858757546,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 54.0",
+      "5-day momentum +2.15%"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 72,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -8,
+    "precision": {
+      "adjustment": -8,
+      "relative_strength": {
+        "stock_20d": 2.3,
+        "vs_market": -0.26,
+        "vs_sector": -3.78,
+        "score": -3
+      },
+      "sector_strength": {
+        "etf": "XLK",
+        "trend": "BULLISH",
+        "return_20d": 6.07,
+        "vs_spy": 3.52,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -6,
+        "position": 1.83,
+        "extension_atr": 0.29,
         "blockers": [
           "السعر أعلى من منطقة الدخول"
         ],
@@ -1963,9 +1726,9 @@
       },
       "structure": {
         "score": -6,
-        "support": 300.57,
-        "resistance": 322.37,
-        "room_to_resistance_pct": 2.01,
+        "support": 300.0,
+        "resistance": 320.28,
+        "room_to_resistance_pct": 1.35,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -1997,7 +1760,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 313.32,
+    "planned_entry_price": 312.67,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2006,34 +1769,33 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:13.168766+00:00",
+    "expires_at": "2026-09-01T19:16:53.721615+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "ABBV",
-    "strategy": "SWING",
-    "raw_score": 58,
-    "price": 257.55999755859375,
-    "entry_low": 256.0055769454623,
-    "entry_high": 257.9868391517276,
-    "stop_loss": 247.79749066236295,
-    "target1": 267.4700012207031,
-    "target2": 288.5548846198217,
-    "rr1": 0.9306936629828425,
-    "rr2": 3.0000000000000027,
-    "atr": 5.6607491607581535,
-    "rsi": 52.85205029679168,
-    "vol_ratio": 0.647078124388548,
-    "momentum": -2.631177886038094,
+    "symbol": "VRTX",
+    "strategy": "DAY",
+    "raw_score": 57,
+    "price": 543.469970703125,
+    "entry_low": 541.6859838910038,
+    "entry_high": 541.8940291355073,
+    "stop_loss": 536.1760066746233,
+    "target1": 543.6199951171875,
+    "target2": 559.0480965181591,
+    "rr1": 0.301846660010046,
+    "rr2": 3.0,
+    "atr": 1.0402262225173475,
+    "rsi": 61.394887072521115,
+    "vol_ratio": 0.0,
+    "momentum": 0.21389484791969338,
     "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 52.9"
+      "Short-term EMA momentum",
+      "Price above VWAP",
+      "RSI momentum 61.4"
     ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
+    "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 71,
+    "score": 72,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -2048,36 +1810,148 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 5,
+    "precision_adjustment": 7,
     "precision": {
-      "adjustment": 5,
+      "adjustment": 7,
       "relative_strength": {
-        "stock_20d": 5.08,
-        "vs_market": 3.97,
-        "vs_sector": -0.03,
-        "score": 3
+        "stock_20d": 13.91,
+        "vs_market": 11.36,
+        "vs_sector": 8.99,
+        "score": 9
       },
       "sector_strength": {
         "etf": "XLV",
         "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
         "score": 3
       },
       "entry_quality": {
-        "score": 1,
-        "position": 0.78,
-        "extension_atr": 0.0,
-        "blockers": [],
-        "notes": [
-          "السعر داخل المنطقة لكن قريب من طرفها"
+        "score": -11,
+        "position": 8.57,
+        "extension_atr": 1.51,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 465.51,
+        "resistance": 555.69,
+        "room_to_resistance_pct": 2.25,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
         ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "HEALTHCARE"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 541.79,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:03.821557+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "SPOT",
+    "strategy": "SWING",
+    "raw_score": 65,
+    "price": 543.0700073242188,
+    "entry_low": 516.6321502666034,
+    "entry_high": 524.1012925587232,
+    "stop_loss": 485.68856077067835,
+    "target1": 554.969970703125,
+    "target2": 639.3394879228579,
+    "rr1": 0.8036053857020647,
+    "rr2": 3.0,
+    "atr": 21.34040654891381,
+    "rsi": 59.79719653006237,
+    "vol_ratio": 0.8570760530174241,
+    "momentum": 1.7518618628371785,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 59.8"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 72,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -1,
+    "precision": {
+      "adjustment": -1,
+      "relative_strength": {
+        "stock_20d": 8.63,
+        "vs_market": 6.07,
+        "vs_sector": 5.46,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLC",
+        "trend": "BULLISH",
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 3.54,
+        "extension_atr": 0.89,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
       },
       "structure": {
         "score": -6,
-        "support": 241.2,
-        "resistance": 266.97,
-        "room_to_resistance_pct": 3.65,
+        "support": 462.0,
+        "resistance": 554.97,
+        "room_to_resistance_pct": 2.19,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -2100,15 +1974,17 @@
       },
       "weekly_aligned": true,
       "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
         "مقاومة قريبة تقلل مساحة الربح"
       ],
-      "group": "HEALTHCARE"
+      "group": "MEDIA_TELECOM"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 257.0,
+    "planned_entry_price": 520.37,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2117,28 +1993,28 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:22.534167+00:00",
+    "expires_at": "2026-09-01T19:17:06.154088+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "CVX",
+    "symbol": "COP",
     "strategy": "DAY",
     "raw_score": 48,
-    "price": 205.22000122070312,
-    "entry_low": 205.17665569758773,
-    "entry_high": 205.28501950537623,
-    "stop_loss": 203.78131309122293,
-    "target1": 206.25,
-    "target2": 209.79613874783612,
-    "rr1": 0.6417346401804974,
+    "price": 132.1300048828125,
+    "entry_low": 132.10169910557065,
+    "entry_high": 132.1724635486753,
+    "stop_loss": 131.0646238819633,
+    "target1": 132.6199951171875,
+    "target2": 135.49598254881124,
+    "rr1": 0.40396781407950266,
     "rr2": 3.0,
-    "atr": 0.5418190389424828,
-    "rsi": 58.62079279880261,
+    "atr": 0.3538222155232023,
+    "rsi": 56.915536728882216,
     "vol_ratio": 0.0,
-    "momentum": 0.2124167057229842,
+    "momentum": 0.31508070945638345,
     "reasons": [
       "EMA 9/21/50 bullish alignment",
-      "RSI momentum 58.6"
+      "RSI momentum 56.9"
     ],
     "warnings": [
       "Below VWAP"
@@ -2163,16 +2039,16 @@
     "precision": {
       "adjustment": 15,
       "relative_strength": {
-        "stock_20d": 6.23,
-        "vs_market": 5.12,
-        "vs_sector": -2.09,
-        "score": 5
+        "stock_20d": 9.67,
+        "vs_market": 7.11,
+        "vs_sector": 2.71,
+        "score": 7
       },
       "sector_strength": {
         "etf": "XLE",
         "trend": "BULLISH",
-        "return_20d": 8.32,
-        "vs_spy": 7.2,
+        "return_20d": 6.96,
+        "vs_spy": 4.41,
         "score": 3
       },
       "entry_quality": {
@@ -2186,9 +2062,9 @@
       },
       "structure": {
         "score": 2,
-        "support": 185.87,
-        "resistance": 208.98,
-        "room_to_resistance_pct": 1.83,
+        "support": 114.71,
+        "resistance": 135.88,
+        "room_to_resistance_pct": 2.84,
         "blockers": []
       },
       "market_v2": {
@@ -2215,7 +2091,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 205.23,
+    "planned_entry_price": 132.14,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2224,28 +2100,28 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:24.187902+00:00",
+    "expires_at": "2026-08-31T20:02:04.168821+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "SHOP",
     "strategy": "SWING",
     "raw_score": 58,
-    "price": 147.5449981689453,
-    "entry_low": 145.33480172563378,
-    "entry_high": 147.44389571603975,
-    "stop_loss": 136.5971266225233,
+    "price": 147.50999450683594,
+    "entry_low": 144.64894264234567,
+    "entry_high": 146.83975147856188,
+    "stop_loss": 135.57273460659283,
     "target1": 158.8699951171875,
-    "target2": 179.98420299658912,
-    "rr1": 1.0534104029169002,
+    "target2": 180.64080209446902,
+    "rr1": 1.0677399151283236,
     "rr2": 3.0,
-    "atr": 6.025982829731368,
-    "rsi": 54.66934349616947,
-    "vol_ratio": 0.47480517799722316,
-    "momentum": -1.5053436828258104,
+    "atr": 6.259453817760583,
+    "rsi": 55.055021860032085,
+    "vol_ratio": 0.6261518211789886,
+    "momentum": -1.165832826240576,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 54.7"
+      "Daily RSI 55.1"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
@@ -2270,22 +2146,22 @@
     "precision": {
       "adjustment": 4,
       "relative_strength": {
-        "stock_20d": 26.1,
-        "vs_market": 24.98,
-        "vs_sector": 19.48,
+        "stock_20d": 25.92,
+        "vs_market": 23.36,
+        "vs_sector": 16.92,
         "score": 9
       },
       "sector_strength": {
         "etf": "CIBR",
         "trend": "BULLISH",
-        "return_20d": 6.62,
-        "vs_spy": 5.5,
+        "return_20d": 8.99,
+        "vs_spy": 6.44,
         "score": 3
       },
       "entry_quality": {
         "score": -6,
-        "position": 1.05,
-        "extension_atr": 0.02,
+        "position": 1.31,
+        "extension_atr": 0.11,
         "blockers": [
           "السعر أعلى من منطقة الدخول"
         ],
@@ -2293,9 +2169,9 @@
       },
       "structure": {
         "score": -6,
-        "support": 116.64,
+        "support": 115.27,
         "resistance": 158.87,
-        "room_to_resistance_pct": 7.68,
+        "room_to_resistance_pct": 7.7,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -2327,7 +2203,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 146.39,
+    "planned_entry_price": 145.74,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2336,29 +2212,29 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:17.756151+00:00",
+    "expires_at": "2026-09-01T19:16:57.876247+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "MCD",
+    "symbol": "HOOD",
     "strategy": "DAY",
-    "raw_score": 60,
-    "price": 265.3599853515625,
-    "entry_low": 265.17544773766133,
-    "entry_high": 265.2669570592277,
-    "stop_loss": 264.4642551048418,
-    "target1": 266.07000732421875,
-    "target2": 267.6750629223854,
-    "rr1": 1.000433922707232,
+    "raw_score": 57,
+    "price": 104.94000244140625,
+    "entry_low": 104.14444241714891,
+    "entry_high": 104.25604312571114,
+    "stop_loss": 102.31367921196347,
+    "target1": 105.18000030517578,
+    "target2": 110.08313486695415,
+    "rr1": 0.47568695697291813,
     "rr2": 3.0,
-    "atr": 0.45754660783186885,
-    "rsi": 55.14239387126411,
+    "atr": 0.5580035428111672,
+    "rsi": 59.29614612380243,
     "vol_ratio": 0.0,
-    "momentum": -0.08283802689449393,
+    "momentum": 0.44508635948947717,
     "reasons": [
-      "EMA 9/21/50 bullish alignment",
+      "Short-term EMA momentum",
       "Price above VWAP",
-      "RSI momentum 55.1"
+      "RSI momentum 59.3"
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
@@ -2377,26 +2253,1261 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 2,
+    "precision_adjustment": 5,
     "precision": {
-      "adjustment": 2,
+      "adjustment": 5,
       "relative_strength": {
-        "stock_20d": 0.05,
-        "vs_market": -1.06,
-        "vs_sector": 1.56,
-        "score": 2
+        "stock_20d": 21.23,
+        "vs_market": 18.68,
+        "vs_sector": 19.75,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLF",
+        "trend": "BULLISH",
+        "return_20d": 1.48,
+        "vs_spy": -1.07,
+        "score": 1
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 7.13,
+        "extension_atr": 1.23,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 83.68,
+        "resistance": 112.45,
+        "room_to_resistance_pct": 7.16,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "FINANCIALS"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 104.2,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:02.094304+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "CVX",
+    "strategy": "DAY",
+    "raw_score": 48,
+    "price": 205.2949981689453,
+    "entry_low": 205.25122289641976,
+    "entry_high": 205.36066107773365,
+    "stop_loss": 203.78077590446023,
+    "target1": 206.25,
+    "target2": 210.10031659755393,
+    "rr1": 0.5629136454415176,
+    "rr2": 3.0,
+    "atr": 0.5471909065695324,
+    "rsi": 59.285773751398054,
+    "vol_ratio": 0.0,
+    "momentum": 0.24903899099828486,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "RSI momentum 59.3"
+    ],
+    "warnings": [
+      "Below VWAP"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 70,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 14,
+    "precision": {
+      "adjustment": 14,
+      "relative_strength": {
+        "stock_20d": 4.3,
+        "vs_market": 1.75,
+        "vs_sector": -2.66,
+        "score": 0
+      },
+      "sector_strength": {
+        "etf": "XLE",
+        "trend": "BULLISH",
+        "return_20d": 6.96,
+        "vs_spy": 4.41,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": 5,
+        "position": 0.4,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل منطقة دخول مريحة"
+        ]
+      },
+      "structure": {
+        "score": 2,
+        "support": 185.87,
+        "resistance": 208.98,
+        "room_to_resistance_pct": 1.79,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [],
+      "group": "ENERGY"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 205.31,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:03.836858+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "NOW",
+    "strategy": "SWING",
+    "raw_score": 70,
+    "price": 148.58999633789062,
+    "entry_low": 124.81687825976779,
+    "entry_high": 127.15639633622116,
+    "stop_loss": 115.1245890858895,
+    "target1": 139.32000732421875,
+    "target2": 163.25181808721618,
+    "rr1": 1.0109546084743242,
+    "rr2": 3.0000000000000013,
+    "atr": 6.684337361295371,
+    "rsi": 74.60716346545996,
+    "vol_ratio": 1.5520782213274535,
+    "momentum": 15.652242589576204,
+    "reasons": [
+      "Daily trend bullish",
+      "Previous completed-day volume 1.55x",
+      "5-day momentum +15.65%"
+    ],
+    "warnings": [
+      "Daily RSI overbought",
+      "Current daily volume is partial; SWING score uses last completed session",
+      "Breakout rejected: weak confirmation or excessive extension"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 69,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "متوسطة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "MEDIUM",
+    "event_notes": [
+      "PRODUCT: 1 headline(s)"
+    ],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 1,
+    "precision": {
+      "adjustment": 1,
+      "relative_strength": {
+        "stock_20d": 33.59,
+        "vs_market": 31.03,
+        "vs_sector": 24.59,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "CIBR",
+        "trend": "BULLISH",
+        "return_20d": 8.99,
+        "vs_spy": 6.44,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -15,
+        "position": 10.16,
+        "extension_atr": 3.21,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة",
+          "السهم ارتفع كثيرًا خلال خمسة أيام"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 0,
+        "support": 106.05,
+        "resistance": 139.32,
+        "room_to_resistance_pct": -6.24,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
+        "السهم ارتفع كثيرًا خلال خمسة أيام"
+      ],
+      "group": "CLOUD_SECURITY"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 125.99,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:16:57.278061+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "SBUX",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 106.38500213623047,
+    "entry_low": 105.89344356352338,
+    "entry_high": 106.8193700055081,
+    "stop_loss": 102.05746258958666,
+    "target1": 110.51000213623047,
+    "target2": 121.10509225327243,
+    "rr1": 0.7750323154924708,
+    "rr2": 3.0,
+    "atr": 2.6455041199563527,
+    "rsi": 51.248373378505384,
+    "vol_ratio": 0.874049783060468,
+    "momentum": -0.6490471450689261,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 51.2"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 69,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 3,
+    "precision": {
+      "adjustment": 3,
+      "relative_strength": {
+        "stock_20d": 1.08,
+        "vs_market": -1.48,
+        "vs_sector": 0.78,
+        "score": 0
       },
       "sector_strength": {
         "etf": "XLY",
         "trend": "MIXED",
-        "return_20d": -1.51,
-        "vs_spy": -2.62,
+        "return_20d": 0.3,
+        "vs_spy": -2.26,
+        "score": 0
+      },
+      "entry_quality": {
+        "score": 5,
+        "position": 0.53,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل منطقة دخول مريحة"
+        ]
+      },
+      "structure": {
+        "score": -6,
+        "support": 101.8,
+        "resistance": 110.51,
+        "room_to_resistance_pct": 3.88,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "CONSUMER_RETAIL"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 106.36,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:16:59.773855+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "ABBV",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 257.614990234375,
+    "entry_low": 256.11141631229157,
+    "entry_high": 258.1469296171308,
+    "stop_loss": 247.43763471366265,
+    "target1": 267.4700012207031,
+    "target2": 290.2748143275353,
+    "rr1": 0.8705588638289414,
+    "rr2": 3.0,
+    "atr": 5.815752299540717,
+    "rsi": 53.02564427690861,
+    "vol_ratio": 0.9401412413204898,
+    "momentum": -2.7721170960063324,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 53.0"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 68,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 2,
+    "precision": {
+      "adjustment": 2,
+      "relative_strength": {
+        "stock_20d": 2.66,
+        "vs_market": 0.1,
+        "vs_sector": -2.26,
+        "score": 0
+      },
+      "sector_strength": {
+        "etf": "XLV",
+        "trend": "BULLISH",
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": 1,
+        "position": 0.74,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل المنطقة لكن قريب من طرفها"
+        ]
+      },
+      "structure": {
+        "score": -6,
+        "support": 241.2,
+        "resistance": 266.97,
+        "room_to_resistance_pct": 3.63,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "HEALTHCARE"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 257.13,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:17:02.263712+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "RBLX",
+    "strategy": "DAY",
+    "raw_score": 66,
+    "price": 40.880001068115234,
+    "entry_low": 40.4180766893642,
+    "entry_high": 40.48508827896778,
+    "stop_loss": 40.02605889018325,
+    "target1": 40.959999084472656,
+    "target2": 41.86217644532137,
+    "rr1": 1.0345978212035618,
+    "rr2": 3.0,
+    "atr": 0.3350579480179034,
+    "rsi": 63.10205570817129,
+    "vol_ratio": 0.0,
+    "momentum": 0.56580451070809,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 63.1"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 67,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "متوسطة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "MEDIUM",
+    "event_notes": [
+      "LEGAL: 1 headline(s)"
+    ],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 5,
+    "precision": {
+      "adjustment": 5,
+      "relative_strength": {
+        "stock_20d": 14.83,
+        "vs_market": 12.28,
+        "vs_sector": 11.67,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLC",
+        "trend": "BULLISH",
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 6.89,
+        "extension_atr": 1.18,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 0,
+        "support": 33.88,
+        "resistance": 40.19,
+        "room_to_resistance_pct": -1.69,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة"
+      ],
+      "group": "MEDIA_TELECOM"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 40.45,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:06.740745+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "QCOM",
+    "strategy": "SWING",
+    "raw_score": 63,
+    "price": 170.4199981689453,
+    "entry_low": 167.92555171417578,
+    "entry_high": 170.1292529878698,
+    "stop_loss": 155.28555232452734,
+    "target1": 178.64999389648438,
+    "target2": 214.66035497789713,
+    "rr1": 0.5740307691367792,
+    "rr2": 3.0,
+    "atr": 6.296289353411514,
+    "rsi": 55.40444660454111,
+    "vol_ratio": 1.4395397325617618,
+    "momentum": 6.015550960463645,
+    "reasons": [
+      "Daily RSI 55.4",
+      "Previous completed-day volume 1.44x",
+      "5-day momentum +6.02%",
+      "Quality 20-day breakout",
+      "breakout distance controlled",
+      "healthy 5d momentum",
+      "healthy daily RSI",
+      "close near daily high"
+    ],
+    "warnings": [
+      "Daily trend not fully aligned",
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "BREAKOUT",
+    "score": 66,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -5,
+    "precision": {
+      "adjustment": -5,
+      "relative_strength": {
+        "stock_20d": 15.45,
+        "vs_market": 12.9,
+        "vs_sector": 12.88,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "SMH",
+        "trend": "BEARISH",
+        "return_20d": 2.57,
+        "vs_spy": 0.02,
+        "score": -4
+      },
+      "entry_quality": {
+        "score": -6,
+        "position": 1.13,
+        "extension_atr": 0.05,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 0,
+        "support": 142.89,
+        "resistance": 168.87,
+        "room_to_resistance_pct": -0.91,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": false,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "القطاع ضعيف حاليًا",
+        "الاتجاه الأسبوعي غير مؤكد"
+      ],
+      "group": "SEMICONDUCTORS"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 169.03,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:16:55.673953+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "MRK",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 147.53500366210938,
+    "entry_low": 141.50654266465259,
+    "entry_high": 143.026863181615,
+    "stop_loss": 133.89843711591678,
+    "target1": 156.9199981689453,
+    "target2": 170.41214137870966,
+    "rr1": 1.5219639056437542,
+    "rr2": 3.0,
+    "atr": 4.343772905606831,
+    "rsi": 61.207284154366015,
+    "vol_ratio": 0.7630311386466596,
+    "momentum": -3.2874462729095666,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 61.2"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 65,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -1,
+    "precision": {
+      "adjustment": -1,
+      "relative_strength": {
+        "stock_20d": 13.31,
+        "vs_market": 10.76,
+        "vs_sector": 8.39,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLV",
+        "trend": "BULLISH",
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 3.97,
+        "extension_atr": 1.04,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": -6,
+        "support": 126.22,
+        "resistance": 156.92,
+        "room_to_resistance_pct": 6.36,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "HEALTHCARE"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 142.27,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:17:02.259783+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "T",
+    "strategy": "DAY",
+    "raw_score": 42,
+    "price": 26.05500030517578,
+    "entry_low": 26.050188636823304,
+    "entry_high": 26.062217807704496,
+    "stop_loss": 25.97981798716833,
+    "target1": 26.227017448776824,
+    "target2": 26.309417269312988,
+    "rr1": 2.0,
+    "rr2": 3.0,
+    "atr": 0.060145854405959855,
+    "rsi": 52.0352614661167,
+    "vol_ratio": 0.0,
+    "momentum": -0.057535058780289194,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "RSI momentum 52.0"
+    ],
+    "warnings": [
+      "Below VWAP"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 65,
+    "signal": "WAIT",
+    "action": "NO_TRADE",
+    "instruction": "لا توجد صفقة مناسبة الآن",
+    "simple_decision_ar": "لا تدخل",
+    "simple_next_step": "احتفظ بالكاش وانتظر فرصة أوضح.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": 15,
+    "precision": {
+      "adjustment": 15,
+      "relative_strength": {
+        "stock_20d": 12.06,
+        "vs_market": 9.51,
+        "vs_sector": 8.9,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLC",
+        "trend": "BULLISH",
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": 5,
+        "position": 0.4,
+        "extension_atr": 0.0,
+        "blockers": [],
+        "notes": [
+          "السعر داخل منطقة دخول مريحة"
+        ]
+      },
+      "structure": {
+        "score": 0,
+        "support": 22.55,
+        "resistance": 26.02,
+        "room_to_resistance_pct": -0.13,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [],
+      "group": "MEDIA_TELECOM"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 26.06,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:06.310616+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "ROKU",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 156.85000610351562,
+    "entry_low": 153.93285862361657,
+    "entry_high": 154.63818888939005,
+    "stop_loss": 151.01077609398357,
+    "target1": 159.88999938964844,
+    "target2": 165.5204272756095,
+    "rr1": 1.4478116488172867,
+    "rr2": 3.0,
+    "atr": 2.01522933078138,
+    "rsi": 63.871764829475424,
+    "vol_ratio": 1.0795109582028786,
+    "momentum": -0.40637460621347765,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 63.9"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 65,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -1,
+    "precision": {
+      "adjustment": -1,
+      "relative_strength": {
+        "stock_20d": 8.16,
+        "vs_market": 5.61,
+        "vs_sector": 5.0,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLC",
+        "trend": "BULLISH",
+        "return_20d": 3.16,
+        "vs_spy": 0.61,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 4.14,
+        "extension_atr": 1.1,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": -6,
+        "support": 144.84,
+        "resistance": 159.89,
+        "room_to_resistance_pct": 1.94,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "MEDIA_TELECOM"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 154.29,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:17:06.409205+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "TSLA",
+    "strategy": "DAY",
+    "raw_score": 60,
+    "price": 365.57000732421875,
+    "entry_low": 364.0318651267083,
+    "entry_high": 364.3870972367428,
+    "stop_loss": 361.67239004849836,
+    "target1": 368.5400085449219,
+    "target2": 372.5312188014762,
+    "rr1": 1.5297824112163825,
+    "rr2": 3.0,
+    "atr": 1.7761605501728506,
+    "rsi": 60.591672671186316,
+    "vol_ratio": 0.0,
+    "momentum": -0.07925929015306643,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 60.6"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 64,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -4,
+    "precision": {
+      "adjustment": -4,
+      "relative_strength": {
+        "stock_20d": 17.47,
+        "vs_market": 14.91,
+        "vs_sector": 17.17,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLY",
+        "trend": "MIXED",
+        "return_20d": 0.3,
+        "vs_spy": -2.26,
+        "score": 0
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 4.33,
+        "extension_atr": 0.67,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": -6,
+        "support": 301.97,
+        "resistance": 366.5,
+        "room_to_resistance_pct": 0.25,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "CONSUMER_RETAIL"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 364.21,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:01:55.366433+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "MCD",
+    "strategy": "DAY",
+    "raw_score": 60,
+    "price": 265.32000732421875,
+    "entry_low": 265.17204182293347,
+    "entry_high": 265.2629800298235,
+    "stop_loss": 264.46454066217996,
+    "target1": 266.07000732421875,
+    "target2": 267.6582981327541,
+    "rr1": 1.0107558909289025,
+    "rr2": 3.0,
+    "atr": 0.45469103445017245,
+    "rsi": 54.550595832017066,
+    "vol_ratio": 0.0,
+    "momentum": -0.09789112929867727,
+    "reasons": [
+      "EMA 9/21/50 bullish alignment",
+      "Price above VWAP",
+      "RSI momentum 54.6"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 64,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -4,
+    "precision": {
+      "adjustment": -4,
+      "relative_strength": {
+        "stock_20d": -1.97,
+        "vs_market": -4.52,
+        "vs_sector": -2.26,
+        "score": -4
+      },
+      "sector_strength": {
+        "etf": "XLY",
+        "trend": "MIXED",
+        "return_20d": 0.3,
+        "vs_spy": -2.26,
         "score": 0
       },
       "entry_quality": {
         "score": -6,
-        "position": 2.02,
-        "extension_atr": 0.2,
+        "position": 1.63,
+        "extension_atr": 0.13,
         "blockers": [
           "السعر أعلى من منطقة الدخول"
         ],
@@ -2406,7 +3517,7 @@
         "score": 2,
         "support": 259.85,
         "resistance": 278.37,
-        "room_to_resistance_pct": 4.9,
+        "room_to_resistance_pct": 4.92,
         "blockers": []
       },
       "market_v2": {
@@ -2444,34 +3555,34 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:20.167604+00:00",
+    "expires_at": "2026-08-31T20:02:00.461983+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "SPOT",
+    "symbol": "COIN",
     "strategy": "SWING",
-    "raw_score": 65,
-    "price": 543.0084838867188,
-    "entry_low": 519.3122188683101,
-    "entry_high": 526.5706272461839,
-    "stop_loss": 489.24166987426133,
-    "target1": 554.969970703125,
-    "target2": 638.5574993619516,
-    "rr1": 0.7607858739259085,
+    "raw_score": 59,
+    "price": 189.1999969482422,
+    "entry_low": 167.66269544318968,
+    "entry_high": 171.46287632263943,
+    "stop_loss": 144.39135532412533,
+    "target1": 193.80999755859375,
+    "target2": 252.67743931818174,
+    "rr1": 0.8254845096136602,
     "rr2": 3.0,
-    "atr": 20.738309651068082,
-    "rsi": 59.140051341486114,
-    "vol_ratio": 0.6823226035048695,
-    "momentum": 0.9609654866090667,
+    "atr": 10.857659655570755,
+    "rsi": 63.71219222019416,
+    "vol_ratio": 0.925763780915896,
+    "momentum": 1.4531564026242005,
     "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 59.1"
+      "Price above EMA20/50",
+      "Daily RSI 63.7"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
     ],
     "setup_type": "PULLBACK",
-    "score": 72,
+    "score": 64,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -2486,26 +3597,26 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": -1,
+    "precision_adjustment": -3,
     "precision": {
-      "adjustment": -1,
+      "adjustment": -3,
       "relative_strength": {
-        "stock_20d": 11.65,
-        "vs_market": 10.54,
-        "vs_sector": 11.34,
+        "stock_20d": 29.36,
+        "vs_market": 26.8,
+        "vs_sector": 27.87,
         "score": 9
       },
       "sector_strength": {
-        "etf": "XLC",
+        "etf": "XLF",
         "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
+        "return_20d": 1.48,
+        "vs_spy": -1.07,
         "score": 1
       },
       "entry_quality": {
         "score": -11,
-        "position": 3.26,
-        "extension_atr": 0.79,
+        "position": 5.67,
+        "extension_atr": 1.63,
         "blockers": [
           "السعر أعلى من منطقة الدخول",
           "السعر ممتد بعد حركة سريعة"
@@ -2514,9 +3625,9 @@
       },
       "structure": {
         "score": -6,
-        "support": 462.0,
-        "resistance": 554.97,
-        "room_to_resistance_pct": 2.2,
+        "support": 139.11,
+        "resistance": 193.81,
+        "room_to_resistance_pct": 2.44,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -2543,13 +3654,13 @@
         "السعر ممتد بعد حركة سريعة",
         "مقاومة قريبة تقلل مساحة الربح"
       ],
-      "group": "MEDIA_TELECOM"
+      "group": "FINANCIALS"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 522.94,
+    "planned_entry_price": 169.56,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2558,261 +3669,33 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:26.086700+00:00",
+    "expires_at": "2026-09-01T19:17:01.400811+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "TSLA",
+    "symbol": "CAT",
     "strategy": "DAY",
-    "raw_score": 60,
-    "price": 365.6700134277344,
-    "entry_low": 365.2278479153517,
-    "entry_high": 365.5845087583375,
-    "stop_loss": 361.6716756820227,
-    "target1": 368.5400085449219,
-    "target2": 377.323007987282,
-    "rr1": 0.7553350038044326,
+    "raw_score": 57,
+    "price": 796.219482421875,
+    "entry_low": 794.9356529038263,
+    "entry_high": 795.33135282419,
+    "stop_loss": 788.8521378327869,
+    "target1": 796.510009765625,
+    "target2": 814.7689977983996,
+    "rr1": 0.18191354091488382,
     "rr2": 3.0,
-    "atr": 1.7833042149293477,
-    "rsi": 60.89136941565303,
+    "atr": 1.9784996018192442,
+    "rsi": 52.35670150004996,
     "vol_ratio": 0.0,
-    "momentum": -0.05192476122951595,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 60.9"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 71,
-    "signal": "WAIT",
-    "action": "NO_TRADE",
-    "instruction": "لا توجد صفقة مناسبة الآن",
-    "simple_decision_ar": "لا تدخل",
-    "simple_next_step": "احتفظ بالكاش وانتظر فرصة أوضح.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -2,
-    "precision": {
-      "adjustment": -2,
-      "relative_strength": {
-        "stock_20d": 13.53,
-        "vs_market": 12.42,
-        "vs_sector": 15.04,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLY",
-        "trend": "MIXED",
-        "return_20d": -1.51,
-        "vs_spy": -2.62,
-        "score": 0
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 1.24,
-        "extension_atr": 0.05,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 310.43,
-        "resistance": 366.5,
-        "room_to_resistance_pct": 0.23,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "MEGA_TECH"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 365.41,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:14.722869+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "NOW",
-    "strategy": "SWING",
-    "raw_score": 70,
-    "price": 148.61500549316406,
-    "entry_low": 126.67326464280669,
-    "entry_high": 128.96677223139466,
-    "stop_loss": 116.85706451421007,
-    "target1": 145.72000122070312,
-    "target2": 165.29589538294843,
-    "rr1": 1.3834544466778804,
-    "rr2": 3.0,
-    "atr": 6.552878824537108,
-    "rsi": 74.75317638578125,
-    "vol_ratio": 1.6260129760801736,
-    "momentum": 16.060134284490314,
-    "reasons": [
-      "Daily trend bullish",
-      "Previous completed-day volume 1.63x",
-      "5-day momentum +16.06%"
-    ],
-    "warnings": [
-      "Daily RSI overbought",
-      "Current daily volume is partial; SWING score uses last completed session",
-      "Breakout rejected: weak confirmation or excessive extension"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 69,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "متوسطة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "MEDIUM",
-    "event_notes": [
-      "PRODUCT: 1 headline(s)"
-    ],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 1,
-    "precision": {
-      "adjustment": 1,
-      "relative_strength": {
-        "stock_20d": 30.15,
-        "vs_market": 29.03,
-        "vs_sector": 23.53,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "CIBR",
-        "trend": "BULLISH",
-        "return_20d": 6.62,
-        "vs_spy": 5.5,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -15,
-        "position": 9.57,
-        "extension_atr": 3.0,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة",
-          "السهم ارتفع كثيرًا خلال خمسة أيام"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 0,
-        "support": 111.8,
-        "resistance": 145.72,
-        "room_to_resistance_pct": -1.95,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "السهم ارتفع كثيرًا خلال خمسة أيام"
-      ],
-      "group": "CLOUD_SECURITY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 127.82,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:16.501200+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "ARM",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 375.0799865722656,
-    "entry_low": 373.87978824544587,
-    "entry_high": 374.05744918998084,
-    "stop_loss": 372.0611634242169,
-    "target1": 375.3599853515625,
-    "target2": 380.0463064872727,
-    "rr1": 0.6524798122192639,
-    "rr2": 3.0,
-    "atr": 0.8883047226749047,
-    "rsi": 61.520295422563485,
-    "vol_ratio": 0.0,
-    "momentum": 0.07069731177604677,
+    "momentum": 0.12316938276850653,
     "reasons": [
       "Short-term EMA momentum",
       "Price above VWAP",
-      "RSI momentum 52.1"
+      "RSI momentum 52.4"
     ],
     "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 67,
+    "score": 64,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -2831,22 +3714,22 @@
     "precision": {
       "adjustment": -4,
       "relative_strength": {
-        "stock_20d": -0.09,
-        "vs_market": -1.2,
-        "vs_sector": -5.2,
-        "score": -3
+        "stock_20d": -2.28,
+        "vs_market": -4.83,
+        "vs_sector": 0.26,
+        "score": -4
       },
       "sector_strength": {
-        "etf": "XLV",
-        "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
-        "score": 3
+        "etf": "XLI",
+        "trend": "MIXED",
+        "return_20d": -2.54,
+        "vs_spy": -5.1,
+        "score": 0
       },
       "entry_quality": {
-        "score": -11,
-        "position": 6.76,
-        "extension_atr": 1.15,
+        "score": -6,
+        "position": 3.24,
+        "extension_atr": 0.45,
         "blockers": [
           "السعر أعلى من منطقة الدخول"
         ],
@@ -2854,9 +3737,118 @@
       },
       "structure": {
         "score": 2,
-        "support": 360.98,
-        "resistance": 405.34,
-        "room_to_resistance_pct": 8.07,
+        "support": 801.0,
+        "resistance": 935.0,
+        "room_to_resistance_pct": 17.43,
+        "blockers": []
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول"
+      ],
+      "group": "INDUSTRIALS"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 795.13,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-08-31T20:02:04.913110+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "META",
+    "strategy": "DAY",
+    "raw_score": 57,
+    "price": 574.155029296875,
+    "entry_low": 572.4456332393848,
+    "entry_high": 572.8057425656809,
+    "stop_loss": 569.1199331298208,
+    "target1": 576.1799926757812,
+    "target2": 583.8631708732614,
+    "rr1": 0.915470582193261,
+    "rr2": 3.0,
+    "atr": 1.8005466314802983,
+    "rsi": 57.36309875774053,
+    "vol_ratio": 0.0,
+    "momentum": 0.4874309472824745,
+    "reasons": [
+      "Short-term EMA momentum",
+      "Price above VWAP",
+      "RSI momentum 57.4"
+    ],
+    "warnings": [],
+    "setup_type": "PULLBACK",
+    "score": 63,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -2,
+    "precision": {
+      "adjustment": -2,
+      "relative_strength": {
+        "stock_20d": 3.14,
+        "vs_market": 0.58,
+        "vs_sector": -2.94,
+        "score": 0
+      },
+      "sector_strength": {
+        "etf": "XLK",
+        "trend": "BULLISH",
+        "return_20d": 6.07,
+        "vs_spy": 3.52,
+        "score": 3
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 4.75,
+        "extension_atr": 0.75,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": 2,
+        "support": 537.27,
+        "resistance": 612.43,
+        "room_to_resistance_pct": 6.67,
         "blockers": []
       },
       "market_v2": {
@@ -2878,15 +3870,15 @@
       "weekly_aligned": true,
       "blockers": [
         "السعر أعلى من منطقة الدخول",
-        "القطاع ضعيف حاليًا"
+        "السعر ممتد بعد حركة سريعة"
       ],
-      "group": "SEMICONDUCTORS"
+      "group": "MEGA_TECH"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 373.97,
+    "planned_entry_price": 572.63,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -2895,34 +3887,34 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:23.362899+00:00",
+    "expires_at": "2026-08-31T20:01:54.169860+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "TGT",
+    "symbol": "MA",
     "strategy": "SWING",
-    "raw_score": 58,
-    "price": 182.22999572753906,
-    "entry_low": 177.98561907096126,
-    "entry_high": 179.9636362558945,
-    "stop_loss": 169.79097644766645,
-    "target1": 193.4530029296875,
-    "target2": 210.48161568057864,
-    "rr1": 1.3260412643389756,
+    "raw_score": 65,
+    "price": 590.0399780273438,
+    "entry_low": 574.9732126734054,
+    "entry_high": 578.5777812281258,
+    "stop_loss": 559.7151946707448,
+    "target1": 601.22998046875,
+    "target2": 635.1655409002686,
+    "rr1": 1.2009063111103595,
     "rr2": 3.0,
-    "atr": 5.651477671237813,
-    "rsi": 58.13493152926363,
-    "vol_ratio": 0.8793245656998964,
-    "momentum": -4.195368647629804,
+    "atr": 10.298767299200996,
+    "rsi": 64.29052854732623,
+    "vol_ratio": 1.0282695239367738,
+    "momentum": 1.620648789314716,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 58.1"
+      "Daily RSI 64.3"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
     ],
     "setup_type": "PULLBACK",
-    "score": 67,
+    "score": 63,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -2937,36 +3929,37 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 1,
+    "precision_adjustment": -10,
     "precision": {
-      "adjustment": 1,
+      "adjustment": -10,
       "relative_strength": {
-        "stock_20d": 20.97,
-        "vs_market": 19.86,
-        "vs_sector": 23.1,
-        "score": 9
+        "stock_20d": 2.96,
+        "vs_market": 0.4,
+        "vs_sector": 1.47,
+        "score": 2
       },
       "sector_strength": {
-        "etf": "XLY",
-        "trend": "MIXED",
-        "return_20d": -2.13,
-        "vs_spy": -3.24,
-        "score": 0
+        "etf": "XLF",
+        "trend": "BULLISH",
+        "return_20d": 1.48,
+        "vs_spy": -1.07,
+        "score": 1
       },
       "entry_quality": {
-        "score": -6,
-        "position": 2.15,
-        "extension_atr": 0.4,
+        "score": -11,
+        "position": 4.18,
+        "extension_atr": 1.11,
         "blockers": [
-          "السعر أعلى من منطقة الدخول"
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
         ],
         "notes": []
       },
       "structure": {
         "score": -6,
-        "support": 148.65,
-        "resistance": 193.45,
-        "room_to_resistance_pct": 6.16,
+        "support": 556.06,
+        "resistance": 601.23,
+        "room_to_resistance_pct": 1.9,
         "blockers": [
           "مقاومة قريبة تقلل مساحة الربح"
         ]
@@ -2990,15 +3983,16 @@
       "weekly_aligned": true,
       "blockers": [
         "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
         "مقاومة قريبة تقلل مساحة الربح"
       ],
-      "group": "CONSUMER_RETAIL"
+      "group": "FINANCIALS"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 178.97,
+    "planned_entry_price": 576.78,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -3007,79 +4001,191 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:18.273111+00:00",
+    "expires_at": "2026-09-01T19:17:00.939075+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "TGT",
+    "symbol": "ABNB",
     "strategy": "SWING",
     "raw_score": 58,
-    "price": 160.4582061767578,
-    "entry_low": 156.32882156624868,
-    "entry_high": 158.0712842629176,
-    "stop_loss": 145.46323698672336,
-    "target1": 170.75,
-    "target2": 195.89542609150033,
-    "rr1": 1.0056050282284068,
+    "price": 182.33999633789062,
+    "entry_low": 176.9706897982575,
+    "entry_high": 178.90705440261468,
+    "stop_loss": 168.9486078659206,
+    "target1": 193.4530029296875,
+    "target2": 208.78239401269693,
+    "rr1": 1.4606644192420055,
     "rr2": 3.0,
-    "atr": 4.978464847625502,
-    "rsi": 58.86969184313406,
-    "vol_ratio": 0.7338248591780469,
-    "momentum": -5.551705954897612,
+    "atr": 5.5324702981633855,
+    "rsi": 60.889864462556886,
+    "vol_ratio": 0.8866256885571173,
+    "momentum": -2.6481615766426603,
     "reasons": [
       "Daily trend bullish",
-      "Daily RSI 58.9"
+      "Daily RSI 60.9"
     ],
     "warnings": [
       "Current daily volume is partial; SWING score uses last completed session"
     ],
-    "warnings": [],
     "setup_type": "PULLBACK",
-    "score": 67,
+    "score": 62,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
     "simple_decision_ar": "راقب فقط",
     "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
     "confidence_label": "ضعيفة",
-    "risk_label": "متوسطة",
+    "risk_label": "منخفضة",
     "quality_grade": "C",
     "market_regime": "RISK_ON",
     "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "MEDIUM",
-    "event_notes": [
-      "LEGAL: 1 headline(s)"
-    ],
+    "event_risk": "LOW",
+    "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": 1,
+    "precision_adjustment": -4,
     "precision": {
-      "adjustment": 1,
+      "adjustment": -4,
       "relative_strength": {
-        "stock_20d": 7.44,
-        "vs_market": 6.32,
-        "vs_sector": 8.95,
+        "stock_20d": 20.34,
+        "vs_market": 17.79,
+        "vs_sector": 22.55,
         "score": 9
       },
       "sector_strength": {
-        "etf": "XLY",
+        "etf": "PEJ",
         "trend": "MIXED",
-        "return_20d": -1.51,
-        "vs_spy": -2.62,
+        "return_20d": -2.21,
+        "vs_spy": -4.77,
         "score": 0
       },
       "entry_quality": {
-        "score": -6,
-        "position": 2.37,
-        "extension_atr": 0.48,
+        "score": -11,
+        "position": 2.77,
+        "extension_atr": 0.62,
         "blockers": [
-          "السعر أعلى من منطقة الدخول"
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
         ],
         "notes": []
       },
       "structure": {
         "score": -6,
-        "support": 145.5,
+        "support": 148.65,
+        "resistance": 193.45,
+        "room_to_resistance_pct": 6.09,
+        "blockers": [
+          "مقاومة قريبة تقلل مساحة الربح"
+        ]
+      },
+      "market_v2": {
+        "label": "CAUTIOUS_RISK_ON",
+        "adjustment": 1,
+        "iwm_trend": "MIXED",
+        "breadth_bullish_pct": 62,
+        "sector_trends": [
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "BULLISH",
+          "MIXED",
+          "MIXED",
+          "BULLISH",
+          "BEARISH"
+        ]
+      },
+      "weekly_aligned": true,
+      "blockers": [
+        "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
+        "مقاومة قريبة تقلل مساحة الربح"
+      ],
+      "group": "TRAVEL_MOBILITY"
+    },
+    "validation_blocked": false,
+    "confirmation_passed": true,
+    "confirmation_reason": "not-required",
+    "confirmation_notes": [],
+    "planned_entry_price": 177.94,
+    "suggested_shares": 0,
+    "suggested_value": 0.0,
+    "risk_dollars": 0.0,
+    "risk_pct_equity": 0.0,
+    "risk_multiplier": 0,
+    "portfolio_gate": "OK",
+    "correlation_gate": "OK",
+    "daily_loss_blocked": false,
+    "expires_at": "2026-09-01T19:16:58.422526+00:00",
+    "engine": "V4.3-Market-Discovery"
+  },
+  {
+    "symbol": "TGT",
+    "strategy": "SWING",
+    "raw_score": 58,
+    "price": 160.4600067138672,
+    "entry_low": 155.68098383480594,
+    "entry_high": 157.49980888932032,
+    "stop_loss": 145.43051026193245,
+    "target1": 170.75,
+    "target2": 193.70770477148392,
+    "rr1": 1.0978426766748577,
+    "rr2": 3.0,
+    "atr": 5.196643012898291,
+    "rsi": 59.18093668982781,
+    "vol_ratio": 0.9766306243460062,
+    "momentum": -3.010152111973541,
+    "reasons": [
+      "Daily trend bullish",
+      "Daily RSI 59.2"
+    ],
+    "warnings": [
+      "Current daily volume is partial; SWING score uses last completed session"
+    ],
+    "setup_type": "PULLBACK",
+    "score": 62,
+    "signal": "WATCH",
+    "action": "WATCH",
+    "instruction": "الفرصة لم تكتمل بعد",
+    "simple_decision_ar": "راقب فقط",
+    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
+    "confidence_label": "ضعيفة",
+    "risk_label": "منخفضة",
+    "quality_grade": "C",
+    "market_regime": "RISK_ON",
+    "market_regime_v2": "CAUTIOUS_RISK_ON",
+    "event_risk": "LOW",
+    "event_notes": [],
+    "strategy_adjustment": 0,
+    "setup_adjustment": 0,
+    "precision_adjustment": -4,
+    "precision": {
+      "adjustment": -4,
+      "relative_strength": {
+        "stock_20d": 11.05,
+        "vs_market": 8.5,
+        "vs_sector": 10.76,
+        "score": 9
+      },
+      "sector_strength": {
+        "etf": "XLY",
+        "trend": "MIXED",
+        "return_20d": 0.3,
+        "vs_spy": -2.26,
+        "score": 0
+      },
+      "entry_quality": {
+        "score": -11,
+        "position": 2.63,
+        "extension_atr": 0.57,
+        "blockers": [
+          "السعر أعلى من منطقة الدخول",
+          "السعر ممتد بعد حركة سريعة"
+        ],
+        "notes": []
+      },
+      "structure": {
+        "score": -6,
+        "support": 141.05,
         "resistance": 170.75,
         "room_to_resistance_pct": 6.41,
         "blockers": [
@@ -3105,6 +4211,7 @@
       "weekly_aligned": true,
       "blockers": [
         "السعر أعلى من منطقة الدخول",
+        "السعر ممتد بعد حركة سريعة",
         "مقاومة قريبة تقلل مساحة الربح"
       ],
       "group": "CONSUMER_RETAIL"
@@ -3113,7 +4220,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 157.2,
+    "planned_entry_price": 156.59,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -3122,804 +4229,25 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:18.827791+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "MRK",
-    "strategy": "SWING",
-    "raw_score": 58,
-    "price": 147.5,
-    "entry_low": 142.10438042712565,
-    "entry_high": 143.58069606737945,
-    "stop_loss": 134.24729817984658,
-    "target1": 156.9199981689453,
-    "target2": 171.58088972997805,
-    "rr1": 1.4292010543538385,
-    "rr2": 3.0,
-    "atr": 4.218044686439403,
-    "rsi": 61.049207521040316,
-    "vol_ratio": 0.7200181008641199,
-    "momentum": -2.097440319460253,
-    "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 61.0"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 65,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -1,
-    "precision": {
-      "adjustment": -1,
-      "relative_strength": {
-        "stock_20d": 15.44,
-        "vs_market": 14.33,
-        "vs_sector": 10.33,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLV",
-        "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 3.65,
-        "extension_atr": 0.93,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 126.22,
-        "resistance": 156.92,
-        "room_to_resistance_pct": 6.39,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "HEALTHCARE"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 142.84,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:22.342015+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "T",
-    "strategy": "DAY",
-    "raw_score": 42,
-    "price": 26.065000534057617,
-    "entry_low": 26.06020224283639,
-    "entry_high": 26.07219797088946,
-    "stop_loss": 25.984001907091628,
-    "target1": 26.239999771118164,
-    "target2": 26.33678616228295,
-    "rr1": 1.9025996513104273,
-    "rr2": 3.0,
-    "atr": 0.05997864026535977,
-    "rsi": 53.012836609009476,
-    "vol_ratio": 0.0,
-    "momentum": -0.019175914173841235,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "RSI momentum 53.0"
-    ],
-    "warnings": [
-      "Below VWAP"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 65,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 15,
-    "precision": {
-      "adjustment": 15,
-      "relative_strength": {
-        "stock_20d": 10.47,
-        "vs_market": 9.36,
-        "vs_sector": 10.16,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLC",
-        "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": 5,
-        "position": 0.4,
-        "extension_atr": 0.0,
-        "blockers": [],
-        "notes": [
-          "السعر داخل منطقة دخول مريحة"
-        ]
-      },
-      "structure": {
-        "score": 0,
-        "support": 22.55,
-        "resistance": 26.03,
-        "room_to_resistance_pct": -0.13,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [],
-      "group": "MEDIA_TELECOM"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 26.07,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:26.294126+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "RBLX",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 40.83000183105469,
-    "entry_low": 40.40843601388845,
-    "entry_high": 40.47475636088476,
-    "stop_loss": 40.02046198396005,
-    "target1": 40.959999084472656,
-    "target2": 41.837639491658905,
-    "rr1": 1.0681239923608148,
-    "rr2": 3.0,
-    "atr": 0.33160173498154133,
-    "rsi": 62.37854012166953,
-    "vol_ratio": 0.0,
-    "momentum": 0.44280516216264054,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 62.4"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 65,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "متوسطة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "MEDIUM",
-    "event_notes": [
-      "LEGAL: 1 headline(s)"
-    ],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 3,
-    "precision": {
-      "adjustment": 3,
-      "relative_strength": {
-        "stock_20d": 11.34,
-        "vs_market": 10.23,
-        "vs_sector": 11.03,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLC",
-        "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 6.36,
-        "extension_atr": 1.07,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 0,
-        "support": 35.03,
-        "resistance": 40.19,
-        "room_to_resistance_pct": -1.57,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة"
-      ],
-      "group": "MEDIA_TELECOM"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 40.44,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:26.508815+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "XOM",
-    "strategy": "DAY",
-    "raw_score": 42,
-    "price": 159.9499969482422,
-    "entry_low": 159.91557534460355,
-    "entry_high": 160.00162935370017,
-    "stop_loss": 158.69697848861577,
-    "target1": 160.5399932861328,
-    "target2": 163.91558194895336,
-    "rr1": 0.4126498106432625,
-    "rr2": 3.0,
-    "atr": 0.4302700454830613,
-    "rsi": 60.37111920541897,
-    "vol_ratio": 0.0,
-    "momentum": -0.28987087077403384,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "RSI momentum 60.4"
-    ],
-    "warnings": [
-      "Below VWAP"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 64,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 14,
-    "precision": {
-      "adjustment": 14,
-      "relative_strength": {
-        "stock_20d": 3.15,
-        "vs_market": 2.04,
-        "vs_sector": -5.16,
-        "score": 0
-      },
-      "sector_strength": {
-        "etf": "XLE",
-        "trend": "BULLISH",
-        "return_20d": 8.32,
-        "vs_spy": 7.2,
-        "score": 3
-      },
-      "entry_quality": {
-        "score": 5,
-        "position": 0.4,
-        "extension_atr": 0.0,
-        "blockers": [],
-        "notes": [
-          "السعر داخل منطقة دخول مريحة"
-        ]
-      },
-      "structure": {
-        "score": 2,
-        "support": 149.09,
-        "resistance": 168.64,
-        "room_to_resistance_pct": 5.43,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [],
-      "group": "ENERGY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 159.96,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:23.911636+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "COIN",
-    "strategy": "SWING",
-    "raw_score": 66,
-    "price": 189.0800018310547,
-    "entry_low": 168.61002818642154,
-    "entry_high": 172.474071317027,
-    "stop_loss": 144.36398578791574,
-    "target1": 193.80999755859375,
-    "target2": 256.80432790436083,
-    "rr1": 0.7590132096706322,
-    "rr2": 3.0,
-    "atr": 11.040123230301392,
-    "rsi": 61.28651321343839,
-    "vol_ratio": 0.9931840117812117,
-    "momentum": 5.348788907978896,
-    "reasons": [
-      "Price above EMA20/50",
-      "Daily RSI 61.3",
-      "5-day momentum +5.35%"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 63,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -11,
-    "precision": {
-      "adjustment": -11,
-      "relative_strength": {
-        "stock_20d": 29.06,
-        "vs_market": 27.95,
-        "vs_sector": 28.36,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLF",
-        "trend": "BULLISH",
-        "return_20d": 0.71,
-        "vs_spy": -0.41,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 5.3,
-        "extension_atr": 1.5,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 141.03,
-        "resistance": 193.81,
-        "room_to_resistance_pct": 2.5,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": false,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح",
-        "الاتجاه الأسبوعي غير مؤكد"
-      ],
-      "group": "FINANCIALS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 170.54,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:21.494820+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "ROKU",
-    "strategy": "SWING",
-    "raw_score": 58,
-    "price": 156.89500427246094,
-    "entry_low": 154.25835604188313,
-    "entry_high": 154.96114501159934,
-    "stop_loss": 151.3468017387731,
-    "target1": 159.88999938964844,
-    "target2": 165.80417483007804,
-    "rr1": 1.3636929328505596,
-    "rr2": 3.0,
-    "atr": 2.007968484903461,
-    "rsi": 62.62339914407153,
-    "vol_ratio": 0.7897480784706018,
-    "momentum": -0.8123583656715283,
-    "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 62.6"
-    ],
-    "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 63,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -3,
-    "precision": {
-      "adjustment": -3,
-      "relative_strength": {
-        "stock_20d": 7.58,
-        "vs_market": 6.47,
-        "vs_sector": 7.27,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "XLC",
-        "trend": "BULLISH",
-        "return_20d": 0.31,
-        "vs_spy": -0.8,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 3.75,
-        "extension_atr": 0.96,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 145.2,
-        "resistance": 159.89,
-        "room_to_resistance_pct": 1.91,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "MEDIA_TELECOM"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 154.61,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:26.340924+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "WMT",
-    "strategy": "DAY",
-    "raw_score": 66,
-    "price": 104.69000244140625,
-    "entry_low": 104.39792546173308,
-    "entry_high": 104.43741383308637,
-    "stop_loss": 104.16691848931634,
-    "target1": 104.81510162353516,
-    "target2": 105.24889986439644,
-    "rr1": 1.3962820401444775,
-    "rr2": 3.0,
-    "atr": 0.19744185676644677,
-    "rsi": 67.62113310334577,
-    "vol_ratio": 0.0,
-    "momentum": 0.07647627434079762,
-    "reasons": [
-      "EMA 9/21/50 bullish alignment",
-      "Price above VWAP",
-      "RSI momentum 67.6"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 62,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -12,
-    "precision": {
-      "adjustment": -12,
-      "relative_strength": {
-        "stock_20d": -5.43,
-        "vs_market": -6.54,
-        "vs_sector": -3.92,
-        "score": -7
-      },
-      "sector_strength": {
-        "etf": "XLY",
-        "trend": "MIXED",
-        "return_20d": -1.51,
-        "vs_spy": -2.62,
-        "score": 0
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 7.4,
-        "extension_atr": 1.28,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 102.15,
-        "resistance": 116.87,
-        "room_to_resistance_pct": 11.63,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة"
-      ],
-      "group": "TRAVEL_MOBILITY"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 104.42,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:19.098000+00:00",
+    "expires_at": "2026-09-01T19:16:59.041422+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
     "symbol": "PFE",
     "strategy": "DAY",
     "raw_score": 49,
-    "price": 28.579999923706055,
-    "entry_low": 28.40642317516545,
-    "entry_high": 28.420043026422814,
-    "stop_loss": 28.153189921783426,
+    "price": 28.6299991607666,
+    "entry_low": 28.41448201659218,
+    "entry_high": 28.428822261750515,
+    "stop_loss": 28.152829724832944,
     "target1": 28.6299991607666,
-    "target2": 29.220602340340978,
-    "rr1": 0.7867854287380763,
+    "target2": 29.256799872503226,
+    "rr1": 0.7289215181792086,
     "rr2": 3.0,
-    "atr": 0.06809925628681783,
-    "rsi": 73.98999950333963,
+    "atr": 0.07170122579166079,
+    "rsi": 76.23149629326898,
     "vol_ratio": 0.0,
-    "momentum": 0.017494875356516282,
+    "momentum": 0.19247032846445578,
     "reasons": [
       "EMA 9/21/50 bullish alignment",
       "Price above VWAP"
@@ -3947,22 +4275,22 @@
     "precision": {
       "adjustment": 5,
       "relative_strength": {
-        "stock_20d": 14.18,
-        "vs_market": 13.07,
-        "vs_sector": 9.07,
+        "stock_20d": 14.47,
+        "vs_market": 11.92,
+        "vs_sector": 9.55,
         "score": 9
       },
       "sector_strength": {
         "etf": "XLV",
         "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
+        "return_20d": 4.92,
+        "vs_spy": 2.37,
         "score": 3
       },
       "entry_quality": {
         "score": -11,
-        "position": 12.74,
-        "extension_atr": 2.35,
+        "position": 15.03,
+        "extension_atr": 2.81,
         "blockers": [
           "السعر أعلى من منطقة الدخول",
           "السعر ممتد بعد حركة سريعة"
@@ -3971,9 +4299,9 @@
       },
       "structure": {
         "score": 0,
-        "support": 24.7,
+        "support": 24.67,
         "resistance": 28.58,
-        "room_to_resistance_pct": 0.0,
+        "room_to_resistance_pct": -0.17,
         "blockers": []
       },
       "market_v2": {
@@ -4003,7 +4331,7 @@
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 28.41,
+    "planned_entry_price": 28.42,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -4012,34 +4340,34 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:23.063403+00:00",
+    "expires_at": "2026-08-31T20:02:03.317304+00:00",
     "engine": "V4.3-Market-Discovery"
   },
   {
-    "symbol": "MA",
-    "strategy": "SWING",
-    "raw_score": 58,
-    "price": 590.5700073242188,
-    "entry_low": 576.8069033588,
-    "entry_high": 580.313090538832,
-    "stop_loss": 561.6773410271961,
-    "target1": 601.22998046875,
-    "target2": 636.2203390737394,
-    "rr1": 1.1224066902626015,
+    "symbol": "XOM",
+    "strategy": "DAY",
+    "raw_score": 42,
+    "price": 160.02499389648438,
+    "entry_low": 159.9906245592636,
+    "entry_high": 160.07654790231553,
+    "stop_loss": 158.69704382163812,
+    "target1": 160.5399932861328,
+    "target2": 164.21506014434775,
+    "rr1": 0.3359507161368541,
     "rr2": 3.0,
-    "atr": 10.017677657233994,
-    "rsi": 63.16161717942655,
-    "vol_ratio": 0.6283160476711014,
-    "momentum": -1.5486910702835366,
+    "atr": 0.4296167152595166,
+    "rsi": 61.51125141361279,
+    "vol_ratio": 0.0,
+    "momentum": -0.24311903872525908,
     "reasons": [
-      "Daily trend bullish",
-      "Daily RSI 63.2"
+      "EMA 9/21/50 bullish alignment",
+      "RSI momentum 61.5"
     ],
     "warnings": [
-      "Current daily volume is partial; SWING score uses last completed session"
+      "Below VWAP"
     ],
     "setup_type": "PULLBACK",
-    "score": 59,
+    "score": 61,
     "signal": "WATCH",
     "action": "WATCH",
     "instruction": "الفرصة لم تكتمل بعد",
@@ -4054,246 +4382,25 @@
     "event_notes": [],
     "strategy_adjustment": 0,
     "setup_adjustment": 0,
-    "precision_adjustment": -7,
+    "precision_adjustment": 11,
     "precision": {
-      "adjustment": -7,
+      "adjustment": 11,
       "relative_strength": {
-        "stock_20d": 3.43,
-        "vs_market": 2.32,
-        "vs_sector": 2.73,
-        "score": 5
+        "stock_20d": 2.95,
+        "vs_market": 0.39,
+        "vs_sector": -4.01,
+        "score": -3
       },
       "sector_strength": {
-        "etf": "XLF",
+        "etf": "XLE",
         "trend": "BULLISH",
-        "return_20d": 0.71,
-        "vs_spy": -0.41,
-        "score": 1
-      },
-      "entry_quality": {
-        "score": -11,
-        "position": 3.93,
-        "extension_atr": 1.02,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول",
-          "السعر ممتد بعد حركة سريعة"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": -6,
-        "support": 556.06,
-        "resistance": 601.23,
-        "room_to_resistance_pct": 1.81,
-        "blockers": [
-          "مقاومة قريبة تقلل مساحة الربح"
-        ]
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "السعر ممتد بعد حركة سريعة",
-        "مقاومة قريبة تقلل مساحة الربح"
-      ],
-      "group": "FINANCIALS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 578.56,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:20.706050+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "ARM",
-    "strategy": "DAY",
-    "raw_score": 48,
-    "price": 240.93499755859375,
-    "entry_low": 240.43079732836816,
-    "entry_high": 240.60208290748292,
-    "stop_loss": 238.00896170263013,
-    "target1": 241.51499938964844,
-    "target2": 248.3814465220413,
-    "rr1": 0.3520531475571111,
-    "rr2": 3.0,
-    "atr": 0.8564278955738144,
-    "rsi": 51.997938249549264,
-    "vol_ratio": 0.0,
-    "momentum": 0.05190814387578957,
-    "reasons": [
-      "Short-term EMA momentum",
-      "Price above VWAP"
-    ],
-    "warnings": [],
-    "setup_type": "PULLBACK",
-    "score": 58,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -4,
-    "precision": {
-      "adjustment": -4,
-      "relative_strength": {
-        "stock_20d": 0.78,
-        "vs_market": -0.33,
-        "vs_sector": -0.84,
-        "score": 0
-      },
-      "sector_strength": {
-        "etf": "SMH",
-        "trend": "BEARISH",
-        "return_20d": 1.62,
-        "vs_spy": 0.51,
-        "score": -4
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 2.94,
-        "extension_atr": 0.39,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 2,
-        "support": 219.39,
-        "resistance": 299.29,
-        "room_to_resistance_pct": 24.22,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": true,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "القطاع ضعيف حاليًا"
-      ],
-      "group": "SEMICONDUCTORS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 240.52,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:16.769630+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "LLY",
-    "strategy": "DAY",
-    "raw_score": 32,
-    "price": 1157.81494140625,
-    "entry_low": 1157.5186798948994,
-    "entry_high": 1158.1075764090167,
-    "stop_loss": 1151.525498032004,
-    "target1": 1160.5,
-    "target2": 1177.853811540055,
-    "rr1": 0.36347540304876935,
-    "rr2": 3.0,
-    "atr": 2.944482570586309,
-    "rsi": 47.724658155910944,
-    "vol_ratio": 0.0,
-    "momentum": 0.2741018425729047,
-    "reasons": [
-      "Price above VWAP"
-    ],
-    "warnings": [
-      "EMA momentum not confirmed"
-    ],
-    "setup_type": "PULLBACK",
-    "score": 58,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": 15,
-    "precision": {
-      "adjustment": 15,
-      "relative_strength": {
-        "stock_20d": 3.24,
-        "vs_market": 2.12,
-        "vs_sector": -1.88,
-        "score": 3
-      },
-      "sector_strength": {
-        "etf": "XLV",
-        "trend": "BULLISH",
-        "return_20d": 5.12,
-        "vs_spy": 4.0,
+        "return_20d": 6.96,
+        "vs_spy": 4.41,
         "score": 3
       },
       "entry_quality": {
         "score": 5,
-        "position": 0.5,
+        "position": 0.4,
         "extension_atr": 0.0,
         "blockers": [],
         "notes": [
@@ -4302,9 +4409,9 @@
       },
       "structure": {
         "score": 2,
-        "support": 1109.15,
-        "resistance": 1292.65,
-        "room_to_resistance_pct": 11.65,
+        "support": 149.09,
+        "resistance": 168.64,
+        "room_to_resistance_pct": 5.38,
         "blockers": []
       },
       "market_v2": {
@@ -4325,13 +4432,13 @@
       },
       "weekly_aligned": true,
       "blockers": [],
-      "group": "HEALTHCARE"
+      "group": "ENERGY"
     },
     "validation_blocked": false,
     "confirmation_passed": true,
     "confirmation_reason": "not-required",
     "confirmation_notes": [],
-    "planned_entry_price": 1157.81,
+    "planned_entry_price": 160.03,
     "suggested_shares": 0,
     "suggested_value": 0.0,
     "risk_dollars": 0.0,
@@ -4340,124 +4447,7 @@
     "portfolio_gate": "OK",
     "correlation_gate": "OK",
     "daily_loss_blocked": false,
-    "expires_at": "2026-08-31T20:01:22.277795+00:00",
-    "engine": "V4.3-Market-Discovery"
-  },
-  {
-    "symbol": "QCOM",
-    "strategy": "SWING",
-    "raw_score": 54,
-    "price": 170.41000366210938,
-    "entry_low": 167.9524429671245,
-    "entry_high": 170.09339798393813,
-    "stop_loss": 155.31244357747607,
-    "target1": 178.64999389648438,
-    "target2": 214.4362612033243,
-    "rr1": 0.5788933297030806,
-    "rr2": 3.0,
-    "atr": 6.117014333753175,
-    "rsi": 55.70772346875714,
-    "vol_ratio": 0.7750832738847199,
-    "momentum": 7.493852882287388,
-    "reasons": [
-      "Daily RSI 55.7",
-      "5-day momentum +7.49%",
-      "Quality 20-day breakout",
-      "breakout distance controlled",
-      "healthy 5d momentum",
-      "healthy daily RSI",
-      "close near daily high"
-    ],
-    "warnings": [
-      "Daily trend not fully aligned",
-      "Current daily volume is partial; SWING score uses last completed session"
-    ],
-    "setup_type": "BREAKOUT",
-    "score": 57,
-    "signal": "WATCH",
-    "action": "WATCH",
-    "instruction": "الفرصة لم تكتمل بعد",
-    "simple_decision_ar": "راقب فقط",
-    "simple_next_step": "الفرصة لم تكتمل. لا تدخل الآن.",
-    "confidence_label": "ضعيفة",
-    "risk_label": "منخفضة",
-    "quality_grade": "C",
-    "market_regime": "RISK_ON",
-    "market_regime_v2": "CAUTIOUS_RISK_ON",
-    "event_risk": "LOW",
-    "event_notes": [],
-    "strategy_adjustment": 0,
-    "setup_adjustment": 0,
-    "precision_adjustment": -5,
-    "precision": {
-      "adjustment": -5,
-      "relative_strength": {
-        "stock_20d": 12.43,
-        "vs_market": 11.32,
-        "vs_sector": 10.81,
-        "score": 9
-      },
-      "sector_strength": {
-        "etf": "SMH",
-        "trend": "BEARISH",
-        "return_20d": 1.62,
-        "vs_spy": 0.51,
-        "score": -4
-      },
-      "entry_quality": {
-        "score": -6,
-        "position": 1.15,
-        "extension_atr": 0.05,
-        "blockers": [
-          "السعر أعلى من منطقة الدخول"
-        ],
-        "notes": []
-      },
-      "structure": {
-        "score": 0,
-        "support": 142.89,
-        "resistance": 168.87,
-        "room_to_resistance_pct": -0.9,
-        "blockers": []
-      },
-      "market_v2": {
-        "label": "CAUTIOUS_RISK_ON",
-        "adjustment": 1,
-        "iwm_trend": "MIXED",
-        "breadth_bullish_pct": 62,
-        "sector_trends": [
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "BULLISH",
-          "MIXED",
-          "MIXED",
-          "BULLISH",
-          "BEARISH"
-        ]
-      },
-      "weekly_aligned": false,
-      "blockers": [
-        "السعر أعلى من منطقة الدخول",
-        "القطاع ضعيف حاليًا",
-        "الاتجاه الأسبوعي غير مؤكد"
-      ],
-      "group": "SEMICONDUCTORS"
-    },
-    "validation_blocked": false,
-    "confirmation_passed": true,
-    "confirmation_reason": "not-required",
-    "confirmation_notes": [],
-    "planned_entry_price": 169.02,
-    "suggested_shares": 0,
-    "suggested_value": 0.0,
-    "risk_dollars": 0.0,
-    "risk_pct_equity": 0.0,
-    "risk_multiplier": 0,
-    "portfolio_gate": "OK",
-    "correlation_gate": "OK",
-    "daily_loss_blocked": false,
-    "expires_at": "2026-09-01T19:16:15.404327+00:00",
+    "expires_at": "2026-08-31T20:02:03.698329+00:00",
     "engine": "V4.3-Market-Discovery"
   }
 ]
