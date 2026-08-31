@@ -20,7 +20,7 @@ concurrency:
 jobs:
   watchdog:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,24 +34,28 @@ jobs:
         run: |
           git fetch origin main
           git reset --hard origin/main
-      - name: Check trading scan health
+      - name: Check trading scan health and self-heal if stale
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          WATCHDOG_MAX_STALE_MINUTES: '35'
+          ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
+          RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
+          MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
+          WATCHDOG_MAX_STALE_MINUTES: '25'
           WATCHDOG_MIN_EXPECTED_SUCCESS: '8'
+          WATCHDOG_SELF_HEAL: '1'
         run: python watchdog.py
-      - name: Persist watchdog state
+      - name: Persist watchdog and recovery state
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/watchdog_state.json
+          git add data docs
           if git diff --cached --quiet; then
-            echo "No watchdog state changes"
+            echo "No watchdog/recovery state changes"
             exit 0
           fi
-          git commit -m "chore: update watchdog state"
+          git commit -m "chore: update watchdog recovery state"
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then
               exit 0
