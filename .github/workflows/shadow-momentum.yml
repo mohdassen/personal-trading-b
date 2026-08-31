@@ -1,0 +1,63 @@
+name: V4.8 Momentum Shadow
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'shadow_momentum.py'
+      - '.github/workflows/shadow-momentum.yml'
+  schedule:
+    # 20:30 UTC covers 16:30 ET during DST; 21:30 covers 16:30 ET in standard time.
+    # The script processes at most once per New York market date.
+    - cron: '30 20,21 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: momentum-shadow
+  cancel-in-progress: false
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Run forward-only adaptive momentum shadow
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_SHADOW: ${{ github.event_name != 'schedule' && '1' || '0' }}
+        run: python shadow_momentum.py
+      - name: Persist shadow state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/shadow_momentum_state.json
+          if git diff --cached --quiet; then
+            echo "No shadow state changes"
+            exit 0
+          fi
+          git commit -m "chore: update V4.8 forward shadow state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git fetch origin main
+            git rebase -X theirs origin/main || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
