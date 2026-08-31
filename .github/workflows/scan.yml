@@ -16,9 +16,9 @@ on:
       - 'requirements.txt'
       - '.github/workflows/scan.yml'
   schedule:
-    # Primary market-session heartbeat. GitHub cron is best-effort; the independent
-    # watchdog remains offset from this schedule and detects stale scans.
-    - cron: '*/15 * * * 1-5'
+    # Avoid :00, where GitHub documents the highest schedule load/drop risk.
+    # Four scans/hour, offset from the independent watchdog.
+    - cron: '6,21,36,51 * * * 1-5'
 permissions:
   contents: write
   pages: write
@@ -61,8 +61,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          # Push runs are deliberate code/validation changes and should prove the
-          # Telegram path immediately. Scheduled runs remain state-aware to avoid spam.
           DIAGNOSTICS_NOTIFY_ON_PUSH: ${{ github.event_name == 'push' }}
         run: python diagnostics.py
       - name: Commit state safely
