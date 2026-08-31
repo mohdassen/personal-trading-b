@@ -1,6 +1,6 @@
 {
   "engine": "V4.4.3-Retest-Risk-Validation",
-  "method": "Historical qualification-aware validation. Candidate-first score/RR sensitivity plus no-lookahead confirmation, SPY bullish-regime gate, SWING weekly alignment, conservative stop-first handling and transaction costs. These gates mirror important live qualification protections without using current benchmark data for past decisions.",
+  "method": "Qualification-aware candidate-first validation plus V4.5 multi-window robustness gate. The robustness gate requires chronological consistency, neighboring-parameter support, and a final untouched holdout before a setup can advance to Shadow/Paper.",
   "collection_floor": {
     "score": 55,
     "min_rr": 0.25
@@ -11,27 +11,27 @@
   },
   "transaction_cost_bps": 10.0,
   "years_requested": 3,
-  "candidate_pool_samples": 1781,
-  "qualified_pool_samples": 737,
+  "candidate_pool_samples": 1778,
+  "qualified_pool_samples": 735,
   "split_date": "2026-01-13",
   "candidate_pool_raw": {
-    "samples": 1781,
+    "samples": 1778,
     "win_rate": 48.1,
-    "avg_return_pct": 0.007,
+    "avg_return_pct": 0.008,
     "avg_r": -0.053,
-    "median_r": -0.046,
+    "median_r": -0.043,
     "profit_factor_r": 0.85,
-    "max_drawdown_r": 105.74,
+    "max_drawdown_r": 104.791,
     "expectancy_r": -0.053
   },
   "qualified_pool": {
-    "samples": 737,
-    "win_rate": 48.8,
-    "avg_return_pct": -0.065,
+    "samples": 735,
+    "win_rate": 48.7,
+    "avg_return_pct": -0.067,
     "avg_r": -0.062,
-    "median_r": -0.025,
+    "median_r": -0.029,
     "profit_factor_r": 0.82,
-    "max_drawdown_r": 49.366,
+    "max_drawdown_r": 49.666,
     "expectancy_r": -0.062
   },
   "development_pool_qualified": {
@@ -41,18 +41,18 @@
     "avg_r": -0.006,
     "median_r": 0.002,
     "profit_factor_r": 0.98,
-    "max_drawdown_r": 27.05,
+    "max_drawdown_r": 28.074,
     "expectancy_r": -0.006
   },
   "validation_pool_qualified": {
-    "samples": 478,
-    "win_rate": 48.1,
-    "avg_return_pct": -0.196,
-    "avg_r": -0.092,
-    "median_r": -0.035,
+    "samples": 476,
+    "win_rate": 47.9,
+    "avg_return_pct": -0.2,
+    "avg_r": -0.093,
+    "median_r": -0.04,
     "profit_factor_r": 0.73,
-    "max_drawdown_r": 45.393,
-    "expectancy_r": -0.092
+    "max_drawdown_r": 45.693,
+    "expectancy_r": -0.093
   },
   "live_parameters_overall": {
     "samples": 12,
@@ -128,8 +128,29 @@
       "expectancy_r": 0.0
     }
   },
+  "robust_validation": {
+    "status": "NO_ROBUST_REGION",
+    "method": "multi-window chronological validation with untouched final holdout and neighborhood stability requirement",
+    "fold_count": 4,
+    "holdout_dates": {
+      "count": 67,
+      "first": "2026-05-21",
+      "last": "2026-08-31"
+    },
+    "robust_candidate_count": 0,
+    "selected_parameters": null,
+    "final_holdout": {
+      "samples": 0,
+      "win_rate": 0.0,
+      "expectancy_r": 0.0,
+      "profit_factor_r": 0.0,
+      "max_drawdown_r": 0.0
+    },
+    "safe_for_shadow": false,
+    "top_robust_candidates": []
+  },
   "qualification_failure_counts": {
-    "confirmation 1/3": 289,
+    "confirmation 1/3": 288,
     "weekly trend not aligned": 18,
     "market regime unfavorable": 373
   },
