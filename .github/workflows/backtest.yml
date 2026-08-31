@@ -7,6 +7,7 @@ on:
       - 'src/trading_bot/strategies.py'
       - 'backtest_retest.py'
       - 'backtest_pullback.py'
+      - 'backtest_evidence_momentum.py'
       - 'config/settings.yml'
       - 'config/universe.yml'
       - '.github/workflows/backtest.yml'
@@ -28,9 +29,9 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Run V4.6 pullback trend-continuation robust validation
+      - name: Run V4.7 evidence-based momentum position validation
         run: |
-          python backtest_pullback.py
+          python backtest_evidence_momentum.py
           cp data/backtest.json /tmp/backtest.json
       - name: Publish backtest result safely
         run: |
@@ -45,7 +46,7 @@ jobs:
               echo "Backtest result already current"
               exit 0
             fi
-            git commit -m "chore: V4.6 pullback robust validation results"
+            git commit -m "chore: V4.7 evidence momentum validation results"
             if git push origin HEAD:main; then
               exit 0
             fi
