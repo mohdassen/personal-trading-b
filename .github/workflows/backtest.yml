@@ -10,7 +10,6 @@ on:
       - 'backtest_evidence_momentum.py'
       - 'backtest_adaptive_momentum.py'
       - 'backtest_portfolio_momentum.py'
-      - 'backtest_adaptive_exit_momentum.py'
       - 'tests/test_portfolio_momentum.py'
       - 'config/settings.yml'
       - 'config/universe.yml'
@@ -34,11 +33,11 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Validate V4.9/V5.0 portfolio controls
+      - name: Validate V4.9 portfolio controls
         run: python tests/test_portfolio_momentum.py
-      - name: Run V5.0 adaptive-exit momentum research
+      - name: Run frozen V4.9 portfolio-aware momentum candidate
         run: |
-          python backtest_adaptive_exit_momentum.py
+          python backtest_portfolio_momentum.py
           cp data/backtest.json /tmp/backtest.json
       - name: Publish backtest result safely
         run: |
@@ -53,7 +52,7 @@ jobs:
               echo "Backtest result already current"
               exit 0
             fi
-            git commit -m "chore: V5.0 adaptive-exit momentum research results"
+            git commit -m "chore: frozen V4.9 portfolio-aware momentum results"
             if git push origin HEAD:main; then
               exit 0
             fi
