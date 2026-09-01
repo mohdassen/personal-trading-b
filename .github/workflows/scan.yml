@@ -16,11 +16,11 @@ on:
       - 'requirements.txt'
       - '.github/workflows/scan.yml'
   schedule:
-    # GitHub scheduled jobs can occasionally be delayed or dropped. Two staggered
-    # schedules provide a redundant heartbeat without duplicate Telegram opening
-    # messages because session/diagnostic state de-duplicates notifications.
+    # Two independent, staggered heartbeats reduce the chance that a delayed/dropped
+    # GitHub cron leaves the market session unscanned. The watchdog runs separately
+    # a few minutes later and verifies confirmed Telegram delivery.
     - cron: '6,21,36,51 * * * 1-5'
-    - cron: '13,28,43,58 * * * 1-5'
+    - cron: '9,24,39,54 * * * 1-5'
 permissions:
   contents: write
   pages: write
