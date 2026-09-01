@@ -8,9 +8,9 @@ on:
       - 'watchdog.py'
       - '.github/workflows/watchdog.yml'
   schedule:
-    # Seven minutes after the primary scan. If one scan is missed, the next
-    # watchdog can self-heal instead of waiting for another hour.
-    - cron: '13,28,43,58 * * * 1-5'
+    # Independent heartbeat after the two primary scan schedules. It verifies both
+    # market-data freshness and confirmed Telegram opening delivery, then self-heals.
+    - cron: '12,27,42,57 * * * 1-5'
 
 permissions:
   contents: write
@@ -45,6 +45,7 @@ jobs:
           MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
           WATCHDOG_MAX_STALE_MINUTES: '22'
           WATCHDOG_MIN_EXPECTED_SUCCESS: '8'
+          WATCHDOG_OPENING_GRACE_MINUTES: '10'
           WATCHDOG_SELF_HEAL: '1'
         run: python watchdog.py
       - name: Persist watchdog and recovery state
