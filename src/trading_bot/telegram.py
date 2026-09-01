@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json,os,requests
+import json,os,requests,time
 from datetime import datetime,timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -26,10 +26,20 @@ def _record_delivery(text):
 def send(text):
     token=os.getenv('TELEGRAM_BOT_TOKEN');chat=os.getenv('TELEGRAM_CHAT_ID')
     if not token or not chat:return False
-    r=requests.post(f'https://api.telegram.org/bot{token}/sendMessage',json={'chat_id':chat,'text':text,'parse_mode':'HTML','disable_web_page_preview':True},timeout=20)
-    r.raise_for_status()
-    _record_delivery(text)
-    return True
+    url=f'https://api.telegram.org/bot{token}/sendMessage'
+    last_error=None
+    for attempt,delay in enumerate((0,2,5),start=1):
+        if delay:time.sleep(delay)
+        try:
+            r=requests.post(url,json={'chat_id':chat,'text':text,'parse_mode':'HTML','disable_web_page_preview':True},timeout=20)
+            r.raise_for_status()
+            _record_delivery(text)
+            if attempt>1:print(f'Telegram delivery recovered on attempt {attempt}')
+            return True
+        except requests.RequestException as exc:
+            last_error=exc
+            print(f'Telegram send attempt {attempt}/3 failed: {exc}')
+    raise last_error
 
 def _icon(action):return {'BUY_NOW':'✅','WAIT_FOR_ENTRY':'⏳','DO_NOT_CHASE':'🚫','NO_TRADE':'⛔','WATCH':'👀'}.get(action,'ℹ️')
 def _why(s):
