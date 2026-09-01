@@ -191,13 +191,14 @@ def _validate(rows, prices, cost_bps):
         medpf = float(pd.Series(pfs).median())
         worst_dd = max(dds)
 
-        # V4.8 allowed a parameter region to be called robust even with a very
-        # large fold drawdown. V4.9 makes drawdown stability part of selection.
+        # Preserve V4.8's pre-existing worst-fold tolerance (-0.10R) so the
+        # experiment isolates the actual fix: drawdown stability. The new gate
+        # rejects parameter regions that hide an extreme loss cluster in one fold.
         if (
             int(selection_stats["samples"]) >= 60
             and pos >= 0.75
             and med > 0.05
-            and worst > -0.05
+            and worst > -0.10
             and medpf >= 1.15
             and worst_dd <= 12.0
         ):
