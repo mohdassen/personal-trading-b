@@ -1,11 +1,35 @@
 from __future__ import annotations
-import os,requests
+import json,os,requests
+from datetime import datetime,timezone
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+ROOT=Path(__file__).resolve().parents[2]
 
 def enabled():return bool(os.getenv('TELEGRAM_BOT_TOKEN') and os.getenv('TELEGRAM_CHAT_ID'))
+
+def _record_delivery(text):
+    kind=None
+    if 'جلسة السوق بدأت' in text:kind='open'
+    elif 'ملخص إغلاق السوق' in text:kind='close'
+    if not kind:return
+    path=ROOT/'data/telegram_delivery_state.json'
+    try:
+        state=json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+    except Exception:
+        state={}
+    ny=datetime.now(ZoneInfo('America/New_York'))
+    state[f'{kind}_date']=ny.date().isoformat()
+    state[f'{kind}_sent_at']=datetime.now(timezone.utc).isoformat()
+    path.write_text(json.dumps(state,indent=2,ensure_ascii=False),encoding='utf-8')
+
 def send(text):
     token=os.getenv('TELEGRAM_BOT_TOKEN');chat=os.getenv('TELEGRAM_CHAT_ID')
     if not token or not chat:return False
-    r=requests.post(f'https://api.telegram.org/bot{token}/sendMessage',json={'chat_id':chat,'text':text,'parse_mode':'HTML','disable_web_page_preview':True},timeout=20);r.raise_for_status();return True
+    r=requests.post(f'https://api.telegram.org/bot{token}/sendMessage',json={'chat_id':chat,'text':text,'parse_mode':'HTML','disable_web_page_preview':True},timeout=20)
+    r.raise_for_status()
+    _record_delivery(text)
+    return True
 
 def _icon(action):return {'BUY_NOW':'✅','WAIT_FOR_ENTRY':'⏳','DO_NOT_CHASE':'🚫','NO_TRADE':'⛔','WATCH':'👀'}.get(action,'ℹ️')
 def _why(s):
