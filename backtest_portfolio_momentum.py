@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
+import time
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import pandas as pd
@@ -21,6 +21,9 @@ MAX_NEW_PER_SIGNAL_DATE = 3
 MAX_ENTRY_GAP_ATR = 0.75
 MAX_TRADE_RISK_PCT = 8.5
 MAX_SPY_VOL20_FOR_NEW_RISK = 0.30
+DATA_DOWNLOAD_ATTEMPTS = 4
+DATA_RETRY_SECONDS = (0, 2, 5, 10)
+MIN_HISTORY_ROWS = 310
 
 
 def _group_map():
@@ -30,6 +33,59 @@ def _group_map():
         for symbol in symbols or []:
             out[str(symbol)] = str(group)
     return out
+
+
+def _load_complete_prices(symbols):
+    """Load a deterministic complete snapshot or fail closed.
+
+    yfinance uses a local SQLite cache. Parallel ticker downloads can contend on
+    that cache and intermittently return empty frames (observed as
+    OperationalError: database is locked). A partial universe materially changes
+    cross-sectional ranks, portfolio choices and validation dates, so V4.9 must
+    never publish a result from incomplete inputs.
+    """
+    prices = {}
+    failures = {}
+
+    # Deliberately serial. Reliability/reproducibility is more important than a
+    # few seconds of backtest runtime for a weekly validation job.
+    for symbol in symbols:
+        last_reason = "empty"
+        df = pd.DataFrame()
+        for attempt in range(DATA_DOWNLOAD_ATTEMPTS):
+            delay = DATA_RETRY_SECONDS[min(attempt, len(DATA_RETRY_SECONDS) - 1)]
+            if delay:
+                time.sleep(delay)
+            returned_symbol, candidate = em._download(symbol)
+            if returned_symbol != symbol:
+                last_reason = f"symbol_mismatch:{returned_symbol}"
+                continue
+            if candidate is None or candidate.empty:
+                last_reason = "empty_download"
+                continue
+            if len(candidate) < MIN_HISTORY_ROWS:
+                last_reason = f"short_history:{len(candidate)}"
+                continue
+            df = candidate
+            break
+
+        if df.empty:
+            failures[symbol] = last_reason
+        else:
+            prices[symbol] = df
+
+    if failures:
+        missing = ", ".join(f"{s}({r})" for s, r in failures.items())
+        raise RuntimeError(
+            "Incomplete market-data snapshot; refusing to validate or publish. "
+            f"Missing/invalid: {missing}"
+        )
+
+    if len(prices) != len(symbols):
+        raise RuntimeError(
+            f"Market-data completeness invariant failed: {len(prices)}/{len(symbols)}"
+        )
+    return prices
 
 
 def _candidate_trades(rows, prices, cost_bps, threshold):
@@ -303,22 +359,12 @@ def main():
     cost = float(cfg.get("backtest_transaction_cost_bps", 10))
 
     symbols = list(dict.fromkeys(["SPY"] + list(universe)))
-    prices = {}
-    with ThreadPoolExecutor(max_workers=8) as pool:
-        futs = {pool.submit(em._download, s): s for s in symbols}
-        for f in as_completed(futs):
-            s, df = f.result()
-            if not df.empty:
-                prices[s] = df
-
-    if "SPY" not in prices:
-        raise RuntimeError("SPY market data unavailable")
+    prices = _load_complete_prices(symbols)
 
     spy_f = em._spy_regime(prices["SPY"])
     raw = []
     for symbol in universe:
-        if symbol in prices:
-            raw.extend(em._signal_rows(symbol, prices[symbol], spy_f))
+        raw.extend(em._signal_rows(symbol, prices[symbol], spy_f))
 
     rows = am._enrich_leadership(raw, prices)
     validation = _validate(rows, prices, cost)
@@ -335,7 +381,16 @@ def main():
         "holding_days_max": em.HOLD_DAYS,
         "transaction_cost_bps_per_side": cost,
         "universe_size": len(universe),
-        "symbols_with_data": len([s for s in universe if s in prices]),
+        "symbols_with_data": len(universe),
+        "data_integrity": {
+            "required_symbols_including_spy": len(symbols),
+            "loaded_symbols_including_spy": len(prices),
+            "universe_complete": True,
+            "download_mode": "serial_with_retries",
+            "download_attempts_per_symbol": DATA_DOWNLOAD_ATTEMPTS,
+            "min_history_rows": MIN_HISTORY_ROWS,
+            "fail_closed_on_missing_symbol": True,
+        },
         "weekly_feature_rows": len(rows),
         "base_qualified_signals": sum(bool(x.get("base_ok")) for x in rows),
         "validation": validation,
