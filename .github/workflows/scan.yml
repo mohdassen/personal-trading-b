@@ -16,9 +16,11 @@ on:
       - 'requirements.txt'
       - '.github/workflows/scan.yml'
   schedule:
-    # Avoid :00, where GitHub documents the highest schedule load/drop risk.
-    # Four scans/hour, offset from the independent watchdog.
+    # GitHub scheduled jobs can occasionally be delayed or dropped. Two staggered
+    # schedules provide a redundant heartbeat without duplicate Telegram opening
+    # messages because session/diagnostic state de-duplicates notifications.
     - cron: '6,21,36,51 * * * 1-5'
+    - cron: '13,28,43,58 * * * 1-5'
 permissions:
   contents: write
   pages: write
