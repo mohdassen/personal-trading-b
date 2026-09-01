@@ -1,0 +1,85 @@
+name: V4.9 Forward Shadow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - feat/v49-forward-shadow
+    paths:
+      - 'v49_shadow.py'
+      - 'backtest_portfolio_momentum.py'
+      - 'backtest_adaptive_momentum.py'
+      - 'backtest_evidence_momentum.py'
+      - 'config/groups.yml'
+      - 'config/universe.yml'
+      - 'config/sharia_shadow.yml'
+      - 'tests/test_v49_shadow.py'
+      - '.github/workflows/v49-shadow.yml'
+  schedule:
+    # Run in redundant windows around/after the US close. The Python gate uses
+    # America/New_York time, so one pair naturally covers EDT and the other EST.
+    # Repeated runs on the same completed session are de-duplicated in state.
+    - cron: '18,48 20,21 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v49-forward-shadow
+  cancel-in-progress: false
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Sync latest branch state
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          git reset --hard "origin/${GITHUB_REF_NAME}"
+
+      - name: V4.9 shadow safety tests
+        run: python -m unittest tests.test_portfolio_momentum tests.test_v49_shadow
+
+      - name: Run V4.9 forward shadow
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+          V49_SHADOW_BOOTSTRAP: ${{ github.event_name == 'push' && '1' || '0' }}
+        run: python v49_shadow.py
+
+      - name: Persist forward-only state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v49_forward_shadow.json data/v49_shadow_snapshot.json
+          if git diff --cached --quiet; then
+            echo "No V4.9 shadow state changes"
+            exit 0
+          fi
+          git commit -m "chore: update V4.9 forward shadow state"
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase -X theirs "origin/${GITHUB_REF_NAME}" || {
+              git rebase --abort || true
+              exit 1
+            }
+          done
+          exit 1
