@@ -1,0 +1,50 @@
+name: V4.9 Fast Research Diagnostics
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily after US market data has settled; covers EDT/EST without changing strategy state.
+    - cron: '35 21,22 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v49-fast-research
+  cancel-in-progress: false
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync latest main state
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Run fast research diagnostics
+        run: python v49_fast_research.py
+      - name: Persist diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v49_fast_research.json
+          if git diff --cached --quiet; then
+            echo "No diagnostic changes"
+            exit 0
+          fi
+          git commit -m "chore: update V4.9 fast research diagnostics"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase -X theirs origin/main || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
