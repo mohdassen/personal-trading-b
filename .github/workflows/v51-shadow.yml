@@ -1,0 +1,70 @@
+name: V5.1 Challenger Forward Shadow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/v51-active-challenger
+    paths:
+      - 'v51_shadow.py'
+      - 'v51_active_challenger.py'
+      - 'v49_shadow.py'
+      - 'backtest_portfolio_momentum.py'
+      - 'backtest_adaptive_momentum.py'
+      - 'backtest_evidence_momentum.py'
+      - 'config/groups.yml'
+      - 'config/universe.yml'
+      - 'config/sharia_shadow.yml'
+      - '.github/workflows/v51-shadow.yml'
+  schedule:
+    - cron: '23,53 21 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v51-challenger-forward-shadow
+  cancel-in-progress: false
+
+jobs:
+  shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v51-active-challenger
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync latest branch state
+        run: |
+          git fetch origin research/v51-active-challenger
+          git reset --hard origin/research/v51-active-challenger
+      - name: Run V5.1 forward shadow
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_REF_NAME: research/v51-active-challenger
+          V51_SHADOW_BOOTSTRAP: ${{ github.event_name == 'push' && '1' || '0' }}
+        run: python v51_shadow.py
+      - name: Persist V5.1 forward-only state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v51_forward_shadow.json data/v51_shadow_snapshot.json
+          if git diff --cached --quiet; then
+            echo "No V5.1 shadow state changes"
+            exit 0
+          fi
+          git commit -m "chore: update V5.1 challenger forward shadow state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v51-active-challenger; then exit 0; fi
+            git fetch origin research/v51-active-challenger
+            git rebase -X theirs origin/research/v51-active-challenger || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
