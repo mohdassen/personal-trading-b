@@ -1,0 +1,108 @@
+{
+  "engine": "V5.1-Stress-Test",
+  "mode": "RESEARCH_ONLY_DO_NOT_TRADE",
+  "threshold": 60,
+  "cost_bps_per_side": {
+    "10": {
+      "samples": 141,
+      "stats": {
+        "samples": 141,
+        "win_rate": 42.6,
+        "avg_return_pct": 2.517,
+        "expectancy_r": 0.38,
+        "median_r": -0.685,
+        "profit_factor_r": 1.67,
+        "max_drawdown_r": 10.065
+      }
+    },
+    "20": {
+      "samples": 141,
+      "stats": {
+        "samples": 141,
+        "win_rate": 41.8,
+        "avg_return_pct": 2.317,
+        "expectancy_r": 0.346,
+        "median_r": -0.716,
+        "profit_factor_r": 1.59,
+        "max_drawdown_r": 10.555
+      }
+    },
+    "35": {
+      "samples": 141,
+      "stats": {
+        "samples": 141,
+        "win_rate": 40.4,
+        "avg_return_pct": 2.017,
+        "expectancy_r": 0.296,
+        "median_r": -0.762,
+        "profit_factor_r": 1.48,
+        "max_drawdown_r": 11.682
+      }
+    },
+    "50": {
+      "samples": 141,
+      "stats": {
+        "samples": 141,
+        "win_rate": 40.4,
+        "avg_return_pct": 1.717,
+        "expectancy_r": 0.246,
+        "median_r": -0.808,
+        "profit_factor_r": 1.38,
+        "max_drawdown_r": 13.344
+      }
+    }
+  },
+  "regime_buckets": {
+    "low_vol": {
+      "samples": 111,
+      "stats": {
+        "samples": 111,
+        "win_rate": 41.4,
+        "avg_return_pct": 2.694,
+        "expectancy_r": 0.404,
+        "median_r": -1.024,
+        "profit_factor_r": 1.68,
+        "max_drawdown_r": 9.776
+      }
+    },
+    "mid_vol": {
+      "samples": 27,
+      "stats": {
+        "samples": 27,
+        "win_rate": 44.4,
+        "avg_return_pct": 1.592,
+        "expectancy_r": 0.264,
+        "median_r": -0.321,
+        "profit_factor_r": 1.53,
+        "max_drawdown_r": 5.134
+      }
+    },
+    "high_vol": {
+      "samples": 3,
+      "stats": {
+        "samples": 3,
+        "win_rate": 66.7,
+        "avg_return_pct": 4.267,
+        "expectancy_r": 0.532,
+        "median_r": 1.027,
+        "profit_factor_r": 2.56,
+        "max_drawdown_r": 1.026
+      }
+    }
+  },
+  "sharia_precheck_only": {
+    "certified": false,
+    "samples": 130,
+    "stats": {
+      "samples": 130,
+      "win_rate": 45.4,
+      "avg_return_pct": 3.049,
+      "expectancy_r": 0.483,
+      "median_r": -0.272,
+      "profit_factor_r": 1.89,
+      "max_drawdown_r": 8.75
+    },
+    "note": "Conservative sector/symbol precheck only; not formal Sharia certification."
+  },
+  "stress_pass": true
+}
