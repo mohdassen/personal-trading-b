@@ -44,3 +44,4 @@ def main():
  out={'engine':ENGINE,'mode':'RESEARCH_ONLY_DO_NOT_TRADE','hypothesis':'controlled pullback or perfect trend + strong relative momentum; V4.9 remains frozen','universe_size':len(universe),'feature_rows':len(rows),'base_qualified_signals':sum(bool(x.get('base_ok')) for x in rows),'validation':validation}
  (ROOT/'data/v51_challenger.json').write_text(json.dumps(out,indent=2),encoding='utf-8'); print(json.dumps({**out,'validation':{k:v for k,v in validation.items() if k not in ('selected_holdout_samples','fold_report')}},indent=2)); return 0
 if __name__=='__main__': raise SystemExit(main())
+# CI trigger: registered research validation workflow on default branch.
