@@ -1,0 +1,55 @@
+name: V5.1 Stress Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/v51-active-challenger
+    paths:
+      - 'v51_stress_test.py'
+      - 'v51_active_challenger.py'
+      - 'backtest_portfolio_momentum.py'
+      - 'backtest_adaptive_momentum.py'
+      - 'backtest_evidence_momentum.py'
+      - 'config/**'
+      - '.github/workflows/v51-stress-test.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v51-stress-test
+  cancel-in-progress: false
+
+jobs:
+  stress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v51-active-challenger
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Sync latest branch state
+        run: |
+          git fetch origin research/v51-active-challenger
+          git reset --hard origin/research/v51-active-challenger
+      - name: Run V5.1 stress tests
+        run: python v51_stress_test.py
+      - name: Persist stress result
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/v51_stress_test.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore: update V5.1 stress test result'
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v51-active-challenger; then exit 0; fi
+            git fetch origin research/v51-active-challenger
+            git rebase -X theirs origin/research/v51-active-challenger || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
