@@ -2,6 +2,11 @@ name: V5.1 Frozen Challenger Shadow Runner
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/v51-shadow-runner.yml'
   schedule:
     - cron: '23,53 21 * * 1-5'
 
