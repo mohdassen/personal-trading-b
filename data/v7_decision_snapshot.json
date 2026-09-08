@@ -1,15 +1,15 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "updated_at": "2026-09-08T20:55:01.263542+00:00",
+  "updated_at": "2026-09-08T20:57:24.364554+00:00",
   "market_regime": "MIXED",
   "market_regime_detail": {
     "label": "MIXED",
-    "vix": 14.15999984741211,
+    "vix": 15.300000190734863,
     "spy": "MIXED",
     "qqq": "BULLISH"
   },
-  "broad_scanned": 140,
+  "broad_scanned": 141,
   "enhanced_candidates": 18,
   "enhancement_errors": [],
   "paper_picks": [
@@ -84,6 +84,7 @@
           "An AI chip machine so pricey, three rivals had to say yes",
           "S&P 500 falls as AI worries hit software makers"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -97,92 +98,9 @@
       ]
     },
     {
-      "symbol": "RBLX",
-      "group": "MEDIA_TELECOM",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 85,
-      "runner_up_setup": "SESSION_LEADER",
-      "runner_up_score": 80,
-      "status": "PAPER_ENTRY",
-      "entry": 44.82,
-      "stop": 44.28,
-      "target1": 45.68,
-      "target2": 46.16,
-      "risk_pct": 1.2,
-      "day_change_pct": 3.49,
-      "relative_volume": 1.75,
-      "bar_relative_volume": 4.97,
-      "ret1h_pct": 0.02,
-      "ret5d_pct": 8.55,
-      "ret20d_pct": 20.97,
-      "distance_20d_high_pct": 3.11,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 77,
-        "BREAKOUT": 69,
-        "VWAP_PULLBACK": 78,
-        "SWING_CONTINUATION": 74,
-        "SESSION_LEADER": 76
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 83,
-        "raw_score": 78,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 75,
-          "BREAKOUT": 67,
-          "VWAP_PULLBACK": 83,
-          "SWING_CONTINUATION": 78,
-          "SESSION_LEADER": 76
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Roblox (RBLX) Faces a Growth Reset After Guidance Cuts — Is the Long-Term Story Still Intact?",
-          "Roblox Has Collapsed 47% This Year: Is It Time to Switch to Take-Two or GameStop?",
-          "A Roblox Director Sells 16,666 Shares After a 67% One-Year Decline in Stock Price"
-        ],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 44.79,
-      "entry_high": 44.85,
-      "atr_ref": 0.3459,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS"
-      ]
-    },
-    {
       "symbol": "AMD",
       "group": "SEMICONDUCTORS",
-      "source": "most_actives",
+      "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SESSION_LEADER",
@@ -250,6 +168,7 @@
           "AMD Reveals AI Numbers That Sent Its Stock Soaring",
           "Dow Jones Futures: Dow Breaks Support But AMD, HPE Are New Buys; Apple iPhone Event Due"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -260,6 +179,90 @@
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS_STRONG"
+      ]
+    },
+    {
+      "symbol": "MU",
+      "group": "SEMICONDUCTORS",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 83,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 22,
+      "status": "PAPER_ENTRY",
+      "entry": 1000.26,
+      "stop": 920.24,
+      "target1": 1144.3,
+      "target2": 1240.32,
+      "risk_pct": 8.0,
+      "day_change_pct": -1.61,
+      "relative_volume": 0.97,
+      "bar_relative_volume": 3.11,
+      "ret1h_pct": -1.02,
+      "ret5d_pct": 4.33,
+      "ret20d_pct": 16.17,
+      "distance_20d_high_pct": -3.49,
+      "above_vwap": false,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 10,
+        "BREAKOUT": 15,
+        "VWAP_PULLBACK": 22,
+        "SWING_CONTINUATION": 77,
+        "SESSION_LEADER": 0
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 81,
+        "raw_score": 77,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 10,
+          "BREAKOUT": 15,
+          "VWAP_PULLBACK": 24,
+          "SWING_CONTINUATION": 81,
+          "SESSION_LEADER": 0
+        }
+      },
+      "mtf": {
+        "status": "PASS",
+        "adjustment": 2,
+        "checks": {
+          "15m": false,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Thinking of Buying Micron Stock Now? Here's 1 Green Flag and 1 Red Flag.",
+          "1 Profitable Stock Worth Your Attention and 2 Facing Headwinds",
+          "SK Hynix Jumps 7% as AI Diverts Memory From Phones, Micron Holds Steady, Apple Slips"
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 992.16,
+      "entry_high": 1008.36,
+      "atr_ref": 54.0255,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=PASS"
       ]
     }
   ],
@@ -335,6 +338,7 @@
           "An AI chip machine so pricey, three rivals had to say yes",
           "S&P 500 falls as AI worries hit software makers"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -350,7 +354,7 @@
     {
       "symbol": "AMD",
       "group": "SEMICONDUCTORS",
-      "source": "most_actives",
+      "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SESSION_LEADER",
@@ -418,6 +422,7 @@
           "AMD Reveals AI Numbers That Sent Its Stock Soaring",
           "Dow Jones Futures: Dow Breaks Support But AMD, HPE Are New Buys; Apple iPhone Event Due"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -428,89 +433,6 @@
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS_STRONG"
-      ]
-    },
-    {
-      "symbol": "RBLX",
-      "group": "MEDIA_TELECOM",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 85,
-      "runner_up_setup": "SESSION_LEADER",
-      "runner_up_score": 80,
-      "status": "PAPER_ENTRY",
-      "entry": 44.82,
-      "stop": 44.28,
-      "target1": 45.68,
-      "target2": 46.16,
-      "risk_pct": 1.2,
-      "day_change_pct": 3.49,
-      "relative_volume": 1.75,
-      "bar_relative_volume": 4.97,
-      "ret1h_pct": 0.02,
-      "ret5d_pct": 8.55,
-      "ret20d_pct": 20.97,
-      "distance_20d_high_pct": 3.11,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 77,
-        "BREAKOUT": 69,
-        "VWAP_PULLBACK": 78,
-        "SWING_CONTINUATION": 74,
-        "SESSION_LEADER": 76
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 83,
-        "raw_score": 78,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 75,
-          "BREAKOUT": 67,
-          "VWAP_PULLBACK": 83,
-          "SWING_CONTINUATION": 78,
-          "SESSION_LEADER": 76
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Roblox (RBLX) Faces a Growth Reset After Guidance Cuts — Is the Long-Term Story Still Intact?",
-          "Roblox Has Collapsed 47% This Year: Is It Time to Switch to Take-Two or GameStop?",
-          "A Roblox Director Sells 16,666 Shares After a 67% One-Year Decline in Stock Price"
-        ],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 44.79,
-      "entry_high": 44.85,
-      "atr_ref": 0.3459,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS"
       ]
     },
     {
@@ -582,8 +504,9 @@
         "headlines": [
           "Thinking of Buying Micron Stock Now? Here's 1 Green Flag and 1 Red Flag.",
           "1 Profitable Stock Worth Your Attention and 2 Facing Headwinds",
-          "SK Hynix Jumps 7% as AI Diverts Memory From Phones; Micron Holds Steady, Apple Slips"
+          "SK Hynix Jumps 7% as AI Diverts Memory From Phones, Micron Holds Steady, Apple Slips"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -667,6 +590,7 @@
           "Is Lam Research (LRCX) Stock Outpacing Its Computer and Technology Peers This Year?",
           "Lam Research Nearly Triples in a Year: Is the Stock Still Worth Buying?"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -750,6 +674,7 @@
           "TSMC, IBD Stock Of The Day, Rises Above Early Buy Point As Chip Stocks Rally",
           "Why Broadcom Stock Rallied Tuesday Morning"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -763,96 +688,13 @@
       ]
     },
     {
-      "symbol": "XOM",
-      "group": "ENERGY",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 86,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 48,
-      "status": "OBSERVE",
-      "entry": 160.66,
-      "stop": 158.73,
-      "target1": 163.74,
-      "target2": 165.48,
-      "risk_pct": 1.2,
-      "day_change_pct": 0.75,
-      "relative_volume": 0.98,
-      "bar_relative_volume": 5.71,
-      "ret1h_pct": -0.02,
-      "ret5d_pct": -0.18,
-      "ret20d_pct": 0.54,
-      "distance_20d_high_pct": -4.71,
-      "above_vwap": true,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 43,
-        "BREAKOUT": 25,
-        "VWAP_PULLBACK": 90,
-        "SWING_CONTINUATION": 47,
-        "SESSION_LEADER": 25
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 96,
-        "raw_score": 90,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 42,
-          "BREAKOUT": 24,
-          "VWAP_PULLBACK": 96,
-          "SWING_CONTINUATION": 49,
-          "SESSION_LEADER": 25
-        }
-      },
-      "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
-        "checks": {
-          "15m": true,
-          "60m": false,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Oil Prices Are Once Again on the Brink of $100",
-          "Imperial Oil Stock Rises 49% YTD: Time to Hold or Lock in Profits?",
-          "ExxonMobil Has Raised Its Dividend 43 Years Running. Here's the One Year the Streak Almost Broke."
-        ],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 160.61,
-      "entry_high": 160.71,
-      "atr_ref": 0.4852,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=FAIL"
-      ]
-    },
-    {
       "symbol": "COP",
       "group": "ENERGY",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 86,
+      "score": 84,
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 58,
       "status": "OBSERVE",
@@ -908,17 +750,16 @@
         }
       },
       "catalyst": {
-        "score": 2,
-        "sentiment": "POSITIVE",
-        "categories": [
-          "ANALYST_UPGRADE"
-        ],
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
         "headlines": [
           "Chevron Stock Is Near a Record High. Here’s Why the Rally May Not Be Over",
           "U.S. Energy Stocks Rise Premarket as Brent Approaches $100",
           "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade"
         ],
-        "positive_hits": 1,
+        "contributions": [],
+        "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
@@ -927,8 +768,7 @@
       "atr_ref": 3.0581,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Catalyst=POSITIVE"
+        "MTF=FAIL"
       ]
     },
     {
@@ -1002,6 +842,7 @@
           "Stock Market Today: Dow Slides, These Stocks Lose Key Level; Fertilizer Leader Rises In Buy Zone (Live Coverage)",
           "Chevron's Venezuela JV Expansion: Time to Buy, Sell or Hold the Stock?"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1021,7 +862,7 @@
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 79,
+      "score": 80,
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 31,
       "status": "OBSERVE",
@@ -1077,7 +918,7 @@
         }
       },
       "catalyst": {
-        "score": 4,
+        "score": 5,
         "sentiment": "POSITIVE",
         "categories": [
           "APPROVAL"
@@ -1087,7 +928,10 @@
           "IBB Just Beat the S&P 500 by 22 Points in Three Months. Are You Late to the Party?",
           "Gilead Sciences Just Won Its Third FDA Approval in Less Than 4 Months. Is the Stock Still Underrating This Turnaround Play?"
         ],
-        "positive_hits": 2,
+        "contributions": [
+          5
+        ],
+        "positive_hits": 1,
         "negative_hits": 0
       },
       "threshold": 74,
@@ -1101,43 +945,43 @@
       ]
     },
     {
-      "symbol": "QCOM",
-      "group": "SEMICONDUCTORS",
+      "symbol": "RBLX",
+      "group": "MEDIA_TELECOM",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 73,
-      "runner_up_setup": "BREAKOUT",
-      "runner_up_score": 72,
+      "setup": "VWAP_PULLBACK",
+      "score": 77,
+      "runner_up_setup": "SESSION_LEADER",
+      "runner_up_score": 80,
       "status": "OBSERVE",
-      "entry": 174.09,
-      "stop": 164.15,
-      "target1": 191.99,
-      "target2": 203.92,
-      "risk_pct": 5.71,
-      "day_change_pct": 3.17,
-      "relative_volume": 4.06,
-      "bar_relative_volume": 2.85,
-      "ret1h_pct": 0.42,
-      "ret5d_pct": 2.12,
-      "ret20d_pct": 7.35,
-      "distance_20d_high_pct": 1.58,
-      "above_vwap": false,
+      "entry": 44.82,
+      "stop": 44.28,
+      "target1": 45.68,
+      "target2": 46.16,
+      "risk_pct": 1.2,
+      "day_change_pct": 3.49,
+      "relative_volume": 1.75,
+      "bar_relative_volume": 4.97,
+      "ret1h_pct": 0.02,
+      "ret5d_pct": 8.55,
+      "ret20d_pct": 20.97,
+      "distance_20d_high_pct": 3.11,
+      "above_vwap": true,
       "daily_trend": false,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 72,
-        "VWAP_PULLBACK": 46,
-        "SWING_CONTINUATION": 75,
-        "SESSION_LEADER": 58
+        "MOMENTUM_LEADER": 77,
+        "BREAKOUT": 69,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 74,
+        "SESSION_LEADER": 76
       },
       "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 79,
-        "raw_score": 75,
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 83,
+        "raw_score": 78,
         "weights": {
           "SESSION_LEADER": 1.0,
           "MOMENTUM_LEADER": 0.98,
@@ -1146,44 +990,47 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 70,
-          "VWAP_PULLBACK": 49,
-          "SWING_CONTINUATION": 79,
-          "SESSION_LEADER": 58
+          "MOMENTUM_LEADER": 75,
+          "BREAKOUT": 67,
+          "VWAP_PULLBACK": 83,
+          "SWING_CONTINUATION": 78,
+          "SESSION_LEADER": 76
         }
       },
       "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
+        "status": "PASS",
+        "adjustment": 2,
         "checks": {
-          "15m": false,
+          "15m": true,
           "60m": true,
           "daily": false
         }
       },
       "catalyst": {
-        "score": 4,
-        "sentiment": "POSITIVE",
+        "score": -8,
+        "sentiment": "NEGATIVE",
         "categories": [
-          "DEAL"
+          "GUIDANCE_DOWN"
         ],
         "headlines": [
-          "Qualcomm and Amazon ink deal for custom data center chips",
-          "Intel Leads Chip Stocks Rally as Qualcomm, AMD and Broadcom Stocks Jump",
-          "AMD, Amgen, Novartis, Qualcomn, Corning, and More Stocks That Explain Today’s Market"
+          "Roblox (RBLX) Faces a Growth Reset After Guidance Cuts — Is the Long-Term Story Still Intact?",
+          "Roblox Has Collapsed 47% This Year: Is It Time to Switch to Take-Two or GameStop?",
+          "A Roblox Director Sells 16,666 Shares After a 67% One-Year Decline in Stock Price"
         ],
-        "positive_hits": 2,
-        "negative_hits": 0
+        "contributions": [
+          -8
+        ],
+        "positive_hits": 0,
+        "negative_hits": 1
       },
       "threshold": 74,
-      "entry_low": 173.1,
-      "entry_high": 175.08,
-      "atr_ref": 6.6287,
+      "entry_low": 44.79,
+      "entry_high": 44.85,
+      "atr_ref": 0.3459,
       "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Catalyst=POSITIVE"
+        "Router=VWAP_PULLBACK in MIXED",
+        "MTF=PASS",
+        "Catalyst=NEGATIVE"
       ]
     },
     {
@@ -1203,7 +1050,7 @@
       "target2": 166.37,
       "risk_pct": 4.02,
       "day_change_pct": -1.24,
-      "relative_volume": 1.13,
+      "relative_volume": 1.21,
       "bar_relative_volume": 6.9,
       "ret1h_pct": -0.15,
       "ret5d_pct": 0.47,
@@ -1215,7 +1062,7 @@
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
         "MOMENTUM_LEADER": 10,
-        "BREAKOUT": 20,
+        "BREAKOUT": 32,
         "VWAP_PULLBACK": 41,
         "SWING_CONTINUATION": 77,
         "SESSION_LEADER": 20
@@ -1233,7 +1080,7 @@
         },
         "adjusted_scores": {
           "MOMENTUM_LEADER": 10,
-          "BREAKOUT": 19,
+          "BREAKOUT": 31,
           "VWAP_PULLBACK": 44,
           "SWING_CONTINUATION": 81,
           "SESSION_LEADER": 20
@@ -1257,6 +1104,7 @@
           "MRNA Stock Soars 143% in a Month: Time to Buy, Hold or Sell?",
           "What Merck Stopped Saying About GARDASIL Should Change What You Watch"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1340,6 +1188,7 @@
           "3 Earnings Season Winners That Analysts Can't Stop Upgrading",
           "Why Deere Stock Hit an All-Time High This Week"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1347,6 +1196,90 @@
       "entry_low": 677.81,
       "entry_high": 683.65,
       "atr_ref": 19.4658,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=FAIL"
+      ]
+    },
+    {
+      "symbol": "QCOM",
+      "group": "SEMICONDUCTORS",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 69,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 72,
+      "status": "OBSERVE",
+      "entry": 174.09,
+      "stop": 164.15,
+      "target1": 191.99,
+      "target2": 203.92,
+      "risk_pct": 5.71,
+      "day_change_pct": 3.17,
+      "relative_volume": 4.06,
+      "bar_relative_volume": 2.85,
+      "ret1h_pct": 0.42,
+      "ret5d_pct": 2.12,
+      "ret20d_pct": 7.35,
+      "distance_20d_high_pct": 1.58,
+      "above_vwap": false,
+      "daily_trend": false,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 55,
+        "BREAKOUT": 72,
+        "VWAP_PULLBACK": 46,
+        "SWING_CONTINUATION": 75,
+        "SESSION_LEADER": 58
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 79,
+        "raw_score": 75,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 54,
+          "BREAKOUT": 70,
+          "VWAP_PULLBACK": 49,
+          "SWING_CONTINUATION": 79,
+          "SESSION_LEADER": 58
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": false,
+          "60m": true,
+          "daily": false
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Qualcomm and Amazon ink deal for custom data center chips",
+          "Intel Leads Chip Stocks Rally as Qualcomm, AMD and Broadcom Stocks Jump",
+          "Why Qualcomm Stock Is Up Today"
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 173.1,
+      "entry_high": 175.08,
+      "atr_ref": 6.6287,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
         "MTF=FAIL"
@@ -1423,6 +1356,7 @@
           "Intel Leads Chip Stocks Rally as Qualcomm, AMD and Broadcom Stocks Jump",
           "Tesla Cybercab Could Beat Waymo on Cost by Up to 30 Cents A Mile, Goldman Says"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1506,6 +1440,7 @@
           "Roku (ROKU) Enters OLED TVs As Its Valuation Story Gets Harder To Ignore",
           "Roku’s New Premium OLED TV Line Could Be A Game Changer For Roku (ROKU)"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1519,13 +1454,97 @@
       ]
     },
     {
+      "symbol": "XOM",
+      "group": "ENERGY",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 65,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 48,
+      "status": "OBSERVE",
+      "entry": 160.66,
+      "stop": 158.73,
+      "target1": 163.74,
+      "target2": 165.48,
+      "risk_pct": 1.2,
+      "day_change_pct": 0.75,
+      "relative_volume": 1.03,
+      "bar_relative_volume": 5.71,
+      "ret1h_pct": -0.02,
+      "ret5d_pct": -0.18,
+      "ret20d_pct": 0.54,
+      "distance_20d_high_pct": -4.71,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 28,
+        "BREAKOUT": 25,
+        "VWAP_PULLBACK": 70,
+        "SWING_CONTINUATION": 47,
+        "SESSION_LEADER": 10
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 75,
+        "raw_score": 70,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 27,
+          "BREAKOUT": 24,
+          "VWAP_PULLBACK": 75,
+          "SWING_CONTINUATION": 49,
+          "SESSION_LEADER": 10
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": false,
+          "60m": false,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Oil Prices Are Once Again on the Brink of $100",
+          "Imperial Oil Stock Rises 49% YTD: Time to Hold or Lock in Profits?",
+          "ExxonMobil Has Raised Its Dividend 43 Years Running. Here's the One Year the Streak Almost Broke."
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 160.61,
+      "entry_high": 160.71,
+      "atr_ref": 0.4852,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in MIXED",
+        "MTF=FAIL"
+      ]
+    },
+    {
       "symbol": "TGT",
       "group": "CONSUMER_RETAIL",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 64,
+      "score": 62,
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 63,
       "status": "OBSERVE",
@@ -1581,17 +1600,16 @@
         }
       },
       "catalyst": {
-        "score": 2,
-        "sentiment": "POSITIVE",
-        "categories": [
-          "CONTRACT"
-        ],
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
         "headlines": [
           "Target Hospitality has 'Solid Potential' for New Contract Wins, Oppenheimer Says",
           "5 Magnificent Dividend Stocks to Buy in September (1 Yields 5.3%)",
           "3 Reasons to Sell TGT and 1 Stock to Buy Instead"
         ],
-        "positive_hits": 1,
+        "contributions": [],
+        "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
@@ -1600,94 +1618,7 @@
       "atr_ref": 4.3578,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Catalyst=POSITIVE"
-      ]
-    },
-    {
-      "symbol": "VZ",
-      "group": "MEDIA_TELECOM",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 62,
-      "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 65,
-      "status": "OBSERVE",
-      "entry": 50.41,
-      "stop": 49.07,
-      "target1": 52.82,
-      "target2": 54.43,
-      "risk_pct": 2.66,
-      "day_change_pct": 0.54,
-      "relative_volume": 0.85,
-      "bar_relative_volume": 4.64,
-      "ret1h_pct": -0.04,
-      "ret5d_pct": 0.78,
-      "ret20d_pct": 7.19,
-      "distance_20d_high_pct": -1.04,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 33,
-        "BREAKOUT": 20,
-        "VWAP_PULLBACK": 56,
-        "SWING_CONTINUATION": 65,
-        "SESSION_LEADER": 35
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 68,
-        "raw_score": 65,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 32,
-          "BREAKOUT": 19,
-          "VWAP_PULLBACK": 60,
-          "SWING_CONTINUATION": 68,
-          "SESSION_LEADER": 35
-        }
-      },
-      "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
-        "checks": {
-          "15m": true,
-          "60m": false,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 4,
-        "sentiment": "POSITIVE",
-        "categories": [
-          "DEAL"
-        ],
-        "headlines": [
-          "The Unusual Cash Offer Sitting In TTD Stock",
-          "AMD, Amgen, Novartis, Qualcomn, Corning, and More Stocks That Explain Today’s Market",
-          "Verizon’s Megadeal Proves Corning Is Integral to the AI Grid"
-        ],
-        "positive_hits": 2,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 50.28,
-      "entry_high": 50.54,
-      "atr_ref": 0.8928,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Catalyst=POSITIVE"
+        "MTF=FAIL"
       ]
     },
     {
@@ -1761,6 +1692,7 @@
           "Is AbbVie Stock Too Reliant On Skyrizi?",
           "Cramer Says It’s Time To Buy The Dip on JNJ"
         ],
+        "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
@@ -1768,6 +1700,90 @@
       "entry_low": 268.26,
       "entry_high": 269.98,
       "atr_ref": 5.7255,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=FAIL"
+      ]
+    },
+    {
+      "symbol": "VZ",
+      "group": "MEDIA_TELECOM",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 58,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 65,
+      "status": "OBSERVE",
+      "entry": 50.41,
+      "stop": 49.07,
+      "target1": 52.82,
+      "target2": 54.43,
+      "risk_pct": 2.66,
+      "day_change_pct": 0.54,
+      "relative_volume": 0.86,
+      "bar_relative_volume": 4.64,
+      "ret1h_pct": -0.04,
+      "ret5d_pct": 0.78,
+      "ret20d_pct": 7.19,
+      "distance_20d_high_pct": -1.04,
+      "above_vwap": true,
+      "daily_trend": false,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 33,
+        "BREAKOUT": 20,
+        "VWAP_PULLBACK": 56,
+        "SWING_CONTINUATION": 65,
+        "SESSION_LEADER": 35
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 68,
+        "raw_score": 65,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 32,
+          "BREAKOUT": 19,
+          "VWAP_PULLBACK": 60,
+          "SWING_CONTINUATION": 68,
+          "SESSION_LEADER": 35
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": true,
+          "60m": false,
+          "daily": false
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "The Unusual Cash Offer Sitting In TTD Stock",
+          "AMD, Amgen, Novartis, Qualcomn, Corning, and More Stocks That Explain Today’s Market",
+          "Verizon’s Megadeal Proves Corning Is Integral to the AI Grid"
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 50.28,
+      "entry_high": 50.54,
+      "atr_ref": 0.8928,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
         "MTF=FAIL"
