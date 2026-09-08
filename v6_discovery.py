@@ -1,8 +1,8 @@
 """V6 multi-strategy discovery engine.
 
 Research/paper only. It does not place orders and does not modify V5.1.
-The goal is to discover session leaders first, then rank several setup families
-instead of forcing every stock through one all-or-nothing rule set.
+Discover session leaders first, score several setup families independently,
+then rank and paper-test the best known-Sharia-prechecked candidates.
 """
 from __future__ import annotations
 
@@ -46,10 +46,20 @@ def group_for(symbol, groups):
 
 
 def sharia_precheck(symbol, group, sector=""):
+    """Fail closed for newly discovered names until they are classified.
+
+    Known seeded symbols keep the existing conservative group pre-check.
+    Dynamic names remain useful for market discovery/ranking, but cannot become
+    paper picks merely because Yahoo omitted sector metadata.
+    """
     excluded_groups = set((load_yaml(ROOT / "config/sharia_shadow.yml").get("policy") or {}).get("excluded_groups", []))
-    s = str(sector or "").lower()
-    if group in excluded_groups or "financial" in s or "bank" in s or "insurance" in s or "credit" in s:
+    s = str(sector or "").strip().lower()
+    if group in excluded_groups:
         return "PRECHECK_FAIL"
+    if any(x in s for x in ("financial", "bank", "insurance", "credit")):
+        return "PRECHECK_FAIL"
+    if group == "DYNAMIC_OTHER":
+        return "PRECHECK_UNKNOWN"
     return "PRECHECK_PASS"
 
 
@@ -85,15 +95,52 @@ def yahoo_session_leaders(limit=45):
     return list(found.values())
 
 
-def previous_close(daily, intraday):
+def _ny_dates(index):
+    idx = pd.DatetimeIndex(index)
+    if idx.tz is None:
+        idx = idx.tz_localize("UTC")
+    return idx.tz_convert("America/New_York").date
+
+
+def _latest_valid_intraday(ii):
+    valid = ii[(ii["Close"].notna()) & (ii["Volume"].fillna(0) > 0)]
+    return valid.iloc[-1] if not valid.empty else ii.iloc[-1]
+
+
+def _session_rvol(intr, reference_index):
+    """Cumulative same-time relative volume vs up to four prior sessions."""
+    x = intr.copy()
+    x = x[x["Close"].notna() & (x["Volume"].fillna(0) >= 0)]
+    if x.empty:
+        return 1.0
+    dates = pd.Series(_ny_dates(x.index), index=x.index)
+    ref = pd.Timestamp(reference_index)
+    ref_date = _ny_dates(pd.DatetimeIndex([ref]))[0]
+    current = x[(dates == ref_date) & (x.index <= ref)]
+    if current.empty:
+        return 1.0
+    n = len(current)
+    current_volume = _f(current["Volume"].fillna(0).sum())
+    prior_dates = [d for d in pd.unique(dates) if d < ref_date][-4:]
+    comps = []
+    for d in prior_dates:
+        day = x[dates == d].iloc[:n]
+        if not day.empty:
+            v = _f(day["Volume"].fillna(0).sum())
+            if v > 0:
+                comps.append(v)
+    if current_volume <= 0 or not comps:
+        return 1.0
+    baseline = sum(comps) / len(comps)
+    return current_volume / baseline if baseline > 0 else 1.0
+
+
+def previous_close(daily, reference_index):
     if len(daily) < 2:
         return _f(daily["Close"].iloc[-1])
-    session_date = pd.Timestamp(intraday.index[-1]).tz_convert("America/New_York").date()
+    session_date = _ny_dates(pd.DatetimeIndex([reference_index]))[0]
     last = pd.Timestamp(daily.index[-1])
-    if last.tzinfo is not None:
-        last_date = last.tz_convert("America/New_York").date()
-    else:
-        last_date = last.date()
+    last_date = _ny_dates(pd.DatetimeIndex([last]))[0] if last.tzinfo is not None else last.date()
     return _f(daily["Close"].iloc[-2] if last_date == session_date else daily["Close"].iloc[-1])
 
 
@@ -154,16 +201,16 @@ def scan(symbol, groups, dynamic_meta):
     di = add_daily(daily)
     ii = add_intraday(intr)
     d = di.iloc[-1]
-    i = ii.iloc[-1]
+    i = _latest_valid_intraday(ii)
     price = _f(i["Close"])
-    prev = previous_close(daily, intr)
+    prev = previous_close(daily, i.name)
     atr_i = max(_f(i["ATR14"], price * 0.015), price * 0.002)
     atr_d = max(_f(d["ATR14"], price * 0.025), price * 0.005)
     vwap = _f(i["VWAP"], price)
     high20 = _f(d["HIGH20"], price)
-    day = intr.copy()
-    dates = day.index.tz_convert("America/New_York").date
-    day = day[pd.Series(dates, index=day.index) == dates[-1]]
+    dates = pd.Series(_ny_dates(intr.index), index=intr.index)
+    session_date = _ny_dates(pd.DatetimeIndex([i.name]))[0]
+    day = intr[(dates == session_date) & (intr.index <= i.name)]
     day_high = _f(day["High"].max(), price)
     day_low = _f(day["Low"].min(), price)
     close_loc = (price - day_low) / max(day_high - day_low, 0.01)
@@ -172,11 +219,13 @@ def scan(symbol, groups, dynamic_meta):
     group = group_for(symbol, groups)
     meta = dynamic_meta.get(symbol, {})
     sharia = sharia_precheck(symbol, group, meta.get("sector", ""))
+    session_rvol = _session_rvol(intr, i.name)
     metrics = {
         "price": price,
         "prev_close": prev,
         "day_change_pct": (price / prev - 1) * 100 if prev else 0.0,
-        "rvol": _f(i["VOL_RATIO"], 1.0),
+        "rvol": session_rvol,
+        "bar_rvol": _f(i["VOL_RATIO"], 1.0),
         "daily_rvol": _f(d["VOL_RATIO"], 1.0),
         "rsi_i": _f(i["RSI14"], 50),
         "rsi_d": _f(d["RSI14"], 50),
@@ -225,6 +274,7 @@ def scan(symbol, groups, dynamic_meta):
         "risk_pct": round(risk / price * 100, 2),
         "day_change_pct": round(metrics["day_change_pct"], 2),
         "relative_volume": round(metrics["rvol"], 2),
+        "bar_relative_volume": round(metrics["bar_rvol"], 2),
         "ret1h_pct": round(metrics["ret1h"], 2),
         "ret5d_pct": round(metrics["ret5d"], 2),
         "ret20d_pct": round(metrics["ret20d"], 2),
@@ -260,14 +310,14 @@ def telegram_message(out):
         lines += [
             "",
             f"{idx}) <b>{x['symbol']}</b> — {x['setup']} — {x['score']}/100",
-            f"اليوم {x['day_change_pct']:+.2f}% | RVOL {x['relative_volume']:.2f}x | 1h {x['ret1h_pct']:+.2f}%",
+            f"اليوم {x['day_change_pct']:+.2f}% | Session RVOL {x['relative_volume']:.2f}x | 1h {x['ret1h_pct']:+.2f}%",
             f"Entry ${x['entry']:.2f} | Stop ${x['stop']:.2f} | T1 ${x['target1']:.2f} | T2 ${x['target2']:.2f}",
         ]
     if not picks:
         armed = [x for x in out["ranked"] if x["status"] == "ARMED" and x["sharia_status"] == "PRECHECK_PASS"][:3]
         if armed:
             lines += ["", "👀 الأقرب للتفعيل: " + ", ".join(f"{x['symbol']}({x['score']})" for x in armed)]
-    lines += ["", "🕌 الفلتر الشرعي الحالي Pre-check محافظ فقط وليس اعتمادًا شرعيًا رسميًا."]
+    lines += ["", "🕌 الأسهم الجديدة غير المصنفة شرعيًا تُعرض للاكتشاف فقط ولا تدخل Paper picks."]
     return "\n".join(lines)
 
 
@@ -277,8 +327,6 @@ def main():
     seed = list(dict.fromkeys(cfg.get("universe", [])))
     leaders = yahoo_session_leaders()
     dynamic_meta = {x["symbol"]: x for x in leaders}
-    # Scan all seeded names plus a bounded set of liquid session leaders. Unknown
-    # dynamic names remain subject to the same conservative sector pre-check.
     universe = list(dict.fromkeys(seed + [x["symbol"] for x in leaders]))[:150]
     rows, errors = [], []
     with ThreadPoolExecutor(max_workers=8) as pool:
@@ -292,6 +340,7 @@ def main():
                 errors.append(f"{futs[fut]}: {exc}")
     rows.sort(key=lambda x: (x["status"] == "PAPER_ENTRY", x["score"], x["relative_volume"], x["day_change_pct"]), reverse=True)
     picks = _pick_diverse(rows, 3)
+    unknown_watch = [x for x in rows if x["sharia_status"] == "PRECHECK_UNKNOWN"][:10]
     out = {
         "engine": ENGINE,
         "mode": MODE,
@@ -302,17 +351,20 @@ def main():
         "scanned": len(rows),
         "errors": errors[:20],
         "paper_picks": picks,
-        "ranked": rows[:20],
+        "dynamic_watch_only": unknown_watch,
+        "ranked": rows[:100],
         "design": {
             "strategy_families": ["MOMENTUM_LEADER", "BREAKOUT", "VWAP_PULLBACK", "SWING_CONTINUATION"],
             "selection": "rank first, then confirm; not one universal hard gate",
             "dynamic_discovery": "Yahoo day_gainers + most_actives best-effort, free; seed universe fallback",
+            "relative_volume": "cumulative same-time session volume vs up to four prior sessions",
             "live_execution": False,
         },
         "sharia": {
             "status": "CONSERVATIVE_PRECHECK_ONLY",
             "certified": False,
-            "note": "Excludes known conventional financial groups/sectors; full AAOIFI ratio screening remains required before real-money use.",
+            "dynamic_unknown_policy": "DISCOVERY_ONLY_NOT_PAPER_ELIGIBLE",
+            "note": "Known seed names use the current conservative group pre-check. Newly discovered names fail closed until classified; full AAOIFI ratio screening is still required before real-money use.",
         },
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
