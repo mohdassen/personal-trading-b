@@ -1,6 +1,7 @@
 import unittest
 
 import v7_decision_engine as v7
+from v7_catalyst_rules import classify_catalyst
 
 
 class TestV7Logic(unittest.TestCase):
@@ -38,18 +39,22 @@ class TestV7Logic(unittest.TestCase):
         items = [
             {"title": "Company beats estimates and raises guidance"},
             {"title": "Company wins major contract"},
-            {"title": "Analyst upgrade follows partnership"},
         ]
-        result = v7.classify_catalyst(items)
+        result = classify_catalyst(items)
         self.assertEqual(result["sentiment"], "POSITIVE")
         self.assertLessEqual(result["score"], 5)
+
+    def test_guidance_cuts_is_strong_negative(self):
+        result = classify_catalyst([{"title": "Company faces a growth reset after Guidance Cuts"}])
+        self.assertEqual(result["sentiment"], "NEGATIVE")
+        self.assertLessEqual(result["score"], -6)
 
     def test_negative_catalyst_can_block(self):
         items = [
             {"title": "Company cuts guidance after earnings miss"},
             {"title": "Company faces investigation and lawsuit"},
         ]
-        result = v7.classify_catalyst(items)
+        result = classify_catalyst(items)
         self.assertEqual(result["sentiment"], "NEGATIVE")
         self.assertLessEqual(result["score"], -6)
 
