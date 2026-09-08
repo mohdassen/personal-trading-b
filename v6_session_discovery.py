@@ -7,13 +7,17 @@ session movers and best-effort news context for QA. No live orders.
 from __future__ import annotations
 
 import json
+import os
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import v6_discovery as base
 from src.trading_bot.market import recent_news
 from src.trading_bot.telegram import enabled as real_telegram_enabled, send
 
 ROOT = Path(__file__).resolve().parent
+ALERT_STATE = ROOT / "data/v6_alert_state.json"
 
 _original_scores = base._strategy_scores
 
@@ -57,9 +61,36 @@ def _headline(item):
     return None
 
 
+def _market_window_open():
+    now = datetime.now(ZoneInfo("America/New_York"))
+    minutes = now.hour * 60 + now.minute
+    return now.weekday() < 5 and 575 <= minutes <= 965
+
+
+def _load_state():
+    try:
+        return json.loads(ALERT_STATE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def _save_state(data):
+    ALERT_STATE.parent.mkdir(parents=True, exist_ok=True)
+    ALERT_STATE.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _pick_signature(out):
+    return "|".join(f"{x.get('symbol')}:{x.get('setup')}" for x in out.get("paper_picks", []))
+
+
 def main():
+    event_name = os.getenv("GITHUB_EVENT_NAME", "local")
+    if event_name == "schedule" and not _market_window_open():
+        print("V6.1 scheduled scan: outside regular US market window; skipped.")
+        return 0
+
     base._strategy_scores = _scores_with_session_leader
-    # Avoid duplicate Telegram from base; send one enriched V6.1 report below.
+    # Avoid duplicate Telegram from base; send one deduplicated enriched report below.
     base.telegram_enabled = lambda: False
     rc = base.main()
     if not base.OUT.exists():
@@ -105,6 +136,7 @@ def main():
     out["design"]["strategy_families"] = families
     out["design"]["session_leader_rule"] = "day move + cumulative same-time RVOL + VWAP + close location + 1h momentum; independent of long-horizon trend"
     out["design"]["catalyst_news"] = "context-only until forward-calibrated; does not currently add score"
+    out["design"]["telegram_policy"] = "notify only when paper-pick symbol/setup lineup changes during scheduled scans"
     base.OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(json.dumps({
@@ -115,12 +147,26 @@ def main():
         "catalyst_context": catalyst_context,
     }, indent=2, ensure_ascii=False))
 
-    if real_telegram_enabled():
+    state = _load_state()
+    signature = _pick_signature(out)
+    previous = str(state.get("signature", ""))
+    picks = out.get("paper_picks", [])
+    should_notify = event_name != "schedule" or (signature != previous and bool(picks or previous))
+
+    if should_notify and real_telegram_enabled():
         try:
             msg = base.telegram_message(out).replace("V6 DISCOVERY", "V6.1 DISCOVERY")
             send(msg)
+            state["sent_at"] = datetime.now(ZoneInfo("UTC")).isoformat()
         except Exception as exc:
             print(f"V6.1 Telegram warning: {exc}")
+    elif event_name == "schedule":
+        print("V6.1 Telegram: skipped; paper-pick lineup unchanged.")
+
+    state["signature"] = signature
+    state["updated_at"] = datetime.now(ZoneInfo("UTC")).isoformat()
+    state["paper_picks"] = [{"symbol": x.get("symbol"), "setup": x.get("setup"), "score": x.get("score")} for x in picks]
+    _save_state(state)
     return rc
 
 
