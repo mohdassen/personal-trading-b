@@ -32,11 +32,11 @@ jobs:
         run: |
           git fetch origin research/v6-multi-strategy-discovery
           git reset --hard origin/research/v6-multi-strategy-discovery
-      - name: Run V6 discovery
+      - name: Run V6.1 session-leader discovery
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python v6_discovery.py
+        run: python v6_session_discovery.py
       - name: Persist V6 research snapshot
         if: success()
         run: |
