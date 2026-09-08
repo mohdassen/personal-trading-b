@@ -1,7 +1,7 @@
 {
   "engine": "V6.1-Session-Multi-Strategy-Discovery",
   "mode": "RESEARCH_PAPER_ONLY",
-  "updated_at": "2026-09-08T20:33:33.793391+00:00",
+  "updated_at": "2026-09-08T20:35:43.435608+00:00",
   "seed_universe": 79,
   "session_leaders_discovered": 73,
   "universe_considered": 142,
@@ -3077,7 +3077,8 @@
     "relative_volume": "cumulative same-time session volume vs up to four prior sessions",
     "live_execution": false,
     "session_leader_rule": "day move + cumulative same-time RVOL + VWAP + close location + 1h momentum; independent of long-horizon trend",
-    "catalyst_news": "context-only until forward-calibrated; does not currently add score"
+    "catalyst_news": "context-only until forward-calibrated; does not currently add score",
+    "telegram_policy": "notify only when paper-pick symbol/setup lineup changes during scheduled scans"
   },
   "sharia": {
     "status": "CONSERVATIVE_PRECHECK_ONLY",
