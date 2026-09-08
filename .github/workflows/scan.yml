@@ -59,6 +59,9 @@ jobs:
           FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.force_run) || (github.event_name == 'push' && '1') || '0' }}
         run: python run.py
       - name: Market Discovery Diagnostics
+        # V4.3 detailed diagnostics are retained for manual/push QA only. Scheduled
+        # discovery is now handled by V6.1 and Telegram should not repeat rejected lists.
+        if: github.event_name != 'schedule'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
