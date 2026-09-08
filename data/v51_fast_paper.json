@@ -4,6 +4,68 @@
   "started_at": "2026-09-08T17:32:27.345555+00:00",
   "pending": [
     {
+      "symbol": "ABNB",
+      "group": "TRAVEL_MOBILITY",
+      "strategy": "FAST_PAPER",
+      "setup_type": "V51_NEAR_QUALIFIED",
+      "signal_date": "2026-09-08",
+      "timestamp": "2026-09-08T00:00:00",
+      "score": 74,
+      "quality": 85.6893,
+      "signal_close": 174.54,
+      "atr": 5.0684,
+      "estimated_risk_pct": 7.26,
+      "mom12_1": 0.4383,
+      "mom6_1": 0.3286,
+      "mom12_rank": 0.759,
+      "mom6_rank": 0.797,
+      "spy_vol20": 0.0832,
+      "full_v51_qualified": false,
+      "sharia_status": "PRECHECK_PASS"
+    },
+    {
+      "symbol": "GOOGL",
+      "group": "MEGA_TECH",
+      "strategy": "FAST_PAPER",
+      "setup_type": "V51_NEAR_QUALIFIED",
+      "signal_date": "2026-09-08",
+      "timestamp": "2026-09-08T00:00:00",
+      "score": 60,
+      "quality": 71.0817,
+      "signal_close": 338.36,
+      "atr": 6.7231,
+      "estimated_risk_pct": 4.967,
+      "mom12_1": 0.512,
+      "mom6_1": 0.1572,
+      "mom12_rank": 0.81,
+      "mom6_rank": 0.595,
+      "spy_vol20": 0.0832,
+      "full_v51_qualified": false,
+      "sharia_status": "PRECHECK_PASS"
+    },
+    {
+      "symbol": "CAT",
+      "group": "INDUSTRIALS",
+      "strategy": "FAST_PAPER",
+      "setup_type": "V51_NEAR_QUALIFIED",
+      "signal_date": "2026-09-08",
+      "timestamp": "2026-09-08T00:00:00",
+      "score": 50,
+      "quality": 61.9804,
+      "signal_close": 822.48,
+      "atr": 22.4429,
+      "estimated_risk_pct": 6.822,
+      "mom12_1": 1.0085,
+      "mom6_1": 0.1994,
+      "mom12_rank": 0.899,
+      "mom6_rank": 0.633,
+      "spy_vol20": 0.0832,
+      "full_v51_qualified": false,
+      "sharia_status": "PRECHECK_PASS"
+    }
+  ],
+  "open": [
+    {
       "symbol": "ROKU",
       "group": "MEDIA_TELECOM",
       "strategy": "FAST_PAPER",
@@ -21,7 +83,19 @@
       "mom6_rank": 0.873,
       "spy_vol20": 0.081,
       "full_v51_qualified": false,
-      "sharia_status": "PRECHECK_PASS"
+      "sharia_status": "PRECHECK_PASS",
+      "entry_date": "2026-09-08",
+      "entry": 155.5,
+      "stop": 150.5188,
+      "target1": 165.4625,
+      "target2": 175.425,
+      "risk_pct": 3.203,
+      "entry_gap_atr": 0.045,
+      "trail": 150.5188,
+      "armed": false,
+      "last_processed_date": "2026-09-08",
+      "bars_held": 0,
+      "opened_at": "2026-09-08T20:17:38.845037+00:00"
     },
     {
       "symbol": "TGT",
@@ -41,7 +115,19 @@
       "mom6_rank": 0.696,
       "spy_vol20": 0.081,
       "full_v51_qualified": false,
-      "sharia_status": "PRECHECK_PASS"
+      "sharia_status": "PRECHECK_PASS",
+      "entry_date": "2026-09-08",
+      "entry": 164.07,
+      "stop": 150.7985,
+      "target1": 190.613,
+      "target2": 217.156,
+      "risk_pct": 8.089,
+      "entry_gap_atr": 0.07,
+      "trail": 150.7985,
+      "armed": false,
+      "last_processed_date": "2026-09-08",
+      "bars_held": 0,
+      "opened_at": "2026-09-08T20:17:38.845351+00:00"
     },
     {
       "symbol": "LLY",
@@ -61,10 +147,21 @@
       "mom6_rank": 0.658,
       "spy_vol20": 0.081,
       "full_v51_qualified": false,
-      "sharia_status": "PRECHECK_PASS"
+      "sharia_status": "PRECHECK_PASS",
+      "entry_date": "2026-09-08",
+      "entry": 1133.0,
+      "stop": 1045.068,
+      "target1": 1308.864,
+      "target2": 1484.728,
+      "risk_pct": 7.761,
+      "entry_gap_atr": 0.465,
+      "trail": 1045.068,
+      "armed": false,
+      "last_processed_date": "2026-09-08",
+      "bars_held": 0,
+      "opened_at": "2026-09-08T20:17:38.845637+00:00"
     }
   ],
-  "open": [],
   "closed": [],
   "rejected": [],
   "sessions": [
@@ -92,6 +189,31 @@
           "full_v51_qualified": false
         }
       ]
+    },
+    {
+      "session": "2026-09-08",
+      "candidate_count": 11,
+      "selected_count": 3,
+      "selected": [
+        {
+          "symbol": "ABNB",
+          "score": 74,
+          "quality": 85.6893,
+          "full_v51_qualified": false
+        },
+        {
+          "symbol": "GOOGL",
+          "score": 60,
+          "quality": 71.0817,
+          "full_v51_qualified": false
+        },
+        {
+          "symbol": "CAT",
+          "score": 50,
+          "quality": 61.9804,
+          "full_v51_qualified": false
+        }
+      ]
     }
   ],
   "sharia": {
@@ -99,5 +221,5 @@
     "certified": false,
     "note": "Sector/symbol pre-check only; not formal Sharia certification."
   },
-  "completed_through": "2026-09-04"
+  "completed_through": "2026-09-08"
 }
