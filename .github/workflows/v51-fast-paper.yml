@@ -7,7 +7,9 @@ on:
     paths:
       - '.github/workflows/v51-fast-paper.yml'
   schedule:
-    - cron: '12 21 * * 1-5'
+    # 21:25 UTC is after 16:10 New York in both EDT and EST.
+    # Second pass handles free-data publication lag without changing strategy logic.
+    - cron: '25,55 21 * * 1-5'
 
 permissions:
   contents: write
