@@ -1,0 +1,59 @@
+name: V5.1 Fast Paper Learning
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v51-fast-paper.yml'
+  schedule:
+    - cron: '12 21 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v51-fast-paper-learning
+  cancel-in-progress: false
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v51-active-challenger
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync research branch
+        run: |
+          git fetch origin research/v51-active-challenger
+          git reset --hard origin/research/v51-active-challenger
+      - name: Run fast paper learning track
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FAST_PAPER_BOOTSTRAP: ${{ github.event_name == 'push' && '1' || '0' }}
+        run: python v51_fast_paper.py
+      - name: Persist fast paper state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v51_fast_paper.json data/v51_fast_paper_snapshot.json
+          if git diff --cached --quiet; then
+            echo "No fast-paper state changes"
+            exit 0
+          fi
+          git commit -m "chore: update V5.1 fast paper state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v51-active-challenger; then exit 0; fi
+            git fetch origin research/v51-active-challenger
+            git rebase -X theirs origin/research/v51-active-challenger || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
