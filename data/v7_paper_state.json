@@ -17,20 +17,6 @@
       "status": "PENDING_NEXT_BAR"
     },
     {
-      "symbol": "RBLX",
-      "setup": "VWAP_PULLBACK",
-      "signal_at": "2026-09-08T20:55:01.262894+00:00",
-      "signal_day": "2026-09-08",
-      "signal_entry": 44.82,
-      "signal_stop": 44.28,
-      "signal_target1": 45.68,
-      "atr_ref": 0.3459,
-      "score": 85,
-      "mtf": "PASS",
-      "catalyst": "NEUTRAL_OR_UNKNOWN",
-      "status": "PENDING_NEXT_BAR"
-    },
-    {
       "symbol": "AMD",
       "setup": "SESSION_LEADER",
       "signal_at": "2026-09-08T20:55:01.262894+00:00",
@@ -47,7 +33,23 @@
   ],
   "open": [],
   "closed": [],
-  "rejected": [],
+  "rejected": [
+    {
+      "symbol": "RBLX",
+      "setup": "VWAP_PULLBACK",
+      "signal_at": "2026-09-08T20:55:01.262894+00:00",
+      "signal_day": "2026-09-08",
+      "signal_entry": 44.82,
+      "signal_stop": 44.28,
+      "signal_target1": 45.68,
+      "atr_ref": 0.3459,
+      "score": 85,
+      "mtf": "PASS",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "REJECTED",
+      "reason": "SIGNAL_INVALIDATED_BEFORE_ENTRY"
+    }
+  ],
   "metrics": {
     "samples": 0,
     "win_rate": 0.0,
@@ -55,5 +57,5 @@
     "profit_factor": 0.0,
     "total_r": 0.0
   },
-  "updated_at": "2026-09-08T20:58:32.488830+00:00"
+  "updated_at": "2026-09-08T21:00:32.055249+00:00"
 }
