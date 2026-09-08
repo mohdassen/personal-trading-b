@@ -1,0 +1,53 @@
+name: V6 Multi-Strategy Discovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v6-discovery.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v6-multi-strategy-discovery
+  cancel-in-progress: false
+
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v6-multi-strategy-discovery
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync V6 research branch
+        run: |
+          git fetch origin research/v6-multi-strategy-discovery
+          git reset --hard origin/research/v6-multi-strategy-discovery
+      - name: Run V6 discovery
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python v6_discovery.py
+      - name: Persist V6 research snapshot
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v6_discovery.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore: update V6 discovery snapshot"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v6-multi-strategy-discovery; then exit 0; fi
+            git fetch origin research/v6-multi-strategy-discovery
+            git rebase -X theirs origin/research/v6-multi-strategy-discovery || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
