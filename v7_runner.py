@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import v7_decision_engine as engine
 from v7_catalyst_rules import classify_catalyst
+from v7_paper_guard import install as install_paper_guard
 
 
 def diversified_picks(rows, n=3):
@@ -30,6 +31,7 @@ def diversified_picks(rows, n=3):
 
 engine.classify_catalyst = classify_catalyst
 engine._pick_diverse = diversified_picks
+install_paper_guard(engine)
 
 if __name__ == "__main__":
     raise SystemExit(engine.main())
