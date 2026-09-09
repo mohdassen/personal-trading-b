@@ -1,14 +1,20 @@
-"""Pending-signal revalidation for V7 paper execution.
+"""Technical revalidation for V7 paper execution.
 
-A signal may only activate on the next 15m bar if it is still present in the
-current V7 paper-pick lineup. This prevents stale signals from opening after a
-new catalyst/MTF/router decision invalidates them.
+A pending signal may activate on the next 15m bar only if its ORIGINAL setup
+is still technically valid. It is no longer cancelled merely because another
+symbol displaced it from the current top-3 ranking.
 """
 from __future__ import annotations
+
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 from src.trading_bot.market import quote_intraday
+from v7_quality_rules import confidence_score
+
+NY = ZoneInfo("America/New_York")
 
 
 def _f(v, default=0.0):
@@ -16,6 +22,72 @@ def _f(v, default=0.0):
         return float(v)
     except Exception:
         return default
+
+
+def _signal_in_market_window(signal_at):
+    try:
+        ts = pd.Timestamp(signal_at)
+        if ts.tzinfo is None:
+            ts = ts.tz_localize("UTC")
+        local = ts.tz_convert(NY)
+        minutes = local.hour * 60 + local.minute
+        return local.weekday() < 5 and 575 <= minutes <= 965
+    except Exception:
+        return False
+
+
+def _current_regime(engine):
+    try:
+        return engine.detect_regime().label
+    except Exception:
+        return "MIXED"
+
+
+def _technical_revalidation(engine, pos, regime_label):
+    if not _signal_in_market_window(pos.get("signal_at")):
+        return False, "OUT_OF_SESSION_SIGNAL"
+
+    try:
+        m = engine.build_metrics(pos["symbol"])
+        setup = str(pos.get("setup") or "")
+        mtf = engine.mtf_confirmation(
+            setup,
+            m["intraday_positive"],
+            m["hourly_positive"],
+            m["hourly_bull"],
+            m["daily_trend"],
+        )
+        if mtf["status"] == "FAIL":
+            return False, "MTF_INVALIDATED_BEFORE_ENTRY"
+
+        try:
+            catalyst = engine.classify_catalyst(engine.recent_news(pos["symbol"], 8))
+        except Exception:
+            catalyst = engine.classify_catalyst([])
+        if _f(catalyst.get("score")) <= -6:
+            return False, "NEGATIVE_CATALYST_BEFORE_ENTRY"
+
+        if _f(m.get("vwap_extension_atr")) > 2.5 or _f(m.get("day_change_pct")) > 15:
+            return False, "EXTENDED_BEFORE_ENTRY"
+
+        raw = _f(m.get("strategy_scores", {}).get(setup))
+        weight = _f(engine.router_weights(regime_label).get(setup), 1.0)
+        routed = max(0, min(100, round(raw * weight)))
+        current_score = confidence_score(routed, mtf["status"], catalyst.get("score", 0))
+        threshold = engine._threshold(setup, regime_label)
+        if current_score < threshold:
+            return False, "SETUP_SCORE_INVALIDATED_BEFORE_ENTRY"
+
+        return True, {
+            "revalidated_score": current_score,
+            "revalidated_mtf": mtf["status"],
+            "revalidated_catalyst": catalyst.get("sentiment", "NEUTRAL_OR_UNKNOWN"),
+            "revalidated_at": datetime.now(tz=NY).isoformat(),
+        }
+    except Exception as exc:
+        # Fail closed for activation. Keep pending so a transient free-data
+        # error does not fabricate a rejection or an entry.
+        return None, f"REVALIDATION_DATA_ERROR:{type(exc).__name__}"
 
 
 def install(engine):
@@ -31,17 +103,21 @@ def install(engine):
         return updated, events
 
     def revalidate_then_add(state, picks):
-        current = {(x.get("symbol"), x.get("setup")) for x in picks}
         kept = []
         rejected = list(state.get("rejected", []))
         activated = list(state.get("open", []))
         active_symbols = {x.get("symbol") for x in activated}
+        regime_label = _current_regime(engine)
 
         for pos in state.get("pending", []):
-            key = (pos.get("symbol"), pos.get("setup"))
-            if key not in current:
-                rejected.append({**pos, "status": "REJECTED", "reason": "SIGNAL_INVALIDATED_BEFORE_ENTRY"})
+            valid, detail = _technical_revalidation(engine, pos, regime_label)
+            if valid is False:
+                rejected.append({**pos, "status": "REJECTED", "reason": detail})
                 continue
+            if valid is None:
+                kept.append(pos)
+                continue
+
             try:
                 intr = quote_intraday(pos["symbol"], "5d", "15m")
                 signal_at = pd.Timestamp(pos["signal_at"])
@@ -49,17 +125,20 @@ def install(engine):
                     signal_at = signal_at.tz_localize("UTC")
                 bars = intr[intr.index > signal_at]
                 if bars.empty:
-                    kept.append(pos)
+                    kept.append({**pos, **detail})
                     continue
+
                 bar = bars.iloc[0]
                 entry = _f(bar["Open"]) * (1 + engine.SLIPPAGE_BPS / 10000)
                 if abs(entry - _f(pos["signal_entry"])) > 0.75 * max(_f(pos["atr_ref"]), 0.01):
-                    rejected.append({**pos, "status": "REJECTED", "reason": "ENTRY_GAP", "rejected_at": str(bar.name)})
+                    rejected.append({**pos, **detail, "status": "REJECTED", "reason": "ENTRY_GAP", "rejected_at": str(bar.name)})
                     continue
+
                 risk = max(_f(pos["signal_entry"]) - _f(pos["signal_stop"]), 0.01)
                 target_r = 1.8 if pos.get("setup") == "SWING_CONTINUATION" else 1.6
                 active = {
                     **pos,
+                    **detail,
                     "status": "OPEN",
                     "entry": round(entry, 4),
                     "stop": round(entry - risk, 4),
