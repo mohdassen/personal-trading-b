@@ -7,17 +7,13 @@ on:
     paths:
       - '.github/workflows/v6-discovery.yml'
   schedule:
-    # Broad UTC window; V7 applies the actual 09:35-16:05 America/New_York guard.
-    # This remains DST-safe while keeping the scanner active through the US session.
     - cron: '5,35 13-21 * * 1-5'
 
 permissions:
   contents: write
-
 concurrency:
   group: v7-adaptive-paper-discovery
   cancel-in-progress: false
-
 jobs:
   discovery:
     runs-on: ubuntu-latest
@@ -59,4 +55,4 @@ jobs:
           done
           exit 1
 
-# QA trigger: execution-fix verification 2026-09-09
+# QA trigger: portfolio-risk verification 2026-09-09
