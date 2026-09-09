@@ -8,6 +8,7 @@ from v7_signal_quality import install as install_signal_quality
 from v7_sharia_research import install as install_sharia_research
 from v7_portfolio_risk import install as install_portfolio_risk
 from v7_observability import install as install_observability
+from v7_validation import install as install_validation
 
 
 def diversified_picks(rows, n=3):
@@ -16,11 +17,9 @@ def diversified_picks(rows, n=3):
     picked, group_counts = [], {}
     for x in eligible:
         group = x.get("group", "OTHER")
-        if group_counts.get(group, 0) >= 2:
-            continue
+        if group_counts.get(group, 0) >= 2: continue
         picked.append(x); group_counts[group] = group_counts.get(group, 0) + 1
-        if len(picked) >= n:
-            break
+        if len(picked) >= n: break
     return picked
 
 
@@ -28,12 +27,13 @@ engine.classify_catalyst = classify_catalyst
 engine._pick_diverse = diversified_picks
 install_quality_rules(engine)
 install_signal_quality(engine)
-# Research-only AAOIFI-style screen wraps the diversified shortlist and fails
-# closed on explicit Fail/Review Required; it is not a certification.
 install_sharia_research(engine)
 install_paper_guard(engine)
 install_portfolio_risk(engine)
 install_observability(engine)
+# Last wrapper: tag new signals into a clean forward epoch and publish the
+# objective promotion scorecard after every full scan.
+install_validation(engine)
 
 if __name__ == "__main__":
     if not engine._market_window_open():
