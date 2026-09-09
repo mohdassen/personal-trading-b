@@ -1,0 +1,51 @@
+name: V7 Lightweight Paper Monitor
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v7-monitor.yml'
+  schedule:
+    # Interleaves broad scans at :05/:35, producing an effective ~15m lifecycle cadence.
+    - cron: '20,50 13-21 * * 1-5'
+
+permissions:
+  contents: write
+concurrency:
+  group: v7-paper-state
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v7-catalyst-router-mtf
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync V7 research branch
+        run: |
+          git fetch origin research/v7-catalyst-router-mtf
+          git reset --hard origin/research/v7-catalyst-router-mtf
+      - name: Run lightweight V7 paper monitor
+        run: python v7_monitor.py
+      - name: Persist paper lifecycle state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v7_paper_state.json 2>/dev/null || true
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore: update V7 lightweight paper state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v7-catalyst-router-mtf; then exit 0; fi
+            git fetch origin research/v7-catalyst-router-mtf
+            git rebase -X theirs origin/research/v7-catalyst-router-mtf || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
