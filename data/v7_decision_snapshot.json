@@ -1,18 +1,148 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "updated_at": "2026-09-09T17:07:34.356436+00:00",
+  "updated_at": "2026-09-09T17:08:16.700393+00:00",
   "market_regime": "MIXED",
   "market_regime_detail": {
     "label": "MIXED",
-    "vix": 16.25,
+    "vix": 16.260000228881836,
     "spy": "MIXED",
     "qqq": "BULLISH"
   },
-  "broad_scanned": 133,
+  "broad_scanned": 132,
   "enhanced_candidates": 18,
   "enhancement_errors": [],
   "paper_picks": [
+    {
+      "symbol": "META",
+      "group": "MEGA_TECH",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SESSION_LEADER",
+      "score": 99,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 70,
+      "status": "PAPER_ENTRY",
+      "entry": 651.14,
+      "stop": 643.32,
+      "target1": 663.64,
+      "target2": 670.67,
+      "risk_pct": 1.2,
+      "day_change_pct": 6.14,
+      "relative_volume": 2.54,
+      "bar_relative_volume": 0.19,
+      "ret1h_pct": 0.01,
+      "ret5d_pct": 12.54,
+      "ret20d_pct": 8.68,
+      "distance_20d_high_pct": 4.19,
+      "above_vwap": true,
+      "daily_trend": false,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 44,
+        "SWING_CONTINUATION": 64,
+        "SESSION_LEADER": 96
+      },
+      "router": {
+        "setup": "SESSION_LEADER",
+        "routed_score": 96,
+        "raw_score": 96,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 65,
+          "VWAP_PULLBACK": 47,
+          "SWING_CONTINUATION": 67,
+          "SESSION_LEADER": 96
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": false
+        }
+      },
+      "catalyst": {
+        "score": 5,
+        "sentiment": "POSITIVE",
+        "categories": [
+          "PRODUCT"
+        ],
+        "headlines": [
+          "Meta stock surges with Wall Street bullish on new AI agent",
+          "Bond yields tick higher as oil tops $100: AlphaCheck",
+          "Verizon and Corning Just Signed an 80 Million Mile Fiber Deal to Wire the AI Boom"
+        ],
+        "headline_ages_hours": [
+          3.0,
+          3.2,
+          0.3
+        ],
+        "contributions": [
+          2,
+          2,
+          2
+        ],
+        "positive_hits": 3,
+        "negative_hits": 0
+      },
+      "threshold": 78,
+      "entry_low": 650.71,
+      "entry_high": 651.56,
+      "atr_ref": 4.2743,
+      "decision_reason": [
+        "Router=SESSION_LEADER in MIXED",
+        "MTF=PASS_STRONG",
+        "Catalyst=POSITIVE",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 90,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "META",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 1658770490693.3655,
+          "interest_bearing_debt_proxy": 112318000000.0,
+          "cash_interest_deposit_proxy": 90260000000.0,
+          "debt_to_market_cap": 0.0677,
+          "cash_proxy_to_market_cap": 0.0544,
+          "interest_income_proxy": 859000000.0,
+          "total_revenue": 60801000000.0,
+          "impure_income_proxy_ratio": 0.0141
+        }
+      }
+    },
     {
       "symbol": "COP",
       "group": "ENERGY",
@@ -31,11 +161,11 @@
       "risk_pct": 3.35,
       "day_change_pct": 0.97,
       "relative_volume": 1.17,
-      "bar_relative_volume": 0.28,
+      "bar_relative_volume": 0.3,
       "ret1h_pct": -0.58,
       "ret5d_pct": 0.12,
-      "ret20d_pct": 8.28,
-      "distance_20d_high_pct": -0.91,
+      "ret20d_pct": 8.29,
+      "distance_20d_high_pct": -0.85,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -85,7 +215,7 @@
           "Chevron Stock Is Near a Record High. Here’s Why the Rally May Not Be Over"
         ],
         "headline_ages_hours": [
-          5.1,
+          5.2,
           19.4,
           28.6
         ],
@@ -126,7 +256,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 166114395290.3265,
+          "market_cap": 166090024205.07294,
           "interest_bearing_debt_proxy": 23290000000.0,
           "cash_interest_deposit_proxy": 7692000000.0,
           "debt_to_market_cap": 0.1402,
@@ -148,28 +278,28 @@
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 75,
       "status": "PAPER_ENTRY",
-      "entry": 164.05,
-      "stop": 162.08,
-      "target1": 167.2,
-      "target2": 168.97,
+      "entry": 164.12,
+      "stop": 162.15,
+      "target1": 167.27,
+      "target2": 169.04,
       "risk_pct": 1.2,
-      "day_change_pct": 2.11,
+      "day_change_pct": 2.15,
       "relative_volume": 1.12,
-      "bar_relative_volume": 0.18,
-      "ret1h_pct": -0.03,
-      "ret5d_pct": -0.32,
-      "ret20d_pct": 2.65,
-      "distance_20d_high_pct": -2.73,
+      "bar_relative_volume": 0.22,
+      "ret1h_pct": 0.01,
+      "ret5d_pct": -0.28,
+      "ret20d_pct": 2.68,
+      "distance_20d_high_pct": -2.7,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 70,
-        "BREAKOUT": 40,
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 50,
         "VWAP_PULLBACK": 88,
         "SWING_CONTINUATION": 55,
-        "SESSION_LEADER": 62
+        "SESSION_LEADER": 68
       },
       "router": {
         "setup": "VWAP_PULLBACK",
@@ -183,11 +313,11 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 69,
-          "BREAKOUT": 39,
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 48,
           "VWAP_PULLBACK": 94,
           "SWING_CONTINUATION": 58,
-          "SESSION_LEADER": 62
+          "SESSION_LEADER": 68
         }
       },
       "mtf": {
@@ -211,23 +341,23 @@
         "headline_ages_hours": [
           1.2,
           1.6,
-          1.6
+          1.7
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 163.99,
-      "entry_high": 164.11,
-      "atr_ref": 0.607,
+      "entry_low": 164.06,
+      "entry_high": 164.18,
+      "atr_ref": 0.6118,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 83,
+        "score": 92,
         "pass": true,
         "reasons": []
       },
@@ -250,7 +380,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 674518010311.5692,
+          "market_cap": 674600266118.7524,
           "interest_bearing_debt_proxy": 42368000000.0,
           "cash_interest_deposit_proxy": 10588000000.0,
           "debt_to_market_cap": 0.0628,
@@ -260,7 +390,9 @@
           "impure_income_proxy_ratio": null
         }
       }
-    },
+    }
+  ],
+  "ranked_enhanced": [
     {
       "symbol": "META",
       "group": "MEGA_TECH",
@@ -268,37 +400,37 @@
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SESSION_LEADER",
-      "score": 94,
+      "score": 99,
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 70,
       "status": "PAPER_ENTRY",
-      "entry": 650.87,
-      "stop": 643.06,
-      "target1": 663.37,
-      "target2": 670.4,
+      "entry": 651.14,
+      "stop": 643.32,
+      "target1": 663.64,
+      "target2": 670.67,
       "risk_pct": 1.2,
-      "day_change_pct": 6.09,
-      "relative_volume": 2.53,
-      "bar_relative_volume": 0.18,
-      "ret1h_pct": -0.03,
-      "ret5d_pct": 12.52,
-      "ret20d_pct": 8.65,
-      "distance_20d_high_pct": 4.22,
+      "day_change_pct": 6.14,
+      "relative_volume": 2.54,
+      "bar_relative_volume": 0.19,
+      "ret1h_pct": 0.01,
+      "ret5d_pct": 12.54,
+      "ret20d_pct": 8.68,
+      "distance_20d_high_pct": 4.19,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 70,
-        "BREAKOUT": 57,
-        "VWAP_PULLBACK": 56,
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 44,
         "SWING_CONTINUATION": 64,
-        "SESSION_LEADER": 85
+        "SESSION_LEADER": 96
       },
       "router": {
         "setup": "SESSION_LEADER",
-        "routed_score": 85,
-        "raw_score": 85,
+        "routed_score": 96,
+        "raw_score": 96,
         "weights": {
           "SESSION_LEADER": 1.0,
           "MOMENTUM_LEADER": 0.98,
@@ -307,11 +439,11 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 69,
-          "BREAKOUT": 55,
-          "VWAP_PULLBACK": 60,
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 65,
+          "VWAP_PULLBACK": 47,
           "SWING_CONTINUATION": 67,
-          "SESSION_LEADER": 85
+          "SESSION_LEADER": 96
         }
       },
       "mtf": {
@@ -348,9 +480,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 650.44,
-      "entry_high": 651.3,
-      "atr_ref": 4.2782,
+      "entry_low": 650.71,
+      "entry_high": 651.56,
+      "atr_ref": 4.2743,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS_STRONG",
@@ -358,7 +490,7 @@
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 81,
+        "score": 90,
         "pass": true,
         "reasons": []
       },
@@ -380,7 +512,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 1658413802504.88,
+          "market_cap": 1658770490693.3655,
           "interest_bearing_debt_proxy": 112318000000.0,
           "cash_interest_deposit_proxy": 90260000000.0,
           "debt_to_market_cap": 0.0677,
@@ -390,9 +522,7 @@
           "impure_income_proxy_ratio": 0.0141
         }
       }
-    }
-  ],
-  "ranked_enhanced": [
+    },
     {
       "symbol": "NET",
       "group": "CLOUD_SECURITY",
@@ -402,20 +532,20 @@
       "setup": "SESSION_LEADER",
       "score": 99,
       "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 72,
+      "runner_up_score": 80,
       "status": "PAPER_ENTRY",
-      "entry": 312.59,
-      "stop": 308.84,
-      "target1": 318.59,
-      "target2": 321.97,
+      "entry": 312.87,
+      "stop": 309.12,
+      "target1": 318.88,
+      "target2": 322.26,
       "risk_pct": 1.2,
-      "day_change_pct": 9.95,
-      "relative_volume": 1.91,
-      "bar_relative_volume": 0.18,
-      "ret1h_pct": 0.68,
-      "ret5d_pct": 9.48,
-      "ret20d_pct": 1.83,
-      "distance_20d_high_pct": -5.91,
+      "day_change_pct": 10.05,
+      "relative_volume": 1.92,
+      "bar_relative_volume": 0.22,
+      "ret1h_pct": 0.77,
+      "ret5d_pct": 9.58,
+      "ret20d_pct": 1.92,
+      "distance_20d_high_pct": -5.87,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
@@ -478,9 +608,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 312.33,
-      "entry_high": 312.85,
-      "atr_ref": 2.6237,
+      "entry_low": 312.61,
+      "entry_high": 313.13,
+      "atr_ref": 2.6337,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS_STRONG",
@@ -510,7 +640,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 111312303219.58359,
+          "market_cap": 111406658693.37952,
           "interest_bearing_debt_proxy": 3529350000.0,
           "cash_interest_deposit_proxy": 4162798000.0,
           "debt_to_market_cap": 0.0317,
@@ -539,11 +669,11 @@
       "risk_pct": 3.35,
       "day_change_pct": 0.97,
       "relative_volume": 1.17,
-      "bar_relative_volume": 0.28,
+      "bar_relative_volume": 0.3,
       "ret1h_pct": -0.58,
       "ret5d_pct": 0.12,
-      "ret20d_pct": 8.28,
-      "distance_20d_high_pct": -0.91,
+      "ret20d_pct": 8.29,
+      "distance_20d_high_pct": -0.85,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -593,7 +723,7 @@
           "Chevron Stock Is Near a Record High. Here’s Why the Rally May Not Be Over"
         ],
         "headline_ages_hours": [
-          5.1,
+          5.2,
           19.4,
           28.6
         ],
@@ -634,7 +764,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 166114395290.3265,
+          "market_cap": 166090024205.07294,
           "interest_bearing_debt_proxy": 23290000000.0,
           "cash_interest_deposit_proxy": 7692000000.0,
           "debt_to_market_cap": 0.1402,
@@ -656,28 +786,28 @@
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 75,
       "status": "PAPER_ENTRY",
-      "entry": 164.05,
-      "stop": 162.08,
-      "target1": 167.2,
-      "target2": 168.97,
+      "entry": 164.12,
+      "stop": 162.15,
+      "target1": 167.27,
+      "target2": 169.04,
       "risk_pct": 1.2,
-      "day_change_pct": 2.11,
+      "day_change_pct": 2.15,
       "relative_volume": 1.12,
-      "bar_relative_volume": 0.18,
-      "ret1h_pct": -0.03,
-      "ret5d_pct": -0.32,
-      "ret20d_pct": 2.65,
-      "distance_20d_high_pct": -2.73,
+      "bar_relative_volume": 0.22,
+      "ret1h_pct": 0.01,
+      "ret5d_pct": -0.28,
+      "ret20d_pct": 2.68,
+      "distance_20d_high_pct": -2.7,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 70,
-        "BREAKOUT": 40,
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 50,
         "VWAP_PULLBACK": 88,
         "SWING_CONTINUATION": 55,
-        "SESSION_LEADER": 62
+        "SESSION_LEADER": 68
       },
       "router": {
         "setup": "VWAP_PULLBACK",
@@ -691,11 +821,11 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 69,
-          "BREAKOUT": 39,
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 48,
           "VWAP_PULLBACK": 94,
           "SWING_CONTINUATION": 58,
-          "SESSION_LEADER": 62
+          "SESSION_LEADER": 68
         }
       },
       "mtf": {
@@ -719,23 +849,23 @@
         "headline_ages_hours": [
           1.2,
           1.6,
-          1.6
+          1.7
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 163.99,
-      "entry_high": 164.11,
-      "atr_ref": 0.607,
+      "entry_low": 164.06,
+      "entry_high": 164.18,
+      "atr_ref": 0.6118,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 83,
+        "score": 92,
         "pass": true,
         "reasons": []
       },
@@ -758,7 +888,7 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 674518010311.5692,
+          "market_cap": 674600266118.7524,
           "interest_bearing_debt_proxy": 42368000000.0,
           "cash_interest_deposit_proxy": 10588000000.0,
           "debt_to_market_cap": 0.0628,
@@ -766,136 +896,6 @@
           "interest_income_proxy": null,
           "total_revenue": 114529000000.0,
           "impure_income_proxy_ratio": null
-        }
-      }
-    },
-    {
-      "symbol": "META",
-      "group": "MEGA_TECH",
-      "source": "most_actives",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 94,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 70,
-      "status": "PAPER_ENTRY",
-      "entry": 650.87,
-      "stop": 643.06,
-      "target1": 663.37,
-      "target2": 670.4,
-      "risk_pct": 1.2,
-      "day_change_pct": 6.09,
-      "relative_volume": 2.53,
-      "bar_relative_volume": 0.18,
-      "ret1h_pct": -0.03,
-      "ret5d_pct": 12.52,
-      "ret20d_pct": 8.65,
-      "distance_20d_high_pct": 4.22,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 70,
-        "BREAKOUT": 57,
-        "VWAP_PULLBACK": 56,
-        "SWING_CONTINUATION": 64,
-        "SESSION_LEADER": 85
-      },
-      "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 85,
-        "raw_score": 85,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 69,
-          "BREAKOUT": 55,
-          "VWAP_PULLBACK": 60,
-          "SWING_CONTINUATION": 67,
-          "SESSION_LEADER": 85
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 5,
-        "sentiment": "POSITIVE",
-        "categories": [
-          "PRODUCT"
-        ],
-        "headlines": [
-          "Meta stock surges with Wall Street bullish on new AI agent",
-          "Bond yields tick higher as oil tops $100: AlphaCheck",
-          "Verizon and Corning Just Signed an 80 Million Mile Fiber Deal to Wire the AI Boom"
-        ],
-        "headline_ages_hours": [
-          3.0,
-          3.2,
-          0.3
-        ],
-        "contributions": [
-          2,
-          2,
-          2
-        ],
-        "positive_hits": 3,
-        "negative_hits": 0
-      },
-      "threshold": 78,
-      "entry_low": 650.44,
-      "entry_high": 651.3,
-      "atr_ref": 4.2782,
-      "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
-        "MTF=PASS_STRONG",
-        "Catalyst=POSITIVE",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 81,
-        "pass": true,
-        "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "META",
-        "status": "RESEARCH_PASS_PARTIAL",
-        "reasons": [
-          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": 1658413802504.88,
-          "interest_bearing_debt_proxy": 112318000000.0,
-          "cash_interest_deposit_proxy": 90260000000.0,
-          "debt_to_market_cap": 0.0677,
-          "cash_proxy_to_market_cap": 0.0544,
-          "interest_income_proxy": 859000000.0,
-          "total_revenue": 60801000000.0,
-          "impure_income_proxy_ratio": 0.0141
         }
       }
     },
@@ -910,18 +910,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 70,
       "status": "PAPER_ENTRY",
-      "entry": 1021.77,
-      "stop": 941.14,
-      "target1": 1166.88,
-      "target2": 1263.63,
+      "entry": 1021.69,
+      "stop": 941.07,
+      "target1": 1166.81,
+      "target2": 1263.55,
       "risk_pct": 7.89,
-      "day_change_pct": 2.15,
+      "day_change_pct": 2.14,
       "relative_volume": 0.89,
-      "bar_relative_volume": 0.19,
-      "ret1h_pct": 0.32,
-      "ret5d_pct": 9.47,
-      "ret20d_pct": 17.65,
-      "distance_20d_high_pct": -1.86,
+      "bar_relative_volume": 0.2,
+      "ret1h_pct": 0.31,
+      "ret5d_pct": 9.45,
+      "ret20d_pct": 17.64,
+      "distance_20d_high_pct": -1.84,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -980,8 +980,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 1013.7,
-      "entry_high": 1029.83,
+      "entry_low": 1013.63,
+      "entry_high": 1029.75,
       "atr_ref": 53.7467,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1005,18 +1005,18 @@
       "runner_up_setup": "BREAKOUT",
       "runner_up_score": 74,
       "status": "PAPER_ENTRY",
-      "entry": 523.67,
-      "stop": 517.39,
-      "target1": 533.73,
-      "target2": 539.39,
+      "entry": 523.83,
+      "stop": 517.54,
+      "target1": 533.89,
+      "target2": 539.54,
       "risk_pct": 1.2,
-      "day_change_pct": 3.55,
+      "day_change_pct": 3.58,
       "relative_volume": 1.31,
-      "bar_relative_volume": 0.16,
-      "ret1h_pct": 0.47,
-      "ret5d_pct": 13.93,
-      "ret20d_pct": 10.4,
-      "distance_20d_high_pct": 1.23,
+      "bar_relative_volume": 0.17,
+      "ret1h_pct": 0.5,
+      "ret5d_pct": 13.98,
+      "ret20d_pct": 10.44,
+      "distance_20d_high_pct": 1.27,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
@@ -1075,9 +1075,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 523.36,
-      "entry_high": 523.99,
-      "atr_ref": 3.1209,
+      "entry_low": 523.52,
+      "entry_high": 524.14,
+      "atr_ref": 3.1234,
       "decision_reason": [
         "Router=MOMENTUM_LEADER in MIXED",
         "MTF=PASS_STRONG",
@@ -1100,17 +1100,17 @@
       "runner_up_setup": "SWING_CONTINUATION",
       "runner_up_score": 80,
       "status": "OBSERVE",
-      "entry": 212.98,
-      "stop": 210.42,
-      "target1": 217.07,
-      "target2": 219.37,
+      "entry": 213.0,
+      "stop": 210.44,
+      "target1": 217.09,
+      "target2": 219.39,
       "risk_pct": 1.2,
-      "day_change_pct": 1.52,
+      "day_change_pct": 1.53,
       "relative_volume": 1.35,
       "bar_relative_volume": 0.21,
-      "ret1h_pct": -0.08,
-      "ret5d_pct": 0.91,
-      "ret20d_pct": 8.3,
+      "ret1h_pct": -0.07,
+      "ret5d_pct": 0.92,
+      "ret20d_pct": 8.31,
       "distance_20d_high_pct": -0.16,
       "above_vwap": false,
       "daily_trend": true,
@@ -1170,9 +1170,9 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 212.91,
-      "entry_high": 213.05,
-      "atr_ref": 0.6704,
+      "entry_low": 212.93,
+      "entry_high": 213.07,
+      "atr_ref": 0.6742,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=FAIL",
@@ -1198,17 +1198,17 @@
       "runner_up_setup": "BREAKOUT",
       "runner_up_score": 52,
       "status": "OBSERVE",
-      "entry": 224.58,
-      "stop": 221.89,
-      "target1": 228.89,
-      "target2": 231.32,
+      "entry": 224.5,
+      "stop": 221.81,
+      "target1": 228.81,
+      "target2": 231.24,
       "risk_pct": 1.2,
-      "day_change_pct": 6.83,
+      "day_change_pct": 6.79,
       "relative_volume": 1.18,
       "bar_relative_volume": 0.23,
-      "ret1h_pct": 0.36,
-      "ret5d_pct": 0.23,
-      "ret20d_pct": -9.09,
+      "ret1h_pct": 0.32,
+      "ret5d_pct": 0.29,
+      "ret20d_pct": -9.03,
       "distance_20d_high_pct": -13.02,
       "above_vwap": true,
       "daily_trend": false,
@@ -1260,7 +1260,7 @@
         ],
         "headline_ages_hours": [
           2.7,
-          43.1,
+          43.2,
           70.0
         ],
         "contributions": [],
@@ -1268,9 +1268,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 224.41,
-      "entry_high": 224.75,
-      "atr_ref": 1.6865,
+      "entry_low": 224.33,
+      "entry_high": 224.67,
+      "atr_ref": 1.7059,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS",
@@ -1293,20 +1293,20 @@
       "setup": "SWING_CONTINUATION",
       "score": 68,
       "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 56,
+      "runner_up_score": 68,
       "status": "OBSERVE",
-      "entry": 57.51,
-      "stop": 54.69,
-      "target1": 62.58,
-      "target2": 65.96,
+      "entry": 57.49,
+      "stop": 54.67,
+      "target1": 62.56,
+      "target2": 65.94,
       "risk_pct": 4.9,
-      "day_change_pct": 0.72,
+      "day_change_pct": 0.67,
       "relative_volume": 1.13,
-      "bar_relative_volume": 0.14,
-      "ret1h_pct": -0.33,
-      "ret5d_pct": 0.63,
-      "ret20d_pct": 7.13,
-      "distance_20d_high_pct": -4.98,
+      "bar_relative_volume": 0.16,
+      "ret1h_pct": -0.37,
+      "ret5d_pct": 0.64,
+      "ret20d_pct": 7.14,
+      "distance_20d_high_pct": -4.88,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -1314,7 +1314,7 @@
       "raw_strategy_scores": {
         "MOMENTUM_LEADER": 10,
         "BREAKOUT": 15,
-        "VWAP_PULLBACK": 68,
+        "VWAP_PULLBACK": 56,
         "SWING_CONTINUATION": 74,
         "SESSION_LEADER": 10
       },
@@ -1332,7 +1332,7 @@
         "adjusted_scores": {
           "MOMENTUM_LEADER": 10,
           "BREAKOUT": 15,
-          "VWAP_PULLBACK": 73,
+          "VWAP_PULLBACK": 60,
           "SWING_CONTINUATION": 78,
           "SESSION_LEADER": 10
         }
@@ -1365,8 +1365,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 57.23,
-      "entry_high": 57.79,
+      "entry_low": 57.2,
+      "entry_high": 57.77,
       "atr_ref": 1.8786,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1392,15 +1392,15 @@
       "runner_up_setup": "SWING_CONTINUATION",
       "runner_up_score": 55,
       "status": "OBSERVE",
-      "entry": 335.85,
-      "stop": 331.82,
-      "target1": 342.3,
-      "target2": 345.93,
+      "entry": 335.94,
+      "stop": 331.91,
+      "target1": 342.39,
+      "target2": 346.02,
       "risk_pct": 1.2,
-      "day_change_pct": 0.1,
+      "day_change_pct": 0.13,
       "relative_volume": 0.31,
       "bar_relative_volume": 0.21,
-      "ret1h_pct": 0.35,
+      "ret1h_pct": 0.38,
       "ret5d_pct": 5.02,
       "ret20d_pct": 0.51,
       "distance_20d_high_pct": -12.59,
@@ -1462,9 +1462,9 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 335.62,
-      "entry_high": 336.08,
-      "atr_ref": 2.3357,
+      "entry_low": 335.71,
+      "entry_high": 336.17,
+      "atr_ref": 2.3199,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=FAIL",
@@ -1490,28 +1490,28 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 48,
       "status": "OBSERVE",
-      "entry": 176.16,
-      "stop": 166.12,
-      "target1": 194.23,
-      "target2": 206.28,
-      "risk_pct": 5.7,
-      "day_change_pct": 1.19,
+      "entry": 176.35,
+      "stop": 166.31,
+      "target1": 194.42,
+      "target2": 206.47,
+      "risk_pct": 5.69,
+      "day_change_pct": 1.3,
       "relative_volume": 1.05,
       "bar_relative_volume": 0.15,
-      "ret1h_pct": -0.02,
-      "ret5d_pct": 5.73,
-      "ret20d_pct": 8.29,
+      "ret1h_pct": 0.09,
+      "ret5d_pct": 5.76,
+      "ret20d_pct": 8.32,
       "distance_20d_high_pct": -3.95,
       "above_vwap": false,
       "daily_trend": false,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 35,
-        "BREAKOUT": 20,
+        "MOMENTUM_LEADER": 40,
+        "BREAKOUT": 30,
         "VWAP_PULLBACK": 48,
         "SWING_CONTINUATION": 65,
-        "SESSION_LEADER": 22
+        "SESSION_LEADER": 28
       },
       "router": {
         "setup": "SWING_CONTINUATION",
@@ -1525,11 +1525,11 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 34,
-          "BREAKOUT": 19,
+          "MOMENTUM_LEADER": 39,
+          "BREAKOUT": 29,
           "VWAP_PULLBACK": 51,
           "SWING_CONTINUATION": 68,
-          "SESSION_LEADER": 22
+          "SESSION_LEADER": 28
         }
       },
       "mtf": {
@@ -1552,7 +1552,7 @@
         ],
         "headline_ages_hours": [
           5.1,
-          0.7,
+          0.8,
           1.0
         ],
         "contributions": [],
@@ -1560,8 +1560,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 175.16,
-      "entry_high": 177.16,
+      "entry_low": 175.35,
+      "entry_high": 177.35,
       "atr_ref": 6.6935,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1588,18 +1588,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 29,
       "status": "OBSERVE",
-      "entry": 368.72,
-      "stop": 346.51,
-      "target1": 408.7,
-      "target2": 435.35,
+      "entry": 368.64,
+      "stop": 346.43,
+      "target1": 408.61,
+      "target2": 435.26,
       "risk_pct": 6.02,
-      "day_change_pct": 0.15,
-      "relative_volume": 0.59,
-      "bar_relative_volume": 0.21,
-      "ret1h_pct": -0.0,
-      "ret5d_pct": 3.56,
-      "ret20d_pct": 10.8,
-      "distance_20d_high_pct": -4.04,
+      "day_change_pct": 0.13,
+      "relative_volume": 0.6,
+      "bar_relative_volume": 0.22,
+      "ret1h_pct": -0.03,
+      "ret5d_pct": 3.54,
+      "ret20d_pct": 10.78,
+      "distance_20d_high_pct": -3.99,
       "above_vwap": false,
       "daily_trend": false,
       "extended": false,
@@ -1658,8 +1658,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 366.5,
-      "entry_high": 370.94,
+      "entry_low": 366.41,
+      "entry_high": 370.86,
       "atr_ref": 14.8063,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1692,8 +1692,8 @@
       "target2": 130.16,
       "risk_pct": 7.58,
       "day_change_pct": 1.51,
-      "relative_volume": 1.07,
-      "bar_relative_volume": 0.4,
+      "relative_volume": 1.08,
+      "bar_relative_volume": 0.44,
       "ret1h_pct": 0.97,
       "ret5d_pct": 19.18,
       "ret20d_pct": 8.52,
@@ -1784,18 +1784,18 @@
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 63,
       "status": "OBSERVE",
-      "entry": 363.6,
-      "stop": 359.23,
-      "target1": 370.58,
-      "target2": 374.5,
+      "entry": 363.98,
+      "stop": 359.61,
+      "target1": 370.97,
+      "target2": 374.9,
       "risk_pct": 1.2,
-      "day_change_pct": 2.13,
+      "day_change_pct": 2.24,
       "relative_volume": 0.45,
       "bar_relative_volume": 0.16,
-      "ret1h_pct": 1.05,
-      "ret5d_pct": -16.26,
-      "ret20d_pct": -17.21,
-      "distance_20d_high_pct": -23.07,
+      "ret1h_pct": 1.15,
+      "ret5d_pct": -16.17,
+      "ret20d_pct": -17.12,
+      "distance_20d_high_pct": -23.15,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
@@ -1846,7 +1846,7 @@
         ],
         "headline_ages_hours": [
           3.8,
-          18.1,
+          18.2,
           72.1
         ],
         "contributions": [],
@@ -1854,9 +1854,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 363.33,
-      "entry_high": 363.86,
-      "atr_ref": 2.6235,
+      "entry_low": 363.71,
+      "entry_high": 364.25,
+      "atr_ref": 2.651,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=FAIL",
@@ -1882,18 +1882,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 31,
       "status": "OBSERVE",
-      "entry": 147.86,
-      "stop": 142.08,
-      "target1": 158.26,
-      "target2": 165.2,
+      "entry": 147.91,
+      "stop": 142.13,
+      "target1": 158.31,
+      "target2": 165.25,
       "risk_pct": 3.91,
-      "day_change_pct": -0.4,
+      "day_change_pct": -0.37,
       "relative_volume": 0.99,
-      "bar_relative_volume": 0.2,
-      "ret1h_pct": 0.09,
-      "ret5d_pct": -1.33,
-      "ret20d_pct": 13.37,
-      "distance_20d_high_pct": -5.76,
+      "bar_relative_volume": 0.23,
+      "ret1h_pct": 0.13,
+      "ret5d_pct": -1.3,
+      "ret20d_pct": 13.41,
+      "distance_20d_high_pct": -5.74,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -1952,8 +1952,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 147.28,
-      "entry_high": 148.44,
+      "entry_low": 147.33,
+      "entry_high": 148.49,
       "atr_ref": 3.8533,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -2076,18 +2076,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 56,
       "status": "OBSERVE",
-      "entry": 27.91,
-      "stop": 27.03,
-      "target1": 29.48,
-      "target2": 30.53,
+      "entry": 27.9,
+      "stop": 27.02,
+      "target1": 29.47,
+      "target2": 30.52,
       "risk_pct": 3.13,
-      "day_change_pct": 0.41,
+      "day_change_pct": 0.38,
       "relative_volume": 0.79,
-      "bar_relative_volume": 0.23,
-      "ret1h_pct": -0.02,
-      "ret5d_pct": -2.26,
-      "ret20d_pct": 4.83,
-      "distance_20d_high_pct": -4.45,
+      "bar_relative_volume": 0.25,
+      "ret1h_pct": -0.05,
+      "ret5d_pct": -2.29,
+      "ret20d_pct": 4.79,
+      "distance_20d_high_pct": -4.47,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
@@ -2138,16 +2138,16 @@
         ],
         "headline_ages_hours": [
           1.4,
-          4.0,
-          4.9
+          4.1,
+          5.0
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 27.82,
-      "entry_high": 27.99,
+      "entry_low": 27.81,
+      "entry_high": 27.98,
       "atr_ref": 0.5829,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -2173,18 +2173,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 31,
       "status": "OBSERVE",
-      "entry": 224.21,
-      "stop": 213.5,
-      "target1": 243.5,
-      "target2": 256.36,
+      "entry": 224.24,
+      "stop": 213.52,
+      "target1": 243.52,
+      "target2": 256.38,
       "risk_pct": 4.78,
-      "day_change_pct": -0.67,
+      "day_change_pct": -0.66,
       "relative_volume": 0.55,
-      "bar_relative_volume": 0.19,
-      "ret1h_pct": 0.16,
-      "ret5d_pct": 3.11,
-      "ret20d_pct": 3.09,
-      "distance_20d_high_pct": -4.49,
+      "bar_relative_volume": 0.21,
+      "ret1h_pct": 0.17,
+      "ret5d_pct": 3.13,
+      "ret20d_pct": 3.1,
+      "distance_20d_high_pct": -4.48,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -2231,7 +2231,7 @@
         "headlines": [
           "CoreWeave struggling to keep up with demand for Nvidia chips, CEO says",
           "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
-          "45 Tesla Cybercabs Are Now Roaming Austin. Here's What That Means for the Robotaxi Business Wall Street Has Been Waiting For."
+          "Cognyte Software Ltd. Q2 2027 Earnings Call Summary"
         ],
         "headline_ages_hours": [
           2.2,
@@ -2243,8 +2243,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 223.14,
-      "entry_high": 225.29,
+      "entry_low": 223.16,
+      "entry_high": 225.31,
       "atr_ref": 7.1424,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -2268,7 +2268,7 @@
     "total_r": 0.0,
     "max_drawdown_r": 0.0,
     "realized_pnl_dollars": 0,
-    "unrealized_pnl_dollars": -489.73
+    "unrealized_pnl_dollars": -497.11
   },
   "paper_state_counts": {
     "pending": 0,
