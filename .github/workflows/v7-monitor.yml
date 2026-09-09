@@ -7,7 +7,6 @@ on:
     paths:
       - '.github/workflows/v7-monitor.yml'
   schedule:
-    # Interleaves broad scans at :05/:35, producing an effective ~15m lifecycle cadence.
     - cron: '20,50 13-21 * * 1-5'
 
 permissions:
@@ -34,6 +33,9 @@ jobs:
           git fetch origin research/v7-catalyst-router-mtf
           git reset --hard origin/research/v7-catalyst-router-mtf
       - name: Run lightweight V7 paper monitor
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python v7_monitor.py
       - name: Persist paper lifecycle state
         if: success()
