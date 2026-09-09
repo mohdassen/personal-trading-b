@@ -2,6 +2,8 @@ import unittest
 
 import v7_decision_engine as v7
 from v7_catalyst_rules import classify_catalyst
+from v7_paper_guard import _signal_in_market_window
+from v7_quality_rules import confidence_score
 
 
 class TestV7Logic(unittest.TestCase):
@@ -57,6 +59,18 @@ class TestV7Logic(unittest.TestCase):
         result = classify_catalyst(items)
         self.assertEqual(result["sentiment"], "NEGATIVE")
         self.assertLessEqual(result["score"], -6)
+
+    def test_confidence_score_never_saturates_at_100(self):
+        self.assertEqual(confidence_score(100, "PASS_STRONG", 5), 99)
+        self.assertLess(confidence_score(94, "PASS_STRONG", 0), confidence_score(95, "PASS_STRONG", 0))
+
+    def test_signal_market_window_accepts_regular_session(self):
+        # 13:59 UTC = 09:59 New York on 2026-09-09 (EDT).
+        self.assertTrue(_signal_in_market_window("2026-09-09T13:59:00+00:00"))
+
+    def test_signal_market_window_rejects_after_close(self):
+        # 20:55 UTC = 16:55 New York on 2026-09-08 (EDT).
+        self.assertFalse(_signal_in_market_window("2026-09-08T20:55:00+00:00"))
 
 
 if __name__ == "__main__":
