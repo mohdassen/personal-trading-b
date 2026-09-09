@@ -3,6 +3,7 @@ from __future__ import annotations
 import v7_decision_engine as engine
 from v7_catalyst_rules import classify_catalyst
 from v7_paper_guard import install as install_paper_guard
+from v7_quality_rules import install as install_quality_rules
 
 
 def diversified_picks(rows, n=3):
@@ -31,7 +32,14 @@ def diversified_picks(rows, n=3):
 
 engine.classify_catalyst = classify_catalyst
 engine._pick_diverse = diversified_picks
+install_quality_rules(engine)
 install_paper_guard(engine)
 
 if __name__ == "__main__":
+    # Hard guard for every invocation mode: schedule, push, manual, or local.
+    # Out-of-session runs may execute CI/unit tests, but must never create or
+    # mutate paper trading signals through the engine.
+    if not engine._market_window_open():
+        print("V7 outside 09:35-16:05 America/New_York; no paper signal/state mutation.")
+        raise SystemExit(0)
     raise SystemExit(engine.main())
