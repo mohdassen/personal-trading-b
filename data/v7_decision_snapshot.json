@@ -1,19 +1,18 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "updated_at": "2026-09-09T17:01:40.998683+00:00",
+  "updated_at": "2026-09-09T17:04:22.908508+00:00",
   "market_regime": "MIXED",
   "market_regime_detail": {
     "label": "MIXED",
-    "vix": 16.329999923706055,
+    "vix": 16.31999969482422,
     "spy": "MIXED",
     "qqq": "BULLISH"
   },
-  "broad_scanned": 132,
+  "broad_scanned": 131,
   "enhanced_candidates": 18,
   "enhancement_errors": [],
-  "paper_picks": [],
-  "ranked_enhanced": [
+  "paper_picks": [
     {
       "symbol": "META",
       "group": "MEGA_TECH",
@@ -25,18 +24,18 @@
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 70,
       "status": "PAPER_ENTRY",
-      "entry": 651.19,
-      "stop": 643.38,
-      "target1": 663.69,
-      "target2": 670.73,
+      "entry": 651.29,
+      "stop": 643.48,
+      "target1": 663.8,
+      "target2": 670.83,
       "risk_pct": 1.2,
-      "day_change_pct": 6.15,
+      "day_change_pct": 6.16,
       "relative_volume": 2.52,
-      "bar_relative_volume": 0.06,
-      "ret1h_pct": 0.02,
-      "ret5d_pct": 12.51,
-      "ret20d_pct": 8.65,
-      "distance_20d_high_pct": 4.19,
+      "bar_relative_volume": 0.12,
+      "ret1h_pct": 0.03,
+      "ret5d_pct": 12.54,
+      "ret20d_pct": 8.67,
+      "distance_20d_high_pct": 4.2,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
@@ -101,9 +100,9 @@
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 650.76,
-      "entry_high": 651.62,
-      "atr_ref": 4.2696,
+      "entry_low": 650.87,
+      "entry_high": 651.72,
+      "atr_ref": 4.2728,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS_STRONG",
@@ -119,9 +118,9 @@
         "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
         "certified": false,
         "symbol": "META",
-        "status": "REVIEW_REQUIRED",
+        "status": "RESEARCH_PASS_PARTIAL",
         "reasons": [
-          "MISSING_CRITICAL_FREE_FINANCIAL_DATA"
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
         ],
         "thresholds": {
           "debt_to_market_cap": 0.3,
@@ -133,136 +132,14 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": null,
+          "market_cap": 1658732240783.005,
           "interest_bearing_debt_proxy": 112318000000.0,
           "cash_interest_deposit_proxy": 90260000000.0,
-          "debt_to_market_cap": null,
-          "cash_proxy_to_market_cap": null
-        }
-      }
-    },
-    {
-      "symbol": "NET",
-      "group": "CLOUD_SECURITY",
-      "source": "day_gainers",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 99,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 72,
-      "status": "PAPER_ENTRY",
-      "entry": 312.97,
-      "stop": 309.21,
-      "target1": 318.98,
-      "target2": 322.36,
-      "risk_pct": 1.2,
-      "day_change_pct": 10.08,
-      "relative_volume": 1.89,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": 0.8,
-      "ret5d_pct": 9.62,
-      "ret20d_pct": 1.95,
-      "distance_20d_high_pct": -5.88,
-      "above_vwap": true,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 82,
-        "BREAKOUT": 65,
-        "VWAP_PULLBACK": 66,
-        "SWING_CONTINUATION": 53,
-        "SESSION_LEADER": 93
-      },
-      "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 93,
-        "raw_score": 93,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 80,
-          "BREAKOUT": 63,
-          "VWAP_PULLBACK": 71,
-          "SWING_CONTINUATION": 56,
-          "SESSION_LEADER": 93
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 2,
-        "sentiment": "POSITIVE",
-        "categories": [
-          "PARTNERSHIP"
-        ],
-        "headlines": [
-          "Cloudflare Surges 9% on OpenAI Security Partnership, Zscaler Rises 3%",
-          "Fastly Jumps 7%: Is This an Oversold Bounce or the Start of a Run?",
-          "The End of the Captcha? Not So Fast"
-        ],
-        "headline_ages_hours": [
-          1.6,
-          2.6,
-          21.0
-        ],
-        "contributions": [
-          2
-        ],
-        "positive_hits": 1,
-        "negative_hits": 0
-      },
-      "threshold": 78,
-      "entry_low": 312.71,
-      "entry_high": 313.23,
-      "atr_ref": 2.6039,
-      "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
-        "MTF=PASS_STRONG",
-        "Catalyst=POSITIVE",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 100,
-        "pass": true,
-        "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "NET",
-        "status": "REVIEW_REQUIRED",
-        "reasons": [
-          "MISSING_CRITICAL_FREE_FINANCIAL_DATA"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": null,
-          "interest_bearing_debt_proxy": 3529350000.0,
-          "cash_interest_deposit_proxy": 4162798000.0,
-          "debt_to_market_cap": null,
-          "cash_proxy_to_market_cap": null
+          "debt_to_market_cap": 0.0677,
+          "cash_proxy_to_market_cap": 0.0544,
+          "interest_income_proxy": 859000000.0,
+          "total_revenue": 60801000000.0,
+          "impure_income_proxy_ratio": 0.0141
         }
       }
     },
@@ -275,7 +152,7 @@
       "setup": "VWAP_PULLBACK",
       "score": 99,
       "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 65,
+      "runner_up_score": 60,
       "status": "PAPER_ENTRY",
       "entry": 163.79,
       "stop": 161.82,
@@ -284,11 +161,11 @@
       "risk_pct": 1.2,
       "day_change_pct": 1.95,
       "relative_volume": 1.11,
-      "bar_relative_volume": 0.02,
+      "bar_relative_volume": 0.1,
       "ret1h_pct": -0.19,
       "ret5d_pct": -0.46,
       "ret20d_pct": 2.5,
-      "distance_20d_high_pct": -2.85,
+      "distance_20d_high_pct": -2.88,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
@@ -339,8 +216,8 @@
         ],
         "headline_ages_hours": [
           1.1,
-          1.5,
-          1.5
+          1.6,
+          1.6
         ],
         "contributions": [],
         "positive_hits": 0,
@@ -348,8 +225,8 @@
       },
       "threshold": 74,
       "entry_low": 163.73,
-      "entry_high": 163.85,
-      "atr_ref": 0.5933,
+      "entry_high": 163.84,
+      "atr_ref": 0.5954,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=PASS_STRONG",
@@ -364,9 +241,10 @@
         "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
         "certified": false,
         "symbol": "XOM",
-        "status": "REVIEW_REQUIRED",
+        "status": "RESEARCH_PASS_PARTIAL",
         "reasons": [
-          "MISSING_CRITICAL_FREE_FINANCIAL_DATA"
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
         ],
         "thresholds": {
           "debt_to_market_cap": 0.3,
@@ -378,11 +256,14 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": null,
+          "market_cap": 673572257792.0,
           "interest_bearing_debt_proxy": 42368000000.0,
           "cash_interest_deposit_proxy": 10588000000.0,
-          "debt_to_market_cap": null,
-          "cash_proxy_to_market_cap": null
+          "debt_to_market_cap": 0.0629,
+          "cash_proxy_to_market_cap": 0.0157,
+          "interest_income_proxy": null,
+          "total_revenue": 114529000000.0,
+          "impure_income_proxy_ratio": null
         }
       }
     },
@@ -397,28 +278,28 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 71,
       "status": "PAPER_ENTRY",
-      "entry": 136.38,
-      "stop": 131.82,
-      "target1": 144.6,
-      "target2": 150.07,
+      "entry": 136.21,
+      "stop": 131.65,
+      "target1": 144.43,
+      "target2": 149.91,
       "risk_pct": 3.35,
-      "day_change_pct": 0.99,
-      "relative_volume": 1.15,
-      "bar_relative_volume": 0.04,
-      "ret1h_pct": -0.56,
-      "ret5d_pct": 0.14,
-      "ret20d_pct": 8.31,
-      "distance_20d_high_pct": -0.77,
+      "day_change_pct": 0.87,
+      "relative_volume": 1.16,
+      "bar_relative_volume": 0.23,
+      "ret1h_pct": -0.68,
+      "ret5d_pct": 0.02,
+      "ret20d_pct": 8.18,
+      "distance_20d_high_pct": -0.92,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
         "MOMENTUM_LEADER": 29,
-        "BREAKOUT": 37,
+        "BREAKOUT": 27,
         "VWAP_PULLBACK": 71,
         "SWING_CONTINUATION": 90,
-        "SESSION_LEADER": 20
+        "SESSION_LEADER": 15
       },
       "router": {
         "setup": "SWING_CONTINUATION",
@@ -433,10 +314,10 @@
         },
         "adjusted_scores": {
           "MOMENTUM_LEADER": 28,
-          "BREAKOUT": 36,
+          "BREAKOUT": 26,
           "VWAP_PULLBACK": 76,
           "SWING_CONTINUATION": 94,
-          "SESSION_LEADER": 20
+          "SESSION_LEADER": 15
         }
       },
       "mtf": {
@@ -458,17 +339,17 @@
           "Chevron Stock Is Near a Record High. Here’s Why the Rally May Not Be Over"
         ],
         "headline_ages_hours": [
-          5.0,
-          19.3,
-          28.5
+          5.1,
+          19.4,
+          28.6
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 135.92,
-      "entry_high": 136.84,
+      "entry_low": 135.76,
+      "entry_high": 136.67,
       "atr_ref": 3.0431,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -484,9 +365,10 @@
         "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
         "certified": false,
         "symbol": "COP",
-        "status": "REVIEW_REQUIRED",
+        "status": "RESEARCH_PASS_PARTIAL",
         "reasons": [
-          "MISSING_CRITICAL_FREE_FINANCIAL_DATA"
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
         ],
         "thresholds": {
           "debt_to_market_cap": 0.3,
@@ -498,12 +380,495 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": null,
+          "market_cap": 165931640035.46173,
           "interest_bearing_debt_proxy": 23290000000.0,
           "cash_interest_deposit_proxy": 7692000000.0,
-          "debt_to_market_cap": null,
-          "cash_proxy_to_market_cap": null
+          "debt_to_market_cap": 0.1404,
+          "cash_proxy_to_market_cap": 0.0464,
+          "interest_income_proxy": null,
+          "total_revenue": 19161000000.0,
+          "impure_income_proxy_ratio": null
         }
+      }
+    }
+  ],
+  "ranked_enhanced": [
+    {
+      "symbol": "META",
+      "group": "MEGA_TECH",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SESSION_LEADER",
+      "score": 99,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 70,
+      "status": "PAPER_ENTRY",
+      "entry": 651.29,
+      "stop": 643.48,
+      "target1": 663.8,
+      "target2": 670.83,
+      "risk_pct": 1.2,
+      "day_change_pct": 6.16,
+      "relative_volume": 2.52,
+      "bar_relative_volume": 0.12,
+      "ret1h_pct": 0.03,
+      "ret5d_pct": 12.54,
+      "ret20d_pct": 8.67,
+      "distance_20d_high_pct": 4.2,
+      "above_vwap": true,
+      "daily_trend": false,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 44,
+        "SWING_CONTINUATION": 64,
+        "SESSION_LEADER": 96
+      },
+      "router": {
+        "setup": "SESSION_LEADER",
+        "routed_score": 96,
+        "raw_score": 96,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 65,
+          "VWAP_PULLBACK": 47,
+          "SWING_CONTINUATION": 67,
+          "SESSION_LEADER": 96
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": false
+        }
+      },
+      "catalyst": {
+        "score": 5,
+        "sentiment": "POSITIVE",
+        "categories": [
+          "PRODUCT"
+        ],
+        "headlines": [
+          "Meta stock surges with Wall Street bullish on new AI agent",
+          "Bond yields tick higher as oil tops $100: AlphaCheck",
+          "Verizon and Corning Just Signed an 80 Million Mile Fiber Deal to Wire the AI Boom"
+        ],
+        "headline_ages_hours": [
+          2.9,
+          3.1,
+          0.2
+        ],
+        "contributions": [
+          2,
+          2,
+          2
+        ],
+        "positive_hits": 3,
+        "negative_hits": 0
+      },
+      "threshold": 78,
+      "entry_low": 650.87,
+      "entry_high": 651.72,
+      "atr_ref": 4.2728,
+      "decision_reason": [
+        "Router=SESSION_LEADER in MIXED",
+        "MTF=PASS_STRONG",
+        "Catalyst=POSITIVE",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 90,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "META",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 1658732240783.005,
+          "interest_bearing_debt_proxy": 112318000000.0,
+          "cash_interest_deposit_proxy": 90260000000.0,
+          "debt_to_market_cap": 0.0677,
+          "cash_proxy_to_market_cap": 0.0544,
+          "interest_income_proxy": 859000000.0,
+          "total_revenue": 60801000000.0,
+          "impure_income_proxy_ratio": 0.0141
+        }
+      }
+    },
+    {
+      "symbol": "XOM",
+      "group": "ENERGY",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 99,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 60,
+      "status": "PAPER_ENTRY",
+      "entry": 163.79,
+      "stop": 161.82,
+      "target1": 166.93,
+      "target2": 168.7,
+      "risk_pct": 1.2,
+      "day_change_pct": 1.95,
+      "relative_volume": 1.11,
+      "bar_relative_volume": 0.1,
+      "ret1h_pct": -0.19,
+      "ret5d_pct": -0.46,
+      "ret20d_pct": 2.5,
+      "distance_20d_high_pct": -2.88,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 60,
+        "BREAKOUT": 35,
+        "VWAP_PULLBACK": 100,
+        "SWING_CONTINUATION": 55,
+        "SESSION_LEADER": 47
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 100,
+        "raw_score": 100,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 59,
+          "BREAKOUT": 34,
+          "VWAP_PULLBACK": 100,
+          "SWING_CONTINUATION": 58,
+          "SESSION_LEADER": 47
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "CVX's Operations & FCF Are Improving: Why Isn't ROIC Keeping Up?",
+          "ExxonMobil, ANPG Notch 20th Discovery in Angola's Block 15",
+          "WTI Crude Not Too Far From $100: Are Permian Stocks a Smart Watch Now?"
+        ],
+        "headline_ages_hours": [
+          1.1,
+          1.6,
+          1.6
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 163.73,
+      "entry_high": 163.84,
+      "atr_ref": 0.5954,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in MIXED",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 83,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "XOM",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 673572257792.0,
+          "interest_bearing_debt_proxy": 42368000000.0,
+          "cash_interest_deposit_proxy": 10588000000.0,
+          "debt_to_market_cap": 0.0629,
+          "cash_proxy_to_market_cap": 0.0157,
+          "interest_income_proxy": null,
+          "total_revenue": 114529000000.0,
+          "impure_income_proxy_ratio": null
+        }
+      }
+    },
+    {
+      "symbol": "COP",
+      "group": "ENERGY",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 98,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 71,
+      "status": "PAPER_ENTRY",
+      "entry": 136.21,
+      "stop": 131.65,
+      "target1": 144.43,
+      "target2": 149.91,
+      "risk_pct": 3.35,
+      "day_change_pct": 0.87,
+      "relative_volume": 1.16,
+      "bar_relative_volume": 0.23,
+      "ret1h_pct": -0.68,
+      "ret5d_pct": 0.02,
+      "ret20d_pct": 8.18,
+      "distance_20d_high_pct": -0.92,
+      "above_vwap": false,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 29,
+        "BREAKOUT": 27,
+        "VWAP_PULLBACK": 71,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 15
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 94,
+        "raw_score": 90,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 28,
+          "BREAKOUT": 26,
+          "VWAP_PULLBACK": 76,
+          "SWING_CONTINUATION": 94,
+          "SESSION_LEADER": 15
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": false,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Trump oil and gas holdings gained up to $4.4M during Iran war",
+          "2 Cash-Producing Stocks to Research Further and 1 We Avoid",
+          "Chevron Stock Is Near a Record High. Here’s Why the Rally May Not Be Over"
+        ],
+        "headline_ages_hours": [
+          5.1,
+          19.4,
+          28.6
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 135.76,
+      "entry_high": 136.67,
+      "atr_ref": 3.0431,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 100,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "COP",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 165931640035.46173,
+          "interest_bearing_debt_proxy": 23290000000.0,
+          "cash_interest_deposit_proxy": 7692000000.0,
+          "debt_to_market_cap": 0.1404,
+          "cash_proxy_to_market_cap": 0.0464,
+          "interest_income_proxy": null,
+          "total_revenue": 19161000000.0,
+          "impure_income_proxy_ratio": null
+        }
+      }
+    },
+    {
+      "symbol": "NET",
+      "group": "CLOUD_SECURITY",
+      "source": "day_gainers",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SESSION_LEADER",
+      "score": 94,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 80,
+      "status": "PAPER_ENTRY",
+      "entry": 312.91,
+      "stop": 309.16,
+      "target1": 318.92,
+      "target2": 322.3,
+      "risk_pct": 1.2,
+      "day_change_pct": 10.06,
+      "relative_volume": 1.91,
+      "bar_relative_volume": 0.11,
+      "ret1h_pct": 0.78,
+      "ret5d_pct": 9.6,
+      "ret20d_pct": 1.94,
+      "distance_20d_high_pct": -5.81,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 82,
+        "BREAKOUT": 65,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 53,
+        "SESSION_LEADER": 88
+      },
+      "router": {
+        "setup": "SESSION_LEADER",
+        "routed_score": 88,
+        "raw_score": 88,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 80,
+          "BREAKOUT": 63,
+          "VWAP_PULLBACK": 71,
+          "SWING_CONTINUATION": 56,
+          "SESSION_LEADER": 88
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 2,
+        "sentiment": "POSITIVE",
+        "categories": [
+          "PARTNERSHIP"
+        ],
+        "headlines": [
+          "Cloudflare Surges 9% on OpenAI Security Partnership, Zscaler Rises 3%",
+          "Fastly Jumps 7%: Is This an Oversold Bounce or the Start of a Run?",
+          "The End of the Captcha? Not So Fast"
+        ],
+        "headline_ages_hours": [
+          1.6,
+          2.6,
+          21.1
+        ],
+        "contributions": [
+          2
+        ],
+        "positive_hits": 1,
+        "negative_hits": 0
+      },
+      "threshold": 78,
+      "entry_low": 312.65,
+      "entry_high": 313.17,
+      "atr_ref": 2.6011,
+      "decision_reason": [
+        "Router=SESSION_LEADER in MIXED",
+        "MTF=PASS_STRONG",
+        "Catalyst=POSITIVE",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 100,
+        "pass": true,
+        "reasons": []
       }
     },
     {
@@ -517,18 +882,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 70,
       "status": "PAPER_ENTRY",
-      "entry": 1020.81,
-      "stop": 940.19,
-      "target1": 1165.93,
-      "target2": 1262.67,
-      "risk_pct": 7.9,
-      "day_change_pct": 2.05,
-      "relative_volume": 0.88,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": 0.23,
-      "ret5d_pct": 9.37,
-      "ret20d_pct": 17.55,
-      "distance_20d_high_pct": -1.93,
+      "entry": 1021.74,
+      "stop": 941.12,
+      "target1": 1166.86,
+      "target2": 1263.61,
+      "risk_pct": 7.89,
+      "day_change_pct": 2.15,
+      "relative_volume": 0.89,
+      "bar_relative_volume": 0.13,
+      "ret1h_pct": 0.32,
+      "ret5d_pct": 9.47,
+      "ret20d_pct": 17.65,
+      "distance_20d_high_pct": -1.83,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -578,7 +943,7 @@
           "Memory Stocks Rally as Goldman Says the Worst May Be Over: SK Hynix Climbs 5%, SanDisk Advances 3%, Micron Gains 2%"
         ],
         "headline_ages_hours": [
-          0.9,
+          1.0,
           1.5,
           1.7
         ],
@@ -587,8 +952,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 1012.75,
-      "entry_high": 1028.87,
+      "entry_low": 1013.68,
+      "entry_high": 1029.81,
       "atr_ref": 53.7467,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -599,31 +964,6 @@
         "score": 100,
         "pass": true,
         "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "MU",
-        "status": "REVIEW_REQUIRED",
-        "reasons": [
-          "MISSING_CRITICAL_FREE_FINANCIAL_DATA"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": null,
-          "interest_bearing_debt_proxy": 6376000000.0,
-          "cash_interest_deposit_proxy": 26022000000.0,
-          "debt_to_market_cap": null,
-          "cash_proxy_to_market_cap": null
-        }
       }
     },
     {
@@ -632,38 +972,38 @@
       "source": "most_actives",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 77,
+      "setup": "MOMENTUM_LEADER",
+      "score": 79,
       "runner_up_setup": "BREAKOUT",
       "runner_up_score": 74,
-      "status": "ARMED",
-      "entry": 523.01,
-      "stop": 516.73,
-      "target1": 533.05,
-      "target2": 538.7,
+      "status": "PAPER_ENTRY",
+      "entry": 523.41,
+      "stop": 517.13,
+      "target1": 533.46,
+      "target2": 539.11,
       "risk_pct": 1.2,
-      "day_change_pct": 3.41,
+      "day_change_pct": 3.49,
       "relative_volume": 1.3,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": 0.34,
-      "ret5d_pct": 13.81,
-      "ret20d_pct": 10.28,
-      "distance_20d_high_pct": 1.13,
+      "bar_relative_volume": 0.1,
+      "ret1h_pct": 0.42,
+      "ret5d_pct": 13.92,
+      "ret20d_pct": 10.38,
+      "distance_20d_high_pct": 1.17,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 65,
+        "MOMENTUM_LEADER": 77,
         "BREAKOUT": 74,
-        "VWAP_PULLBACK": 66,
+        "VWAP_PULLBACK": 54,
         "SWING_CONTINUATION": 64,
         "SESSION_LEADER": 73
       },
       "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 73,
-        "raw_score": 73,
+        "setup": "MOMENTUM_LEADER",
+        "routed_score": 75,
+        "raw_score": 77,
         "weights": {
           "SESSION_LEADER": 1.0,
           "MOMENTUM_LEADER": 0.98,
@@ -672,9 +1012,9 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 64,
+          "MOMENTUM_LEADER": 75,
           "BREAKOUT": 72,
-          "VWAP_PULLBACK": 71,
+          "VWAP_PULLBACK": 58,
           "SWING_CONTINUATION": 67,
           "SESSION_LEADER": 73
         }
@@ -698,20 +1038,20 @@
           "Could Marvell Be the Next AI Stock to Deliver 100% Upside?"
         ],
         "headline_ages_hours": [
-          0.5,
-          0.9,
-          1.0
+          0.6,
+          1.0,
+          1.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 522.69,
-      "entry_high": 523.32,
-      "atr_ref": 3.1087,
+      "entry_low": 523.1,
+      "entry_high": 523.72,
+      "atr_ref": 3.1157,
       "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
+        "Router=MOMENTUM_LEADER in MIXED",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -732,18 +1072,18 @@
       "runner_up_setup": "SWING_CONTINUATION",
       "runner_up_score": 80,
       "status": "OBSERVE",
-      "entry": 212.75,
-      "stop": 210.2,
-      "target1": 216.83,
-      "target2": 219.13,
+      "entry": 212.71,
+      "stop": 210.16,
+      "target1": 216.8,
+      "target2": 219.1,
       "risk_pct": 1.2,
-      "day_change_pct": 1.41,
-      "relative_volume": 1.33,
-      "bar_relative_volume": 0.02,
-      "ret1h_pct": -0.19,
-      "ret5d_pct": 0.81,
-      "ret20d_pct": 8.18,
-      "distance_20d_high_pct": -0.24,
+      "day_change_pct": 1.39,
+      "relative_volume": 1.34,
+      "bar_relative_volume": 0.11,
+      "ret1h_pct": -0.2,
+      "ret5d_pct": 0.79,
+      "ret20d_pct": 8.16,
+      "distance_20d_high_pct": -0.26,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -795,16 +1135,16 @@
         "headline_ages_hours": [
           1.1,
           1.5,
-          1.5
+          1.6
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 212.68,
-      "entry_high": 212.82,
-      "atr_ref": 0.6566,
+      "entry_low": 212.65,
+      "entry_high": 212.78,
+      "atr_ref": 0.6661,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=FAIL",
@@ -830,18 +1170,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 44,
       "status": "OBSERVE",
-      "entry": 225.27,
-      "stop": 222.57,
-      "target1": 229.6,
-      "target2": 232.03,
+      "entry": 225.09,
+      "stop": 222.39,
+      "target1": 229.41,
+      "target2": 231.84,
       "risk_pct": 1.2,
-      "day_change_pct": 7.15,
-      "relative_volume": 1.16,
-      "bar_relative_volume": 0.05,
-      "ret1h_pct": 0.67,
-      "ret5d_pct": 0.64,
-      "ret20d_pct": -8.72,
-      "distance_20d_high_pct": -12.71,
+      "day_change_pct": 7.07,
+      "relative_volume": 1.17,
+      "bar_relative_volume": 0.11,
+      "ret1h_pct": 0.59,
+      "ret5d_pct": 0.56,
+      "ret20d_pct": -8.79,
+      "distance_20d_high_pct": -12.73,
       "above_vwap": true,
       "daily_trend": false,
       "extended": true,
@@ -892,17 +1232,17 @@
         ],
         "headline_ages_hours": [
           2.6,
-          43.0,
-          69.9
+          43.1,
+          70.0
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 225.11,
-      "entry_high": 225.43,
-      "atr_ref": 1.6454,
+      "entry_low": 224.92,
+      "entry_high": 225.26,
+      "atr_ref": 1.6646,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=PASS",
@@ -927,18 +1267,18 @@
       "runner_up_setup": "SWING_CONTINUATION",
       "runner_up_score": 56,
       "status": "ARMED",
-      "entry": 105.18,
-      "stop": 103.91,
-      "target1": 107.19,
-      "target2": 108.33,
+      "entry": 105.37,
+      "stop": 104.11,
+      "target1": 107.39,
+      "target2": 108.53,
       "risk_pct": 1.2,
-      "day_change_pct": 0.67,
-      "relative_volume": 1.05,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": 0.14,
-      "ret5d_pct": 18.28,
-      "ret20d_pct": 7.7,
-      "distance_20d_high_pct": -2.14,
+      "day_change_pct": 0.86,
+      "relative_volume": 1.06,
+      "bar_relative_volume": 0.22,
+      "ret1h_pct": 0.32,
+      "ret5d_pct": 18.42,
+      "ret20d_pct": 7.82,
+      "distance_20d_high_pct": -2.06,
       "above_vwap": true,
       "daily_trend": false,
       "extended": false,
@@ -948,7 +1288,7 @@
         "BREAKOUT": 25,
         "VWAP_PULLBACK": 68,
         "SWING_CONTINUATION": 56,
-        "SESSION_LEADER": 36
+        "SESSION_LEADER": 41
       },
       "router": {
         "setup": "VWAP_PULLBACK",
@@ -966,7 +1306,7 @@
           "BREAKOUT": 24,
           "VWAP_PULLBACK": 73,
           "SWING_CONTINUATION": 59,
-          "SESSION_LEADER": 36
+          "SESSION_LEADER": 41
         }
       },
       "mtf": {
@@ -989,7 +1329,7 @@
         ],
         "headline_ages_hours": [
           0.5,
-          0.9,
+          1.0,
           2.3
         ],
         "contributions": [],
@@ -997,9 +1337,9 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 105.1,
-      "entry_high": 105.25,
-      "atr_ref": 0.7858,
+      "entry_low": 105.29,
+      "entry_high": 105.45,
+      "atr_ref": 0.7931,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=PASS",
@@ -1025,18 +1365,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 56,
       "status": "OBSERVE",
-      "entry": 57.46,
-      "stop": 54.64,
-      "target1": 62.53,
-      "target2": 65.91,
-      "risk_pct": 4.9,
-      "day_change_pct": 0.63,
-      "relative_volume": 1.11,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": -0.42,
-      "ret5d_pct": 0.55,
-      "ret20d_pct": 7.05,
-      "distance_20d_high_pct": -4.92,
+      "entry": 57.44,
+      "stop": 54.62,
+      "target1": 62.51,
+      "target2": 65.89,
+      "risk_pct": 4.91,
+      "day_change_pct": 0.6,
+      "relative_volume": 1.12,
+      "bar_relative_volume": 0.08,
+      "ret1h_pct": -0.45,
+      "ret5d_pct": 0.49,
+      "ret20d_pct": 6.99,
+      "distance_20d_high_pct": -4.99,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -1095,8 +1435,8 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 57.18,
-      "entry_high": 57.74,
+      "entry_low": 57.16,
+      "entry_high": 57.72,
       "atr_ref": 1.8786,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1122,28 +1462,28 @@
       "runner_up_setup": "SWING_CONTINUATION",
       "runner_up_score": 55,
       "status": "OBSERVE",
-      "entry": 336.49,
-      "stop": 332.45,
-      "target1": 342.95,
-      "target2": 346.58,
+      "entry": 335.98,
+      "stop": 331.95,
+      "target1": 342.44,
+      "target2": 346.06,
       "risk_pct": 1.2,
-      "day_change_pct": 0.29,
+      "day_change_pct": 0.14,
       "relative_volume": 0.3,
-      "bar_relative_volume": 0.02,
-      "ret1h_pct": 0.54,
-      "ret5d_pct": 5.17,
-      "ret20d_pct": 0.65,
-      "distance_20d_high_pct": -12.54,
+      "bar_relative_volume": 0.14,
+      "ret1h_pct": 0.39,
+      "ret5d_pct": 5.06,
+      "ret20d_pct": 0.55,
+      "distance_20d_high_pct": -12.63,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 39,
-        "BREAKOUT": 40,
+        "MOMENTUM_LEADER": 34,
+        "BREAKOUT": 30,
         "VWAP_PULLBACK": 68,
         "SWING_CONTINUATION": 55,
-        "SESSION_LEADER": 35
+        "SESSION_LEADER": 26
       },
       "router": {
         "setup": "VWAP_PULLBACK",
@@ -1157,11 +1497,11 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 38,
-          "BREAKOUT": 39,
+          "MOMENTUM_LEADER": 33,
+          "BREAKOUT": 29,
           "VWAP_PULLBACK": 73,
           "SWING_CONTINUATION": 58,
-          "SESSION_LEADER": 35
+          "SESSION_LEADER": 26
         }
       },
       "mtf": {
@@ -1192,9 +1532,9 @@
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 336.26,
-      "entry_high": 336.72,
-      "atr_ref": 2.2776,
+      "entry_low": 335.76,
+      "entry_high": 336.21,
+      "atr_ref": 2.2952,
       "decision_reason": [
         "Router=VWAP_PULLBACK in MIXED",
         "MTF=FAIL",
@@ -1220,17 +1560,17 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 48,
       "status": "OBSERVE",
-      "entry": 176.05,
-      "stop": 166.01,
-      "target1": 194.13,
-      "target2": 206.18,
+      "entry": 176.0,
+      "stop": 165.96,
+      "target1": 194.07,
+      "target2": 206.12,
       "risk_pct": 5.7,
-      "day_change_pct": 1.13,
+      "day_change_pct": 1.1,
       "relative_volume": 1.04,
-      "bar_relative_volume": 0.01,
-      "ret1h_pct": -0.08,
-      "ret5d_pct": 5.67,
-      "ret20d_pct": 8.22,
+      "bar_relative_volume": 0.08,
+      "ret1h_pct": -0.11,
+      "ret5d_pct": 5.64,
+      "ret20d_pct": 8.19,
       "distance_20d_high_pct": -4.03,
       "above_vwap": false,
       "daily_trend": false,
@@ -1281,17 +1621,17 @@
           "Should You Buy Intel Stock Because The Comeback Is Working?"
         ],
         "headline_ages_hours": [
-          5.0,
-          0.6,
-          0.9
+          5.1,
+          0.7,
+          1.0
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 175.05,
-      "entry_high": 177.06,
+      "entry_low": 175.0,
+      "entry_high": 177.0,
       "atr_ref": 6.6935,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1308,103 +1648,6 @@
       }
     },
     {
-      "symbol": "ORCL",
-      "group": "MEGA_TECH",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 58,
-      "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 56,
-      "status": "OBSERVE",
-      "entry": 162.47,
-      "stop": 160.52,
-      "target1": 165.59,
-      "target2": 167.35,
-      "risk_pct": 1.2,
-      "day_change_pct": -0.03,
-      "relative_volume": 0.7,
-      "bar_relative_volume": 0.07,
-      "ret1h_pct": 0.92,
-      "ret5d_pct": 14.93,
-      "ret20d_pct": 11.64,
-      "distance_20d_high_pct": -4.77,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 50,
-        "BREAKOUT": 20,
-        "VWAP_PULLBACK": 53,
-        "SWING_CONTINUATION": 51,
-        "SESSION_LEADER": 35
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 57,
-        "raw_score": 53,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 49,
-          "BREAKOUT": 19,
-          "VWAP_PULLBACK": 57,
-          "SWING_CONTINUATION": 54,
-          "SESSION_LEADER": 35
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Oracle’s Disruptive Nature is Very Compelling",
-          "OpenAI to Spend $750 Billion on Compute by 2030 — But It’s Short on Capacity",
-          "Michael Burry Sells NVDA, PLTR December 2026 Puts Amid Portfolio-Wide Cuts – Says He’s ‘Pulling Back’ On Risk"
-        ],
-        "headline_ages_hours": [
-          0.2,
-          0.4,
-          1.3
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 162.38,
-      "entry_high": 162.56,
-      "atr_ref": 0.9133,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 58,
-        "pass": false,
-        "reasons": [
-          "LOW_SESSION_RVOL"
-        ]
-      }
-    },
-    {
       "symbol": "TSLA",
       "group": "CONSUMER_RETAIL",
       "source": "most_actives",
@@ -1415,18 +1658,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 38,
       "status": "OBSERVE",
-      "entry": 368.83,
-      "stop": 346.62,
-      "target1": 408.81,
-      "target2": 435.46,
+      "entry": 368.81,
+      "stop": 346.6,
+      "target1": 408.79,
+      "target2": 435.44,
       "risk_pct": 6.02,
       "day_change_pct": 0.18,
       "relative_volume": 0.59,
-      "bar_relative_volume": 0.02,
-      "ret1h_pct": 0.03,
+      "bar_relative_volume": 0.11,
+      "ret1h_pct": 0.02,
       "ret5d_pct": 3.57,
       "ret20d_pct": 10.82,
-      "distance_20d_high_pct": -3.94,
+      "distance_20d_high_pct": -3.96,
       "above_vwap": false,
       "daily_trend": false,
       "extended": false,
@@ -1477,16 +1720,16 @@
         ],
         "headline_ages_hours": [
           3.1,
-          0.1,
-          1.0
+          0.2,
+          1.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 366.61,
-      "entry_high": 371.05,
+      "entry_low": 366.59,
+      "entry_high": 371.03,
       "atr_ref": 14.8063,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1513,17 +1756,17 @@
       "runner_up_setup": "MOMENTUM_LEADER",
       "runner_up_score": 63,
       "status": "OBSERVE",
-      "entry": 364.69,
-      "stop": 360.31,
-      "target1": 371.69,
-      "target2": 375.63,
+      "entry": 364.19,
+      "stop": 359.82,
+      "target1": 371.18,
+      "target2": 375.12,
       "risk_pct": 1.2,
-      "day_change_pct": 2.44,
+      "day_change_pct": 2.3,
       "relative_volume": 0.44,
-      "bar_relative_volume": 0.03,
-      "ret1h_pct": 1.35,
-      "ret5d_pct": -16.01,
-      "ret20d_pct": -16.96,
+      "bar_relative_volume": 0.11,
+      "ret1h_pct": 1.21,
+      "ret5d_pct": -16.13,
+      "ret20d_pct": -17.07,
       "distance_20d_high_pct": -23.02,
       "above_vwap": true,
       "daily_trend": false,
@@ -1575,17 +1818,17 @@
         ],
         "headline_ages_hours": [
           3.7,
-          18.0,
-          72.0
+          18.1,
+          72.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 78,
-      "entry_low": 364.43,
-      "entry_high": 364.95,
-      "atr_ref": 2.6245,
+      "entry_low": 363.93,
+      "entry_high": 364.45,
+      "atr_ref": 2.6079,
       "decision_reason": [
         "Router=SESSION_LEADER in MIXED",
         "MTF=FAIL",
@@ -1611,115 +1854,18 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 31,
       "status": "OBSERVE",
-      "entry": 147.72,
-      "stop": 141.94,
-      "target1": 158.12,
-      "target2": 165.06,
+      "entry": 147.79,
+      "stop": 142.01,
+      "target1": 158.19,
+      "target2": 165.13,
       "risk_pct": 3.91,
-      "day_change_pct": -0.5,
+      "day_change_pct": -0.45,
       "relative_volume": 0.97,
-      "bar_relative_volume": 0.02,
-      "ret1h_pct": 0.0,
-      "ret5d_pct": -1.43,
-      "ret20d_pct": 13.26,
-      "distance_20d_high_pct": -5.86,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 10,
-        "BREAKOUT": 15,
-        "VWAP_PULLBACK": 31,
-        "SWING_CONTINUATION": 62,
-        "SESSION_LEADER": 0
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 65,
-        "raw_score": 62,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 10,
-          "BREAKOUT": 15,
-          "VWAP_PULLBACK": 33,
-          "SWING_CONTINUATION": 65,
-          "SESSION_LEADER": 0
-        }
-      },
-      "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
-        "checks": {
-          "15m": false,
-          "60m": false,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "The Zacks Analyst Blog Highlights Oracle, Merck, Union Pacific, CVD Equipment and Koil Energy Solutions",
-          "Merck pairs ADCs with Keytruda in women’s cancer push",
-          "A new immuno-oncology play raises $225M for a next-generation drug"
-        ],
-        "headline_ages_hours": [
-          2.6,
-          7.2,
-          10.0
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 147.14,
-      "entry_high": 148.3,
-      "atr_ref": 3.8533,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 55,
-        "pass": false,
-        "reasons": [
-          "MTF_FAIL"
-        ]
-      }
-    },
-    {
-      "symbol": "DE",
-      "group": "INDUSTRIALS",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 55,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 31,
-      "status": "OBSERVE",
-      "entry": 676.03,
-      "stop": 647.3,
-      "target1": 727.75,
-      "target2": 762.22,
-      "risk_pct": 4.25,
-      "day_change_pct": -0.69,
-      "relative_volume": 0.77,
-      "bar_relative_volume": 0.48,
-      "ret1h_pct": 0.14,
-      "ret5d_pct": -0.01,
-      "ret20d_pct": 9.4,
-      "distance_20d_high_pct": -4.26,
+      "bar_relative_volume": 0.07,
+      "ret1h_pct": 0.05,
+      "ret5d_pct": -1.38,
+      "ret20d_pct": 13.32,
+      "distance_20d_high_pct": -5.82,
       "above_vwap": false,
       "daily_trend": true,
       "extended": false,
@@ -1764,6 +1910,103 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
+          "The Zacks Analyst Blog Highlights Oracle, Merck, Union Pacific, CVD Equipment and Koil Energy Solutions",
+          "Merck pairs ADCs with Keytruda in women’s cancer push",
+          "A new immuno-oncology play raises $225M for a next-generation drug"
+        ],
+        "headline_ages_hours": [
+          2.6,
+          7.3,
+          10.1
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 147.21,
+      "entry_high": 148.37,
+      "atr_ref": 3.8533,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=FAIL",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 55,
+        "pass": false,
+        "reasons": [
+          "MTF_FAIL"
+        ]
+      }
+    },
+    {
+      "symbol": "DE",
+      "group": "INDUSTRIALS",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 55,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 31,
+      "status": "OBSERVE",
+      "entry": 675.44,
+      "stop": 646.71,
+      "target1": 727.16,
+      "target2": 761.63,
+      "risk_pct": 4.25,
+      "day_change_pct": -0.78,
+      "relative_volume": 0.76,
+      "bar_relative_volume": 0.41,
+      "ret1h_pct": -0.19,
+      "ret5d_pct": -0.09,
+      "ret20d_pct": 9.3,
+      "distance_20d_high_pct": -4.3,
+      "above_vwap": false,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 10,
+        "BREAKOUT": 15,
+        "VWAP_PULLBACK": 31,
+        "SWING_CONTINUATION": 62,
+        "SESSION_LEADER": 0
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 65,
+        "raw_score": 62,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 10,
+          "BREAKOUT": 15,
+          "VWAP_PULLBACK": 33,
+          "SWING_CONTINUATION": 65,
+          "SESSION_LEADER": 0
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": false,
+          "60m": false,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
           "America Leans on Fusion Breakthroughs to Turbocharge Its Nuclear Weapon Arsenal",
           "Chip, Drug Makers to Drive Non-Residential Construction Rebound, UBS Says",
           "Deere & Company (DE) is Attracting Investor Attention: Here is What You Should Know"
@@ -1771,15 +2014,15 @@
         "headline_ages_hours": [
           2.3,
           19.8,
-          52.0
+          52.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 673.16,
-      "entry_high": 678.9,
+      "entry_low": 672.57,
+      "entry_high": 678.31,
       "atr_ref": 19.1543,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
@@ -1805,24 +2048,24 @@
       "runner_up_setup": "VWAP_PULLBACK",
       "runner_up_score": 56,
       "status": "OBSERVE",
-      "entry": 27.88,
-      "stop": 27.01,
-      "target1": 29.45,
-      "target2": 30.5,
-      "risk_pct": 3.14,
-      "day_change_pct": 0.32,
+      "entry": 27.9,
+      "stop": 27.02,
+      "target1": 29.47,
+      "target2": 30.52,
+      "risk_pct": 3.13,
+      "day_change_pct": 0.38,
       "relative_volume": 0.78,
-      "bar_relative_volume": 0.04,
-      "ret1h_pct": -0.11,
-      "ret5d_pct": -2.35,
-      "ret20d_pct": 4.73,
-      "distance_20d_high_pct": -4.57,
+      "bar_relative_volume": 0.13,
+      "ret1h_pct": -0.05,
+      "ret5d_pct": -2.31,
+      "ret20d_pct": 4.77,
+      "distance_20d_high_pct": -4.5,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 25,
+        "MOMENTUM_LEADER": 29,
         "BREAKOUT": 25,
         "VWAP_PULLBACK": 56,
         "SWING_CONTINUATION": 59,
@@ -1840,7 +2083,7 @@
           "SWING_CONTINUATION": 1.05
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 24,
+          "MOMENTUM_LEADER": 28,
           "BREAKOUT": 24,
           "VWAP_PULLBACK": 60,
           "SWING_CONTINUATION": 62,
@@ -1867,17 +2110,114 @@
         ],
         "headline_ages_hours": [
           1.3,
-          3.9,
-          4.8
+          4.0,
+          4.9
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 27.79,
-      "entry_high": 27.97,
+      "entry_low": 27.81,
+      "entry_high": 27.98,
       "atr_ref": 0.5829,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in MIXED",
+        "MTF=FAIL",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 45,
+        "pass": false,
+        "reasons": [
+          "MTF_FAIL"
+        ]
+      }
+    },
+    {
+      "symbol": "NVDA",
+      "group": "SEMICONDUCTORS",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 50,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 31,
+      "status": "OBSERVE",
+      "entry": 224.1,
+      "stop": 213.38,
+      "target1": 243.38,
+      "target2": 256.24,
+      "risk_pct": 4.78,
+      "day_change_pct": -0.72,
+      "relative_volume": 0.54,
+      "bar_relative_volume": 0.13,
+      "ret1h_pct": 0.1,
+      "ret5d_pct": 3.06,
+      "ret20d_pct": 3.03,
+      "distance_20d_high_pct": -4.54,
+      "above_vwap": false,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 15,
+        "BREAKOUT": 25,
+        "VWAP_PULLBACK": 31,
+        "SWING_CONTINUATION": 57,
+        "SESSION_LEADER": 6
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 60,
+        "raw_score": 57,
+        "weights": {
+          "SESSION_LEADER": 1.0,
+          "MOMENTUM_LEADER": 0.98,
+          "BREAKOUT": 0.97,
+          "VWAP_PULLBACK": 1.07,
+          "SWING_CONTINUATION": 1.05
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 15,
+          "BREAKOUT": 24,
+          "VWAP_PULLBACK": 33,
+          "SWING_CONTINUATION": 60,
+          "SESSION_LEADER": 6
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": false,
+          "60m": false,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "CoreWeave struggling to keep up with demand for Nvidia chips, CEO says",
+          "A foldable iPhone is nice, but Apple still needs to improve its AI user experience",
+          "45 Tesla Cybercabs Are Now Roaming Austin. Here's What That Means for the Robotaxi Business Wall Street Has Been Waiting For."
+        ],
+        "headline_ages_hours": [
+          2.2,
+          2.9,
+          0.2
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 223.02,
+      "entry_high": 225.17,
+      "atr_ref": 7.1424,
       "decision_reason": [
         "Router=SWING_CONTINUATION in MIXED",
         "MTF=FAIL",
@@ -1900,7 +2240,7 @@
     "total_r": 0.0,
     "max_drawdown_r": 0.0,
     "realized_pnl_dollars": 0,
-    "unrealized_pnl_dollars": -499.96
+    "unrealized_pnl_dollars": -517.09
   },
   "paper_state_counts": {
     "pending": 0,
