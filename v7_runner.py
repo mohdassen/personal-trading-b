@@ -4,6 +4,8 @@ import v7_decision_engine as engine
 from v7_catalyst_rules import classify_catalyst
 from v7_paper_guard import install as install_paper_guard
 from v7_quality_rules import install as install_quality_rules
+from v7_signal_quality import install as install_signal_quality
+from v7_sharia_research import install as install_sharia_research
 from v7_portfolio_risk import install as install_portfolio_risk
 from v7_observability import install as install_observability
 
@@ -25,10 +27,12 @@ def diversified_picks(rows, n=3):
 engine.classify_catalyst = classify_catalyst
 engine._pick_diverse = diversified_picks
 install_quality_rules(engine)
+install_signal_quality(engine)
+# Research-only AAOIFI-style screen wraps the diversified shortlist and fails
+# closed on explicit Fail/Review Required; it is not a certification.
+install_sharia_research(engine)
 install_paper_guard(engine)
 install_portfolio_risk(engine)
-# Observability wraps the final paper lifecycle so every run updates sizing,
-# MAE/MFE, marked P&L, ledger and drawdown after trade state changes.
 install_observability(engine)
 
 if __name__ == "__main__":
