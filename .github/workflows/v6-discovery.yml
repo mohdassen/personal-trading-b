@@ -7,13 +7,17 @@ on:
     paths:
       - '.github/workflows/v6-discovery.yml'
   schedule:
-    - cron: '5,35 13-21 * * 1-5'
+    # Broad UTC window covers the NY session across DST/non-DST.
+    # The runner remains the authoritative 09:35-16:05 America/New_York guard.
+    - cron: '5,20,35,50 13-21 * * 1-5'
 
 permissions:
   contents: write
+
 concurrency:
   group: v7-paper-state
   cancel-in-progress: false
+
 jobs:
   discovery:
     runs-on: ubuntu-latest
@@ -23,31 +27,94 @@ jobs:
         with:
           ref: research/v7-catalyst-router-mtf
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
+
       - run: pip install -r requirements.txt
+
       - name: Sync V7 research branch
         run: |
           git fetch origin research/v7-catalyst-router-mtf
           git reset --hard origin/research/v7-catalyst-router-mtf
+
+      - name: Start workflow heartbeat
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          p = Path('data/v7_workflow_heartbeat.json')
+          p.parent.mkdir(parents=True, exist_ok=True)
+          payload = {
+              'workflow': 'V7 Adaptive Paper Discovery',
+              'status': 'RUNNING',
+              'started_at': datetime.now(timezone.utc).isoformat(),
+              'event': os.getenv('GITHUB_EVENT_NAME'),
+              'run_id': os.getenv('GITHUB_RUN_ID'),
+              'run_attempt': os.getenv('GITHUB_RUN_ATTEMPT'),
+              'workflow_sha': os.getenv('GITHUB_SHA'),
+          }
+          p.write_text(json.dumps(payload, indent=2), encoding='utf-8')
+          PY
+
       - name: Unit-test V7 logic
+        id: unit_tests
+        continue-on-error: true
         run: python -m unittest discover -s tests -p 'test_v7*.py'
+
       - name: Run V7 catalyst-router-MTF paper engine
+        id: paper_engine
+        if: steps.unit_tests.outcome == 'success'
+        continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: python v7_runner.py
-      - name: Persist V7 research state
-        if: success()
+
+      - name: Finalize workflow heartbeat
+        if: always()
+        env:
+          UNIT_TESTS_OUTCOME: ${{ steps.unit_tests.outcome }}
+          PAPER_ENGINE_OUTCOME: ${{ steps.paper_engine.outcome }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          p = Path('data/v7_workflow_heartbeat.json')
+          try:
+              payload = json.loads(p.read_text(encoding='utf-8'))
+          except Exception:
+              payload = {'workflow': 'V7 Adaptive Paper Discovery'}
+          tests = os.getenv('UNIT_TESTS_OUTCOME') or 'unknown'
+          engine = os.getenv('PAPER_ENGINE_OUTCOME') or 'not_run'
+          ok = tests == 'success' and engine == 'success'
+          payload.update({
+              'status': 'SUCCESS' if ok else 'FAILED',
+              'finished_at': datetime.now(timezone.utc).isoformat(),
+              'unit_tests': tests,
+              'paper_engine': engine,
+              'event': os.getenv('GITHUB_EVENT_NAME'),
+              'run_id': os.getenv('GITHUB_RUN_ID'),
+              'run_attempt': os.getenv('GITHUB_RUN_ATTEMPT'),
+          })
+          p.write_text(json.dumps(payload, indent=2), encoding='utf-8')
+          PY
+
+      - name: Persist V7 research state and heartbeat
+        if: always()
+        id: persist
+        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/v6_discovery.json data/v7_decision_snapshot.json data/v7_paper_state.json data/v7_alert_state.json 2>/dev/null || true
+          git add data/v6_discovery.json data/v7_decision_snapshot.json data/v7_paper_state.json data/v7_alert_state.json data/v7_workflow_heartbeat.json 2>/dev/null || true
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "chore: update V7 paper research state"
+          git commit -m "chore: update V7 paper research state and heartbeat"
           for attempt in 1 2 3; do
             if git push origin HEAD:research/v7-catalyst-router-mtf; then exit 0; fi
             git fetch origin research/v7-catalyst-router-mtf
@@ -55,4 +122,13 @@ jobs:
           done
           exit 1
 
-# QA trigger: phase-3 clean-forward validation + promotion governance
+      - name: Enforce V7 run result
+        if: always()
+        env:
+          UNIT_TESTS_OUTCOME: ${{ steps.unit_tests.outcome }}
+          PAPER_ENGINE_OUTCOME: ${{ steps.paper_engine.outcome }}
+          PERSIST_OUTCOME: ${{ steps.persist.outcome }}
+        run: |
+          test "$UNIT_TESTS_OUTCOME" = "success"
+          test "$PAPER_ENGINE_OUTCOME" = "success"
+          test "$PERSIST_OUTCOME" = "success"
