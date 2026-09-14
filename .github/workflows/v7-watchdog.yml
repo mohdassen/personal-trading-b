@@ -1,0 +1,120 @@
+name: V7 Paper Watchdog
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v7-watchdog.yml'
+  schedule:
+    # Independent health checks during the NY session.
+    - cron: '10,40 13-19 * * 1-5'
+    # One end-of-day checkpoint shortly after the regular-session close (DST season).
+    - cron: '10 20 * * 1-5'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v7-paper-watchdog
+  cancel-in-progress: true
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v7-catalyst-router-mtf
+          fetch-depth: 1
+
+      - name: Check V7 heartbeat and publish EOD summary
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          python - <<'PY'
+          import json, os, sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+
+          heartbeat_path = Path('data/v7_workflow_heartbeat.json')
+          state_path = Path('data/v7_paper_state.json')
+          now = datetime.now(timezone.utc)
+
+          def load(path):
+              try:
+                  return json.loads(path.read_text(encoding='utf-8'))
+              except Exception as exc:
+                  print(f'Cannot read {path}: {exc}')
+                  return {}
+
+          def parse_dt(value):
+              if not value:
+                  return None
+              try:
+                  return datetime.fromisoformat(str(value).replace('Z', '+00:00')).astimezone(timezone.utc)
+              except Exception:
+                  return None
+
+          def send_telegram(text):
+              token = os.getenv('TELEGRAM_BOT_TOKEN')
+              chat_id = os.getenv('TELEGRAM_CHAT_ID')
+              if not token or not chat_id:
+                  print('Telegram secrets unavailable; message not sent.')
+                  return False
+              data = urlencode({'chat_id': chat_id, 'text': text}).encode()
+              req = Request(f'https://api.telegram.org/bot{token}/sendMessage', data=data, method='POST')
+              with urlopen(req, timeout=15) as resp:
+                  print(f'Telegram status={resp.status}')
+              return True
+
+          heartbeat = load(heartbeat_path)
+          state = load(state_path)
+          finished = parse_dt(heartbeat.get('finished_at'))
+          age_minutes = (now - finished).total_seconds() / 60 if finished else 99999
+          healthy = heartbeat.get('status') == 'SUCCESS' and age_minutes <= 45
+
+          print(f'heartbeat_status={heartbeat.get("status")} age_minutes={age_minutes:.1f} healthy={healthy}')
+
+          if not healthy:
+              msg = (
+                  '🚨 V7 PAPER WATCHDOG\n'
+                  f'Heartbeat: {heartbeat.get("status", "MISSING")}\n'
+                  f'Age: {age_minutes:.0f} min\n'
+                  f'Last run: {heartbeat.get("run_id", "unknown")}\n'
+                  'Action: inspect V7 Adaptive Paper Engine.'
+              )
+              send_telegram(msg)
+              sys.exit(1)
+
+          # Scheduled 20:10 UTC run is the daily operating checkpoint.
+          is_eod = os.getenv('GITHUB_EVENT_NAME') == 'schedule' and now.hour == 20
+          if is_eod:
+              validation = state.get('validation') or {}
+              clean = validation.get('clean_forward_stats') or {}
+              open_pos = state.get('open') or []
+              pending = state.get('pending') or []
+              portfolio = state.get('portfolio') or state.get('portfolio_summary') or {}
+              symbols = ', '.join(str(x.get('symbol')) for x in open_pos if x.get('symbol')) or 'None'
+              msg = (
+                  '📊 V7 PAPER — END OF DAY\n'
+                  f'Forward samples: {clean.get("samples", 0)}\n'
+                  f'Win rate: {clean.get("win_rate", 0)}%\n'
+                  f'Expectancy: {clean.get("expectancy_r", 0)}R\n'
+                  f'Profit factor: {clean.get("profit_factor", 0)}\n'
+                  f'Total: {clean.get("total_r", 0)}R\n'
+                  f'Max DD: {clean.get("max_drawdown_r", 0)}R\n'
+                  f'Open: {len(open_pos)} ({symbols})\n'
+                  f'Pending: {len(pending)}\n'
+                  f'Open risk: {portfolio.get("open_risk_pct", "n/a")}%\n'
+                  'Mode: RESEARCH / PAPER ONLY'
+              )
+              send_telegram(msg)
+
+          print('V7 watchdog check passed.')
+          PY
