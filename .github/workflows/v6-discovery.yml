@@ -1,15 +1,8 @@
-name: V7 Adaptive Paper Discovery
+name: V7 Adaptive Paper Discovery (Legacy Manual)
 
+# Legacy fallback only. Automated scheduling moved to v7-adaptive-paper.yml.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/v6-discovery.yml'
-  schedule:
-    # Broad UTC window covers the NY session across DST/non-DST.
-    # The runner remains the authoritative 09:35-16:05 America/New_York guard.
-    - cron: '5,20,35,50 13-21 * * 1-5'
 
 permissions:
   contents: write
@@ -49,7 +42,7 @@ jobs:
           p = Path('data/v7_workflow_heartbeat.json')
           p.parent.mkdir(parents=True, exist_ok=True)
           payload = {
-              'workflow': 'V7 Adaptive Paper Discovery',
+              'workflow': 'V7 Adaptive Paper Discovery (Legacy Manual)',
               'status': 'RUNNING',
               'started_at': datetime.now(timezone.utc).isoformat(),
               'event': os.getenv('GITHUB_EVENT_NAME'),
@@ -89,7 +82,7 @@ jobs:
           try:
               payload = json.loads(p.read_text(encoding='utf-8'))
           except Exception:
-              payload = {'workflow': 'V7 Adaptive Paper Discovery'}
+              payload = {'workflow': 'V7 Adaptive Paper Discovery (Legacy Manual)'}
           tests = os.getenv('UNIT_TESTS_OUTCOME') or 'unknown'
           engine = os.getenv('PAPER_ENGINE_OUTCOME') or 'not_run'
           ok = tests == 'success' and engine == 'success'
