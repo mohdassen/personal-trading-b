@@ -6,9 +6,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/v7-adaptive-paper.yml'
+  workflow_run:
+    workflows: ["Trading Decision Engine"]
+    types: [completed]
   schedule:
-    # Broad UTC window covers the NY session across DST/non-DST.
-    # v7_runner.py remains the authoritative 09:35-16:05 America/New_York guard.
+    # Primary V7 schedule. The workflow_run trigger above is a second independent
+    # path: every successful Trading Decision Engine run also launches V7.
     - cron: '5,20,35,50 13-21 * * 1-5'
 
 permissions:
@@ -20,6 +23,7 @@ concurrency:
 
 jobs:
   discovery:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
