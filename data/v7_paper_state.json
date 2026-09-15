@@ -1,61 +1,158 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "pending": [],
-  "open": [
+  "pending": [
     {
-      "symbol": "COP",
-      "setup": "SWING_CONTINUATION",
-      "signal_at": "2026-09-09T13:59:19.271596+00:00",
-      "signal_day": "2026-09-09",
-      "signal_entry": 137.01,
-      "signal_stop": 132.47,
-      "signal_target1": 145.2,
-      "atr_ref": 3.0299,
-      "score": 100,
+      "symbol": "CRWD",
+      "setup": "BREAKOUT",
+      "signal_at": "2026-09-15T16:33:32.596994+00:00",
+      "signal_day": "2026-09-15",
+      "signal_entry": 242.46,
+      "signal_stop": 239.55,
+      "signal_target1": 247.12,
+      "atr_ref": 1.8739,
+      "score": 90,
       "mtf": "PASS_STRONG",
       "catalyst": "NEUTRAL_OR_UNKNOWN",
-      "status": "OPEN",
-      "revalidated_score": 98,
-      "revalidated_mtf": "PASS_STRONG",
-      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
-      "revalidated_at": "2026-09-09T10:09:30.285887-04:00",
-      "entry": 137.2121,
-      "stop": 132.6721,
-      "target1": 145.3841,
-      "opened_at": "2026-09-09 14:00:00+00:00",
-      "last_processed": "2026-09-14 18:39:56+00:00",
-      "bars_held": 115,
-      "shares": 110,
+      "status": "PENDING_NEXT_BAR",
+      "group": "CLOUD_SECURITY",
+      "shares": 103,
       "portfolio_risk": {
         "allowed": true,
         "reason": "RISK_APPROVED",
-        "shares": 110,
-        "position_value": 15093.33,
-        "risk_dollars": 499.4,
-        "risk_pct_equity": 0.499,
-        "open_risk_before": 499.14,
-        "open_risk_after": 998.54,
+        "shares": 103,
+        "position_value": 24973.38,
+        "risk_dollars": 299.73,
+        "risk_pct_equity": 0.3,
+        "open_risk_before": 773.44,
+        "open_risk_after": 1073.17,
         "group_risk_before": 0,
         "limits": {
           "risk_per_trade_pct": 0.5,
           "max_open_risk_pct": 1.5,
           "max_group_risk_pct": 1.0,
-          "max_position_pct": 25.0
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": -0.082,
+          "peer": "AAPL",
+          "pass": true
         }
       },
-      "risk_backfill": true,
-      "risk_backfill_note": "Hypothetical analytics sizing; trade opened before V7 portfolio risk engine",
-      "mark": 137.0,
-      "mae_r": -0.553,
-      "mfe_r": 0.573,
-      "unrealized_r": -0.047,
-      "mae_dollars": -276.33,
-      "mfe_dollars": 286.32,
-      "unrealized_pnl_dollars": -23.33,
-      "observed_bars": 98,
-      "paper_epoch": "LEGACY_PRE_V7_2"
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "MIXED",
+      "entry_quality": {
+        "score": 92,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "CRWD",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 248222282522.7593,
+          "interest_bearing_debt_proxy": 820179000.0,
+          "cash_interest_deposit_proxy": 5013847000.0,
+          "debt_to_market_cap": 0.0033,
+          "cash_proxy_to_market_cap": 0.0202,
+          "interest_income_proxy": 43881000.0,
+          "total_revenue": 1470897000.0,
+          "impure_income_proxy_ratio": 0.0298
+        }
+      }
     },
+    {
+      "symbol": "XOM",
+      "setup": "SWING_CONTINUATION",
+      "signal_at": "2026-09-15T16:33:32.596994+00:00",
+      "signal_day": "2026-09-15",
+      "signal_entry": 168.67,
+      "signal_stop": 163.07,
+      "signal_target1": 178.74,
+      "atr_ref": 3.7295,
+      "score": 90,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "PENDING_NEXT_BAR",
+      "group": "ENERGY",
+      "shares": 76,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 76,
+        "position_value": 12818.92,
+        "risk_dollars": 425.6,
+        "risk_pct_equity": 0.426,
+        "open_risk_before": 1073.17,
+        "open_risk_after": 1498.77,
+        "group_risk_before": 0,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": 0.145,
+          "peer": "ABBV",
+          "pass": true
+        }
+      },
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "MIXED",
+      "entry_quality": {
+        "score": 90,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "XOM",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 693268381553.1189,
+          "interest_bearing_debt_proxy": 42368000000.0,
+          "cash_interest_deposit_proxy": 10588000000.0,
+          "debt_to_market_cap": 0.0611,
+          "cash_proxy_to_market_cap": 0.0153,
+          "interest_income_proxy": null,
+          "total_revenue": 114529000000.0,
+          "impure_income_proxy_ratio": null
+        }
+      }
+    }
+  ],
+  "open": [
     {
       "symbol": "AAPL",
       "setup": "SWING_CONTINUATION",
@@ -138,111 +235,16 @@
       "stop": 322.6143,
       "target1": 356.3823,
       "opened_at": "2026-09-11 17:02:36+00:00",
-      "last_processed": "2026-09-14 18:39:55+00:00",
-      "bars_held": 35,
-      "mark": 334.3291,
-      "mae_r": -0.276,
+      "last_processed": "2026-09-15 16:33:20+00:00",
+      "bars_held": 54,
+      "mark": 330.515,
+      "mae_r": -0.524,
       "mfe_r": 0.068,
-      "unrealized_r": -0.029,
-      "mae_dollars": -80.02,
+      "unrealized_r": -0.345,
+      "mae_dollars": -151.78,
       "mfe_dollars": 19.82,
-      "unrealized_pnl_dollars": -8.28,
-      "observed_bars": 33
-    },
-    {
-      "symbol": "CVX",
-      "setup": "VWAP_PULLBACK",
-      "signal_at": "2026-09-11T19:36:25.980663+00:00",
-      "signal_day": "2026-09-11",
-      "signal_entry": 213.93,
-      "signal_stop": 211.36,
-      "signal_target1": 218.03,
-      "atr_ref": 0.4948,
-      "score": 99,
-      "mtf": "PASS_STRONG",
-      "catalyst": "NEUTRAL_OR_UNKNOWN",
-      "status": "OPEN",
-      "group": "ENERGY",
-      "shares": 86,
-      "portfolio_risk": {
-        "allowed": true,
-        "reason": "RISK_APPROVED",
-        "shares": 86,
-        "position_value": 18397.98,
-        "risk_dollars": 221.02,
-        "risk_pct_equity": 0.221,
-        "open_risk_before": 1278.44,
-        "open_risk_after": 1499.46,
-        "group_risk_before": 0,
-        "limits": {
-          "risk_per_trade_pct": 0.5,
-          "max_open_risk_pct": 1.5,
-          "max_group_risk_pct": 1.0,
-          "max_position_pct": 25.0,
-          "max_pair_correlation": 0.85
-        },
-        "correlation": {
-          "max_correlation": 0.85,
-          "peer": "COP",
-          "pass": true
-        }
-      },
-      "paper_epoch": "V7.2_FORWARD_2026-09-09",
-      "signal_regime": "MIXED",
-      "entry_quality": {
-        "score": 80,
-        "pass": true,
-        "reasons": [
-          "LOW_SESSION_RVOL"
-        ]
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "CVX",
-        "status": "RESEARCH_PASS_PARTIAL",
-        "reasons": [
-          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
-          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": 419635986376.7881,
-          "interest_bearing_debt_proxy": 37075000000.0,
-          "cash_interest_deposit_proxy": 8530000000.0,
-          "debt_to_market_cap": 0.0884,
-          "cash_proxy_to_market_cap": 0.0203,
-          "interest_income_proxy": null,
-          "total_revenue": 67199000000.0,
-          "impure_income_proxy_ratio": null
-        }
-      },
-      "revalidated_score": 99,
-      "revalidated_mtf": "PASS_STRONG",
-      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
-      "revalidated_at": "2026-09-11T15:45:49.206686-04:00",
-      "entry": 214.1339,
-      "stop": 211.5639,
-      "target1": 218.2459,
-      "opened_at": "2026-09-11 19:45:43+00:00",
-      "last_processed": "2026-09-14 18:39:54+00:00",
-      "bars_held": 23,
-      "mark": 212.84,
-      "mae_r": -0.503,
-      "mfe_r": 1.368,
-      "unrealized_r": -0.503,
-      "mae_dollars": -111.28,
-      "mfe_dollars": 302.38,
-      "unrealized_pnl_dollars": -111.28,
-      "observed_bars": 22
+      "unrealized_pnl_dollars": -99.82,
+      "observed_bars": 51
     },
     {
       "symbol": "ABBV",
@@ -325,16 +327,16 @@
       "stop": 252.9315,
       "target1": 277.5715,
       "opened_at": "2026-09-14 17:45:00+00:00",
-      "last_processed": "2026-09-14 17:45:00+00:00",
-      "bars_held": 0,
-      "mark": 261.41,
-      "mae_r": -0.058,
-      "mfe_r": 0.012,
-      "unrealized_r": -0.037,
-      "mae_dollars": -28.13,
-      "mfe_dollars": 5.97,
-      "unrealized_pnl_dollars": -17.68,
-      "observed_bars": 5
+      "last_processed": "2026-09-15 16:32:47+00:00",
+      "bars_held": 22,
+      "mark": 263.25,
+      "mae_r": -0.447,
+      "mfe_r": 0.35,
+      "unrealized_r": 0.173,
+      "mae_dollars": -216.51,
+      "mfe_dollars": 169.32,
+      "unrealized_pnl_dollars": 83.52,
+      "observed_bars": 23
     }
   ],
   "closed": [
@@ -845,6 +847,164 @@
       "closed_at": "2026-09-14 13:30:00+00:00",
       "r": 1.6,
       "pnl_dollars": 9.89
+    },
+    {
+      "symbol": "COP",
+      "setup": "SWING_CONTINUATION",
+      "signal_at": "2026-09-09T13:59:19.271596+00:00",
+      "signal_day": "2026-09-09",
+      "signal_entry": 137.01,
+      "signal_stop": 132.47,
+      "signal_target1": 145.2,
+      "atr_ref": 3.0299,
+      "score": 100,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "CLOSED",
+      "revalidated_score": 98,
+      "revalidated_mtf": "PASS_STRONG",
+      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
+      "revalidated_at": "2026-09-09T10:09:30.285887-04:00",
+      "entry": 137.2121,
+      "stop": 132.6721,
+      "target1": 145.3841,
+      "opened_at": "2026-09-09 14:00:00+00:00",
+      "last_processed": "2026-09-15 15:30:00+00:00",
+      "bars_held": 130,
+      "shares": 110,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 110,
+        "position_value": 15093.33,
+        "risk_dollars": 499.4,
+        "risk_pct_equity": 0.499,
+        "open_risk_before": 499.14,
+        "open_risk_after": 998.54,
+        "group_risk_before": 0,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0
+        }
+      },
+      "risk_backfill": true,
+      "risk_backfill_note": "Hypothetical analytics sizing; trade opened before V7 portfolio risk engine",
+      "mark": 137.0,
+      "mae_r": -0.553,
+      "mfe_r": 0.573,
+      "unrealized_r": -0.047,
+      "mae_dollars": -276.33,
+      "mfe_dollars": 286.32,
+      "unrealized_pnl_dollars": -23.33,
+      "observed_bars": 98,
+      "paper_epoch": "LEGACY_PRE_V7_2",
+      "exit": 140.41,
+      "exit_reason": "TIME_EXIT",
+      "closed_at": "2026-09-15 15:45:00+00:00",
+      "r": 0.704,
+      "pnl_dollars": 351.77
+    },
+    {
+      "symbol": "CVX",
+      "setup": "VWAP_PULLBACK",
+      "signal_at": "2026-09-11T19:36:25.980663+00:00",
+      "signal_day": "2026-09-11",
+      "signal_entry": 213.93,
+      "signal_stop": 211.36,
+      "signal_target1": 218.03,
+      "atr_ref": 0.4948,
+      "score": 99,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "CLOSED",
+      "group": "ENERGY",
+      "shares": 86,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 86,
+        "position_value": 18397.98,
+        "risk_dollars": 221.02,
+        "risk_pct_equity": 0.221,
+        "open_risk_before": 1278.44,
+        "open_risk_after": 1499.46,
+        "group_risk_before": 0,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": 0.85,
+          "peer": "COP",
+          "pass": true
+        }
+      },
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "MIXED",
+      "entry_quality": {
+        "score": 80,
+        "pass": true,
+        "reasons": [
+          "LOW_SESSION_RVOL"
+        ]
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "CVX",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 419635986376.7881,
+          "interest_bearing_debt_proxy": 37075000000.0,
+          "cash_interest_deposit_proxy": 8530000000.0,
+          "debt_to_market_cap": 0.0884,
+          "cash_proxy_to_market_cap": 0.0203,
+          "interest_income_proxy": null,
+          "total_revenue": 67199000000.0,
+          "impure_income_proxy_ratio": null
+        }
+      },
+      "revalidated_score": 99,
+      "revalidated_mtf": "PASS_STRONG",
+      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
+      "revalidated_at": "2026-09-11T15:45:49.206686-04:00",
+      "entry": 214.1339,
+      "stop": 211.5639,
+      "target1": 218.2459,
+      "opened_at": "2026-09-11 19:45:43+00:00",
+      "last_processed": "2026-09-14 19:00:00+00:00",
+      "bars_held": 26,
+      "mark": 212.84,
+      "mae_r": -0.503,
+      "mfe_r": 1.368,
+      "unrealized_r": -0.503,
+      "mae_dollars": -111.28,
+      "mfe_dollars": 302.38,
+      "unrealized_pnl_dollars": -111.28,
+      "observed_bars": 22,
+      "exit": 211.58,
+      "exit_reason": "TIME_EXIT",
+      "closed_at": "2026-09-14 19:15:00+00:00",
+      "r": -0.994,
+      "pnl_dollars": -219.64
     }
   ],
   "rejected": [
@@ -935,36 +1095,36 @@
     }
   ],
   "metrics": {
-    "samples": 6,
-    "win_rate": 33.3,
-    "expectancy_r": -0.006,
-    "profit_factor": 0.99,
-    "total_r": -0.04,
+    "samples": 8,
+    "win_rate": 37.5,
+    "expectancy_r": -0.041,
+    "profit_factor": 0.92,
+    "total_r": -0.33,
     "max_drawdown_r": 2.0,
-    "realized_pnl_dollars": -764.96,
-    "unrealized_pnl_dollars": -160.57
+    "realized_pnl_dollars": -632.83,
+    "unrealized_pnl_dollars": -16.3
   },
-  "updated_at": "2026-09-14T18:39:58.792389+00:00",
+  "updated_at": "2026-09-15T16:33:32.863940+00:00",
   "portfolio_ledger": {
     "paper_starting_equity": 100000.0,
-    "equity_mark": 99074.47,
-    "realized_pnl_dollars": -764.96,
-    "unrealized_pnl_dollars": -160.57,
-    "open_risk_dollars": 1493.86,
-    "open_risk_pct": 1.494,
-    "open_positions": 4,
-    "updated_at": "2026-09-14T18:39:58.792297+00:00"
+    "equity_mark": 99350.87,
+    "realized_pnl_dollars": -632.83,
+    "unrealized_pnl_dollars": -16.3,
+    "open_risk_dollars": 773.44,
+    "open_risk_pct": 0.773,
+    "open_positions": 2,
+    "updated_at": "2026-09-15T16:33:32.416608+00:00"
   },
   "validation": {
     "paper_epoch": "V7.2_FORWARD_2026-09-09",
     "status": "COLLECTING_FORWARD_DATA",
     "live_execution_authorized": false,
     "clean_forward_stats": {
-      "samples": 4,
-      "win_rate": 50.0,
-      "expectancy_r": 0.49,
-      "profit_factor": 2.58,
-      "total_r": 1.96,
+      "samples": 5,
+      "win_rate": 40.0,
+      "expectancy_r": 0.193,
+      "profit_factor": 1.43,
+      "total_r": 0.97,
       "max_drawdown_r": 1.0
     },
     "gates": {
@@ -989,22 +1149,22 @@
         "max_drawdown_r": 1.0
       },
       "VWAP_PULLBACK": {
-        "samples": 2,
-        "win_rate": 50.0,
-        "expectancy_r": 0.681,
-        "profit_factor": 6.69,
-        "total_r": 1.36,
-        "max_drawdown_r": 0.239
+        "samples": 3,
+        "win_rate": 33.3,
+        "expectancy_r": 0.122,
+        "profit_factor": 1.3,
+        "total_r": 0.37,
+        "max_drawdown_r": 0.994
       }
     },
     "by_regime": {
       "MIXED": {
-        "samples": 3,
-        "win_rate": 33.3,
-        "expectancy_r": 0.12,
-        "profit_factor": 1.29,
-        "total_r": 0.36,
-        "max_drawdown_r": 1.0
+        "samples": 4,
+        "win_rate": 25.0,
+        "expectancy_r": -0.158,
+        "profit_factor": 0.72,
+        "total_r": -0.63,
+        "max_drawdown_r": 1.233
       },
       "RISK_ON": {
         "samples": 1,
@@ -1015,6 +1175,6 @@
         "max_drawdown_r": 0.0
       }
     },
-    "legacy_closed_excluded": 2
+    "legacy_closed_excluded": 3
   }
 }
