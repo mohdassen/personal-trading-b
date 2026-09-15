@@ -1,0 +1,152 @@
+{
+  "engine": "V8-Controlled-Adaptive-Learner",
+  "mode": "SHADOW_LEARNING_ONLY",
+  "source_epoch": "V7.2_FORWARD_2026-09-09",
+  "source_signature": "ac2c351a4ec584b42ea2097046c690fa2f680ed5482c34d4cbef019da8bafef4",
+  "generated_at": "2026-09-15T20:20:37.512107+00:00",
+  "status": "LEARNING",
+  "champion": {
+    "name": "V7.2",
+    "samples": 5,
+    "win_rate": 40.0,
+    "expectancy_r": 0.193,
+    "profit_factor": 1.43,
+    "total_r": 0.967,
+    "minimum_forward_samples": 30
+  },
+  "learner": {
+    "method": "EMPIRICAL_BAYES_SHRINKAGE",
+    "prior_strength": 8.0,
+    "min_segment_samples": 6,
+    "max_score_adjustment": 6.0,
+    "setup_model": {
+      "MOMENTUM_LEADER": {
+        "samples": 2,
+        "win_rate": 50.0,
+        "expectancy_r": 0.3,
+        "profit_factor": 1.6,
+        "total_r": 0.6,
+        "posterior_expectancy_r": 0.06,
+        "reliability": 0.333,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      },
+      "VWAP_PULLBACK": {
+        "samples": 3,
+        "win_rate": 33.3,
+        "expectancy_r": 0.122,
+        "profit_factor": 1.3,
+        "total_r": 0.367,
+        "posterior_expectancy_r": 0.033,
+        "reliability": 0.5,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      }
+    },
+    "regime_model": {
+      "MIXED": {
+        "samples": 4,
+        "win_rate": 25.0,
+        "expectancy_r": -0.158,
+        "profit_factor": 0.72,
+        "total_r": -0.633,
+        "posterior_expectancy_r": -0.053,
+        "reliability": 0.667,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      },
+      "RISK_ON": {
+        "samples": 1,
+        "win_rate": 100.0,
+        "expectancy_r": 1.6,
+        "profit_factor": 99.0,
+        "total_r": 1.6,
+        "posterior_expectancy_r": 0.178,
+        "reliability": 0.167,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      }
+    },
+    "setup_regime_model": {
+      "MOMENTUM_LEADER|MIXED": {
+        "samples": 2,
+        "win_rate": 50.0,
+        "expectancy_r": 0.3,
+        "profit_factor": 1.6,
+        "total_r": 0.6,
+        "posterior_expectancy_r": 0.06,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      },
+      "VWAP_PULLBACK|MIXED": {
+        "samples": 2,
+        "win_rate": 0.0,
+        "expectancy_r": -0.617,
+        "profit_factor": 0.0,
+        "total_r": -1.233,
+        "posterior_expectancy_r": -0.123,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      },
+      "VWAP_PULLBACK|RISK_ON": {
+        "samples": 1,
+        "win_rate": 100.0,
+        "expectancy_r": 1.6,
+        "profit_factor": 99.0,
+        "total_r": 1.6,
+        "posterior_expectancy_r": 0.178,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      }
+    }
+  },
+  "guardrails": {
+    "live_execution_authorized": false,
+    "may_modify_v7": false,
+    "may_modify_risk_limits": false,
+    "may_override_sharia_screen": false,
+    "risk_per_trade_pct": 0.5,
+    "max_open_risk_pct": 1.5,
+    "max_group_risk_pct": 1.0,
+    "max_pair_correlation": 0.85
+  },
+  "promotion": {
+    "automatic_promotion": false,
+    "human_review_required": true,
+    "minimum_forward_samples_met": false,
+    "shadow_comparison_required": true,
+    "live_execution_authorized": false
+  },
+  "shadow_rankings": [
+    {
+      "symbol": "SPOT",
+      "setup": "SWING_CONTINUATION",
+      "market_regime": "MIXED",
+      "v7_score": 98.0,
+      "v8_shadow_adjustment": 0.0,
+      "v8_shadow_score": 98.0,
+      "v7_status": "PAPER_ENTRY",
+      "sharia_status": "PRECHECK_PASS"
+    },
+    {
+      "symbol": "ABBV",
+      "setup": "SWING_CONTINUATION",
+      "market_regime": "MIXED",
+      "v7_score": 90.0,
+      "v8_shadow_adjustment": 0.0,
+      "v8_shadow_score": 90.0,
+      "v7_status": "PAPER_ENTRY",
+      "sharia_status": "PRECHECK_PASS"
+    },
+    {
+      "symbol": "XOM",
+      "setup": "SWING_CONTINUATION",
+      "market_regime": "MIXED",
+      "v7_score": 90.0,
+      "v8_shadow_adjustment": 0.0,
+      "v8_shadow_score": 90.0,
+      "v7_status": "PAPER_ENTRY",
+      "sharia_status": "PRECHECK_PASS"
+    }
+  ]
+}
