@@ -27,12 +27,18 @@ jobs:
         run: |
           git fetch origin research/v7-catalyst-router-mtf
           git reset --hard origin/research/v7-catalyst-router-mtf
-      - name: Run chronological historical edge validation
+      - name: Run primary chronological V7 validation
         run: python research_backtest_v7.py
-      - name: Persist report
+      - name: Preserve primary report
+        run: cp data/v7_historical_edge_report.json data/v7_historical_edge_primary.json
+      - name: Run independent trend-pullback falsification test
+        run: python v7_historical_edge_test.py
+      - name: Preserve independent report
+        run: cp data/v7_historical_edge_report.json data/v7_historical_edge_independent.json
+      - name: Persist both reports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/v7_historical_edge_report.json
-          git commit -m 'research: update V7 historical edge report' || exit 0
+          git add data/v7_historical_edge_primary.json data/v7_historical_edge_independent.json
+          git commit -m 'research: update dual V7 historical edge reports' || exit 0
           git push origin HEAD:research/v7-catalyst-router-mtf
