@@ -1,0 +1,42 @@
+{
+  "method": "daily V7-style trend/pullback historical falsification test",
+  "symbols": 25,
+  "start": "2021-01-01",
+  "cost_r": 0.04,
+  "splits": {
+    "train": {
+      "samples": 3228,
+      "win_rate": 0.4576,
+      "expectancy_r": 0.1452,
+      "profit_factor": 1.277,
+      "total_r": 468.805,
+      "max_drawdown_r": 127.299
+    },
+    "validation": {
+      "samples": 1076,
+      "win_rate": 0.4507,
+      "expectancy_r": 0.1483,
+      "profit_factor": 1.272,
+      "total_r": 159.595,
+      "max_drawdown_r": 62.233
+    },
+    "untouched_holdout": {
+      "samples": 1076,
+      "win_rate": 0.4275,
+      "expectancy_r": 0.1332,
+      "profit_factor": 1.235,
+      "total_r": 143.34,
+      "max_drawdown_r": 50.602
+    }
+  },
+  "all": {
+    "samples": 5380,
+    "win_rate": 0.4502,
+    "expectancy_r": 0.1434,
+    "profit_factor": 1.267,
+    "total_r": 771.741,
+    "max_drawdown_r": 127.299
+  },
+  "decision": "FAIL_OR_INSUFFICIENT_EDGE",
+  "safe_for_live": false
+}

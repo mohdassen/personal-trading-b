@@ -1,0 +1,364 @@
+{
+  "generated_at": "2026-09-16T16:47:39.391130+00:00",
+  "engine": "V7-HISTORICAL-EDGE-VALIDATOR",
+  "research_only": true,
+  "friction": {
+    "fee_bps_each_side": 5,
+    "slippage_bps_each_side": 10,
+    "round_trip_bps": 30
+  },
+  "limitations": [
+    "Daily proxy backtest: intraday/VWAP/session-leader rules are not claimed as historically validated here.",
+    "Historical news catalyst and point-in-time Sharia fundamentals are excluded to avoid look-ahead bias.",
+    "Yahoo Finance data can contain survivorship/corporate-action limitations."
+  ],
+  "split": {
+    "method": "chronological 60/20/20",
+    "train": {
+      "samples": 1086,
+      "win_rate": 0.4429,
+      "expectancy_r": 0.0751,
+      "profit_factor": 1.134,
+      "total_r": 81.571,
+      "max_drawdown_r": 77.254,
+      "median_r": -1.0375
+    },
+    "validation": {
+      "samples": 362,
+      "win_rate": 0.4503,
+      "expectancy_r": 0.1073,
+      "profit_factor": 1.189,
+      "total_r": 38.831,
+      "max_drawdown_r": 16.077,
+      "median_r": -1.0085
+    },
+    "untouched_holdout": {
+      "samples": 363,
+      "win_rate": 0.4187,
+      "expectancy_r": 0.067,
+      "profit_factor": 1.114,
+      "total_r": 24.333,
+      "max_drawdown_r": 26.297,
+      "median_r": -1.0387
+    }
+  },
+  "holdout_by_strategy": {
+    "BREAKOUT_DAILY_PROXY": {
+      "samples": 6,
+      "win_rate": 0.5,
+      "expectancy_r": 0.4418,
+      "profit_factor": 2.072,
+      "total_r": 2.651,
+      "max_drawdown_r": 1.367,
+      "median_r": 0.6955
+    },
+    "SWING_CONTINUATION": {
+      "samples": 357,
+      "win_rate": 0.4174,
+      "expectancy_r": 0.0607,
+      "profit_factor": 1.103,
+      "total_r": 21.682,
+      "max_drawdown_r": 26.297,
+      "median_r": -1.039
+    }
+  },
+  "all_by_strategy": {
+    "BREAKOUT_DAILY_PROXY": {
+      "samples": 27,
+      "win_rate": 0.4815,
+      "expectancy_r": 0.2475,
+      "profit_factor": 1.523,
+      "total_r": 6.682,
+      "max_drawdown_r": 3.738,
+      "median_r": -0.1055
+    },
+    "SWING_CONTINUATION": {
+      "samples": 1784,
+      "win_rate": 0.4389,
+      "expectancy_r": 0.0774,
+      "profit_factor": 1.136,
+      "total_r": 138.053,
+      "max_drawdown_r": 73.909,
+      "median_r": -1.0375
+    }
+  },
+  "errors": {},
+  "sample_trades": [
+    {
+      "symbol": "GE",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-06",
+      "entry_date": "2026-08-07",
+      "exit_date": "2026-08-13",
+      "score": 77,
+      "gross_r": -1.0,
+      "net_r": -1.0715,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "XOM",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-07",
+      "entry_date": "2026-08-10",
+      "exit_date": "2026-08-18",
+      "score": 72,
+      "gross_r": 1.8,
+      "net_r": 1.7183,
+      "outcome": "TARGET"
+    },
+    {
+      "symbol": "AVGO",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-10",
+      "entry_date": "2026-08-11",
+      "exit_date": "2026-08-14",
+      "score": 85,
+      "gross_r": -1.0,
+      "net_r": -1.0522,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "LLY",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-10",
+      "entry_date": "2026-08-11",
+      "exit_date": "2026-08-17",
+      "score": 72,
+      "gross_r": -1.0,
+      "net_r": -1.0577,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "PANW",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-11",
+      "entry_date": "2026-08-12",
+      "exit_date": "2026-08-19",
+      "score": 75,
+      "gross_r": -1.0,
+      "net_r": -1.0493,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "ORCL",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-12",
+      "entry_date": "2026-08-13",
+      "exit_date": "2026-08-19",
+      "score": 78,
+      "gross_r": -1.0,
+      "net_r": -1.04,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "SLB",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-12",
+      "entry_date": "2026-08-13",
+      "exit_date": "2026-08-28",
+      "score": 85,
+      "gross_r": 1.8,
+      "net_r": 1.7378,
+      "outcome": "TARGET"
+    },
+    {
+      "symbol": "COP",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-13",
+      "entry_date": "2026-08-14",
+      "exit_date": "2026-08-20",
+      "score": 89,
+      "gross_r": 1.8,
+      "net_r": 1.7273,
+      "outcome": "TARGET"
+    },
+    {
+      "symbol": "MU",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-17",
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-09-08",
+      "score": 76,
+      "gross_r": 0.5637,
+      "net_r": 0.5262,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "CVX",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-17",
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-09-08",
+      "score": 81,
+      "gross_r": 1.0101,
+      "net_r": 0.916,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "GE",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-17",
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-08-20",
+      "score": 87,
+      "gross_r": -1.0,
+      "net_r": -1.0799,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "ROKU",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-17",
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-09-08",
+      "score": 79,
+      "gross_r": -0.5448,
+      "net_r": -0.6648,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "GILD",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-17",
+      "entry_date": "2026-08-18",
+      "exit_date": "2026-09-02",
+      "score": 77,
+      "gross_r": 1.8,
+      "net_r": 1.7261,
+      "outcome": "TARGET"
+    },
+    {
+      "symbol": "NFLX",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-18",
+      "entry_date": "2026-08-19",
+      "exit_date": "2026-09-09",
+      "score": 72,
+      "gross_r": -0.6081,
+      "net_r": -0.6724,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "JNJ",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-18",
+      "entry_date": "2026-08-19",
+      "exit_date": "2026-09-09",
+      "score": 89,
+      "gross_r": -0.5235,
+      "net_r": -0.6166,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "LLY",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-18",
+      "entry_date": "2026-08-19",
+      "exit_date": "2026-08-26",
+      "score": 77,
+      "gross_r": -1.0,
+      "net_r": -1.0618,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "CRM",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-19",
+      "entry_date": "2026-08-20",
+      "exit_date": "2026-08-27",
+      "score": 78,
+      "gross_r": 1.8,
+      "net_r": 1.7514,
+      "outcome": "TARGET"
+    },
+    {
+      "symbol": "ADBE",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-19",
+      "entry_date": "2026-08-20",
+      "exit_date": "2026-09-08",
+      "score": 72,
+      "gross_r": -1.0,
+      "net_r": -1.0459,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "PLTR",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-19",
+      "entry_date": "2026-08-20",
+      "exit_date": "2026-09-10",
+      "score": 85,
+      "gross_r": -0.8596,
+      "net_r": -0.9049,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "ABBV",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-19",
+      "entry_date": "2026-08-20",
+      "exit_date": "2026-08-28",
+      "score": 81,
+      "gross_r": -1.0,
+      "net_r": -1.0862,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "TSLA",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-21",
+      "entry_date": "2026-08-24",
+      "exit_date": "2026-09-14",
+      "score": 78,
+      "gross_r": -0.1174,
+      "net_r": -0.1695,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "COP",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-21",
+      "entry_date": "2026-08-24",
+      "exit_date": "2026-08-27",
+      "score": 85,
+      "gross_r": -1.0,
+      "net_r": -1.0826,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "DE",
+      "setup": "BREAKOUT_DAILY_PROXY",
+      "signal_date": "2026-08-21",
+      "entry_date": "2026-08-24",
+      "exit_date": "2026-08-27",
+      "score": 77,
+      "gross_r": -1.0,
+      "net_r": -1.0623,
+      "outcome": "STOP"
+    },
+    {
+      "symbol": "MSFT",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-24",
+      "entry_date": "2026-08-25",
+      "exit_date": "2026-09-15",
+      "score": 77,
+      "gross_r": 0.6465,
+      "net_r": 0.5659,
+      "outcome": "TIME"
+    },
+    {
+      "symbol": "XOM",
+      "setup": "SWING_CONTINUATION",
+      "signal_date": "2026-08-24",
+      "entry_date": "2026-08-25",
+      "exit_date": "2026-08-28",
+      "score": 77,
+      "gross_r": -1.0,
+      "net_r": -1.0899,
+      "outcome": "STOP"
+    }
+  ],
+  "decision": "FAIL_OR_INSUFFICIENT"
+}
