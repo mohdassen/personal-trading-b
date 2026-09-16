@@ -1,0 +1,38 @@
+name: V7 Historical Edge Validation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/v7-historical-edge.yml']
+permissions:
+  contents: write
+concurrency:
+  group: v7-historical-edge
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v7-catalyst-router-mtf
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync research code
+        run: |
+          git fetch origin research/v7-catalyst-router-mtf
+          git reset --hard origin/research/v7-catalyst-router-mtf
+      - name: Run chronological historical edge validation
+        run: python research_backtest_v7.py
+      - name: Persist report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v7_historical_edge_report.json
+          git commit -m 'research: update V7 historical edge report' || exit 0
+          git push origin HEAD:research/v7-catalyst-router-mtf
