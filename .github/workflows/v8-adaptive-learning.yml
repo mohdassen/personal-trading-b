@@ -1,0 +1,52 @@
+name: V8 Adaptive Shadow Learning
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Refresh learning throughout the US session and once after close.
+    - cron: '12,42 13-21 * * 1-5'
+    - cron: '20 22 * * 1-5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v8-adaptive-learning
+  cancel-in-progress: true
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/v7-catalyst-router-mtf
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sync latest V7.2 evidence
+        run: |
+          git fetch origin research/v7-catalyst-router-mtf
+          git reset --hard origin/research/v7-catalyst-router-mtf
+      - name: Test V8 learner guardrails
+        run: python -m unittest tests.test_v8_adaptive_learner
+      - name: Update V8 learning report
+        run: python v8_adaptive_learner.py
+      - name: Persist learning state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v8_adaptive_learner.json
+          if git diff --cached --quiet; then
+            echo "No learning-state change"
+            exit 0
+          fi
+          git commit -m "chore: update V8 adaptive shadow learning state"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:research/v7-catalyst-router-mtf; then exit 0; fi
+            git fetch origin research/v7-catalyst-router-mtf
+            git rebase -X theirs origin/research/v7-catalyst-router-mtf || { git rebase --abort || true; exit 1; }
+          done
+          exit 1
