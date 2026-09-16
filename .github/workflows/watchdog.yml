@@ -1,72 +1,18 @@
-name: Trading Bot Watchdog
+name: Trading Bot Watchdog (Legacy Disabled)
 
+# V4.3 watchdog retired. It previously self-healed by running run.py + diagnostics.py,
+# which could send legacy V4.3 Telegram messages after V7.2 became the active engine.
+# V7 health is now owned exclusively by v7-watchdog.yml.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'watchdog.py'
-      - '.github/workflows/watchdog.yml'
-  schedule:
-    # Independent heartbeat after the two primary scan schedules. It verifies both
-    # market-data freshness and confirmed Telegram opening delivery, then self-heals.
-    - cron: '12,27,42,57 * * * 1-5'
 
 permissions:
-  contents: write
-
-concurrency:
-  group: trading-watchdog
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  watchdog:
+  legacy-disabled:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: pip
-      - run: pip install -r requirements.txt
-      - name: Sync latest state
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Check trading scan health and self-heal if stale
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ACCOUNT_EQUITY_USD: ${{ vars.ACCOUNT_EQUITY_USD }}
-          RISK_PER_TRADE_PCT: ${{ vars.RISK_PER_TRADE_PCT }}
-          MAX_POSITION_PCT: ${{ vars.MAX_POSITION_PCT }}
-          WATCHDOG_MAX_STALE_MINUTES: '22'
-          WATCHDOG_MIN_EXPECTED_SUCCESS: '8'
-          WATCHDOG_OPENING_GRACE_MINUTES: '10'
-          WATCHDOG_SELF_HEAL: '1'
-        run: python watchdog.py
-      - name: Persist watchdog and recovery state
-        if: always()
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs
-          if git diff --cached --quiet; then
-            echo "No watchdog/recovery state changes"
-            exit 0
-          fi
-          git commit -m "chore: update watchdog recovery state"
-          for attempt in 1 2 3; do
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            git fetch origin main
-            git rebase -X theirs origin/main || {
-              git rebase --abort || true
-              exit 1
-            }
-          done
-          exit 1
+      - run: |
+          echo "Legacy V4.3 watchdog is disabled."
+          echo "Use V7 Adaptive Paper Engine + V7 Paper Watchdog."
