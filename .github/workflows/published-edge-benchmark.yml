@@ -1,0 +1,56 @@
+name: Published Edge Benchmark
+
+on:
+  push:
+    branches:
+      - research/edge-discovery-proof
+    paths:
+      - published_edge_benchmark.py
+      - docs/PUBLISHED_EDGE_PROTOCOL.md
+      - .github/workflows/published-edge-benchmark.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Compile benchmark
+        run: python -m py_compile published_edge_benchmark.py
+      - name: Run published-rule benchmark
+        run: python published_edge_benchmark.py
+      - name: Persist result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/published_edge_benchmark.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research: persist published edge benchmark result"
+          git push origin HEAD:research/edge-discovery-proof
+      - name: Summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/published_edge_benchmark.json'))
+          print('## Published Edge Benchmark')
+          print(f"Overall: **{d['overall']}**")
+          print(f"Candidates: **{', '.join(d['research_candidates']) if d['research_candidates'] else 'NONE'}**")
+          print('')
+          print('| Strategy | Status | Validation Total | Holdout Total | Holdout Sharpe | Independent Total | Independent Sharpe | Stress Total |')
+          print('|---|---|---:|---:|---:|---:|---:|---:|')
+          for r in d['results']:
+              v=r['validation_2021_2023']; h=r['holdout_2024_plus']; i=r['independent_2024_plus']; s=r['stress_60bps_2024_plus']
+              print(f"| {r['strategy']} | {r['status']} | {v['total_return']} | {h['total_return']} | {h['sharpe']} | {i['total_return']} | {i['sharpe']} | {s['total_return']} |")
+          PY
