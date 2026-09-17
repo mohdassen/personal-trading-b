@@ -14,10 +14,10 @@ Goal: find a research candidate for the trading bot without inventing or tuning 
 
 ## First benchmark set
 
-- 12-1 cross-sectional momentum, long-only winner portfolio. Based on the documented stock momentum effect associated with Jegadeesh & Titman: prior 3-12 month winners tend to continue outperforming over subsequent months.
-- 52-week-high proximity, long-only leader portfolio. A long-established momentum variant that ranks stocks by closeness to their prior 52-week high.
-- 12-month time-series momentum, long-only. Based on the sign of the asset's own trailing 12-month return; tested as a stock-market adaptation, not claimed as an exact replication of the futures literature.
-- 10-month moving-average trend filter on the stock itself, long-only. Included as a simple transparent trend benchmark, not as a claim of a proprietary edge.
+- 12-1 cross-sectional momentum, long-only winner portfolio.
+- 52-week-high proximity, long-only leader portfolio.
+- 12-month time-series momentum, long-only stock adaptation.
+- 10-month moving-average trend filter on each stock, long-only.
 
 ## Stage 1 research-candidate gate
 
@@ -28,7 +28,7 @@ A strategy must have, after baseline costs:
 - holdout Sharpe > 0.50,
 - independent holdout Sharpe > 0.25,
 - remain positive under the higher cost stress,
-- no single symbol may account for more than 35% of holdout P&L.
+- no single symbol may account for more than 35% of P&L.
 
 Passing Stage 1 means only that the strategy deserves a harder test.
 
@@ -44,4 +44,16 @@ To survive Stage 2, a candidate must:
 - still beat equal-weight in the 60 bps stress test,
 - retain the Stage-1 concentration limit.
 
-No parameters or strategy rules may be changed after seeing Stage-2 results. Passing Stage 2 still does not authorize paper or live trading; it creates a shortlist for higher-fidelity point-in-time and forward testing.
+No parameters or strategy rules may be changed after seeing Stage-2 results.
+
+## Stage 3 cross-fold robustness gate — locked after Stage 2, before cross-fold results
+
+Only a Stage-2 survivor is tested. The combined stock list is sorted and deterministically divided into five symbol folds. The exact same fixed strategy is compared with equal-weight inside each fold over three time windows: 2016-2020, 2021-2023, and 2024+.
+
+To survive Stage 3, the candidate must:
+- beat equal-weight on relative wealth in at least 12 of the 15 fold-period cells,
+- beat equal-weight in at least 4 of 5 folds during 2024+,
+- have positive median excess Sharpe across folds in every time window,
+- still beat equal-weight at 60 bps in at least 4 of 5 folds during 2024+.
+
+Stage 3 is still not paper/live approval. It only justifies higher-fidelity point-in-time and forward testing.
