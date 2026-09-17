@@ -1,13 +1,39 @@
 {
-  "method": "published-rule benchmark; fixed before results; next-open monthly fills; long-only",
+  "method": "published-rule benchmark; fixed rules; next-open monthly fills; long-only; equal-weight relative Stage 2",
   "baseline_roundtrip_bps": 30.0,
   "stress_roundtrip_bps": 60.0,
   "primary_symbols_downloaded": 40,
   "independent_symbols_downloaded": 25,
+  "equal_weight_benchmark": {
+    "primary_validation": {
+      "months": 35,
+      "annual_return": 0.1126,
+      "sharpe": 0.606,
+      "max_drawdown": 0.2729,
+      "win_months": 0.6,
+      "total_return": 0.365
+    },
+    "primary_holdout": {
+      "months": 32,
+      "annual_return": 0.3129,
+      "sharpe": 1.838,
+      "max_drawdown": 0.0692,
+      "win_months": 0.719,
+      "total_return": 1.0669
+    },
+    "independent_holdout": {
+      "months": 32,
+      "annual_return": 0.1167,
+      "sharpe": 0.822,
+      "max_drawdown": 0.1067,
+      "win_months": 0.656,
+      "total_return": 0.3421
+    }
+  },
   "results": [
     {
       "strategy": "MOMENTUM_12_1",
-      "status": "RESEARCH_CANDIDATE",
+      "status": "STAGE1_ONLY",
       "validation_2021_2023": {
         "months": 35,
         "annual_return": 0.0303,
@@ -40,14 +66,40 @@
         "win_months": 0.688,
         "total_return": 2.0661
       },
-      "largest_positive_symbol_pnl_share": 0.152
+      "largest_positive_symbol_pnl_share": 0.152,
+      "relative_vs_equal_weight": {
+        "validation": {
+          "months": 35,
+          "relative_wealth": -0.2008,
+          "excess_sharpe": -0.522,
+          "mean_excess_monthly": -0.00643
+        },
+        "holdout": {
+          "months": 32,
+          "relative_wealth": 0.628,
+          "excess_sharpe": 0.871,
+          "mean_excess_monthly": 0.01961
+        },
+        "independent_holdout": {
+          "months": 32,
+          "relative_wealth": 0.6778,
+          "excess_sharpe": 1.172,
+          "mean_excess_monthly": 0.01872
+        },
+        "stress_holdout": {
+          "months": 32,
+          "relative_wealth": 0.6298,
+          "excess_sharpe": 0.871,
+          "mean_excess_monthly": 0.01961
+        }
+      }
     },
     {
       "strategy": "HIGH_52W",
-      "status": "RESEARCH_CANDIDATE",
+      "status": "STAGE1_ONLY",
       "validation_2021_2023": {
         "months": 35,
-        "annual_return": 0.106,
+        "annual_return": 0.1061,
         "sharpe": 0.575,
         "max_drawdown": 0.1828,
         "win_months": 0.543,
@@ -77,11 +129,37 @@
         "win_months": 0.688,
         "total_return": 0.8738
       },
-      "largest_positive_symbol_pnl_share": 0.137
+      "largest_positive_symbol_pnl_share": 0.137,
+      "relative_vs_equal_weight": {
+        "validation": {
+          "months": 35,
+          "relative_wealth": -0.0171,
+          "excess_sharpe": -0.043,
+          "mean_excess_monthly": -0.00052
+        },
+        "holdout": {
+          "months": 32,
+          "relative_wealth": -0.0038,
+          "excess_sharpe": 0.06,
+          "mean_excess_monthly": 0.00093
+        },
+        "independent_holdout": {
+          "months": 32,
+          "relative_wealth": 0.0429,
+          "excess_sharpe": 0.181,
+          "mean_excess_monthly": 0.00204
+        },
+        "stress_holdout": {
+          "months": 32,
+          "relative_wealth": -0.004,
+          "excess_sharpe": 0.06,
+          "mean_excess_monthly": 0.00093
+        }
+      }
     },
     {
       "strategy": "TSMOM_12M",
-      "status": "RESEARCH_CANDIDATE",
+      "status": "STAGE1_ONLY",
       "validation_2021_2023": {
         "months": 35,
         "annual_return": 0.0962,
@@ -114,11 +192,37 @@
         "win_months": 0.688,
         "total_return": 0.9812
       },
-      "largest_positive_symbol_pnl_share": 0.081
+      "largest_positive_symbol_pnl_share": 0.081,
+      "relative_vs_equal_weight": {
+        "validation": {
+          "months": 35,
+          "relative_wealth": -0.0423,
+          "excess_sharpe": -0.221,
+          "mean_excess_monthly": -0.00172
+        },
+        "holdout": {
+          "months": 32,
+          "relative_wealth": 0.053,
+          "excess_sharpe": 0.455,
+          "mean_excess_monthly": 0.00174
+        },
+        "independent_holdout": {
+          "months": 32,
+          "relative_wealth": 0.0836,
+          "excess_sharpe": 0.529,
+          "mean_excess_monthly": 0.00282
+        },
+        "stress_holdout": {
+          "months": 32,
+          "relative_wealth": 0.0531,
+          "excess_sharpe": 0.455,
+          "mean_excess_monthly": 0.00174
+        }
+      }
     },
     {
       "strategy": "SMA_10M",
-      "status": "RESEARCH_CANDIDATE",
+      "status": "STAGE2_CANDIDATE",
       "validation_2021_2023": {
         "months": 35,
         "annual_return": 0.1545,
@@ -151,20 +255,42 @@
         "win_months": 0.688,
         "total_return": 1.0161
       },
-      "largest_positive_symbol_pnl_share": 0.095
+      "largest_positive_symbol_pnl_share": 0.095,
+      "relative_vs_equal_weight": {
+        "validation": {
+          "months": 35,
+          "relative_wealth": 0.1139,
+          "excess_sharpe": 0.357,
+          "mean_excess_monthly": 0.00267
+        },
+        "holdout": {
+          "months": 32,
+          "relative_wealth": 0.0715,
+          "excess_sharpe": 0.471,
+          "mean_excess_monthly": 0.00241
+        },
+        "independent_holdout": {
+          "months": 32,
+          "relative_wealth": 0.1018,
+          "excess_sharpe": 0.557,
+          "mean_excess_monthly": 0.0034
+        },
+        "stress_holdout": {
+          "months": 32,
+          "relative_wealth": 0.0716,
+          "excess_sharpe": 0.471,
+          "mean_excess_monthly": 0.00241
+        }
+      }
     }
   ],
-  "research_candidates": [
-    "MOMENTUM_12_1",
-    "HIGH_52W",
-    "TSMOM_12M",
+  "stage2_candidates": [
     "SMA_10M"
   ],
-  "overall": "CANDIDATE_FOUND",
+  "overall": "STAGE2_CANDIDATE_FOUND",
   "limitations": [
     "current-stock universe has survivorship/selection bias",
-    "Yahoo data is not institutional point-in-time constituent data",
-    "research candidate is not paper/live approval",
-    "time-series momentum literature is strongest in diversified futures; stock adaptation is exploratory"
+    "Yahoo is not institutional point-in-time constituent data",
+    "Stage 2 is research only; no paper/live authorization"
   ]
 }
