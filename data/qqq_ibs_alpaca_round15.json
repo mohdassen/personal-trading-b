@@ -1,0 +1,56 @@
+{
+  "strategy": "QQQ_IBS_LOWER_BAND",
+  "stage": "ROUND15_INDEPENDENT_BROKER_DATA",
+  "status": "PASS_TO_FORWARD_SHADOW",
+  "broker_data": {
+    "provider": "Alpaca",
+    "feed": "IEX",
+    "timeframe": "1Day",
+    "first_bar": "2022-01-03",
+    "last_bar": "2026-09-17",
+    "bar_count": 1181,
+    "effective_test_signals_from": "2023-04-25",
+    "trades": 40,
+    "execution_rule": "signal after daily close; next trading day open entry; next-open exit after published exit condition",
+    "stress_15bps": {
+      "win_rate": 0.725,
+      "avg_return": 0.004114409414877898,
+      "profit_factor": 1.6018452494262123
+    },
+    "stress_30bps": {
+      "win_rate": 0.65,
+      "avg_return": 0.0026144094148778984,
+      "profit_factor": 1.3580568749514252
+    }
+  },
+  "observed_qqq_iex_quote_spread": {
+    "sample_quotes": 500,
+    "sample_date": "2026-09-17",
+    "median_bps": 1.2560622448628007,
+    "p90_bps": 1.3959266859291855,
+    "p95_bps": 1.53548720311025,
+    "max_bps": 3.2101608569736304,
+    "note": "Observed quote spread is context only; it is not a guarantee of future execution cost."
+  },
+  "prior_evidence": {
+    "round13_status": "ROUND13_CANDIDATE",
+    "round13_stress_trades": 367,
+    "round13_stress_profit_factor": 1.545,
+    "round13_stress_avg_return": 0.00427,
+    "round13_bootstrap95_avg_return": [
+      0.00143,
+      0.00712
+    ],
+    "round14_status": "REJECT",
+    "round14_reason": "Failed deliberately severe robustness gate (extreme cost/timing and buy-hold rolling-window requirement). This remains a limitation, not erased by Round 15."
+  },
+  "decision": "Independent broker-data evidence is positive enough to start a frozen forward shadow epoch. No real-money trading is authorized.",
+  "forward_epoch": "QQQ_IBS_FORWARD_2026-09-18",
+  "limitations": [
+    "Only 40 independent broker-data trades in the recent broker-data window.",
+    "IEX daily bars are an independent broker feed but not full SIP consolidated history.",
+    "Round 14 severe perturbation gate failed and remains negative evidence.",
+    "Forward evidence has not accumulated yet.",
+    "QQQ itself is not being certified as Sharia-compliant."
+  ]
+}
