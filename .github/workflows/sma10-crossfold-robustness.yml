@@ -1,0 +1,51 @@
+name: SMA10 Cross-Fold Robustness
+
+on:
+  push:
+    branches:
+      - research/edge-discovery-proof
+    paths:
+      - sma10_crossfold_robustness.py
+      - docs/PUBLISHED_EDGE_PROTOCOL.md
+      - .github/workflows/sma10-crossfold-robustness.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  robustness:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile sma10_crossfold_robustness.py
+      - name: Run locked Stage 3
+        run: python sma10_crossfold_robustness.py
+      - name: Persist result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sma10_crossfold_robustness.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research: persist SMA10 stage-3 result"
+          git push origin HEAD:research/edge-discovery-proof
+      - name: Summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/sma10_crossfold_robustness.json'))
+          print('## SMA10 Stage 3')
+          print(f"Status: **{d['stage3_status']}**")
+          print(f"Positive fold-period cells: **{d['positive_cells']}/15**")
+          print(f"Positive 2024+ folds: **{d['positive_2024_folds']}/5**")
+          print(f"Positive 60bps 2024+ folds: **{d['positive_stress_2024_folds']}/5**")
+          print(f"Median excess Sharpe by period: `{d['median_excess_sharpe_by_period']}`")
+          PY
