@@ -1,0 +1,1038 @@
+{
+  "strategy": "IBS_LOWER_BAND_EXACT_PUBLISHED",
+  "rules": "close below 10d-high minus 2.5x 25d avg range, IBS<0.30, ; next-open entry; exit next open after close>prior high or close<SMA300",
+  "base_bps": 10.0,
+  "stress_bps": 30.0,
+  "results": [
+    {
+      "symbol": "SPY",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 92,
+            "win_rate": 0.587,
+            "avg_return": 0.00418,
+            "profit_factor": 1.712,
+            "median_return": 0.00477,
+            "avg_hold_days": 2.4
+          },
+          "stress": {
+            "trades": 92,
+            "win_rate": 0.576,
+            "avg_return": 0.00218,
+            "profit_factor": 1.325,
+            "median_return": 0.00277,
+            "avg_hold_days": 2.4
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 74,
+            "win_rate": 0.73,
+            "avg_return": 0.00219,
+            "profit_factor": 1.47,
+            "median_return": 0.0057,
+            "avg_hold_days": 2.64
+          },
+          "stress": {
+            "trades": 74,
+            "win_rate": 0.649,
+            "avg_return": 0.00019,
+            "profit_factor": 1.036,
+            "median_return": 0.0037,
+            "avg_hold_days": 2.64
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 84,
+            "win_rate": 0.679,
+            "avg_return": 0.00404,
+            "profit_factor": 1.618,
+            "median_return": 0.00688,
+            "avg_hold_days": 2.81
+          },
+          "stress": {
+            "trades": 84,
+            "win_rate": 0.655,
+            "avg_return": 0.00204,
+            "profit_factor": 1.284,
+            "median_return": 0.00488,
+            "avg_hold_days": 2.81
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "QQQ",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 91,
+            "win_rate": 0.67,
+            "avg_return": 0.00516,
+            "profit_factor": 1.775,
+            "median_return": 0.00658,
+            "avg_hold_days": 2.32
+          },
+          "stress": {
+            "trades": 91,
+            "win_rate": 0.626,
+            "avg_return": 0.00316,
+            "profit_factor": 1.428,
+            "median_return": 0.00458,
+            "avg_hold_days": 2.32
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 86,
+            "win_rate": 0.756,
+            "avg_return": 0.00597,
+            "profit_factor": 2.153,
+            "median_return": 0.01064,
+            "avg_hold_days": 2.8
+          },
+          "stress": {
+            "trades": 86,
+            "win_rate": 0.733,
+            "avg_return": 0.00397,
+            "profit_factor": 1.698,
+            "median_return": 0.00864,
+            "avg_hold_days": 2.8
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 90,
+            "win_rate": 0.644,
+            "avg_return": 0.00583,
+            "profit_factor": 1.792,
+            "median_return": 0.00874,
+            "avg_hold_days": 2.67
+          },
+          "stress": {
+            "trades": 90,
+            "win_rate": 0.589,
+            "avg_return": 0.00383,
+            "profit_factor": 1.473,
+            "median_return": 0.00674,
+            "avg_hold_days": 2.67
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "DIA",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 88,
+            "win_rate": 0.682,
+            "avg_return": 0.00611,
+            "profit_factor": 2.275,
+            "median_return": 0.00629,
+            "avg_hold_days": 2.47
+          },
+          "stress": {
+            "trades": 88,
+            "win_rate": 0.67,
+            "avg_return": 0.00411,
+            "profit_factor": 1.756,
+            "median_return": 0.00429,
+            "avg_hold_days": 2.47
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 88,
+            "win_rate": 0.716,
+            "avg_return": 0.00279,
+            "profit_factor": 1.641,
+            "median_return": 0.00583,
+            "avg_hold_days": 2.99
+          },
+          "stress": {
+            "trades": 88,
+            "win_rate": 0.67,
+            "avg_return": 0.00079,
+            "profit_factor": 1.159,
+            "median_return": 0.00383,
+            "avg_hold_days": 2.99
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 80,
+            "win_rate": 0.575,
+            "avg_return": -0.0007,
+            "profit_factor": 0.923,
+            "median_return": 0.00414,
+            "avg_hold_days": 3.1
+          },
+          "stress": {
+            "trades": 80,
+            "win_rate": 0.55,
+            "avg_return": -0.0027,
+            "profit_factor": 0.728,
+            "median_return": 0.00214,
+            "avg_hold_days": 3.1
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "IWM",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 92,
+            "win_rate": 0.565,
+            "avg_return": 0.00241,
+            "profit_factor": 1.255,
+            "median_return": 0.00301,
+            "avg_hold_days": 2.33
+          },
+          "stress": {
+            "trades": 92,
+            "win_rate": 0.522,
+            "avg_return": 0.00041,
+            "profit_factor": 1.039,
+            "median_return": 0.00101,
+            "avg_hold_days": 2.33
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 91,
+            "win_rate": 0.615,
+            "avg_return": 0.0022,
+            "profit_factor": 1.408,
+            "median_return": 0.00491,
+            "avg_hold_days": 2.41
+          },
+          "stress": {
+            "trades": 91,
+            "win_rate": 0.582,
+            "avg_return": 0.0002,
+            "profit_factor": 1.032,
+            "median_return": 0.00291,
+            "avg_hold_days": 2.41
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 98,
+            "win_rate": 0.571,
+            "avg_return": 0.00097,
+            "profit_factor": 1.102,
+            "median_return": 0.00284,
+            "avg_hold_days": 2.43
+          },
+          "stress": {
+            "trades": 98,
+            "win_rate": 0.52,
+            "avg_return": -0.00103,
+            "profit_factor": 0.901,
+            "median_return": 0.00084,
+            "avg_hold_days": 2.43
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "EFA",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 121,
+            "win_rate": 0.612,
+            "avg_return": 0.00245,
+            "profit_factor": 1.416,
+            "median_return": 0.00326,
+            "avg_hold_days": 1.91
+          },
+          "stress": {
+            "trades": 121,
+            "win_rate": 0.554,
+            "avg_return": 0.00045,
+            "profit_factor": 1.067,
+            "median_return": 0.00126,
+            "avg_hold_days": 1.91
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 123,
+            "win_rate": 0.602,
+            "avg_return": -0.00029,
+            "profit_factor": 0.935,
+            "median_return": 0.00127,
+            "avg_hold_days": 1.89
+          },
+          "stress": {
+            "trades": 123,
+            "win_rate": 0.488,
+            "avg_return": -0.00229,
+            "profit_factor": 0.572,
+            "median_return": -0.00073,
+            "avg_hold_days": 1.89
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 108,
+            "win_rate": 0.537,
+            "avg_return": -0.0027,
+            "profit_factor": 0.682,
+            "median_return": 0.0011,
+            "avg_hold_days": 2.31
+          },
+          "stress": {
+            "trades": 108,
+            "win_rate": 0.435,
+            "avg_return": -0.0047,
+            "profit_factor": 0.505,
+            "median_return": -0.0009,
+            "avg_hold_days": 2.31
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "EEM",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 122,
+            "win_rate": 0.59,
+            "avg_return": 0.0014,
+            "profit_factor": 1.143,
+            "median_return": 0.00488,
+            "avg_hold_days": 2.0
+          },
+          "stress": {
+            "trades": 122,
+            "win_rate": 0.549,
+            "avg_return": -0.0006,
+            "profit_factor": 0.944,
+            "median_return": 0.00288,
+            "avg_hold_days": 2.0
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 160,
+            "win_rate": 0.594,
+            "avg_return": 0.00143,
+            "profit_factor": 1.285,
+            "median_return": 0.003,
+            "avg_hold_days": 1.59
+          },
+          "stress": {
+            "trades": 160,
+            "win_rate": 0.519,
+            "avg_return": -0.00057,
+            "profit_factor": 0.903,
+            "median_return": 0.001,
+            "avg_hold_days": 1.59
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 129,
+            "win_rate": 0.465,
+            "avg_return": -0.0003,
+            "profit_factor": 0.959,
+            "median_return": -0.0006,
+            "avg_hold_days": 2.04
+          },
+          "stress": {
+            "trades": 129,
+            "win_rate": 0.457,
+            "avg_return": -0.0023,
+            "profit_factor": 0.727,
+            "median_return": -0.0026,
+            "avg_hold_days": 2.04
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "MDY",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 95,
+            "win_rate": 0.547,
+            "avg_return": 0.00381,
+            "profit_factor": 1.512,
+            "median_return": 0.00505,
+            "avg_hold_days": 2.43
+          },
+          "stress": {
+            "trades": 95,
+            "win_rate": 0.537,
+            "avg_return": 0.00181,
+            "profit_factor": 1.217,
+            "median_return": 0.00305,
+            "avg_hold_days": 2.43
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 83,
+            "win_rate": 0.602,
+            "avg_return": 0.00101,
+            "profit_factor": 1.182,
+            "median_return": 0.00474,
+            "avg_hold_days": 2.59
+          },
+          "stress": {
+            "trades": 83,
+            "win_rate": 0.542,
+            "avg_return": -0.00099,
+            "profit_factor": 0.845,
+            "median_return": 0.00274,
+            "avg_hold_days": 2.59
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 93,
+            "win_rate": 0.527,
+            "avg_return": -0.00016,
+            "profit_factor": 0.983,
+            "median_return": 0.00277,
+            "avg_hold_days": 2.37
+          },
+          "stress": {
+            "trades": 93,
+            "win_rate": 0.505,
+            "avg_return": -0.00216,
+            "profit_factor": 0.796,
+            "median_return": 0.00077,
+            "avg_hold_days": 2.37
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "VTI",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 95,
+            "win_rate": 0.6,
+            "avg_return": 0.0032,
+            "profit_factor": 1.477,
+            "median_return": 0.00612,
+            "avg_hold_days": 2.35
+          },
+          "stress": {
+            "trades": 95,
+            "win_rate": 0.558,
+            "avg_return": 0.0012,
+            "profit_factor": 1.159,
+            "median_return": 0.00412,
+            "avg_hold_days": 2.35
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 76,
+            "win_rate": 0.711,
+            "avg_return": 0.00212,
+            "profit_factor": 1.41,
+            "median_return": 0.00678,
+            "avg_hold_days": 2.63
+          },
+          "stress": {
+            "trades": 76,
+            "win_rate": 0.658,
+            "avg_return": 0.00012,
+            "profit_factor": 1.02,
+            "median_return": 0.00478,
+            "avg_hold_days": 2.63
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 85,
+            "win_rate": 0.671,
+            "avg_return": 0.00444,
+            "profit_factor": 1.689,
+            "median_return": 0.00684,
+            "avg_hold_days": 2.65
+          },
+          "stress": {
+            "trades": 85,
+            "win_rate": 0.647,
+            "avg_return": 0.00244,
+            "profit_factor": 1.343,
+            "median_return": 0.00484,
+            "avg_hold_days": 2.65
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "IVV",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 96,
+            "win_rate": 0.625,
+            "avg_return": 0.00422,
+            "profit_factor": 1.709,
+            "median_return": 0.00603,
+            "avg_hold_days": 2.25
+          },
+          "stress": {
+            "trades": 96,
+            "win_rate": 0.594,
+            "avg_return": 0.00222,
+            "profit_factor": 1.329,
+            "median_return": 0.00403,
+            "avg_hold_days": 2.25
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 79,
+            "win_rate": 0.747,
+            "avg_return": 0.00294,
+            "profit_factor": 1.647,
+            "median_return": 0.00642,
+            "avg_hold_days": 2.63
+          },
+          "stress": {
+            "trades": 79,
+            "win_rate": 0.671,
+            "avg_return": 0.00094,
+            "profit_factor": 1.184,
+            "median_return": 0.00442,
+            "avg_hold_days": 2.63
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 83,
+            "win_rate": 0.675,
+            "avg_return": 0.00429,
+            "profit_factor": 1.644,
+            "median_return": 0.00761,
+            "avg_hold_days": 2.8
+          },
+          "stress": {
+            "trades": 83,
+            "win_rate": 0.663,
+            "avg_return": 0.00229,
+            "profit_factor": 1.313,
+            "median_return": 0.00561,
+            "avg_hold_days": 2.8
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "IWB",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 101,
+            "win_rate": 0.604,
+            "avg_return": 0.00229,
+            "profit_factor": 1.323,
+            "median_return": 0.00446,
+            "avg_hold_days": 2.36
+          },
+          "stress": {
+            "trades": 101,
+            "win_rate": 0.574,
+            "avg_return": 0.00029,
+            "profit_factor": 1.037,
+            "median_return": 0.00246,
+            "avg_hold_days": 2.36
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 80,
+            "win_rate": 0.725,
+            "avg_return": 0.00395,
+            "profit_factor": 1.983,
+            "median_return": 0.00637,
+            "avg_hold_days": 2.55
+          },
+          "stress": {
+            "trades": 80,
+            "win_rate": 0.675,
+            "avg_return": 0.00195,
+            "profit_factor": 1.423,
+            "median_return": 0.00437,
+            "avg_hold_days": 2.55
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 86,
+            "win_rate": 0.651,
+            "avg_return": 0.00421,
+            "profit_factor": 1.665,
+            "median_return": 0.00626,
+            "avg_hold_days": 2.84
+          },
+          "stress": {
+            "trades": 86,
+            "win_rate": 0.651,
+            "avg_return": 0.00221,
+            "profit_factor": 1.314,
+            "median_return": 0.00426,
+            "avg_hold_days": 2.84
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "IWF",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 90,
+            "win_rate": 0.689,
+            "avg_return": 0.00283,
+            "profit_factor": 1.376,
+            "median_return": 0.00547,
+            "avg_hold_days": 2.37
+          },
+          "stress": {
+            "trades": 90,
+            "win_rate": 0.6,
+            "avg_return": 0.00083,
+            "profit_factor": 1.1,
+            "median_return": 0.00347,
+            "avg_hold_days": 2.37
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 80,
+            "win_rate": 0.725,
+            "avg_return": 0.0036,
+            "profit_factor": 1.705,
+            "median_return": 0.00847,
+            "avg_hold_days": 2.59
+          },
+          "stress": {
+            "trades": 80,
+            "win_rate": 0.688,
+            "avg_return": 0.0016,
+            "profit_factor": 1.281,
+            "median_return": 0.00647,
+            "avg_hold_days": 2.59
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 91,
+            "win_rate": 0.626,
+            "avg_return": 0.00353,
+            "profit_factor": 1.464,
+            "median_return": 0.00519,
+            "avg_hold_days": 2.56
+          },
+          "stress": {
+            "trades": 91,
+            "win_rate": 0.538,
+            "avg_return": 0.00153,
+            "profit_factor": 1.181,
+            "median_return": 0.00319,
+            "avg_hold_days": 2.56
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "IWD",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 99,
+            "win_rate": 0.556,
+            "avg_return": 0.00271,
+            "profit_factor": 1.371,
+            "median_return": 0.00233,
+            "avg_hold_days": 2.22
+          },
+          "stress": {
+            "trades": 99,
+            "win_rate": 0.515,
+            "avg_return": 0.00071,
+            "profit_factor": 1.086,
+            "median_return": 0.00033,
+            "avg_hold_days": 2.22
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 81,
+            "win_rate": 0.642,
+            "avg_return": 0.00212,
+            "profit_factor": 1.54,
+            "median_return": 0.00425,
+            "avg_hold_days": 2.95
+          },
+          "stress": {
+            "trades": 81,
+            "win_rate": 0.58,
+            "avg_return": 0.00012,
+            "profit_factor": 1.027,
+            "median_return": 0.00225,
+            "avg_hold_days": 2.95
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 79,
+            "win_rate": 0.519,
+            "avg_return": -0.00143,
+            "profit_factor": 0.85,
+            "median_return": 0.00279,
+            "avg_hold_days": 2.84
+          },
+          "stress": {
+            "trades": 79,
+            "win_rate": 0.519,
+            "avg_return": -0.00343,
+            "profit_factor": 0.674,
+            "median_return": 0.00079,
+            "avg_hold_days": 2.84
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "RSP",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 98,
+            "win_rate": 0.52,
+            "avg_return": 0.00179,
+            "profit_factor": 1.226,
+            "median_return": 0.00147,
+            "avg_hold_days": 2.31
+          },
+          "stress": {
+            "trades": 98,
+            "win_rate": 0.49,
+            "avg_return": -0.00021,
+            "profit_factor": 0.976,
+            "median_return": -0.00053,
+            "avg_hold_days": 2.31
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 84,
+            "win_rate": 0.667,
+            "avg_return": 0.00203,
+            "profit_factor": 1.433,
+            "median_return": 0.00588,
+            "avg_hold_days": 2.79
+          },
+          "stress": {
+            "trades": 84,
+            "win_rate": 0.583,
+            "avg_return": 3e-05,
+            "profit_factor": 1.006,
+            "median_return": 0.00388,
+            "avg_hold_days": 2.79
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 87,
+            "win_rate": 0.563,
+            "avg_return": -0.00066,
+            "profit_factor": 0.933,
+            "median_return": 0.00252,
+            "avg_hold_days": 2.74
+          },
+          "stress": {
+            "trades": 87,
+            "win_rate": 0.517,
+            "avg_return": -0.00266,
+            "profit_factor": 0.751,
+            "median_return": 0.00052,
+            "avg_hold_days": 2.74
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "VUG",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 97,
+            "win_rate": 0.649,
+            "avg_return": 0.00423,
+            "profit_factor": 1.599,
+            "median_return": 0.00499,
+            "avg_hold_days": 2.38
+          },
+          "stress": {
+            "trades": 97,
+            "win_rate": 0.588,
+            "avg_return": 0.00223,
+            "profit_factor": 1.285,
+            "median_return": 0.00299,
+            "avg_hold_days": 2.38
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 82,
+            "win_rate": 0.72,
+            "avg_return": 0.00467,
+            "profit_factor": 2.101,
+            "median_return": 0.00801,
+            "avg_hold_days": 2.57
+          },
+          "stress": {
+            "trades": 82,
+            "win_rate": 0.659,
+            "avg_return": 0.00267,
+            "profit_factor": 1.548,
+            "median_return": 0.00601,
+            "avg_hold_days": 2.57
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 92,
+            "win_rate": 0.62,
+            "avg_return": 0.00482,
+            "profit_factor": 1.622,
+            "median_return": 0.00813,
+            "avg_hold_days": 2.57
+          },
+          "stress": {
+            "trades": 92,
+            "win_rate": 0.587,
+            "avg_return": 0.00282,
+            "profit_factor": 1.331,
+            "median_return": 0.00613,
+            "avg_hold_days": 2.57
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "VTV",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 100,
+            "win_rate": 0.55,
+            "avg_return": 0.00203,
+            "profit_factor": 1.254,
+            "median_return": 0.00307,
+            "avg_hold_days": 2.21
+          },
+          "stress": {
+            "trades": 100,
+            "win_rate": 0.51,
+            "avg_return": 3e-05,
+            "profit_factor": 1.003,
+            "median_return": 0.00107,
+            "avg_hold_days": 2.21
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 82,
+            "win_rate": 0.646,
+            "avg_return": 0.00193,
+            "profit_factor": 1.436,
+            "median_return": 0.00504,
+            "avg_hold_days": 2.88
+          },
+          "stress": {
+            "trades": 82,
+            "win_rate": 0.622,
+            "avg_return": -7e-05,
+            "profit_factor": 0.985,
+            "median_return": 0.00304,
+            "avg_hold_days": 2.88
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 76,
+            "win_rate": 0.513,
+            "avg_return": -0.00195,
+            "profit_factor": 0.798,
+            "median_return": 0.0027,
+            "avg_hold_days": 2.91
+          },
+          "stress": {
+            "trades": 76,
+            "win_rate": 0.513,
+            "avg_return": -0.00395,
+            "profit_factor": 0.628,
+            "median_return": 0.0007,
+            "avg_hold_days": 2.91
+          }
+        }
+      ]
+    },
+    {
+      "symbol": "VO",
+      "cells": [
+        {
+          "period": "2006_2012",
+          "baseline": {
+            "trades": 96,
+            "win_rate": 0.583,
+            "avg_return": 0.00419,
+            "profit_factor": 1.541,
+            "median_return": 0.00543,
+            "avg_hold_days": 2.35
+          },
+          "stress": {
+            "trades": 96,
+            "win_rate": 0.552,
+            "avg_return": 0.00219,
+            "profit_factor": 1.255,
+            "median_return": 0.00343,
+            "avg_hold_days": 2.35
+          }
+        },
+        {
+          "period": "2013_2019",
+          "baseline": {
+            "trades": 89,
+            "win_rate": 0.685,
+            "avg_return": 0.00224,
+            "profit_factor": 1.53,
+            "median_return": 0.00591,
+            "avg_hold_days": 2.46
+          },
+          "stress": {
+            "trades": 89,
+            "win_rate": 0.618,
+            "avg_return": 0.00024,
+            "profit_factor": 1.049,
+            "median_return": 0.00391,
+            "avg_hold_days": 2.46
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "baseline": {
+            "trades": 91,
+            "win_rate": 0.56,
+            "avg_return": -0.00135,
+            "profit_factor": 0.867,
+            "median_return": 0.00365,
+            "avg_hold_days": 2.54
+          },
+          "stress": {
+            "trades": 91,
+            "win_rate": 0.549,
+            "avg_return": -0.00335,
+            "profit_factor": 0.697,
+            "median_return": 0.00165,
+            "avg_hold_days": 2.54
+          }
+        }
+      ]
+    }
+  ],
+  "period_gates": {
+    "2006_2012": {
+      "baseline": {
+        "eligible_symbols": 16,
+        "passing_symbols": 15
+      },
+      "stress": {
+        "eligible_symbols": 16,
+        "passing_symbols": 8
+      }
+    },
+    "2013_2019": {
+      "baseline": {
+        "eligible_symbols": 16,
+        "passing_symbols": 15
+      },
+      "stress": {
+        "eligible_symbols": 16,
+        "passing_symbols": 6
+      }
+    },
+    "2020_PLUS": {
+      "baseline": {
+        "eligible_symbols": 16,
+        "passing_symbols": 7
+      },
+      "stress": {
+        "eligible_symbols": 16,
+        "passing_symbols": 7
+      }
+    }
+  },
+  "status": "REJECT",
+  "limitations": [
+    "daily adjusted Yahoo bars are research-grade",
+    "corrected exact published logic: no entry trend filter and 300-day SMA exit; fills remain conservative next-open",
+    "candidate would require portfolio overlap/risk simulation and forward validation"
+  ]
+}
