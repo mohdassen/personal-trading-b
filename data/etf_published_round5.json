@@ -1,0 +1,253 @@
+{
+  "method": "published ETF strategies; fixed rules before results; three disjoint time regimes; cost stress",
+  "base_bps": 10.0,
+  "stress_bps": 20.0,
+  "results": [
+    {
+      "strategy": "SECTOR_MOMENTUM",
+      "status": "REJECT",
+      "return_wins": 1,
+      "sharpe_wins": 2,
+      "drawdown_wins": 2,
+      "stress_positive_periods": 3,
+      "cells": [
+        {
+          "period": "2008_2013",
+          "strategy": {
+            "months": 71,
+            "annual_return": 0.0436,
+            "sharpe": 0.342,
+            "max_drawdown": 0.3793,
+            "total_return": 0.2871
+          },
+          "benchmark": {
+            "months": 71,
+            "annual_return": 0.0436,
+            "sharpe": 0.329,
+            "max_drawdown": 0.4512,
+            "total_return": 0.2872
+          },
+          "stress": {
+            "months": 71,
+            "annual_return": 0.0312,
+            "sharpe": 0.269,
+            "max_drawdown": 0.3852,
+            "total_return": 0.1991
+          },
+          "return_win": false,
+          "sharpe_win": true,
+          "drawdown_win": true
+        },
+        {
+          "period": "2014_2019",
+          "strategy": {
+            "months": 71,
+            "annual_return": 0.0599,
+            "sharpe": 0.603,
+            "max_drawdown": 0.1598,
+            "total_return": 0.4108
+          },
+          "benchmark": {
+            "months": 71,
+            "annual_return": 0.0952,
+            "sharpe": 0.878,
+            "max_drawdown": 0.1463,
+            "total_return": 0.7127
+          },
+          "stress": {
+            "months": 71,
+            "annual_return": 0.0473,
+            "sharpe": 0.49,
+            "max_drawdown": 0.1625,
+            "total_return": 0.3145
+          },
+          "return_win": false,
+          "sharpe_win": false,
+          "drawdown_win": false
+        },
+        {
+          "period": "2020_PLUS",
+          "strategy": {
+            "months": 80,
+            "annual_return": 0.1512,
+            "sharpe": 0.948,
+            "max_drawdown": 0.125,
+            "total_return": 1.5573
+          },
+          "benchmark": {
+            "months": 80,
+            "annual_return": 0.1099,
+            "sharpe": 0.714,
+            "max_drawdown": 0.1588,
+            "total_return": 1.0044
+          },
+          "stress": {
+            "months": 80,
+            "annual_return": 0.1376,
+            "sharpe": 0.875,
+            "max_drawdown": 0.1304,
+            "total_return": 1.3626
+          },
+          "return_win": true,
+          "sharpe_win": true,
+          "drawdown_win": true
+        }
+      ]
+    },
+    {
+      "strategy": "ASSET_CLASS_MOMENTUM",
+      "status": "REJECT",
+      "return_wins": 3,
+      "sharpe_wins": 3,
+      "drawdown_wins": 1,
+      "stress_positive_periods": 3,
+      "cells": [
+        {
+          "period": "2008_2013",
+          "strategy": {
+            "months": 71,
+            "annual_return": 0.0308,
+            "sharpe": 0.282,
+            "max_drawdown": 0.3445,
+            "total_return": 0.1965
+          },
+          "benchmark": {
+            "months": 71,
+            "annual_return": 0.015,
+            "sharpe": 0.175,
+            "max_drawdown": 0.4103,
+            "total_return": 0.0923
+          },
+          "stress": {
+            "months": 71,
+            "annual_return": 0.0185,
+            "sharpe": 0.201,
+            "max_drawdown": 0.3501,
+            "total_return": 0.1146
+          },
+          "return_win": true,
+          "sharpe_win": true,
+          "drawdown_win": true
+        },
+        {
+          "period": "2014_2019",
+          "strategy": {
+            "months": 71,
+            "annual_return": 0.0714,
+            "sharpe": 0.848,
+            "max_drawdown": 0.1358,
+            "total_return": 0.5035
+          },
+          "benchmark": {
+            "months": 71,
+            "annual_return": 0.0399,
+            "sharpe": 0.543,
+            "max_drawdown": 0.1304,
+            "total_return": 0.2603
+          },
+          "stress": {
+            "months": 71,
+            "annual_return": 0.0586,
+            "sharpe": 0.708,
+            "max_drawdown": 0.1386,
+            "total_return": 0.401
+          },
+          "return_win": true,
+          "sharpe_win": true,
+          "drawdown_win": false
+        },
+        {
+          "period": "2020_PLUS",
+          "strategy": {
+            "months": 80,
+            "annual_return": 0.074,
+            "sharpe": 0.625,
+            "max_drawdown": 0.1981,
+            "total_return": 0.6099
+          },
+          "benchmark": {
+            "months": 80,
+            "annual_return": 0.067,
+            "sharpe": 0.599,
+            "max_drawdown": 0.1719,
+            "total_return": 0.5411
+          },
+          "stress": {
+            "months": 80,
+            "annual_return": 0.0613,
+            "sharpe": 0.531,
+            "max_drawdown": 0.2134,
+            "total_return": 0.4867
+          },
+          "return_win": true,
+          "sharpe_win": true,
+          "drawdown_win": false
+        }
+      ]
+    },
+    {
+      "strategy": "TURN_OF_MONTH_SPY",
+      "status": "REJECT",
+      "cells": [
+        {
+          "period": "2008_2013",
+          "strategy": {
+            "months": 72,
+            "annual_return": 0.018,
+            "sharpe": 0.266,
+            "max_drawdown": 0.1059,
+            "total_return": 0.1132
+          },
+          "stress": {
+            "months": 72,
+            "annual_return": 0.0059,
+            "sharpe": 0.113,
+            "max_drawdown": 0.1149,
+            "total_return": 0.0359
+          }
+        },
+        {
+          "period": "2014_2019",
+          "strategy": {
+            "months": 72,
+            "annual_return": -0.0195,
+            "sharpe": -0.312,
+            "max_drawdown": 0.1501,
+            "total_return": -0.1112
+          },
+          "stress": {
+            "months": 72,
+            "annual_return": -0.0312,
+            "sharpe": -0.52,
+            "max_drawdown": 0.1885,
+            "total_return": -0.1731
+          }
+        },
+        {
+          "period": "2020_PLUS",
+          "strategy": {
+            "months": 81,
+            "annual_return": 0.0436,
+            "sharpe": 0.615,
+            "max_drawdown": 0.1018,
+            "total_return": 0.3338
+          },
+          "stress": {
+            "months": 81,
+            "annual_return": 0.0312,
+            "sharpe": 0.453,
+            "max_drawdown": 0.1215,
+            "total_return": 0.2303
+          }
+        }
+      ]
+    }
+  ],
+  "candidates": [],
+  "overall": "NO_ROUND5_CANDIDATE",
+  "limitations": [
+    "ETF universes are fixed current symbols, but they have long continuous histories",
+    "ETF candidates may not satisfy the user's Sharia preference and would require a separate Sharia-compliant universe retest",
+    "candidate is research-only, not paper/live approval"
+  ]
+}
