@@ -25,7 +25,6 @@ INDEPENDENT = [
     'NKE','SBUX','MCD','ISRG','VRTX','REGN','PFE','BA','HON','RTX','CMCSA',
     'SPOT','RBLX','MELI'
 ]
-
 STRATEGIES = ['MOMENTUM_12_1', 'HIGH_52W', 'TSMOM_12M', 'SMA_10M']
 
 
@@ -64,50 +63,45 @@ def month_table(df: pd.DataFrame) -> pd.DataFrame:
         return pd.DataFrame()
     x = df.copy()
     x['month'] = x.index.to_period('M')
+    grouped = list(x.groupby('month', sort=True))
     rows = []
-    for month, g in x.groupby('month'):
+    for idx, (month, g) in enumerate(grouped):
         g = g.sort_index()
-        rows.append({
+        row = {
             'month': month,
-            'month_end_date': g.index[-1],
             'close': float(g.Close.iloc[-1]),
-            'next_open_date': None,
-            'next_open': None,
-        })
+            'next_open': np.nan,
+        }
+        if idx + 1 < len(grouped):
+            ng = grouped[idx + 1][1].sort_index()
+            if not ng.empty:
+                row['next_open'] = float(ng.Open.iloc[0])
+        rows.append(row)
     m = pd.DataFrame(rows).set_index('month').sort_index()
-    # Next month's first open is our executable fill after month-end signal.
-    for i in range(len(m)-1):
-        next_month = m.index[i+1]
-        g = x[x['month'] == next_month].sort_index()
-        if not g.empty:
-            m.iloc[i, m.columns.get_loc('next_open_date')] = g.index[0]
-            m.iloc[i, m.columns.get_loc('next_open')] = float(g.Open.iloc[0])
-    m['ret_1m'] = m['close'].pct_change(1)
-    m['ret_11m_skip1'] = m['close'].shift(1) / m['close'].shift(12) - 1.0
-    m['ret_12m'] = m['close'] / m['close'].shift(12) - 1.0
-    m['high_12m_prior'] = m['close'].shift(1).rolling(12).max()
-    m['dist_52w_high'] = m['close'].shift(1) / m['high_12m_prior']
+    m['mom_12_1'] = m['close'].shift(1) / m['close'].shift(12) - 1.0
+    m['tsmom_12m'] = m['close'] / m['close'].shift(12) - 1.0
+    m['high_52w'] = m['close'].shift(1) / m['close'].shift(1).rolling(12).max()
     m['sma10'] = m['close'].rolling(10).mean()
     return m
 
 
-def build_panel(raw: dict[str, pd.DataFrame], universe: str) -> pd.DataFrame:
+def build_tables(raw: dict[str, pd.DataFrame]) -> dict[str, pd.DataFrame]:
+    return {symbol: month_table(df) for symbol, df in raw.items()}
+
+
+def build_panel(tables: dict[str, pd.DataFrame], universe: str) -> pd.DataFrame:
     rows = []
-    for symbol, df in raw.items():
-        mt = month_table(df)
-        if mt.empty:
-            continue
+    for symbol, mt in tables.items():
         for month, r in mt.iterrows():
             rows.append({
                 'universe': universe,
                 'symbol': symbol,
                 'month': month,
                 'close': r['close'],
-                'next_open_date': r['next_open_date'],
                 'next_open': r['next_open'],
-                'mom_12_1': r['ret_11m_skip1'],
-                'tsmom_12m': r['ret_12m'],
-                'high_52w': r['dist_52w_high'],
+                'mom_12_1': r['mom_12_1'],
+                'tsmom_12m': r['tsmom_12m'],
+                'high_52w': r['high_52w'],
                 'sma10': r['sma10'],
             })
     return pd.DataFrame(rows)
@@ -136,40 +130,39 @@ def select(strategy: str, g: pd.DataFrame) -> list[str]:
     return []
 
 
-def next_month_return(df: pd.DataFrame, signal_month: pd.Period, cost_bps: float) -> float | None:
-    mt = month_table(df)
+def next_month_return(mt: pd.DataFrame, signal_month: pd.Period, cost_bps: float) -> float | None:
     if signal_month not in mt.index:
         return None
-    i = mt.index.get_loc(signal_month)
-    if isinstance(i, slice) or i + 1 >= len(mt):
+    loc = mt.index.get_loc(signal_month)
+    if isinstance(loc, slice) or loc + 1 >= len(mt):
         return None
-    next_m = mt.index[i+1]
-    entry = mt.loc[signal_month, 'next_open']
-    if entry is None or not math.isfinite(float(entry)) or float(entry) <= 0:
+    entry = float(mt.iloc[loc]['next_open'])
+    if not math.isfinite(entry) or entry <= 0:
         return None
-    exit_close = float(mt.loc[next_m, 'close'])
-    gross = exit_close / float(entry) - 1.0
+    exit_close = float(mt.iloc[loc + 1]['close'])
+    gross = exit_close / entry - 1.0
     return gross - cost_bps / 10000.0
 
 
-def monthly_portfolio(raw: dict[str, pd.DataFrame], panel: pd.DataFrame,
+def monthly_portfolio(tables: dict[str, pd.DataFrame], panel: pd.DataFrame,
                       strategy: str, cost_bps: float) -> tuple[pd.Series, dict[str, float]]:
     returns = {}
     symbol_pnl = defaultdict(float)
-    for month, g in panel.groupby('month'):
+    for month, g in panel.groupby('month', sort=True):
         picked = select(strategy, g)
         rs = []
         for symbol in picked:
-            if symbol not in raw:
+            mt = tables.get(symbol)
+            if mt is None:
                 continue
-            r = next_month_return(raw[symbol], month, cost_bps)
+            r = next_month_return(mt, month, cost_bps)
             if r is None:
                 continue
             rs.append(r)
             symbol_pnl[symbol] += r
         if rs:
             returns[month.to_timestamp(how='end')] = float(np.mean(rs))
-    return pd.Series(returns).sort_index(), dict(symbol_pnl)
+    return pd.Series(returns, dtype=float).sort_index(), dict(symbol_pnl)
 
 
 def max_drawdown(series: pd.Series) -> float:
@@ -177,8 +170,7 @@ def max_drawdown(series: pd.Series) -> float:
         return 0.0
     wealth = (1.0 + series).cumprod()
     peak = wealth.cummax()
-    dd = 1.0 - wealth / peak
-    return float(dd.max())
+    return float((1.0 - wealth / peak).max())
 
 
 def metrics(series: pd.Series) -> dict:
@@ -210,16 +202,14 @@ def slice_period(s: pd.Series, start: str, end: str | None = None) -> pd.Series:
 def concentration(symbol_pnl: dict[str,float]) -> float:
     pos = {k:v for k,v in symbol_pnl.items() if v > 0}
     total = sum(pos.values())
-    if total <= 0:
-        return 1.0
-    return max(pos.values())/total
+    return 1.0 if total <= 0 else max(pos.values())/total
 
 
-def eval_strategy(strategy: str, raw_p: dict[str,pd.DataFrame], raw_i: dict[str,pd.DataFrame],
+def eval_strategy(strategy: str, tables_p: dict[str,pd.DataFrame], tables_i: dict[str,pd.DataFrame],
                   panel_p: pd.DataFrame, panel_i: pd.DataFrame) -> dict:
-    p30, pnl = monthly_portfolio(raw_p, panel_p, strategy, BASELINE_BPS)
-    p60, _ = monthly_portfolio(raw_p, panel_p, strategy, STRESS_BPS)
-    i30, _ = monthly_portfolio(raw_i, panel_i, strategy, BASELINE_BPS)
+    p30, pnl = monthly_portfolio(tables_p, panel_p, strategy, BASELINE_BPS)
+    p60, _ = monthly_portfolio(tables_p, panel_p, strategy, STRESS_BPS)
+    i30, _ = monthly_portfolio(tables_i, panel_i, strategy, BASELINE_BPS)
 
     val = slice_period(p30, '2021-01-01', '2023-12-31')
     hold = slice_period(p30, '2024-01-01')
@@ -259,9 +249,11 @@ def main():
             continue
         (raw_p if univ == 'primary' else raw_i)[symbol] = df
 
-    panel_p = build_panel(raw_p, 'primary')
-    panel_i = build_panel(raw_i, 'independent')
-    results = [eval_strategy(s, raw_p, raw_i, panel_p, panel_i) for s in STRATEGIES]
+    tables_p = build_tables(raw_p)
+    tables_i = build_tables(raw_i)
+    panel_p = build_panel(tables_p, 'primary')
+    panel_i = build_panel(tables_i, 'independent')
+    results = [eval_strategy(s, tables_p, tables_i, panel_p, panel_i) for s in STRATEGIES]
     candidates = [r['strategy'] for r in results if r['status']=='RESEARCH_CANDIDATE']
     out = {
         'method': 'published-rule benchmark; fixed before results; next-open monthly fills; long-only',
