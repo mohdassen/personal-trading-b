@@ -1,0 +1,138 @@
+{
+  "strategy": "QQQ_IBS_LOWER_BAND",
+  "status": "REJECT",
+  "portfolio_paths": [
+    {
+      "trades": 367,
+      "allocation": 0.25,
+      "ending_wealth": 1.4602,
+      "cagr": 0.0138,
+      "max_drawdown": 0.052,
+      "avg_portfolio_return_per_trade": 0.00106,
+      "profit_factor": 1.539
+    },
+    {
+      "trades": 367,
+      "allocation": 0.5,
+      "ending_wealth": 2.0932,
+      "cagr": 0.0272,
+      "max_drawdown": 0.1023,
+      "avg_portfolio_return_per_trade": 0.00211,
+      "profit_factor": 1.539
+    },
+    {
+      "trades": 367,
+      "allocation": 1.0,
+      "ending_wealth": 4.0714,
+      "cagr": 0.0523,
+      "max_drawdown": 0.1975,
+      "avg_portfolio_return_per_trade": 0.00423,
+      "profit_factor": 1.539
+    }
+  ],
+  "rolling_5y_vs_buy_hold": {
+    "windows": 271,
+    "beat_count": 43,
+    "beat_rate": 0.159,
+    "worst_strategy_return": 0.0282
+  },
+  "block_bootstrap_realistic_50pct": {
+    "cagr_95": [
+      -0.0093,
+      0.0211
+    ],
+    "max_drawdown_95": [
+      0.0895,
+      0.33
+    ]
+  },
+  "timing_and_cost_perturbations": [
+    {
+      "entry_delay_days": 0,
+      "roundtrip_cost_bps": 30,
+      "slippage_each_side_bps": 0,
+      "trades": 367,
+      "avg_return": 0.00423,
+      "profit_factor": 1.539,
+      "win_rate": 0.632
+    },
+    {
+      "entry_delay_days": 0,
+      "roundtrip_cost_bps": 50,
+      "slippage_each_side_bps": 5,
+      "trades": 367,
+      "avg_return": 0.00123,
+      "profit_factor": 1.135,
+      "win_rate": 0.569
+    },
+    {
+      "entry_delay_days": 0,
+      "roundtrip_cost_bps": 100,
+      "slippage_each_side_bps": 10,
+      "trades": 367,
+      "avg_return": -0.00477,
+      "profit_factor": 0.603,
+      "win_rate": 0.455
+    },
+    {
+      "entry_delay_days": 1,
+      "roundtrip_cost_bps": 30,
+      "slippage_each_side_bps": 0,
+      "trades": 338,
+      "avg_return": 0.00211,
+      "profit_factor": 1.271,
+      "win_rate": 0.604
+    },
+    {
+      "entry_delay_days": 1,
+      "roundtrip_cost_bps": 50,
+      "slippage_each_side_bps": 5,
+      "trades": 338,
+      "avg_return": -0.00089,
+      "profit_factor": 0.901,
+      "win_rate": 0.541
+    },
+    {
+      "entry_delay_days": 1,
+      "roundtrip_cost_bps": 100,
+      "slippage_each_side_bps": 10,
+      "trades": 338,
+      "avg_return": -0.00689,
+      "profit_factor": 0.443,
+      "win_rate": 0.361
+    },
+    {
+      "entry_delay_days": 2,
+      "roundtrip_cost_bps": 30,
+      "slippage_each_side_bps": 0,
+      "trades": 306,
+      "avg_return": 0.00106,
+      "profit_factor": 1.136,
+      "win_rate": 0.575
+    },
+    {
+      "entry_delay_days": 2,
+      "roundtrip_cost_bps": 50,
+      "slippage_each_side_bps": 5,
+      "trades": 306,
+      "avg_return": -0.00194,
+      "profit_factor": 0.788,
+      "win_rate": 0.497
+    },
+    {
+      "entry_delay_days": 2,
+      "roundtrip_cost_bps": 100,
+      "slippage_each_side_bps": 10,
+      "trades": 306,
+      "avg_return": -0.00794,
+      "profit_factor": 0.372,
+      "win_rate": 0.337
+    }
+  ],
+  "limitations": [
+    "Yahoo adjusted daily bars are research-grade",
+    "cash return is zero",
+    "buy-and-hold comparison is informational; strategy is intended as tactical risk-managed exposure",
+    "still requires broker-data shadow/forward validation"
+  ]
+}
