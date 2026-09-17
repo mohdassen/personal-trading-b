@@ -1,0 +1,215 @@
+{
+  "strategy": "QQQ_IBS_LOWER_BAND_SOURCE_SPEC",
+  "status": "ROUND13_CANDIDATE",
+  "rules": "exact published IBS/lower-band entry; 300d dynamic exit; conservative next-open execution",
+  "base_bps": 10.0,
+  "stress_bps": 30.0,
+  "cells": [
+    {
+      "period": "2000_2005",
+      "baseline": {
+        "trades": 98,
+        "win_rate": 0.622,
+        "avg_return": 0.00759,
+        "profit_factor": 1.814,
+        "median_return": 0.00843,
+        "compounded_return": 0.9735,
+        "max_drawdown": 0.1858,
+        "avg_hold_days": 2.06
+      },
+      "stress": {
+        "trades": 98,
+        "win_rate": 0.592,
+        "avg_return": 0.00559,
+        "profit_factor": 1.553,
+        "median_return": 0.00643,
+        "compounded_return": 0.6239,
+        "max_drawdown": 0.1975,
+        "avg_hold_days": 2.06
+      },
+      "delayed_stress": {
+        "trades": 87,
+        "win_rate": 0.494,
+        "avg_return": -0.0007,
+        "profit_factor": 0.939,
+        "median_return": -0.00071,
+        "compounded_return": -0.0958,
+        "max_drawdown": 0.3813,
+        "avg_hold_days": 1.89
+      }
+    },
+    {
+      "period": "2006_2010",
+      "baseline": {
+        "trades": 65,
+        "win_rate": 0.662,
+        "avg_return": 0.007,
+        "profit_factor": 2.229,
+        "median_return": 0.00651,
+        "compounded_return": 0.5427,
+        "max_drawdown": 0.0925,
+        "avg_hold_days": 2.22
+      },
+      "stress": {
+        "trades": 65,
+        "win_rate": 0.6,
+        "avg_return": 0.005,
+        "profit_factor": 1.777,
+        "median_return": 0.00451,
+        "compounded_return": 0.3556,
+        "max_drawdown": 0.0981,
+        "avg_hold_days": 2.22
+      },
+      "delayed_stress": {
+        "trades": 61,
+        "win_rate": 0.574,
+        "avg_return": 0.00149,
+        "profit_factor": 1.17,
+        "median_return": 0.00294,
+        "compounded_return": 0.0717,
+        "max_drawdown": 0.2462,
+        "avg_hold_days": 1.85
+      }
+    },
+    {
+      "period": "2011_2015",
+      "baseline": {
+        "trades": 69,
+        "win_rate": 0.826,
+        "avg_return": 0.00581,
+        "profit_factor": 2.036,
+        "median_return": 0.0118,
+        "compounded_return": 0.4629,
+        "max_drawdown": 0.1084,
+        "avg_hold_days": 2.84
+      },
+      "stress": {
+        "trades": 69,
+        "win_rate": 0.812,
+        "avg_return": 0.00381,
+        "profit_factor": 1.637,
+        "median_return": 0.0098,
+        "compounded_return": 0.275,
+        "max_drawdown": 0.1248,
+        "avg_hold_days": 2.84
+      },
+      "delayed_stress": {
+        "trades": 65,
+        "win_rate": 0.754,
+        "avg_return": 0.00387,
+        "profit_factor": 1.807,
+        "median_return": 0.00516,
+        "compounded_return": 0.2675,
+        "max_drawdown": 0.1249,
+        "avg_hold_days": 2.35
+      }
+    },
+    {
+      "period": "2016_2020",
+      "baseline": {
+        "trades": 55,
+        "win_rate": 0.618,
+        "avg_return": 0.00478,
+        "profit_factor": 1.606,
+        "median_return": 0.00657,
+        "compounded_return": 0.277,
+        "max_drawdown": 0.1147,
+        "avg_hold_days": 2.84
+      },
+      "stress": {
+        "trades": 55,
+        "win_rate": 0.582,
+        "avg_return": 0.00278,
+        "profit_factor": 1.321,
+        "median_return": 0.00457,
+        "compounded_return": 0.1443,
+        "max_drawdown": 0.1202,
+        "avg_hold_days": 2.84
+      },
+      "delayed_stress": {
+        "trades": 51,
+        "win_rate": 0.667,
+        "avg_return": 0.00567,
+        "profit_factor": 2.121,
+        "median_return": 0.00627,
+        "compounded_return": 0.3212,
+        "max_drawdown": 0.0957,
+        "avg_hold_days": 2.31
+      }
+    },
+    {
+      "period": "2021_PLUS",
+      "baseline": {
+        "trades": 80,
+        "win_rate": 0.65,
+        "avg_return": 0.00551,
+        "profit_factor": 1.842,
+        "median_return": 0.00804,
+        "compounded_return": 0.5124,
+        "max_drawdown": 0.1516,
+        "avg_hold_days": 2.62
+      },
+      "stress": {
+        "trades": 80,
+        "win_rate": 0.588,
+        "avg_return": 0.00351,
+        "profit_factor": 1.482,
+        "median_return": 0.00604,
+        "compounded_return": 0.2895,
+        "max_drawdown": 0.157,
+        "avg_hold_days": 2.62
+      },
+      "delayed_stress": {
+        "trades": 74,
+        "win_rate": 0.581,
+        "avg_return": 0.00216,
+        "profit_factor": 1.308,
+        "median_return": 0.00373,
+        "compounded_return": 0.1508,
+        "max_drawdown": 0.0876,
+        "avg_hold_days": 2.26
+      }
+    }
+  ],
+  "aggregate_stress": {
+    "trades": 367,
+    "win_rate": 0.632,
+    "avg_return": 0.00427,
+    "profit_factor": 1.545,
+    "median_return": 0.0064,
+    "compounded_return": 3.142,
+    "max_drawdown": 0.1975,
+    "avg_hold_days": 2.47
+  },
+  "bootstrap95_avg_return": [
+    0.00143,
+    0.00712
+  ],
+  "one_extra_day_entry_delay_stress": {
+    "trades": 338,
+    "win_rate": 0.604,
+    "avg_return": 0.00216,
+    "profit_factor": 1.278,
+    "median_return": 0.00433,
+    "compounded_return": 0.8674,
+    "max_drawdown": 0.3813,
+    "avg_hold_days": 2.12
+  },
+  "strip_best_5_stress": {
+    "trades": 362,
+    "win_rate": 0.627,
+    "avg_return": 0.00287,
+    "profit_factor": 1.361,
+    "median_return": 0.00617,
+    "compounded_return": 1.5133,
+    "max_drawdown": 0.9475,
+    "avg_hold_days": 2.49
+  },
+  "passing_stress_eras": 5,
+  "annualized_compounded_stress_since_2000": 0.0546,
+  "limitations": [
+    "QQQ is source-specified rather than a new unseen symbol, so this is strong replication evidence but not a clean untouched instrument holdout",
+    "Yahoo adjusted daily bars are research-grade",
+    "paper/forward validation is still required before real money"
+  ]
+}
