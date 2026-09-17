@@ -1,0 +1,170 @@
+{
+  "method": "published-rule benchmark; fixed before results; next-open monthly fills; long-only",
+  "baseline_roundtrip_bps": 30.0,
+  "stress_roundtrip_bps": 60.0,
+  "primary_symbols_downloaded": 40,
+  "independent_symbols_downloaded": 25,
+  "results": [
+    {
+      "strategy": "MOMENTUM_12_1",
+      "status": "RESEARCH_CANDIDATE",
+      "validation_2021_2023": {
+        "months": 35,
+        "annual_return": 0.0303,
+        "sharpe": 0.24,
+        "max_drawdown": 0.243,
+        "win_months": 0.514,
+        "total_return": 0.091
+      },
+      "holdout_2024_plus": {
+        "months": 32,
+        "annual_return": 0.5762,
+        "sharpe": 1.458,
+        "max_drawdown": 0.1791,
+        "win_months": 0.688,
+        "total_return": 2.3649
+      },
+      "independent_2024_plus": {
+        "months": 32,
+        "annual_return": 0.3558,
+        "sharpe": 1.222,
+        "max_drawdown": 0.2711,
+        "win_months": 0.594,
+        "total_return": 1.2518
+      },
+      "stress_60bps_2024_plus": {
+        "months": 32,
+        "annual_return": 0.5222,
+        "sharpe": 1.358,
+        "max_drawdown": 0.1821,
+        "win_months": 0.688,
+        "total_return": 2.0661
+      },
+      "largest_positive_symbol_pnl_share": 0.152
+    },
+    {
+      "strategy": "HIGH_52W",
+      "status": "RESEARCH_CANDIDATE",
+      "validation_2021_2023": {
+        "months": 35,
+        "annual_return": 0.1061,
+        "sharpe": 0.575,
+        "max_drawdown": 0.1828,
+        "win_months": 0.543,
+        "total_return": 0.3418
+      },
+      "holdout_2024_plus": {
+        "months": 32,
+        "annual_return": 0.311,
+        "sharpe": 1.322,
+        "max_drawdown": 0.1772,
+        "win_months": 0.688,
+        "total_return": 1.0589
+      },
+      "independent_2024_plus": {
+        "months": 32,
+        "annual_return": 0.1344,
+        "sharpe": 0.73,
+        "max_drawdown": 0.1606,
+        "win_months": 0.656,
+        "total_return": 0.3996
+      },
+      "stress_60bps_2024_plus": {
+        "months": 32,
+        "annual_return": 0.2655,
+        "sharpe": 1.162,
+        "max_drawdown": 0.1826,
+        "win_months": 0.688,
+        "total_return": 0.8738
+      },
+      "largest_positive_symbol_pnl_share": 0.137
+    },
+    {
+      "strategy": "TSMOM_12M",
+      "status": "RESEARCH_CANDIDATE",
+      "validation_2021_2023": {
+        "months": 35,
+        "annual_return": 0.0962,
+        "sharpe": 0.586,
+        "max_drawdown": 0.2128,
+        "win_months": 0.571,
+        "total_return": 0.3074
+      },
+      "holdout_2024_plus": {
+        "months": 32,
+        "annual_return": 0.3386,
+        "sharpe": 1.888,
+        "max_drawdown": 0.0797,
+        "win_months": 0.688,
+        "total_return": 1.1764
+      },
+      "independent_2024_plus": {
+        "months": 32,
+        "annual_return": 0.1508,
+        "sharpe": 0.909,
+        "max_drawdown": 0.1818,
+        "win_months": 0.625,
+        "total_return": 0.4543
+      },
+      "stress_60bps_2024_plus": {
+        "months": 32,
+        "annual_return": 0.2923,
+        "sharpe": 1.667,
+        "max_drawdown": 0.0855,
+        "win_months": 0.688,
+        "total_return": 0.9812
+      },
+      "largest_positive_symbol_pnl_share": 0.081
+    },
+    {
+      "strategy": "SMA_10M",
+      "status": "RESEARCH_CANDIDATE",
+      "validation_2021_2023": {
+        "months": 35,
+        "annual_return": 0.1545,
+        "sharpe": 0.857,
+        "max_drawdown": 0.1709,
+        "win_months": 0.571,
+        "total_return": 0.5205
+      },
+      "holdout_2024_plus": {
+        "months": 32,
+        "annual_return": 0.3474,
+        "sharpe": 1.848,
+        "max_drawdown": 0.0883,
+        "win_months": 0.719,
+        "total_return": 1.2145
+      },
+      "independent_2024_plus": {
+        "months": 32,
+        "annual_return": 0.158,
+        "sharpe": 0.935,
+        "max_drawdown": 0.1068,
+        "win_months": 0.625,
+        "total_return": 0.4788
+      },
+      "stress_60bps_2024_plus": {
+        "months": 32,
+        "annual_return": 0.3007,
+        "sharpe": 1.638,
+        "max_drawdown": 0.0926,
+        "win_months": 0.688,
+        "total_return": 1.0161
+      },
+      "largest_positive_symbol_pnl_share": 0.095
+    }
+  ],
+  "research_candidates": [
+    "MOMENTUM_12_1",
+    "HIGH_52W",
+    "TSMOM_12M",
+    "SMA_10M"
+  ],
+  "overall": "CANDIDATE_FOUND",
+  "limitations": [
+    "current-stock universe has survivorship/selection bias",
+    "Yahoo data is not institutional point-in-time constituent data",
+    "research candidate is not paper/live approval",
+    "time-series momentum literature is strongest in diversified futures; stock adaptation is exploratory"
+  ]
+}
