@@ -1,4 +1,4 @@
-# research-trigger: hardened-falsification-2026-09-17
+# research-trigger: strategy-portfolio-followup-2026-09-17
 name: V7 Edge Research Sprint
 
 on:
@@ -31,6 +31,8 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Run historical edge research
         run: python v7_edge_research.py
+      - name: Run strategy portfolio follow-up
+        run: python v7_strategy_portfolio_followup.py
       - name: Persist research result
         run: |
           git config user.name "github-actions[bot]"
