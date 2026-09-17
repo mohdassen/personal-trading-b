@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-09-17T20:04:07.564202+00:00",
+  "engine": "SWING_CONTINUATION Recent 60m Point-in-Time Falsification",
+  "mode": "RESEARCH_ONLY_PROXY",
+  "verdict": "FAIL_PROXY",
+  "production_v7_changed": false,
+  "live_execution_authorized": false,
+  "methodology": {
+    "provider": "Yahoo/yfinance",
+    "hourly_history": "729d maximum recent intraday window",
+    "daily_history_start": "2023-01-01",
+    "validation_end": "2024-12-31",
+    "entry": "next 60m bar open after completed 60m signal bar",
+    "target": "1.8R",
+    "max_hold_hours": 33,
+    "catalyst": "neutral 0; not fabricated",
+    "cost_baseline_round_trip_bps": 30.0,
+    "limitations": [
+      "60m execution proxy; live V7.2 scans/enters on 15m cadence",
+      "60m session VWAP/ATR approximation",
+      "recent-window validation is shorter than the desired multi-year full-fidelity test",
+      "current symbol universe has survivorship/selection bias",
+      "cannot authorize PAPER_CANDIDATE or live trading by itself"
+    ]
+  },
+  "data_errors": {},
+  "primary": {
+    "validation": {
+      "samples": 227,
+      "win_rate": 48.5,
+      "avg_winner_r": 0.958,
+      "avg_loser_r": -0.764,
+      "expectancy_r": 0.07,
+      "profit_factor": 1.18,
+      "total_r": 15.89,
+      "max_drawdown_r": 12.53,
+      "losing_streak": 12
+    },
+    "holdout": {
+      "samples": 314,
+      "win_rate": 47.5,
+      "avg_winner_r": 0.817,
+      "avg_loser_r": -0.828,
+      "expectancy_r": -0.047,
+      "profit_factor": 0.89,
+      "total_r": -14.91,
+      "max_drawdown_r": 23.83,
+      "losing_streak": 9
+    },
+    "holdout_bootstrap_95pct": [
+      -0.15,
+      0.059
+    ],
+    "holdout_cost_stress_round_trip_bps": {
+      "30": {
+        "samples": 314,
+        "win_rate": 47.5,
+        "avg_winner_r": 0.817,
+        "avg_loser_r": -0.828,
+        "expectancy_r": -0.047,
+        "profit_factor": 0.89,
+        "total_r": -14.91,
+        "max_drawdown_r": 23.83,
+        "losing_streak": 9
+      },
+      "60": {
+        "samples": 314,
+        "win_rate": 45.2,
+        "avg_winner_r": 0.778,
+        "avg_loser_r": -0.87,
+        "expectancy_r": -0.124,
+        "profit_factor": 0.74,
+        "total_r": -39.05,
+        "max_drawdown_r": 39.69,
+        "losing_streak": 9
+      },
+      "100": {
+        "samples": 314,
+        "win_rate": 41.7,
+        "avg_winner_r": 0.738,
+        "avg_loser_r": -0.918,
+        "expectancy_r": -0.227,
+        "profit_factor": 0.58,
+        "total_r": -71.24,
+        "max_drawdown_r": 71.77,
+        "losing_streak": 12
+      }
+    },
+    "holdout_by_regime": {
+      "RISK_ON": {
+        "samples": 180,
+        "win_rate": 47.8,
+        "avg_winner_r": 0.787,
+        "avg_loser_r": -0.872,
+        "expectancy_r": -0.079,
+        "profit_factor": 0.83,
+        "total_r": -14.28,
+        "max_drawdown_r": 20.27,
+        "losing_streak": 5
+      },
+      "MIXED": {
+        "samples": 112,
+        "win_rate": 50.0,
+        "avg_winner_r": 0.845,
+        "avg_loser_r": -0.748,
+        "expectancy_r": 0.048,
+        "profit_factor": 1.13,
+        "total_r": 5.4,
+        "max_drawdown_r": 9.17,
+        "losing_streak": 7
+      },
+      "RISK_OFF": {
+        "samples": 19,
+        "win_rate": 31.6,
+        "avg_winner_r": 0.859,
+        "avg_loser_r": -0.956,
+        "expectancy_r": -0.383,
+        "profit_factor": 0.41,
+        "total_r": -7.28,
+        "max_drawdown_r": 7.28,
+        "losing_streak": 5
+      },
+      "HIGH_VOLATILITY": {
+        "samples": 3,
+        "win_rate": 33.3,
+        "avg_winner_r": 1.651,
+        "avg_loser_r": -0.199,
+        "expectancy_r": 0.417,
+        "profit_factor": 4.14,
+        "total_r": 1.25,
+        "max_drawdown_r": 0.3,
+        "losing_streak": 1
+      }
+    },
+    "by_year": {
+      "2023": {
+        "samples": 30,
+        "win_rate": 63.3,
+        "avg_winner_r": 0.841,
+        "avg_loser_r": -0.907,
+        "expectancy_r": 0.2,
+        "profit_factor": 1.6,
+        "total_r": 6.01,
+        "max_drawdown_r": 3.76,
+        "losing_streak": 5
+      },
+      "2024": {
+        "samples": 197,
+        "win_rate": 46.2,
+        "avg_winner_r": 0.982,
+        "avg_loser_r": -0.75,
+        "expectancy_r": 0.05,
+        "profit_factor": 1.12,
+        "total_r": 9.88,
+        "max_drawdown_r": 12.53,
+        "losing_streak": 12
+      },
+      "2025": {
+        "samples": 181,
+        "win_rate": 45.3,
+        "avg_winner_r": 0.759,
+        "avg_loser_r": -0.831,
+        "expectancy_r": -0.111,
+        "profit_factor": 0.76,
+        "total_r": -20.06,
+        "max_drawdown_r": 20.83,
+        "losing_streak": 9
+      },
+      "2026": {
+        "samples": 133,
+        "win_rate": 50.4,
+        "avg_winner_r": 0.889,
+        "avg_loser_r": -0.825,
+        "expectancy_r": 0.039,
+        "profit_factor": 1.09,
+        "total_r": 5.15,
+        "max_drawdown_r": 12.74,
+        "losing_streak": 7
+      }
+    },
+    "rejections": {
+      "duplicate_symbol": 353,
+      "open_risk_cap": 44469,
+      "group_risk_cap": 50,
+      "daily_signal_cap": 435,
+      "correlation_cap": 22
+    }
+  },
+  "independent_holdout": {
+    "samples": 298,
+    "win_rate": 46.3,
+    "avg_winner_r": 0.771,
+    "avg_loser_r": -0.802,
+    "expectancy_r": -0.073,
+    "profit_factor": 0.83,
+    "total_r": -21.88,
+    "max_drawdown_r": 28.81,
+    "losing_streak": 8
+  },
+  "independent_rejections": {
+    "duplicate_symbol": 743,
+    "open_risk_cap": 19337,
+    "correlation_cap": 7,
+    "group_risk_cap": 12,
+    "daily_signal_cap": 57
+  },
+  "interpretation": {
+    "SUPPORTIVE_PROXY": "Recent hourly evidence supports continuing to the Alpaca 5m full-fidelity test; it is not promotion evidence.",
+    "FAIL_PROXY": "Recent point-in-time hourly evidence fails; this is additional evidence to retire/rework SWING rather than wait for more engineering.",
+    "INSUFFICIENT_PROXY": "Not enough selected trades for a decision; proceed to the 5m full-fidelity dataset if available."
+  }
+}
