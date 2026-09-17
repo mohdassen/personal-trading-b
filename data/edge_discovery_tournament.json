@@ -1,0 +1,438 @@
+{
+  "method": {
+    "start": "2016-01-01",
+    "train": "2016-01-01..2022-12-31",
+    "validation": "2023-01-01..2024-12-31",
+    "holdout": "2025-01-01..latest",
+    "baseline_round_trip_bps": 30.0,
+    "stress_bps": [
+      15.0,
+      30.0,
+      60.0,
+      100.0
+    ],
+    "optimizer": "NONE",
+    "signal_timing": "close t -> next open t+1",
+    "same_bar_ambiguity": "STOP_FIRST",
+    "note": "Research candidates require full-fidelity and forward paper validation; no live authorization."
+  },
+  "downloaded_symbols": 65,
+  "trade_counts": {
+    "TREND_6M": 3657,
+    "BREAKOUT_55": 1861,
+    "TREND_PULLBACK": 2149,
+    "MEAN_REVERSION": 1334
+  },
+  "results": [
+    {
+      "strategy": "TREND_6M",
+      "status": "REJECT",
+      "train": {
+        "samples": 1513,
+        "win_rate": 44.9,
+        "expectancy_r": 0.1393,
+        "profit_factor": 1.261,
+        "total_r": 210.82,
+        "max_drawdown_r": 58.72,
+        "bootstrap95": [
+          0.0696,
+          0.2086
+        ]
+      },
+      "validation": {
+        "samples": 594,
+        "win_rate": 44.8,
+        "expectancy_r": 0.1762,
+        "profit_factor": 1.338,
+        "total_r": 104.68,
+        "max_drawdown_r": 68.8,
+        "bootstrap95": [
+          0.0633,
+          0.2854
+        ]
+      },
+      "holdout": {
+        "samples": 407,
+        "win_rate": 43.0,
+        "expectancy_r": 0.136,
+        "profit_factor": 1.255,
+        "total_r": 55.36,
+        "max_drawdown_r": 26.98,
+        "bootstrap95": [
+          -0.0039,
+          0.2762
+        ]
+      },
+      "independent_holdout": {
+        "samples": 174,
+        "win_rate": 42.5,
+        "expectancy_r": 0.0412,
+        "profit_factor": 1.078,
+        "total_r": 7.16,
+        "max_drawdown_r": 18.54,
+        "bootstrap95": [
+          -0.1532,
+          0.231
+        ]
+      },
+      "holdout_cost_stress": {
+        "15": {
+          "samples": 407,
+          "win_rate": 43.2,
+          "expectancy_r": 0.1617,
+          "profit_factor": 1.312,
+          "total_r": 65.81,
+          "max_drawdown_r": 26.07,
+          "bootstrap95": [
+            0.0216,
+            0.3016
+          ]
+        },
+        "30": {
+          "samples": 407,
+          "win_rate": 43.0,
+          "expectancy_r": 0.136,
+          "profit_factor": 1.255,
+          "total_r": 55.36,
+          "max_drawdown_r": 26.98,
+          "bootstrap95": [
+            -0.0039,
+            0.2762
+          ]
+        },
+        "60": {
+          "samples": 407,
+          "win_rate": 41.5,
+          "expectancy_r": 0.0846,
+          "profit_factor": 1.15,
+          "total_r": 34.45,
+          "max_drawdown_r": 28.8,
+          "bootstrap95": [
+            -0.0549,
+            0.2245
+          ]
+        },
+        "100": {
+          "samples": 407,
+          "win_rate": 40.3,
+          "expectancy_r": 0.0162,
+          "profit_factor": 1.027,
+          "total_r": 6.58,
+          "max_drawdown_r": 31.22,
+          "bootstrap95": [
+            -0.1232,
+            0.1556
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "BREAKOUT_55",
+      "status": "REJECT",
+      "train": {
+        "samples": 779,
+        "win_rate": 46.5,
+        "expectancy_r": 0.2311,
+        "profit_factor": 1.444,
+        "total_r": 180.02,
+        "max_drawdown_r": 41.26,
+        "bootstrap95": [
+          0.13,
+          0.3363
+        ]
+      },
+      "validation": {
+        "samples": 281,
+        "win_rate": 53.0,
+        "expectancy_r": 0.3875,
+        "profit_factor": 1.812,
+        "total_r": 108.88,
+        "max_drawdown_r": 27.89,
+        "bootstrap95": [
+          0.2211,
+          0.5722
+        ]
+      },
+      "holdout": {
+        "samples": 199,
+        "win_rate": 42.2,
+        "expectancy_r": 0.2137,
+        "profit_factor": 1.385,
+        "total_r": 42.54,
+        "max_drawdown_r": 12.8,
+        "bootstrap95": [
+          0.0115,
+          0.4295
+        ]
+      },
+      "independent_holdout": {
+        "samples": 96,
+        "win_rate": 37.5,
+        "expectancy_r": -0.1138,
+        "profit_factor": 0.817,
+        "total_r": -10.92,
+        "max_drawdown_r": 20.58,
+        "bootstrap95": [
+          -0.3623,
+          0.1544
+        ]
+      },
+      "holdout_cost_stress": {
+        "15": {
+          "samples": 199,
+          "win_rate": 42.2,
+          "expectancy_r": 0.2422,
+          "profit_factor": 1.45,
+          "total_r": 48.2,
+          "max_drawdown_r": 12.16,
+          "bootstrap95": [
+            0.039,
+            0.4577
+          ]
+        },
+        "30": {
+          "samples": 199,
+          "win_rate": 42.2,
+          "expectancy_r": 0.2137,
+          "profit_factor": 1.385,
+          "total_r": 42.54,
+          "max_drawdown_r": 12.8,
+          "bootstrap95": [
+            0.0115,
+            0.4295
+          ]
+        },
+        "60": {
+          "samples": 199,
+          "win_rate": 42.2,
+          "expectancy_r": 0.1568,
+          "profit_factor": 1.267,
+          "total_r": 31.21,
+          "max_drawdown_r": 14.78,
+          "bootstrap95": [
+            -0.0462,
+            0.3737
+          ]
+        },
+        "100": {
+          "samples": 199,
+          "win_rate": 41.7,
+          "expectancy_r": 0.0809,
+          "profit_factor": 1.128,
+          "total_r": 16.11,
+          "max_drawdown_r": 17.77,
+          "bootstrap95": [
+            -0.123,
+            0.2974
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "TREND_PULLBACK",
+      "status": "REJECT",
+      "train": {
+        "samples": 895,
+        "win_rate": 60.1,
+        "expectancy_r": 0.0303,
+        "profit_factor": 1.079,
+        "total_r": 27.08,
+        "max_drawdown_r": 31.88,
+        "bootstrap95": [
+          -0.0275,
+          0.0892
+        ]
+      },
+      "validation": {
+        "samples": 307,
+        "win_rate": 62.9,
+        "expectancy_r": 0.1475,
+        "profit_factor": 1.451,
+        "total_r": 45.29,
+        "max_drawdown_r": 18.93,
+        "bootstrap95": [
+          0.0391,
+          0.2569
+        ]
+      },
+      "holdout": {
+        "samples": 232,
+        "win_rate": 60.3,
+        "expectancy_r": 0.0075,
+        "profit_factor": 1.02,
+        "total_r": 1.73,
+        "max_drawdown_r": 14.6,
+        "bootstrap95": [
+          -0.1122,
+          0.1139
+        ]
+      },
+      "independent_holdout": {
+        "samples": 123,
+        "win_rate": 49.6,
+        "expectancy_r": -0.1091,
+        "profit_factor": 0.752,
+        "total_r": -13.42,
+        "max_drawdown_r": 15.97,
+        "bootstrap95": [
+          -0.2561,
+          0.0525
+        ]
+      },
+      "holdout_cost_stress": {
+        "15": {
+          "samples": 232,
+          "win_rate": 60.8,
+          "expectancy_r": 0.0424,
+          "profit_factor": 1.12,
+          "total_r": 9.83,
+          "max_drawdown_r": 13.03,
+          "bootstrap95": [
+            -0.0772,
+            0.149
+          ]
+        },
+        "30": {
+          "samples": 232,
+          "win_rate": 60.3,
+          "expectancy_r": 0.0075,
+          "profit_factor": 1.02,
+          "total_r": 1.73,
+          "max_drawdown_r": 14.6,
+          "bootstrap95": [
+            -0.1122,
+            0.1139
+          ]
+        },
+        "60": {
+          "samples": 232,
+          "win_rate": 57.8,
+          "expectancy_r": -0.0623,
+          "profit_factor": 0.842,
+          "total_r": -14.46,
+          "max_drawdown_r": 20.71,
+          "bootstrap95": [
+            -0.1809,
+            0.0437
+          ]
+        },
+        "100": {
+          "samples": 232,
+          "win_rate": 54.7,
+          "expectancy_r": -0.1554,
+          "profit_factor": 0.641,
+          "total_r": -36.05,
+          "max_drawdown_r": 40.79,
+          "bootstrap95": [
+            -0.2742,
+            -0.049
+          ]
+        }
+      }
+    },
+    {
+      "strategy": "MEAN_REVERSION",
+      "status": "REJECT",
+      "train": {
+        "samples": 531,
+        "win_rate": 57.4,
+        "expectancy_r": -0.0048,
+        "profit_factor": 0.987,
+        "total_r": -2.54,
+        "max_drawdown_r": 37.94,
+        "bootstrap95": [
+          -0.0755,
+          0.0661
+        ]
+      },
+      "validation": {
+        "samples": 193,
+        "win_rate": 64.2,
+        "expectancy_r": 0.0955,
+        "profit_factor": 1.349,
+        "total_r": 18.43,
+        "max_drawdown_r": 6.28,
+        "bootstrap95": [
+          -0.0145,
+          0.2064
+        ]
+      },
+      "holdout": {
+        "samples": 158,
+        "win_rate": 58.2,
+        "expectancy_r": 0.0508,
+        "profit_factor": 1.152,
+        "total_r": 8.03,
+        "max_drawdown_r": 10.1,
+        "bootstrap95": [
+          -0.0812,
+          0.176
+        ]
+      },
+      "independent_holdout": {
+        "samples": 85,
+        "win_rate": 57.6,
+        "expectancy_r": 0.0212,
+        "profit_factor": 1.064,
+        "total_r": 1.8,
+        "max_drawdown_r": 4.25,
+        "bootstrap95": [
+          -0.1537,
+          0.204
+        ]
+      },
+      "holdout_cost_stress": {
+        "15": {
+          "samples": 158,
+          "win_rate": 59.5,
+          "expectancy_r": 0.0789,
+          "profit_factor": 1.245,
+          "total_r": 12.47,
+          "max_drawdown_r": 9.61,
+          "bootstrap95": [
+            -0.0535,
+            0.2042
+          ]
+        },
+        "30": {
+          "samples": 158,
+          "win_rate": 58.2,
+          "expectancy_r": 0.0508,
+          "profit_factor": 1.152,
+          "total_r": 8.03,
+          "max_drawdown_r": 10.1,
+          "bootstrap95": [
+            -0.0812,
+            0.176
+          ]
+        },
+        "60": {
+          "samples": 158,
+          "win_rate": 55.7,
+          "expectancy_r": -0.0054,
+          "profit_factor": 0.985,
+          "total_r": -0.85,
+          "max_drawdown_r": 11.4,
+          "bootstrap95": [
+            -0.1366,
+            0.1197
+          ]
+        },
+        "100": {
+          "samples": 158,
+          "win_rate": 53.2,
+          "expectancy_r": -0.0803,
+          "profit_factor": 0.797,
+          "total_r": -12.69,
+          "max_drawdown_r": 20.08,
+          "bootstrap95": [
+            -0.2133,
+            0.0449
+          ]
+        }
+      }
+    }
+  ],
+  "research_candidates": [],
+  "overall": "NO_EDGE_FOUND_IN_THIS_TOURNAMENT"
+}
