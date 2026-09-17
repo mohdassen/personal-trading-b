@@ -1,0 +1,234 @@
+{
+  "candidate": "SMA_10M",
+  "downloaded_symbols": 65,
+  "folds": {
+    "0": [
+      "AAPL",
+      "AMD",
+      "CAT",
+      "CRWD",
+      "GE",
+      "INTC",
+      "LOW",
+      "META",
+      "NKE",
+      "PFE",
+      "ROKU",
+      "SNOW",
+      "UBER"
+    ],
+    "1": [
+      "ABBV",
+      "AMZN",
+      "CMCSA",
+      "CVX",
+      "GILD",
+      "ISRG",
+      "LRCX",
+      "MSFT",
+      "NOW",
+      "PLTR",
+      "RTX",
+      "SPOT",
+      "UNH"
+    ],
+    "2": [
+      "ABNB",
+      "AVGO",
+      "COP",
+      "DDOG",
+      "GOOGL",
+      "JNJ",
+      "MCD",
+      "MU",
+      "NVDA",
+      "QCOM",
+      "SBUX",
+      "TGT",
+      "VRTX"
+    ],
+    "3": [
+      "ADBE",
+      "BA",
+      "COST",
+      "DE",
+      "HD",
+      "KLAC",
+      "MDB",
+      "NET",
+      "ORCL",
+      "RBLX",
+      "SHOP",
+      "TMUS",
+      "WMT"
+    ],
+    "4": [
+      "AMAT",
+      "BKNG",
+      "CRM",
+      "DIS",
+      "HON",
+      "LLY",
+      "MELI",
+      "NFLX",
+      "PANW",
+      "REGN",
+      "SLB",
+      "TSLA",
+      "XOM"
+    ]
+  },
+  "cells": [
+    {
+      "fold": 0,
+      "period": "2016_2020",
+      "months": 59,
+      "relative_wealth": -0.0788,
+      "excess_sharpe": -0.161
+    },
+    {
+      "fold": 0,
+      "period": "2021_2023",
+      "months": 33,
+      "relative_wealth": 0.0844,
+      "excess_sharpe": 0.21
+    },
+    {
+      "fold": 0,
+      "period": "2024_PLUS",
+      "months": 32,
+      "relative_wealth": 0.3065,
+      "excess_sharpe": 0.733
+    },
+    {
+      "fold": 1,
+      "period": "2016_2020",
+      "months": 59,
+      "relative_wealth": -0.169,
+      "excess_sharpe": -0.32
+    },
+    {
+      "fold": 1,
+      "period": "2021_2023",
+      "months": 35,
+      "relative_wealth": 0.0763,
+      "excess_sharpe": 0.152
+    },
+    {
+      "fold": 1,
+      "period": "2024_PLUS",
+      "months": 32,
+      "relative_wealth": 0.1304,
+      "excess_sharpe": 0.521
+    },
+    {
+      "fold": 2,
+      "period": "2016_2020",
+      "months": 59,
+      "relative_wealth": -0.0815,
+      "excess_sharpe": -0.301
+    },
+    {
+      "fold": 2,
+      "period": "2021_2023",
+      "months": 35,
+      "relative_wealth": 0.1722,
+      "excess_sharpe": 0.432
+    },
+    {
+      "fold": 2,
+      "period": "2024_PLUS",
+      "months": 32,
+      "relative_wealth": -0.0533,
+      "excess_sharpe": -0.327
+    },
+    {
+      "fold": 3,
+      "period": "2016_2020",
+      "months": 59,
+      "relative_wealth": -0.1928,
+      "excess_sharpe": -0.793
+    },
+    {
+      "fold": 3,
+      "period": "2021_2023",
+      "months": 35,
+      "relative_wealth": -0.1694,
+      "excess_sharpe": -0.496
+    },
+    {
+      "fold": 3,
+      "period": "2024_PLUS",
+      "months": 32,
+      "relative_wealth": 0.0814,
+      "excess_sharpe": 0.477
+    },
+    {
+      "fold": 4,
+      "period": "2016_2020",
+      "months": 59,
+      "relative_wealth": 0.1776,
+      "excess_sharpe": 0.417
+    },
+    {
+      "fold": 4,
+      "period": "2021_2023",
+      "months": 35,
+      "relative_wealth": 0.1306,
+      "excess_sharpe": 0.33
+    },
+    {
+      "fold": 4,
+      "period": "2024_PLUS",
+      "months": 32,
+      "relative_wealth": -0.0094,
+      "excess_sharpe": 0.009
+    }
+  ],
+  "stress_2024_plus": [
+    {
+      "fold": 0,
+      "months": 32,
+      "relative_wealth": 0.3073,
+      "excess_sharpe": 0.733
+    },
+    {
+      "fold": 1,
+      "months": 32,
+      "relative_wealth": 0.1308,
+      "excess_sharpe": 0.521
+    },
+    {
+      "fold": 2,
+      "months": 32,
+      "relative_wealth": -0.0534,
+      "excess_sharpe": -0.327
+    },
+    {
+      "fold": 3,
+      "months": 32,
+      "relative_wealth": 0.0816,
+      "excess_sharpe": 0.477
+    },
+    {
+      "fold": 4,
+      "months": 32,
+      "relative_wealth": -0.0094,
+      "excess_sharpe": 0.009
+    }
+  ],
+  "positive_cells": 8,
+  "positive_2024_folds": 3,
+  "positive_stress_2024_folds": 3,
+  "median_excess_sharpe_by_period": {
+    "2016_2020": -0.301,
+    "2021_2023": 0.21,
+    "2024_PLUS": 0.477
+  },
+  "stage3_status": "FAIL",
+  "limitations": [
+    "current-survivor universe remains a bias",
+    "Yahoo data is not institutional point-in-time data",
+    "PASS would justify only higher-fidelity validation, not trading"
+  ]
+}
