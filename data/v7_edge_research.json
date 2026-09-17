@@ -1,121 +1,585 @@
 {
-  "engine": "V7 Historical Edge Research",
+  "generated_at": "2026-09-17T19:06:45.157658+00:00",
+  "engine": "V7.2 Historical Edge Falsification Harness",
   "mode": "RESEARCH_ONLY",
-  "years": 5,
-  "symbols": 30,
-  "cost_assumption_r": 0.06,
-  "splits": {
-    "train_end": "2024-11-05",
-    "validation_end": "2025-10-17"
-  },
-  "overall": {
-    "train": {
-      "samples": 2671,
-      "win_rate": 50.7,
-      "expectancy_r": 0.07,
-      "profit_factor": 1.17,
-      "total_r": 185.65,
-      "max_drawdown_r": 52.37
+  "production_v7_changed": false,
+  "live_execution_authorized": false,
+  "verdict": "FAIL",
+  "methodology": {
+    "start": "2018-01-01",
+    "fixed_split": {
+      "train_end": "2022-12-31",
+      "validation_end": "2024-12-31",
+      "holdout_start": "2025-01-01"
     },
-    "validation": {
-      "samples": 927,
-      "win_rate": 49.1,
-      "expectancy_r": 0.033,
-      "profit_factor": 1.08,
-      "total_r": 30.78,
-      "max_drawdown_r": 48.79
+    "baseline_round_trip_bps": 30.0,
+    "hold_bars": 10,
+    "portfolio_limits": {
+      "risk_per_trade_pct": 0.5,
+      "max_open_risk_pct": 1.5,
+      "max_group_risk_pct": 1.0,
+      "max_pair_correlation": 0.85,
+      "max_signals_per_day": 3
     },
-    "holdout": {
-      "samples": 803,
-      "win_rate": 47.8,
-      "expectancy_r": 0.013,
-      "profit_factor": 1.03,
-      "total_r": 10.29,
-      "max_drawdown_r": 42.12
-    }
+    "parameter_tuning": "NONE. Production thresholds/routing are preserved. +/-4 sensitivity is reported only on train+validation and is not used to change holdout parameters.",
+    "execution": "signal on completed daily bar, entry next session open, stop checked before target on ambiguous bars, gap-through-stop filled at open, costs expressed from bps into R.",
+    "fidelity": "Daily proxy. No historical catalyst bonus, no positive MTF bonus, no point-in-time Sharia fundamentals. Intraday-only families are not claimed as fill-perfect replays.",
+    "holdout_note": "The time holdout is locked for this harness but is not globally pristine because earlier project backtests already inspected overlapping dates. Independent symbols provide an additional cross-sectional holdout."
   },
-  "by_setup": {
-    "MOMENTUM_LEADER": {
+  "data_quality": {
+    "primary_symbols_requested": 40,
+    "independent_symbols_requested": 25,
+    "download_errors": {},
+    "survivorship_bias_warning": true
+  },
+  "combined_portfolio": {
+    "split": {
       "train": {
-        "samples": 850,
-        "win_rate": 51.8,
-        "expectancy_r": 0.082,
-        "profit_factor": 1.2,
-        "total_r": 69.5,
-        "max_drawdown_r": 25.56
+        "samples": 499,
+        "win_rate": 45.3,
+        "avg_winner_r": 1.237,
+        "avg_loser_r": -1.004,
+        "expectancy_r": 0.011,
+        "profit_factor": 1.02,
+        "total_r": 5.5,
+        "max_drawdown_r": 18.6,
+        "losing_streak": 10
       },
       "validation": {
-        "samples": 309,
-        "win_rate": 48.9,
-        "expectancy_r": 0.035,
-        "profit_factor": 1.08,
-        "total_r": 10.75,
-        "max_drawdown_r": 24.18
+        "samples": 271,
+        "win_rate": 43.5,
+        "avg_winner_r": 1.289,
+        "avg_loser_r": -1.074,
+        "expectancy_r": -0.045,
+        "profit_factor": 0.93,
+        "total_r": -12.33,
+        "max_drawdown_r": 24.29,
+        "losing_streak": 9
       },
       "holdout": {
-        "samples": 265,
-        "win_rate": 47.5,
+        "samples": 223,
+        "win_rate": 41.3,
+        "avg_winner_r": 1.376,
+        "avg_loser_r": -1.036,
+        "expectancy_r": -0.041,
+        "profit_factor": 0.93,
+        "total_r": -9.12,
+        "max_drawdown_r": 20.72,
+        "losing_streak": 11
+      }
+    },
+    "holdout_expectancy_bootstrap_95pct": [
+      -0.197,
+      0.12
+    ],
+    "holdout_by_strategy": {
+      "SESSION_LEADER": {
+        "samples": 1,
+        "win_rate": 100.0,
+        "avg_winner_r": 0.485,
+        "avg_loser_r": 0,
+        "expectancy_r": 0.485,
+        "profit_factor": 99.0,
+        "total_r": 0.49,
+        "max_drawdown_r": 0.0,
+        "losing_streak": 0
+      },
+      "MOMENTUM_LEADER": {
+        "samples": 2,
+        "win_rate": 100.0,
+        "avg_winner_r": 1.515,
+        "avg_loser_r": 0,
+        "expectancy_r": 1.515,
+        "profit_factor": 99.0,
+        "total_r": 3.03,
+        "max_drawdown_r": 0.0,
+        "losing_streak": 0
+      },
+      "BREAKOUT": {
+        "samples": 0,
+        "win_rate": 0,
+        "avg_winner_r": 0,
+        "avg_loser_r": 0,
+        "expectancy_r": 0,
+        "profit_factor": 0,
+        "total_r": 0,
+        "max_drawdown_r": 0,
+        "losing_streak": 0
+      },
+      "VWAP_PULLBACK": {
+        "samples": 130,
+        "win_rate": 35.4,
+        "avg_winner_r": 1.422,
+        "avg_loser_r": -1.069,
+        "expectancy_r": -0.188,
+        "profit_factor": 0.73,
+        "total_r": -24.42,
+        "max_drawdown_r": 25.95,
+        "losing_streak": 12
+      },
+      "SWING_CONTINUATION": {
+        "samples": 90,
+        "win_rate": 47.8,
+        "avg_winner_r": 1.341,
+        "avg_loser_r": -0.976,
+        "expectancy_r": 0.131,
+        "profit_factor": 1.26,
+        "total_r": 11.78,
+        "max_drawdown_r": 5.96,
+        "losing_streak": 6
+      }
+    },
+    "holdout_by_regime": {
+      "RISK_ON": {
+        "samples": 111,
+        "win_rate": 40.5,
+        "avg_winner_r": 1.411,
+        "avg_loser_r": -1.032,
+        "expectancy_r": -0.042,
+        "profit_factor": 0.93,
+        "total_r": -4.63,
+        "max_drawdown_r": 13.65,
+        "losing_streak": 8
+      },
+      "MIXED": {
+        "samples": 89,
+        "win_rate": 43.8,
+        "avg_winner_r": 1.316,
+        "avg_loser_r": -1.014,
+        "expectancy_r": 0.007,
+        "profit_factor": 1.01,
+        "total_r": 0.65,
+        "max_drawdown_r": 12.51,
+        "losing_streak": 10
+      },
+      "RISK_OFF": {
+        "samples": 23,
+        "win_rate": 34.8,
+        "avg_winner_r": 1.471,
+        "avg_loser_r": -1.127,
+        "expectancy_r": -0.224,
+        "profit_factor": 0.7,
+        "total_r": -5.14,
+        "max_drawdown_r": 8.34,
+        "losing_streak": 5
+      },
+      "HIGH_VOLATILITY": {
+        "samples": 0,
+        "win_rate": 0,
+        "avg_winner_r": 0,
+        "avg_loser_r": 0,
+        "expectancy_r": 0,
+        "profit_factor": 0,
+        "total_r": 0,
+        "max_drawdown_r": 0,
+        "losing_streak": 0
+      }
+    },
+    "by_year": {
+      "2018": {
+        "samples": 10,
+        "win_rate": 0.0,
+        "avg_winner_r": 0,
+        "avg_loser_r": -1.103,
+        "expectancy_r": -1.103,
+        "profit_factor": 0.0,
+        "total_r": -11.03,
+        "max_drawdown_r": 11.03,
+        "losing_streak": 10
+      },
+      "2019": {
+        "samples": 114,
+        "win_rate": 50.9,
+        "avg_winner_r": 1.166,
+        "avg_loser_r": -0.974,
+        "expectancy_r": 0.115,
+        "profit_factor": 1.24,
+        "total_r": 13.11,
+        "max_drawdown_r": 7.56,
+        "losing_streak": 6
+      },
+      "2020": {
+        "samples": 125,
+        "win_rate": 45.6,
+        "avg_winner_r": 1.361,
+        "avg_loser_r": -0.984,
+        "expectancy_r": 0.085,
+        "profit_factor": 1.16,
+        "total_r": 10.64,
+        "max_drawdown_r": 17.99,
+        "losing_streak": 9
+      },
+      "2021": {
+        "samples": 130,
+        "win_rate": 44.6,
+        "avg_winner_r": 1.231,
+        "avg_loser_r": -0.98,
+        "expectancy_r": 0.007,
+        "profit_factor": 1.01,
+        "total_r": 0.86,
+        "max_drawdown_r": 12.84,
+        "losing_streak": 7
+      },
+      "2022": {
+        "samples": 120,
+        "win_rate": 44.2,
+        "avg_winner_r": 1.187,
+        "avg_loser_r": -1.06,
+        "expectancy_r": -0.067,
+        "profit_factor": 0.89,
+        "total_r": -8.08,
+        "max_drawdown_r": 16.16,
+        "losing_streak": 8
+      },
+      "2023": {
+        "samples": 129,
+        "win_rate": 43.4,
+        "avg_winner_r": 1.225,
+        "avg_loser_r": -1.077,
+        "expectancy_r": -0.077,
+        "profit_factor": 0.87,
+        "total_r": -9.98,
+        "max_drawdown_r": 24.29,
+        "losing_streak": 9
+      },
+      "2024": {
+        "samples": 142,
+        "win_rate": 43.7,
+        "avg_winner_r": 1.346,
+        "avg_loser_r": -1.072,
+        "expectancy_r": -0.016,
+        "profit_factor": 0.97,
+        "total_r": -2.34,
+        "max_drawdown_r": 22.53,
+        "losing_streak": 8
+      },
+      "2025": {
+        "samples": 123,
+        "win_rate": 44.7,
+        "avg_winner_r": 1.255,
+        "avg_loser_r": -1.034,
         "expectancy_r": -0.011,
         "profit_factor": 0.98,
-        "total_r": -2.84,
-        "max_drawdown_r": 23.57
+        "total_r": -1.34,
+        "max_drawdown_r": 18.97,
+        "losing_streak": 9
+      },
+      "2026": {
+        "samples": 100,
+        "win_rate": 37.0,
+        "avg_winner_r": 1.556,
+        "avg_loser_r": -1.038,
+        "expectancy_r": -0.078,
+        "profit_factor": 0.88,
+        "total_r": -7.79,
+        "max_drawdown_r": 20.72,
+        "losing_streak": 11
       }
     },
-    "BREAKOUT": {
-      "train": {
-        "samples": 392,
-        "win_rate": 49.0,
-        "expectancy_r": 0.027,
-        "profit_factor": 1.06,
-        "total_r": 10.46,
-        "max_drawdown_r": 31.31
+    "walk_forward": [
+      {
+        "test_year": 2019,
+        "metrics": {
+          "samples": 114,
+          "win_rate": 50.9,
+          "avg_winner_r": 1.166,
+          "avg_loser_r": -0.974,
+          "expectancy_r": 0.115,
+          "profit_factor": 1.24,
+          "total_r": 13.11,
+          "max_drawdown_r": 7.56,
+          "losing_streak": 6
+        }
       },
-      "validation": {
-        "samples": 127,
-        "win_rate": 44.9,
-        "expectancy_r": -0.025,
-        "profit_factor": 0.94,
-        "total_r": -3.21,
-        "max_drawdown_r": 12.96
+      {
+        "test_year": 2020,
+        "metrics": {
+          "samples": 125,
+          "win_rate": 45.6,
+          "avg_winner_r": 1.361,
+          "avg_loser_r": -0.984,
+          "expectancy_r": 0.085,
+          "profit_factor": 1.16,
+          "total_r": 10.64,
+          "max_drawdown_r": 17.99,
+          "losing_streak": 9
+        }
       },
-      "holdout": {
-        "samples": 118,
-        "win_rate": 39.8,
-        "expectancy_r": -0.143,
-        "profit_factor": 0.73,
-        "total_r": -16.93,
-        "max_drawdown_r": 18.0
+      {
+        "test_year": 2021,
+        "metrics": {
+          "samples": 130,
+          "win_rate": 44.6,
+          "avg_winner_r": 1.231,
+          "avg_loser_r": -0.98,
+          "expectancy_r": 0.007,
+          "profit_factor": 1.01,
+          "total_r": 0.86,
+          "max_drawdown_r": 12.84,
+          "losing_streak": 7
+        }
+      },
+      {
+        "test_year": 2022,
+        "metrics": {
+          "samples": 120,
+          "win_rate": 44.2,
+          "avg_winner_r": 1.187,
+          "avg_loser_r": -1.06,
+          "expectancy_r": -0.067,
+          "profit_factor": 0.89,
+          "total_r": -8.08,
+          "max_drawdown_r": 16.16,
+          "losing_streak": 8
+        }
+      },
+      {
+        "test_year": 2023,
+        "metrics": {
+          "samples": 129,
+          "win_rate": 43.4,
+          "avg_winner_r": 1.225,
+          "avg_loser_r": -1.077,
+          "expectancy_r": -0.077,
+          "profit_factor": 0.87,
+          "total_r": -9.98,
+          "max_drawdown_r": 24.29,
+          "losing_streak": 9
+        }
+      },
+      {
+        "test_year": 2024,
+        "metrics": {
+          "samples": 142,
+          "win_rate": 43.7,
+          "avg_winner_r": 1.346,
+          "avg_loser_r": -1.072,
+          "expectancy_r": -0.016,
+          "profit_factor": 0.97,
+          "total_r": -2.34,
+          "max_drawdown_r": 22.53,
+          "losing_streak": 8
+        }
+      },
+      {
+        "test_year": 2025,
+        "metrics": {
+          "samples": 123,
+          "win_rate": 44.7,
+          "avg_winner_r": 1.255,
+          "avg_loser_r": -1.034,
+          "expectancy_r": -0.011,
+          "profit_factor": 0.98,
+          "total_r": -1.34,
+          "max_drawdown_r": 18.97,
+          "losing_streak": 9
+        }
+      },
+      {
+        "test_year": 2026,
+        "metrics": {
+          "samples": 100,
+          "win_rate": 37.0,
+          "avg_winner_r": 1.556,
+          "avg_loser_r": -1.038,
+          "expectancy_r": -0.078,
+          "profit_factor": 0.88,
+          "total_r": -7.79,
+          "max_drawdown_r": 20.72,
+          "losing_streak": 11
+        }
       }
-    },
-    "SWING_CONTINUATION": {
-      "train": {
-        "samples": 1429,
-        "win_rate": 50.5,
-        "expectancy_r": 0.074,
-        "profit_factor": 1.19,
-        "total_r": 105.69,
-        "max_drawdown_r": 25.76
+    ],
+    "rejections": {
+      "daily_signal_cap": 175,
+      "open_risk_cap": 23456,
+      "duplicate_symbol": 174,
+      "correlation_cap": 42,
+      "group_risk_cap": 33
+    }
+  },
+  "strategy_diagnostics_unconstrained": {
+    "holdout": {
+      "SESSION_LEADER": {
+        "samples": 332,
+        "win_rate": 41.6,
+        "avg_winner_r": 1.298,
+        "avg_loser_r": -1.093,
+        "expectancy_r": -0.099,
+        "profit_factor": 0.84,
+        "total_r": -32.91,
+        "max_drawdown_r": 37.03,
+        "losing_streak": 11
       },
-      "validation": {
-        "samples": 491,
-        "win_rate": 50.3,
-        "expectancy_r": 0.047,
-        "profit_factor": 1.12,
-        "total_r": 23.24,
-        "max_drawdown_r": 29.15
+      "MOMENTUM_LEADER": {
+        "samples": 204,
+        "win_rate": 39.7,
+        "avg_winner_r": 1.315,
+        "avg_loser_r": -1.127,
+        "expectancy_r": -0.157,
+        "profit_factor": 0.77,
+        "total_r": -32.11,
+        "max_drawdown_r": 37.54,
+        "losing_streak": 8
       },
-      "holdout": {
-        "samples": 420,
-        "win_rate": 50.2,
-        "expectancy_r": 0.072,
-        "profit_factor": 1.17,
-        "total_r": 30.05,
-        "max_drawdown_r": 17.24
+      "BREAKOUT": {
+        "samples": 185,
+        "win_rate": 40.5,
+        "avg_winner_r": 1.364,
+        "avg_loser_r": -1.122,
+        "expectancy_r": -0.114,
+        "profit_factor": 0.83,
+        "total_r": -21.06,
+        "max_drawdown_r": 39.01,
+        "losing_streak": 9
+      },
+      "VWAP_PULLBACK": {
+        "samples": 3393,
+        "win_rate": 44.5,
+        "avg_winner_r": 1.34,
+        "avg_loser_r": -1.114,
+        "expectancy_r": -0.022,
+        "profit_factor": 0.96,
+        "total_r": -74.52,
+        "max_drawdown_r": 153.82,
+        "losing_streak": 41
+      },
+      "SWING_CONTINUATION": {
+        "samples": 3583,
+        "win_rate": 46.4,
+        "avg_winner_r": 1.269,
+        "avg_loser_r": -1.028,
+        "expectancy_r": 0.037,
+        "profit_factor": 1.07,
+        "total_r": 132.36,
+        "max_drawdown_r": 154.66,
+        "losing_streak": 21
       }
     }
   },
-  "errors": [],
-  "verdict": "FAIL_OR_REWORK",
-  "live_execution_authorized": false,
-  "note": "Daily proxy research of V7 hypotheses; not a fill-perfect replay of the live multi-timeframe engine."
+  "independent_symbol_holdout": {
+    "symbols": [
+      "INTC",
+      "SNOW",
+      "DDOG",
+      "NET",
+      "MDB",
+      "SHOP",
+      "UBER",
+      "ABNB",
+      "BKNG",
+      "TGT",
+      "LOW",
+      "NKE",
+      "SBUX",
+      "MCD",
+      "ISRG",
+      "VRTX",
+      "REGN",
+      "PFE",
+      "BA",
+      "HON",
+      "RTX",
+      "CMCSA",
+      "SPOT",
+      "RBLX",
+      "MELI"
+    ],
+    "holdout": {
+      "samples": 209,
+      "win_rate": 46.9,
+      "avg_winner_r": 1.231,
+      "avg_loser_r": -1.031,
+      "expectancy_r": 0.03,
+      "profit_factor": 1.05,
+      "total_r": 6.19,
+      "max_drawdown_r": 10.96,
+      "losing_streak": 7
+    },
+    "rejections": {
+      "daily_signal_cap": 17,
+      "open_risk_cap": 11117,
+      "duplicate_symbol": 311,
+      "group_risk_cap": 20,
+      "correlation_cap": 1
+    }
+  },
+  "parameter_sensitivity_train_validation_only": {
+    "threshold_offset_points": {
+      "-4": {
+        "samples": 780,
+        "win_rate": 44.5,
+        "avg_winner_r": 1.251,
+        "avg_loser_r": -1.036,
+        "expectancy_r": -0.019,
+        "profit_factor": 0.97,
+        "total_r": -14.48,
+        "max_drawdown_r": 31.31,
+        "losing_streak": 10
+      },
+      "0": {
+        "samples": 770,
+        "win_rate": 44.7,
+        "avg_winner_r": 1.255,
+        "avg_loser_r": -1.029,
+        "expectancy_r": -0.009,
+        "profit_factor": 0.98,
+        "total_r": -6.82,
+        "max_drawdown_r": 25.23,
+        "losing_streak": 10
+      },
+      "4": {
+        "samples": 767,
+        "win_rate": 45.4,
+        "avg_winner_r": 1.243,
+        "avg_loser_r": -1.035,
+        "expectancy_r": -0.002,
+        "profit_factor": 1.0,
+        "total_r": -1.36,
+        "max_drawdown_r": 24.87,
+        "losing_streak": 9
+      }
+    }
+  },
+  "holdout_cost_stress_round_trip_bps": {
+    "30": {
+      "samples": 223,
+      "win_rate": 41.3,
+      "avg_winner_r": 1.376,
+      "avg_loser_r": -1.036,
+      "expectancy_r": -0.041,
+      "profit_factor": 0.93,
+      "total_r": -9.12,
+      "max_drawdown_r": 20.72,
+      "losing_streak": 11
+    },
+    "60": {
+      "samples": 223,
+      "win_rate": 40.4,
+      "avg_winner_r": 1.321,
+      "avg_loser_r": -1.106,
+      "expectancy_r": -0.126,
+      "profit_factor": 0.81,
+      "total_r": -28.18,
+      "max_drawdown_r": 29.71,
+      "losing_streak": 11
+    },
+    "100": {
+      "samples": 223,
+      "win_rate": 39.9,
+      "avg_winner_r": 1.223,
+      "avg_loser_r": -1.212,
+      "expectancy_r": -0.24,
+      "profit_factor": 0.67,
+      "total_r": -53.58,
+      "max_drawdown_r": 54.96,
+      "losing_streak": 11
+    }
+  },
+  "decision_rules": {
+    "SHADOW_READY": ">=100 holdout trades, >=0.10R expectancy, PF>=1.30, DD<=8R, validation PF>=1.20, positive independent holdout; exact/full-fidelity replay required.",
+    "PROMISING": "positive validation + holdout, holdout PF>=1.15 and DD<=12R, non-negative independent holdout.",
+    "FAIL": "otherwise."
+  },
+  "interpretation": "A PROMISING result here can justify continued shadow work; because intraday/catalyst components are proxies, this harness alone cannot certify V7.2 as SHADOW_READY. A FAIL result is sufficient evidence not to spend another month merely waiting for forward trades under the unchanged hypothesis set."
 }
