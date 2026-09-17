@@ -54,6 +54,9 @@ jobs:
       - name: Extract clean SWING forward evidence
         run: python swing_forward_evidence.py
 
+      - name: Run recent no-secret hourly SWING falsification
+        run: python swing_hourly_falsification.py
+
       - name: Detect Alpaca API credentials
         id: alpaca
         shell: bash
@@ -86,6 +89,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/swing_forward_evidence.json 2>/dev/null || true
+          git add data/swing_hourly_proxy_research.json 2>/dev/null || true
           if [ -f data/swing_full_fidelity_research.json ]; then
             git add data/swing_full_fidelity_research.json
           fi
@@ -114,6 +118,16 @@ jobs:
           d=json.load(open('data/swing_forward_evidence.json'))
           print(f"- Clean SWING forward closed metrics: `{d.get('closed_metrics',{})}`")
           print(f"- Open SWING positions: **{d.get('open_count',0)}**")
+          PY
+          fi
+          if [ -f data/swing_hourly_proxy_research.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/swing_hourly_proxy_research.json'))
+          print(f"- Recent hourly falsification: **{d.get('verdict','UNKNOWN')}**")
+          print(f"- Validation: `{d.get('primary',{}).get('validation',{})}`")
+          print(f"- Holdout: `{d.get('primary',{}).get('holdout',{})}`")
+          print(f"- Independent holdout: `{d.get('independent_holdout',{})}`")
           PY
           fi
           if [ -f data/swing_full_fidelity_research.json ]; then
