@@ -1,0 +1,706 @@
+{
+  "method": "predeclared published-edge round 2; monthly next-open fills; cross-fold benchmark-relative tests",
+  "baseline_roundtrip_bps": 30.0,
+  "stress_roundtrip_bps": 60.0,
+  "downloaded_symbols": 65,
+  "strategies": [
+    "LOW_VOL_1Y",
+    "LOW_VOL_3Y_WEEKLY",
+    "RESIDUAL_MOMENTUM_MKT",
+    "SHORT_REVERSAL_1M"
+  ],
+  "results": [
+    {
+      "strategy": "LOW_VOL_1Y",
+      "status": "REJECT",
+      "positive_cells": 3,
+      "positive_2024_folds": 0,
+      "positive_stress_2024_folds": 0,
+      "median_excess_sharpe_by_period": {
+        "2016_2020": -1.054,
+        "2021_2023": 0.019,
+        "2024_PLUS": -0.745
+      },
+      "cells": [
+        {
+          "fold": 0,
+          "period": "2016_2020",
+          "months": 39,
+          "relative_wealth": -0.447,
+          "excess_sharpe": -1.303,
+          "mean_excess_monthly": -0.01691
+        },
+        {
+          "fold": 0,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.1419,
+          "excess_sharpe": 0.187,
+          "mean_excess_monthly": 0.00319
+        },
+        {
+          "fold": 0,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.1516,
+          "excess_sharpe": -0.345,
+          "mean_excess_monthly": -0.00651
+        },
+        {
+          "fold": 1,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.5071,
+          "excess_sharpe": -1.376,
+          "mean_excess_monthly": -0.01221
+        },
+        {
+          "fold": 1,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.0854,
+          "excess_sharpe": 0.106,
+          "mean_excess_monthly": 0.00167
+        },
+        {
+          "fold": 1,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.2287,
+          "excess_sharpe": -0.745,
+          "mean_excess_monthly": -0.00842
+        },
+        {
+          "fold": 2,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.448,
+          "excess_sharpe": -0.902,
+          "mean_excess_monthly": -0.01061
+        },
+        {
+          "fold": 2,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.1647,
+          "excess_sharpe": -0.393,
+          "mean_excess_monthly": -0.00589
+        },
+        {
+          "fold": 2,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.4534,
+          "excess_sharpe": -1.114,
+          "mean_excess_monthly": -0.01937
+        },
+        {
+          "fold": 3,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.4476,
+          "excess_sharpe": -1.054,
+          "mean_excess_monthly": -0.01049
+        },
+        {
+          "fold": 3,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.0776,
+          "excess_sharpe": 0.019,
+          "mean_excess_monthly": 0.00029
+        },
+        {
+          "fold": 3,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.0414,
+          "excess_sharpe": -0.092,
+          "mean_excess_monthly": -0.00158
+        },
+        {
+          "fold": 4,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.3405,
+          "excess_sharpe": -0.656,
+          "mean_excess_monthly": -0.00759
+        },
+        {
+          "fold": 4,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.1882,
+          "excess_sharpe": -0.42,
+          "mean_excess_monthly": -0.00642
+        },
+        {
+          "fold": 4,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.3322,
+          "excess_sharpe": -1.006,
+          "mean_excess_monthly": -0.01256
+        }
+      ],
+      "stress_2024_plus": [
+        {
+          "fold": 0,
+          "months": 32,
+          "relative_wealth": -0.1519,
+          "excess_sharpe": -0.345,
+          "mean_excess_monthly": -0.00651
+        },
+        {
+          "fold": 1,
+          "months": 32,
+          "relative_wealth": -0.2293,
+          "excess_sharpe": -0.745,
+          "mean_excess_monthly": -0.00842
+        },
+        {
+          "fold": 2,
+          "months": 32,
+          "relative_wealth": -0.4544,
+          "excess_sharpe": -1.114,
+          "mean_excess_monthly": -0.01937
+        },
+        {
+          "fold": 3,
+          "months": 32,
+          "relative_wealth": -0.0415,
+          "excess_sharpe": -0.092,
+          "mean_excess_monthly": -0.00158
+        },
+        {
+          "fold": 4,
+          "months": 32,
+          "relative_wealth": -0.333,
+          "excess_sharpe": -1.006,
+          "mean_excess_monthly": -0.01256
+        }
+      ]
+    },
+    {
+      "strategy": "LOW_VOL_3Y_WEEKLY",
+      "status": "REJECT",
+      "positive_cells": 1,
+      "positive_2024_folds": 0,
+      "positive_stress_2024_folds": 0,
+      "median_excess_sharpe_by_period": {
+        "2016_2020": -0.927,
+        "2021_2023": -0.326,
+        "2024_PLUS": -0.8
+      },
+      "cells": [
+        {
+          "fold": 0,
+          "period": "2016_2020",
+          "months": 39,
+          "relative_wealth": -0.3229,
+          "excess_sharpe": -0.838,
+          "mean_excess_monthly": -0.01121
+        },
+        {
+          "fold": 0,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.1599,
+          "excess_sharpe": 0.216,
+          "mean_excess_monthly": 0.00383
+        },
+        {
+          "fold": 0,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.3562,
+          "excess_sharpe": -0.8,
+          "mean_excess_monthly": -0.01524
+        },
+        {
+          "fold": 1,
+          "period": "2016_2020",
+          "months": 56,
+          "relative_wealth": -0.3376,
+          "excess_sharpe": -0.735,
+          "mean_excess_monthly": -0.00743
+        },
+        {
+          "fold": 1,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.1279,
+          "excess_sharpe": -0.326,
+          "mean_excess_monthly": -0.00437
+        },
+        {
+          "fold": 1,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.1818,
+          "excess_sharpe": -0.403,
+          "mean_excess_monthly": -0.00576
+        },
+        {
+          "fold": 2,
+          "period": "2016_2020",
+          "months": 56,
+          "relative_wealth": -0.4553,
+          "excess_sharpe": -0.927,
+          "mean_excess_monthly": -0.01153
+        },
+        {
+          "fold": 2,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.152,
+          "excess_sharpe": -0.406,
+          "mean_excess_monthly": -0.00544
+        },
+        {
+          "fold": 2,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.4141,
+          "excess_sharpe": -0.853,
+          "mean_excess_monthly": -0.01724
+        },
+        {
+          "fold": 3,
+          "period": "2016_2020",
+          "months": 56,
+          "relative_wealth": -0.5357,
+          "excess_sharpe": -1.25,
+          "mean_excess_monthly": -0.01437
+        },
+        {
+          "fold": 3,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.0276,
+          "excess_sharpe": -0.149,
+          "mean_excess_monthly": -0.00226
+        },
+        {
+          "fold": 3,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.114,
+          "excess_sharpe": -0.223,
+          "mean_excess_monthly": -0.00406
+        },
+        {
+          "fold": 4,
+          "period": "2016_2020",
+          "months": 56,
+          "relative_wealth": -0.5205,
+          "excess_sharpe": -1.107,
+          "mean_excess_monthly": -0.01333
+        },
+        {
+          "fold": 4,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.2013,
+          "excess_sharpe": -0.549,
+          "mean_excess_monthly": -0.00703
+        },
+        {
+          "fold": 4,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.3308,
+          "excess_sharpe": -0.817,
+          "mean_excess_monthly": -0.01202
+        }
+      ],
+      "stress_2024_plus": [
+        {
+          "fold": 0,
+          "months": 32,
+          "relative_wealth": -0.357,
+          "excess_sharpe": -0.8,
+          "mean_excess_monthly": -0.01524
+        },
+        {
+          "fold": 1,
+          "months": 32,
+          "relative_wealth": -0.1823,
+          "excess_sharpe": -0.403,
+          "mean_excess_monthly": -0.00576
+        },
+        {
+          "fold": 2,
+          "months": 32,
+          "relative_wealth": -0.415,
+          "excess_sharpe": -0.853,
+          "mean_excess_monthly": -0.01724
+        },
+        {
+          "fold": 3,
+          "months": 32,
+          "relative_wealth": -0.1143,
+          "excess_sharpe": -0.223,
+          "mean_excess_monthly": -0.00406
+        },
+        {
+          "fold": 4,
+          "months": 32,
+          "relative_wealth": -0.3316,
+          "excess_sharpe": -0.817,
+          "mean_excess_monthly": -0.01202
+        }
+      ]
+    },
+    {
+      "strategy": "RESIDUAL_MOMENTUM_MKT",
+      "status": "REJECT",
+      "positive_cells": 5,
+      "positive_2024_folds": 3,
+      "positive_stress_2024_folds": 3,
+      "median_excess_sharpe_by_period": {
+        "2016_2020": -0.716,
+        "2021_2023": 0.015,
+        "2024_PLUS": 0.607
+      },
+      "cells": [
+        {
+          "fold": 0,
+          "period": "2016_2020",
+          "months": 37,
+          "relative_wealth": -0.3391,
+          "excess_sharpe": -1.02,
+          "mean_excess_monthly": -0.01231
+        },
+        {
+          "fold": 0,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.1452,
+          "excess_sharpe": 0.249,
+          "mean_excess_monthly": 0.0033
+        },
+        {
+          "fold": 0,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": 0.3191,
+          "excess_sharpe": 0.607,
+          "mean_excess_monthly": 0.01297
+        },
+        {
+          "fold": 1,
+          "period": "2016_2020",
+          "months": 37,
+          "relative_wealth": -0.4021,
+          "excess_sharpe": -1.132,
+          "mean_excess_monthly": -0.01418
+        },
+        {
+          "fold": 1,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.0554,
+          "excess_sharpe": 0.087,
+          "mean_excess_monthly": 0.00117
+        },
+        {
+          "fold": 1,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": 0.738,
+          "excess_sharpe": 1.282,
+          "mean_excess_monthly": 0.01894
+        },
+        {
+          "fold": 2,
+          "period": "2016_2020",
+          "months": 37,
+          "relative_wealth": -0.2507,
+          "excess_sharpe": -0.716,
+          "mean_excess_monthly": -0.00749
+        },
+        {
+          "fold": 2,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.0013,
+          "excess_sharpe": 0.015,
+          "mean_excess_monthly": 0.00022
+        },
+        {
+          "fold": 2,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": 0.6451,
+          "excess_sharpe": 1.07,
+          "mean_excess_monthly": 0.01885
+        },
+        {
+          "fold": 3,
+          "period": "2016_2020",
+          "months": 37,
+          "relative_wealth": -0.2733,
+          "excess_sharpe": -0.69,
+          "mean_excess_monthly": -0.00756
+        },
+        {
+          "fold": 3,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.211,
+          "excess_sharpe": -0.495,
+          "mean_excess_monthly": -0.00699
+        },
+        {
+          "fold": 3,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.1197,
+          "excess_sharpe": -0.107,
+          "mean_excess_monthly": -0.00175
+        },
+        {
+          "fold": 4,
+          "period": "2016_2020",
+          "months": 37,
+          "relative_wealth": -0.2058,
+          "excess_sharpe": -0.328,
+          "mean_excess_monthly": -0.00479
+        },
+        {
+          "fold": 4,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.0436,
+          "excess_sharpe": -0.027,
+          "mean_excess_monthly": -0.00056
+        },
+        {
+          "fold": 4,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.3187,
+          "excess_sharpe": -0.771,
+          "mean_excess_monthly": -0.01086
+        }
+      ],
+      "stress_2024_plus": [
+        {
+          "fold": 0,
+          "months": 32,
+          "relative_wealth": 0.3197,
+          "excess_sharpe": 0.607,
+          "mean_excess_monthly": 0.01297
+        },
+        {
+          "fold": 1,
+          "months": 32,
+          "relative_wealth": 0.7406,
+          "excess_sharpe": 1.282,
+          "mean_excess_monthly": 0.01894
+        },
+        {
+          "fold": 2,
+          "months": 32,
+          "relative_wealth": 0.6471,
+          "excess_sharpe": 1.07,
+          "mean_excess_monthly": 0.01885
+        },
+        {
+          "fold": 3,
+          "months": 32,
+          "relative_wealth": -0.1202,
+          "excess_sharpe": -0.107,
+          "mean_excess_monthly": -0.00175
+        },
+        {
+          "fold": 4,
+          "months": 32,
+          "relative_wealth": -0.3195,
+          "excess_sharpe": -0.771,
+          "mean_excess_monthly": -0.01086
+        }
+      ]
+    },
+    {
+      "strategy": "SHORT_REVERSAL_1M",
+      "status": "REJECT",
+      "positive_cells": 4,
+      "positive_2024_folds": 1,
+      "positive_stress_2024_folds": 1,
+      "median_excess_sharpe_by_period": {
+        "2016_2020": -0.291,
+        "2021_2023": 0.214,
+        "2024_PLUS": -0.575
+      },
+      "cells": [
+        {
+          "fold": 0,
+          "period": "2016_2020",
+          "months": 39,
+          "relative_wealth": -0.0394,
+          "excess_sharpe": -0.291,
+          "mean_excess_monthly": -0.00104
+        },
+        {
+          "fold": 0,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.1595,
+          "excess_sharpe": -1.144,
+          "mean_excess_monthly": -0.00459
+        },
+        {
+          "fold": 0,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.0869,
+          "excess_sharpe": -0.575,
+          "mean_excess_monthly": -0.00326
+        },
+        {
+          "fold": 1,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.0631,
+          "excess_sharpe": -0.255,
+          "mean_excess_monthly": -0.00134
+        },
+        {
+          "fold": 1,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.0912,
+          "excess_sharpe": 0.584,
+          "mean_excess_monthly": 0.0026
+        },
+        {
+          "fold": 1,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.0486,
+          "excess_sharpe": -0.281,
+          "mean_excess_monthly": -0.00139
+        },
+        {
+          "fold": 2,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.154,
+          "excess_sharpe": -0.979,
+          "mean_excess_monthly": -0.00292
+        },
+        {
+          "fold": 2,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.1286,
+          "excess_sharpe": 0.927,
+          "mean_excess_monthly": 0.00364
+        },
+        {
+          "fold": 2,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.2291,
+          "excess_sharpe": -1.185,
+          "mean_excess_monthly": -0.00842
+        },
+        {
+          "fold": 3,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.0726,
+          "excess_sharpe": -0.357,
+          "mean_excess_monthly": -0.00122
+        },
+        {
+          "fold": 3,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": -0.0348,
+          "excess_sharpe": -0.241,
+          "mean_excess_monthly": -0.00084
+        },
+        {
+          "fold": 3,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": 0.1686,
+          "excess_sharpe": 0.747,
+          "mean_excess_monthly": 0.00472
+        },
+        {
+          "fold": 4,
+          "period": "2016_2020",
+          "months": 59,
+          "relative_wealth": -0.0785,
+          "excess_sharpe": -0.29,
+          "mean_excess_monthly": -0.00123
+        },
+        {
+          "fold": 4,
+          "period": "2021_2023",
+          "months": 35,
+          "relative_wealth": 0.0172,
+          "excess_sharpe": 0.214,
+          "mean_excess_monthly": 0.00084
+        },
+        {
+          "fold": 4,
+          "period": "2024_PLUS",
+          "months": 32,
+          "relative_wealth": -0.1866,
+          "excess_sharpe": -0.84,
+          "mean_excess_monthly": -0.00625
+        }
+      ],
+      "stress_2024_plus": [
+        {
+          "fold": 0,
+          "months": 32,
+          "relative_wealth": -0.0871,
+          "excess_sharpe": -0.575,
+          "mean_excess_monthly": -0.00326
+        },
+        {
+          "fold": 1,
+          "months": 32,
+          "relative_wealth": -0.0487,
+          "excess_sharpe": -0.281,
+          "mean_excess_monthly": -0.00139
+        },
+        {
+          "fold": 2,
+          "months": 32,
+          "relative_wealth": -0.2297,
+          "excess_sharpe": -1.185,
+          "mean_excess_monthly": -0.00842
+        },
+        {
+          "fold": 3,
+          "months": 32,
+          "relative_wealth": 0.1691,
+          "excess_sharpe": 0.747,
+          "mean_excess_monthly": 0.00472
+        },
+        {
+          "fold": 4,
+          "months": 32,
+          "relative_wealth": -0.1872,
+          "excess_sharpe": -0.84,
+          "mean_excess_monthly": -0.00625
+        }
+      ]
+    }
+  ],
+  "candidates": [],
+  "overall": "NO_ROUND2_CANDIDATE",
+  "limitations": [
+    "current-survivor universe remains selection/survivorship biased",
+    "Yahoo is not institutional point-in-time constituent data",
+    "residual momentum uses market-only residuals rather than exact Fama-French three-factor residuals",
+    "a candidate authorizes only higher-fidelity validation, never paper/live trading"
+  ]
+}
