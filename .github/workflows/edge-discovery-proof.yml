@@ -1,0 +1,63 @@
+name: Edge Discovery Proof
+
+on:
+  push:
+    branches:
+      - research/edge-discovery-proof
+    paths:
+      - edge_discovery_tournament.py
+      - .github/workflows/edge-discovery-proof.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tournament:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Compile research harness
+        run: python -m py_compile edge_discovery_tournament.py
+
+      - name: Run fixed-rule edge tournament
+        run: python edge_discovery_tournament.py
+
+      - name: Persist result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/edge_discovery_tournament.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research: persist edge discovery proof result"
+          git push origin HEAD:research/edge-discovery-proof
+
+      - name: Summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/edge_discovery_tournament.json'))
+          print('## Independent Edge Discovery Proof')
+          print(f"Overall: **{d['overall']}**")
+          print(f"Downloaded symbols: **{d['downloaded_symbols']}**")
+          print(f"Research candidates: **{', '.join(d['research_candidates']) if d['research_candidates'] else 'NONE'}**")
+          print('')
+          print('| Strategy | Status | Validation Exp | Validation PF | Holdout Exp | Holdout PF | Independent Exp | Independent PF | 60bps Exp |')
+          print('|---|---|---:|---:|---:|---:|---:|---:|---:|')
+          for r in d['results']:
+              v=r['validation']; h=r['holdout']; i=r['independent_holdout']; s=r['holdout_cost_stress']['60']
+              print(f"| {r['strategy']} | {r['status']} | {v['expectancy_r']} | {v['profit_factor']} | {h['expectancy_r']} | {h['profit_factor']} | {i['expectancy_r']} | {i['profit_factor']} | {s['expectancy_r']} |")
+          PY
