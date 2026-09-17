@@ -1,0 +1,49 @@
+name: Published Rotation Round 7
+
+on:
+  push:
+    branches:
+      - research/edge-discovery-proof
+    paths:
+      - published_rotation_round7.py
+      - .github/workflows/published-rotation-round7.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  round7:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile published_rotation_round7.py
+      - name: Run locked rotation round 7
+        run: python published_rotation_round7.py
+      - name: Persist result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/published_rotation_round7.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research: persist rotation round 7 result"
+          git push origin HEAD:research/edge-discovery-proof
+      - name: Summary
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/published_rotation_round7.json'))
+          print('## Published Rotation Round 7')
+          print(f"Overall: **{d['overall']}**")
+          print(f"Candidates: **{', '.join(d['candidates']) if d['candidates'] else 'NONE'}**")
+          for r in d['results']:
+              print(f"- {r['strategy']}: {r['status']} | return wins {r['return_wins']}/3 | Sharpe wins {r['sharpe_wins']}/3 | DD wins {r['drawdown_wins']}/3 | stress positive {r['stress_positive_periods']}/3")
+          PY
