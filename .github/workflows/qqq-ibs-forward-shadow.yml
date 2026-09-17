@@ -2,6 +2,11 @@ name: QQQ IBS Forward Shadow
 
 on:
   workflow_dispatch:
+  push:
+    branches: [research/edge-discovery-proof]
+    paths:
+      - qqq_ibs_forward_shadow.py
+      - .github/workflows/qqq-ibs-forward-shadow.yml
   schedule:
     - cron: '15 21 * * 1-5'
 
