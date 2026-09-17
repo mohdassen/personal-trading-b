@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       run_full_research:
-        description: 'Run the full SWING historical fidelity study (requires Alpaca secrets)'
+        description: 'Run the full SWING historical fidelity study (requires Alpaca API secrets)'
         required: false
         type: boolean
         default: false
@@ -45,16 +45,25 @@ jobs:
       - name: Unit test execution path
         run: python -m unittest tests.test_execution_path -v
 
-      - name: Detect Alpaca credentials
+      - name: Sync latest V7.2 paper state for forward evidence
+        shell: bash
+        run: |
+          git fetch origin research/v7-catalyst-router-mtf
+          git show origin/research/v7-catalyst-router-mtf:data/v7_paper_state.json > data/v7_paper_state.json
+
+      - name: Extract clean SWING forward evidence
+        run: python swing_forward_evidence.py
+
+      - name: Detect Alpaca API credentials
         id: alpaca
         shell: bash
         run: |
           if [ -n "$APCA_API_KEY_ID" ] && [ -n "$APCA_API_SECRET_KEY" ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "Alpaca credentials available. Running read-only connectivity checks."
+            echo "Alpaca API credentials available. Running read-only connectivity checks."
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Alpaca credentials are not configured; broker/network research steps will be skipped safely."
+            echo "GitHub Alpaca API credentials are not configured; API-key historical/broker steps will be skipped safely."
           fi
 
       - name: Read-only broker smoke
@@ -69,21 +78,21 @@ jobs:
         if: steps.alpaca.outputs.ready == 'true' && github.event_name == 'workflow_dispatch' && inputs.run_full_research == true
         run: python swing_full_fidelity_research.py --start 2019-01-01 --feed iex
 
-      - name: Persist research evidence to execution branch
-        if: steps.alpaca.outputs.ready == 'true' && always()
+      - name: Persist evidence to execution branch
+        if: always()
         shell: bash
         run: |
-          if [ ! -f data/swing_full_fidelity_research.json ]; then
-            echo "No research output to persist."
-            exit 0
-          fi
+          git restore data/v7_paper_state.json 2>/dev/null || true
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/swing_full_fidelity_research.json
+          git add data/swing_forward_evidence.json 2>/dev/null || true
+          if [ -f data/swing_full_fidelity_research.json ]; then
+            git add data/swing_full_fidelity_research.json
+          fi
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m "research: update SWING full-fidelity evidence"
+          git commit -m "research: update focused SWING evidence"
           for attempt in 1 2 3; do
             if git push origin HEAD:execution/swing-edge-broker-path; then exit 0; fi
             git fetch origin execution/swing-edge-broker-path
@@ -98,12 +107,20 @@ jobs:
           echo "### SWING Edge + Broker Validation" >> "$GITHUB_STEP_SUMMARY"
           echo "- Production V7.2 strategy rules changed: **NO**" >> "$GITHUB_STEP_SUMMARY"
           echo "- Live execution authorized: **NO**" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Alpaca credentials configured: **${{ steps.alpaca.outputs.ready || 'unknown' }}**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- GitHub Alpaca API credentials configured: **${{ steps.alpaca.outputs.ready || 'unknown' }}**" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f data/swing_forward_evidence.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          d=json.load(open('data/swing_forward_evidence.json'))
+          print(f"- Clean SWING forward closed metrics: `{d.get('closed_metrics',{})}`")
+          print(f"- Open SWING positions: **{d.get('open_count',0)}**")
+          PY
+          fi
           if [ -f data/swing_full_fidelity_research.json ]; then
             python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
           d=json.load(open('data/swing_full_fidelity_research.json'))
-          print(f"- Research verdict: **{d.get('verdict','UNKNOWN')}**")
+          print(f"- Historical research verdict: **{d.get('verdict','UNKNOWN')}**")
           print(f"- Primary holdout: `{d.get('primary',{}).get('split',{}).get('holdout',{})}`")
           print(f"- Independent holdout: `{d.get('independent_holdout',{})}`")
           PY
