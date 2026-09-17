@@ -46,11 +46,12 @@ jobs:
           d=json.load(open('data/published_edge_benchmark.json'))
           print('## Published Edge Benchmark')
           print(f"Overall: **{d['overall']}**")
-          print(f"Candidates: **{', '.join(d['research_candidates']) if d['research_candidates'] else 'NONE'}**")
+          c=d.get('stage2_candidates', [])
+          print(f"Stage-2 candidates: **{', '.join(c) if c else 'NONE'}**")
           print('')
-          print('| Strategy | Status | Validation Total | Holdout Total | Holdout Sharpe | Independent Total | Independent Sharpe | Stress Total |')
-          print('|---|---|---:|---:|---:|---:|---:|---:|')
+          print('| Strategy | Status | Validation Total | Holdout Total | Holdout Sharpe | Independent Total | Independent Sharpe | Relative Holdout | Relative Independent |')
+          print('|---|---|---:|---:|---:|---:|---:|---:|---:|')
           for r in d['results']:
-              v=r['validation_2021_2023']; h=r['holdout_2024_plus']; i=r['independent_2024_plus']; s=r['stress_60bps_2024_plus']
-              print(f"| {r['strategy']} | {r['status']} | {v['total_return']} | {h['total_return']} | {h['sharpe']} | {i['total_return']} | {i['sharpe']} | {s['total_return']} |")
+              v=r['validation_2021_2023']; h=r['holdout_2024_plus']; i=r['independent_2024_plus']; rel=r['relative_vs_equal_weight']
+              print(f"| {r['strategy']} | {r['status']} | {v['total_return']} | {h['total_return']} | {h['sharpe']} | {i['total_return']} | {i['sharpe']} | {rel['holdout']['relative_wealth']} | {rel['independent_holdout']['relative_wealth']} |")
           PY
