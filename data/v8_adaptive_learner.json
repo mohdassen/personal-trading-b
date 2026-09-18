@@ -2,16 +2,16 @@
   "engine": "V8-Controlled-Adaptive-Learner",
   "mode": "SHADOW_LEARNING_ONLY",
   "source_epoch": "V7.2_FORWARD_2026-09-09",
-  "source_signature": "202df1b6344a825493b731514064bfab7b944d079e7e6580534c30e64740d362",
-  "generated_at": "2026-09-17T17:36:21.980913+00:00",
+  "source_signature": "f90253033282db1a2954b71faa85fc67807789318b2e2fa65998af5799dbb846",
+  "generated_at": "2026-09-18T17:03:30.585067+00:00",
   "status": "LEARNING",
   "champion": {
     "name": "V7.2",
-    "samples": 7,
-    "win_rate": 28.6,
-    "expectancy_r": -0.148,
-    "profit_factor": 0.76,
-    "total_r": -1.033,
+    "samples": 9,
+    "win_rate": 33.3,
+    "expectancy_r": -0.223,
+    "profit_factor": 0.62,
+    "total_r": -2.007,
     "minimum_forward_samples": 30
   },
   "learner": {
@@ -32,13 +32,13 @@
         "recommendation_status": "OBSERVE_ONLY"
       },
       "SWING_CONTINUATION": {
-        "samples": 1,
-        "win_rate": 0.0,
-        "expectancy_r": -1.0,
-        "profit_factor": 0.0,
-        "total_r": -1.0,
-        "posterior_expectancy_r": -0.111,
-        "reliability": 0.167,
+        "samples": 3,
+        "win_rate": 33.3,
+        "expectancy_r": -0.658,
+        "profit_factor": 0.01,
+        "total_r": -1.974,
+        "posterior_expectancy_r": -0.179,
+        "reliability": 0.5,
         "suggested_score_adjustment": 0.0,
         "recommendation_status": "OBSERVE_ONLY"
       },
@@ -56,24 +56,24 @@
     },
     "regime_model": {
       "MIXED": {
-        "samples": 6,
-        "win_rate": 16.7,
-        "expectancy_r": -0.439,
-        "profit_factor": 0.38,
-        "total_r": -2.633,
-        "posterior_expectancy_r": -0.188,
+        "samples": 7,
+        "win_rate": 14.3,
+        "expectancy_r": -0.519,
+        "profit_factor": 0.31,
+        "total_r": -3.633,
+        "posterior_expectancy_r": -0.242,
         "reliability": 1.0,
-        "suggested_score_adjustment": -0.75,
+        "suggested_score_adjustment": -0.97,
         "recommendation_status": "ACTIONABLE_SHADOW"
       },
       "RISK_ON": {
-        "samples": 1,
+        "samples": 2,
         "win_rate": 100.0,
-        "expectancy_r": 1.6,
+        "expectancy_r": 0.813,
         "profit_factor": 99.0,
-        "total_r": 1.6,
-        "posterior_expectancy_r": 0.178,
-        "reliability": 0.167,
+        "total_r": 1.626,
+        "posterior_expectancy_r": 0.163,
+        "reliability": 0.333,
         "suggested_score_adjustment": 0.0,
         "recommendation_status": "OBSERVE_ONLY"
       }
@@ -90,12 +90,22 @@
         "recommendation_status": "OBSERVE_ONLY"
       },
       "SWING_CONTINUATION|MIXED": {
-        "samples": 1,
+        "samples": 2,
         "win_rate": 0.0,
         "expectancy_r": -1.0,
         "profit_factor": 0.0,
-        "total_r": -1.0,
-        "posterior_expectancy_r": -0.111,
+        "total_r": -2.0,
+        "posterior_expectancy_r": -0.2,
+        "suggested_score_adjustment": 0.0,
+        "recommendation_status": "OBSERVE_ONLY"
+      },
+      "SWING_CONTINUATION|RISK_ON": {
+        "samples": 1,
+        "win_rate": 100.0,
+        "expectancy_r": 0.026,
+        "profit_factor": 99.0,
+        "total_r": 0.026,
+        "posterior_expectancy_r": 0.003,
         "suggested_score_adjustment": 0.0,
         "recommendation_status": "OBSERVE_ONLY"
       },
@@ -140,12 +150,12 @@
   },
   "shadow_rankings": [
     {
-      "symbol": "NVDA",
+      "symbol": "ABBV",
       "setup": "VWAP_PULLBACK",
       "market_regime": "MIXED",
-      "v7_score": 97.0,
-      "v8_shadow_adjustment": -0.19,
-      "v8_shadow_score": 96.81,
+      "v7_score": 99.0,
+      "v8_shadow_adjustment": -0.24,
+      "v8_shadow_score": 98.76,
       "v7_status": "PAPER_ENTRY",
       "sharia_status": "PRECHECK_PASS"
     },
@@ -154,18 +164,18 @@
       "setup": "SWING_CONTINUATION",
       "market_regime": "MIXED",
       "v7_score": 93.0,
-      "v8_shadow_adjustment": -0.19,
-      "v8_shadow_score": 92.81,
+      "v8_shadow_adjustment": -0.24,
+      "v8_shadow_score": 92.76,
       "v7_status": "PAPER_ENTRY",
       "sharia_status": "PRECHECK_PASS"
     },
     {
-      "symbol": "CRWD",
+      "symbol": "AAPL",
       "setup": "SWING_CONTINUATION",
       "market_regime": "MIXED",
-      "v7_score": 89.0,
-      "v8_shadow_adjustment": -0.19,
-      "v8_shadow_score": 88.81,
+      "v7_score": 82.0,
+      "v8_shadow_adjustment": -0.24,
+      "v8_shadow_score": 81.76,
       "v7_status": "PAPER_ENTRY",
       "sharia_status": "PRECHECK_PASS"
     }
