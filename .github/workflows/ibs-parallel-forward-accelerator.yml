@@ -36,4 +36,5 @@ jobs:
           git add data/ibs_parallel_forward_accelerator.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "forward: update parallel IBS evidence"
+          git pull --rebase origin research/edge-discovery-proof
           git push origin HEAD:research/edge-discovery-proof
