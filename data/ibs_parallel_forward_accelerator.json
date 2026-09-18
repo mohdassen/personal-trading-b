@@ -1,0 +1,157 @@
+{
+  "strategy": "IBS_LOWER_BAND_PARALLEL",
+  "rule_version": "IBS-FROZEN-2026-09-18-r1",
+  "epoch": "2026-09-18",
+  "decision_deadline": "2026-11-06",
+  "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
+  "live_execution": "LOCKED",
+  "status": "COLLECTING_FORWARD_EVIDENCE",
+  "as_of": "2026-09-16",
+  "symbols": [
+    "QQQ",
+    "TSLA",
+    "NOW",
+    "PANW",
+    "CRWD",
+    "SNOW",
+    "DDOG",
+    "NET",
+    "SHOP",
+    "UBER",
+    "ABNB",
+    "BKNG",
+    "MCD"
+  ],
+  "cost_assumption_roundtrip_bps": 30.0,
+  "promotion_gate": {
+    "minimum_closed_trades": 20,
+    "minimum_unique_signal_clusters": 12,
+    "minimum_symbols_represented": 8,
+    "minimum_profit_factor": 1.25,
+    "minimum_avg_net_return": 0.001,
+    "minimum_cluster_profit_factor": 1.2,
+    "maximum_cluster_drawdown": 0.12,
+    "deadline": "2026-11-06"
+  },
+  "overall": {
+    "trades": 0,
+    "avg_net_return": null,
+    "win_rate": null,
+    "profit_factor": null
+  },
+  "unique_symbols_with_closed_trades": 0,
+  "cluster_evidence": {
+    "unique_signal_clusters": 0,
+    "avg_cluster_return": null,
+    "cluster_profit_factor": null,
+    "max_cluster_drawdown": null,
+    "clusters": []
+  },
+  "states": [
+    {
+      "symbol": "QQQ",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "TSLA",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "NOW",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "PANW",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "CRWD",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "SNOW",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "DDOG",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "NET",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "SHOP",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "UBER",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "ABNB",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "BKNG",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    },
+    {
+      "symbol": "MCD",
+      "last_decision": "NO_SIGNAL",
+      "pending_entry": null,
+      "pending_exit": null,
+      "open_position": null,
+      "trades": []
+    }
+  ],
+  "decision_rule": "Pass only if every locked gate is met before the deadline. Otherwise reject/replace; no waiting extension."
+}
