@@ -2,16 +2,6 @@ name: V8 Adaptive Shadow Learner
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/v8-adaptive-learner.yml'
-  workflow_run:
-    workflows: ["V7 Adaptive Paper Engine"]
-    types: [completed]
-  schedule:
-    # Fallback learning refresh in case workflow_run delivery is delayed.
-    - cron: '12 14-22 * * 1-5'
 
 permissions:
   contents: write
