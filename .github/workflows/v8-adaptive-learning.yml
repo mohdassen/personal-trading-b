@@ -2,10 +2,6 @@ name: V8 Adaptive Shadow Learning
 
 on:
   workflow_dispatch:
-  schedule:
-    # Refresh learning throughout the US session and once after close.
-    - cron: '12,42 13-21 * * 1-5'
-    - cron: '20 22 * * 1-5'
 
 permissions:
   contents: write
