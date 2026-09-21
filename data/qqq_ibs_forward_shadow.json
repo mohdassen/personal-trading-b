@@ -3,6 +3,36 @@
   "frozen_rule_version": "2026-09-18-r1",
   "epoch": "2026-09-18",
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
-  "status": "WAITING_FOR_FIRST_POST_EPOCH_COMPLETED_DAILY_BAR",
+  "as_of": "2026-09-21",
+  "last_decision": "NO_SIGNAL",
+  "pending_entry": null,
+  "pending_exit": null,
+  "open_position": null,
+  "realized_trade_count": 0,
+  "realized_win_rate": null,
+  "realized_avg_net_return_30bps": null,
+  "realized_profit_factor": null,
+  "realized_trades": [],
+  "latest_bar": {
+    "date": "2026-09-21",
+    "open": 727.950012,
+    "high": 743.219971,
+    "low": 727.820007,
+    "close": 741.469971,
+    "lower_band": 725.706982,
+    "ibs": 0.886363,
+    "sma300": 637.814971
+  },
+  "rules": {
+    "entry": "after close: Close < 10-day high - 2.5 * 25-day average range AND IBS < 0.30; shadow fill next open",
+    "exit": "after close: Close > prior-day High OR Close < SMA300; shadow fill next open",
+    "cost_assumption_bps_roundtrip": 30.0
+  },
+  "promotion_gate": {
+    "minimum_closed_forward_trades": 30,
+    "minimum_profit_factor": 1.2,
+    "minimum_avg_net_return": 0.0,
+    "maximum_allowed_drawdown_note": "must be reviewed from chronological equity curve before any real-money approval"
+  },
   "live_execution": "LOCKED"
 }
