@@ -2,14 +2,6 @@ name: V7.2 Adaptive Paper Engine
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/v7-adaptive-paper.yml'
-  schedule:
-    # Single authoritative scheduled trading engine. The engine itself enforces
-    # the 09:35-16:05 America/New_York market window.
-    - cron: '5,20,35,50 13-21 * * 1-5'
 
 permissions:
   contents: write
