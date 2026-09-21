@@ -1,69 +1,69 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "updated_at": "2026-09-18T19:29:11.964391+00:00",
-  "market_regime": "MIXED",
+  "updated_at": "2026-09-21T18:33:31.795776+00:00",
+  "market_regime": "RISK_ON",
   "market_regime_detail": {
-    "label": "MIXED",
-    "vix": 14.989999771118164,
-    "spy": "MIXED",
+    "label": "RISK_ON",
+    "vix": 15.050000190734863,
+    "spy": "BULLISH",
     "qqq": "BULLISH"
   },
-  "broad_scanned": 128,
+  "broad_scanned": 135,
   "enhanced_candidates": 18,
   "enhancement_errors": [],
   "paper_picks": [
     {
-      "symbol": "ABBV",
-      "group": "HEALTHCARE",
-      "source": "seed_universe",
+      "symbol": "AMD",
+      "group": "SEMICONDUCTORS",
+      "source": "most_actives",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
+      "setup": "SESSION_LEADER",
       "score": 99,
-      "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 70,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 87,
       "status": "PAPER_ENTRY",
-      "entry": 264.38,
-      "stop": 261.21,
-      "target1": 269.46,
-      "target2": 272.31,
+      "entry": 608.8,
+      "stop": 601.49,
+      "target1": 620.49,
+      "target2": 627.06,
       "risk_pct": 1.2,
-      "day_change_pct": 0.14,
-      "relative_volume": 1.27,
-      "bar_relative_volume": 1.19,
-      "ret1h_pct": -0.31,
-      "ret5d_pct": 2.79,
-      "ret20d_pct": 0.94,
-      "distance_20d_high_pct": -0.9,
+      "day_change_pct": 8.75,
+      "relative_volume": 2.01,
+      "bar_relative_volume": 0.09,
+      "ret1h_pct": 0.14,
+      "ret5d_pct": 23.35,
+      "ret20d_pct": 28.6,
+      "distance_20d_high_pct": 8.67,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 50,
-        "BREAKOUT": 49,
-        "VWAP_PULLBACK": 90,
-        "SWING_CONTINUATION": 70,
-        "SESSION_LEADER": 35
+        "MOMENTUM_LEADER": 85,
+        "BREAKOUT": 87,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 81,
+        "SESSION_LEADER": 96
       },
       "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 96,
-        "raw_score": 90,
+        "setup": "SESSION_LEADER",
+        "routed_score": 100,
+        "raw_score": 96,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 49,
-          "BREAKOUT": 48,
-          "VWAP_PULLBACK": 96,
-          "SWING_CONTINUATION": 74,
-          "SESSION_LEADER": 35
+          "MOMENTUM_LEADER": 90,
+          "BREAKOUT": 91,
+          "VWAP_PULLBACK": 67,
+          "SWING_CONTINUATION": 83,
+          "SESSION_LEADER": 100
         }
       },
       "mtf": {
@@ -80,148 +80,25 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Merck Stock Nearly Doubled Without A Change In Its Revenue Growth",
-          "AbbVie’s Dividend Growth Remains Solid Despite a Moderate Yield",
-          "AbbVie vs. Bristol Myers Squibb: Which Healthcare Stock Is a Better Buy in 2026?"
+          "Stock market today: Nasdaq surges 2%, Dow and S&P 500 gain as chip stocks rally, oil prices fall",
+          "Nvidia’s AI CPU Push Threatens Intel and AMD",
+          "Update: US Equity Indexes Advance as Communication Services, Technology Giants Jump Amid Slumping Crude Oil"
         ],
         "headline_ages_hours": [
-          1.3,
-          2.7,
-          5.9
+          10.5,
+          0.2,
+          0.5
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
-      "threshold": 74,
-      "entry_low": 264.31,
-      "entry_high": 264.45,
-      "atr_ref": 0.6656,
+      "threshold": 78,
+      "entry_low": 608.48,
+      "entry_high": 609.12,
+      "atr_ref": 3.2262,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 83,
-        "pass": true,
-        "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "ABBV",
-        "status": "RESEARCH_PASS_PARTIAL",
-        "reasons": [
-          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": 467190476436.80237,
-          "interest_bearing_debt_proxy": 70822000000.0,
-          "cash_interest_deposit_proxy": 6569000000.0,
-          "debt_to_market_cap": 0.1516,
-          "cash_proxy_to_market_cap": 0.0141,
-          "interest_income_proxy": 67000000.0,
-          "total_revenue": 16990000000.0,
-          "impure_income_proxy_ratio": 0.0039
-        }
-      }
-    },
-    {
-      "symbol": "AMD",
-      "group": "SEMICONDUCTORS",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 98,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 60,
-      "status": "PAPER_ENTRY",
-      "entry": 545.1,
-      "stop": 509.84,
-      "target1": 608.57,
-      "target2": 650.88,
-      "risk_pct": 6.47,
-      "day_change_pct": 0.0,
-      "relative_volume": 0.81,
-      "bar_relative_volume": 0.77,
-      "ret1h_pct": 0.21,
-      "ret5d_pct": 5.63,
-      "ret20d_pct": 16.13,
-      "distance_20d_high_pct": -1.11,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 40,
-        "BREAKOUT": 35,
-        "VWAP_PULLBACK": 60,
-        "SWING_CONTINUATION": 90,
-        "SESSION_LEADER": 16
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 94,
-        "raw_score": 90,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 39,
-          "BREAKOUT": 34,
-          "VWAP_PULLBACK": 64,
-          "SWING_CONTINUATION": 94,
-          "SESSION_LEADER": 16
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": false,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Stock Market Today: Dow Wavers; Two Healthcare Names Shine In IBD 50 (Live Coverage)",
-          "Chip Stocks Hit Ceiling During Sector Rebound. Macom Is A Standout.",
-          "Why XLK’s Next Rebalance Won’t Fix Its Massive Concentration Problem"
-        ],
-        "headline_ages_hours": [
-          0.5,
-          1.9,
-          2.1
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 541.57,
-      "entry_high": 548.63,
-      "atr_ref": 23.5067,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
+        "Router=SESSION_LEADER in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -249,11 +126,11 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 890001698894.1893,
+          "market_cap": 993875296680.7648,
           "interest_bearing_debt_proxy": 4276000000.0,
           "cash_interest_deposit_proxy": 13111000000.0,
-          "debt_to_market_cap": 0.0048,
-          "cash_proxy_to_market_cap": 0.0147,
+          "debt_to_market_cap": 0.0043,
+          "cash_proxy_to_market_cap": 0.0132,
           "interest_income_proxy": null,
           "total_revenue": 11536000000.0,
           "impure_income_proxy_ratio": null
@@ -267,50 +144,50 @@
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 93,
+      "score": 96,
       "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 73,
+      "runner_up_score": 78,
       "status": "PAPER_ENTRY",
-      "entry": 336.4,
-      "stop": 325.44,
-      "target1": 356.13,
-      "target2": 369.28,
-      "risk_pct": 3.26,
-      "day_change_pct": -0.18,
-      "relative_volume": 1.27,
-      "bar_relative_volume": 1.03,
-      "ret1h_pct": 0.16,
-      "ret5d_pct": 1.24,
-      "ret20d_pct": 8.06,
-      "distance_20d_high_pct": -0.61,
+      "entry": 338.7,
+      "stop": 327.86,
+      "target1": 358.22,
+      "target2": 371.23,
+      "risk_pct": 3.2,
+      "day_change_pct": 0.76,
+      "relative_volume": 0.89,
+      "bar_relative_volume": 0.2,
+      "ret1h_pct": 0.15,
+      "ret5d_pct": 1.68,
+      "ret20d_pct": 9.47,
+      "distance_20d_high_pct": 0.03,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 64,
-        "VWAP_PULLBACK": 73,
-        "SWING_CONTINUATION": 85,
-        "SESSION_LEADER": 46
+        "MOMENTUM_LEADER": 40,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 41
       },
       "router": {
         "setup": "SWING_CONTINUATION",
-        "routed_score": 89,
-        "raw_score": 85,
+        "routed_score": 92,
+        "raw_score": 90,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 62,
-          "VWAP_PULLBACK": 78,
-          "SWING_CONTINUATION": 89,
-          "SESSION_LEADER": 46
+          "MOMENTUM_LEADER": 42,
+          "BREAKOUT": 70,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 92,
+          "SESSION_LEADER": 44
         }
       },
       "mtf": {
@@ -327,25 +204,25 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Tech stocks today: Apple's iPhone 18 Pro goes on sale, AI safety debate continues",
-          "Apple's iPhone 18 Pro line hits stores with a $100 price bump amid memory crunch, AI pressure",
-          "Apple CEO John Ternus celebrates launch of the iPhone 18"
+          "Apple’s new iPhone Duo: Will consumers bite?",
+          "Smart Ring Maker Oura Launches US IPO",
+          "Broadcom vs. Intel: Which Semiconductor Stock Is a Better Buy in 2026?"
         ],
         "headline_ages_hours": [
-          101.5,
-          3.5,
-          4.7
+          0.9,
+          0.6,
+          1.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 335.3,
-      "entry_high": 337.5,
-      "atr_ref": 7.3077,
+      "entry_low": 337.62,
+      "entry_high": 339.79,
+      "atr_ref": 7.2292,
       "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
+        "Router=SWING_CONTINUATION in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -373,70 +250,193 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 4909482062924.194,
+          "market_cap": 4943196364609.985,
           "interest_bearing_debt_proxy": 84344000000.0,
           "cash_interest_deposit_proxy": 62399000000.0,
-          "debt_to_market_cap": 0.0172,
-          "cash_proxy_to_market_cap": 0.0127,
+          "debt_to_market_cap": 0.0171,
+          "cash_proxy_to_market_cap": 0.0126,
           "interest_income_proxy": null,
           "total_revenue": 109417000000.0,
           "impure_income_proxy_ratio": null
+        }
+      }
+    },
+    {
+      "symbol": "AMZN",
+      "group": "MEGA_TECH",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 94,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 62,
+      "status": "PAPER_ENTRY",
+      "entry": 258.28,
+      "stop": 255.18,
+      "target1": 263.24,
+      "target2": 266.03,
+      "risk_pct": 1.2,
+      "day_change_pct": 1.8,
+      "relative_volume": 1.12,
+      "bar_relative_volume": 0.13,
+      "ret1h_pct": 0.1,
+      "ret5d_pct": 1.87,
+      "ret20d_pct": -0.14,
+      "distance_20d_high_pct": -3.49,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 65,
+        "BREAKOUT": 55,
+        "VWAP_PULLBACK": 88,
+        "SWING_CONTINUATION": 62,
+        "SESSION_LEADER": 63
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 90,
+        "raw_score": 88,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 69,
+          "BREAKOUT": 58,
+          "VWAP_PULLBACK": 90,
+          "SWING_CONTINUATION": 63,
+          "SESSION_LEADER": 67
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "UPS Is Today’s Worst Stock in the S&P 500 After Slowed Amazon Shipments",
+          "Sector Update: Tech Stocks Gain Monday Afternoon",
+          "Update: Market Chatter: Amazon Blocks Meta's Muse AI Agent From Retail Site"
+        ],
+        "headline_ages_hours": [
+          0.3,
+          0.6,
+          0.7
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 258.19,
+      "entry_high": 258.37,
+      "atr_ref": 0.9071,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 92,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "AMZN",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 2785906173161.9634,
+          "interest_bearing_debt_proxy": 209888000000.0,
+          "cash_interest_deposit_proxy": 143089000000.0,
+          "debt_to_market_cap": 0.0753,
+          "cash_proxy_to_market_cap": 0.0514,
+          "interest_income_proxy": 1135000000.0,
+          "total_revenue": 181519000000.0,
+          "impure_income_proxy_ratio": 0.0063
         }
       }
     }
   ],
   "ranked_enhanced": [
     {
-      "symbol": "ABBV",
-      "group": "HEALTHCARE",
-      "source": "seed_universe",
+      "symbol": "AMD",
+      "group": "SEMICONDUCTORS",
+      "source": "most_actives",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
+      "setup": "SESSION_LEADER",
       "score": 99,
-      "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 70,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 87,
       "status": "PAPER_ENTRY",
-      "entry": 264.38,
-      "stop": 261.21,
-      "target1": 269.46,
-      "target2": 272.31,
+      "entry": 608.8,
+      "stop": 601.49,
+      "target1": 620.49,
+      "target2": 627.06,
       "risk_pct": 1.2,
-      "day_change_pct": 0.14,
-      "relative_volume": 1.27,
-      "bar_relative_volume": 1.19,
-      "ret1h_pct": -0.31,
-      "ret5d_pct": 2.79,
-      "ret20d_pct": 0.94,
-      "distance_20d_high_pct": -0.9,
+      "day_change_pct": 8.75,
+      "relative_volume": 2.01,
+      "bar_relative_volume": 0.09,
+      "ret1h_pct": 0.14,
+      "ret5d_pct": 23.35,
+      "ret20d_pct": 28.6,
+      "distance_20d_high_pct": 8.67,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 50,
-        "BREAKOUT": 49,
-        "VWAP_PULLBACK": 90,
-        "SWING_CONTINUATION": 70,
-        "SESSION_LEADER": 35
+        "MOMENTUM_LEADER": 85,
+        "BREAKOUT": 87,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 81,
+        "SESSION_LEADER": 96
       },
       "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 96,
-        "raw_score": 90,
+        "setup": "SESSION_LEADER",
+        "routed_score": 100,
+        "raw_score": 96,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 49,
-          "BREAKOUT": 48,
-          "VWAP_PULLBACK": 96,
-          "SWING_CONTINUATION": 74,
-          "SESSION_LEADER": 35
+          "MOMENTUM_LEADER": 90,
+          "BREAKOUT": 91,
+          "VWAP_PULLBACK": 67,
+          "SWING_CONTINUATION": 83,
+          "SESSION_LEADER": 100
         }
       },
       "mtf": {
@@ -453,148 +453,25 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Merck Stock Nearly Doubled Without A Change In Its Revenue Growth",
-          "AbbVie’s Dividend Growth Remains Solid Despite a Moderate Yield",
-          "AbbVie vs. Bristol Myers Squibb: Which Healthcare Stock Is a Better Buy in 2026?"
+          "Stock market today: Nasdaq surges 2%, Dow and S&P 500 gain as chip stocks rally, oil prices fall",
+          "Nvidia’s AI CPU Push Threatens Intel and AMD",
+          "Update: US Equity Indexes Advance as Communication Services, Technology Giants Jump Amid Slumping Crude Oil"
         ],
         "headline_ages_hours": [
-          1.3,
-          2.7,
-          5.9
+          10.5,
+          0.2,
+          0.5
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
-      "threshold": 74,
-      "entry_low": 264.31,
-      "entry_high": 264.45,
-      "atr_ref": 0.6656,
+      "threshold": 78,
+      "entry_low": 608.48,
+      "entry_high": 609.12,
+      "atr_ref": 3.2262,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 83,
-        "pass": true,
-        "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "ABBV",
-        "status": "RESEARCH_PASS_PARTIAL",
-        "reasons": [
-          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": 467190476436.80237,
-          "interest_bearing_debt_proxy": 70822000000.0,
-          "cash_interest_deposit_proxy": 6569000000.0,
-          "debt_to_market_cap": 0.1516,
-          "cash_proxy_to_market_cap": 0.0141,
-          "interest_income_proxy": 67000000.0,
-          "total_revenue": 16990000000.0,
-          "impure_income_proxy_ratio": 0.0039
-        }
-      }
-    },
-    {
-      "symbol": "AMD",
-      "group": "SEMICONDUCTORS",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 98,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 60,
-      "status": "PAPER_ENTRY",
-      "entry": 545.1,
-      "stop": 509.84,
-      "target1": 608.57,
-      "target2": 650.88,
-      "risk_pct": 6.47,
-      "day_change_pct": 0.0,
-      "relative_volume": 0.81,
-      "bar_relative_volume": 0.77,
-      "ret1h_pct": 0.21,
-      "ret5d_pct": 5.63,
-      "ret20d_pct": 16.13,
-      "distance_20d_high_pct": -1.11,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 40,
-        "BREAKOUT": 35,
-        "VWAP_PULLBACK": 60,
-        "SWING_CONTINUATION": 90,
-        "SESSION_LEADER": 16
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 94,
-        "raw_score": 90,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 39,
-          "BREAKOUT": 34,
-          "VWAP_PULLBACK": 64,
-          "SWING_CONTINUATION": 94,
-          "SESSION_LEADER": 16
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": false,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Stock Market Today: Dow Wavers; Two Healthcare Names Shine In IBD 50 (Live Coverage)",
-          "Chip Stocks Hit Ceiling During Sector Rebound. Macom Is A Standout.",
-          "Why XLK’s Next Rebalance Won’t Fix Its Massive Concentration Problem"
-        ],
-        "headline_ages_hours": [
-          0.5,
-          1.9,
-          2.1
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 541.57,
-      "entry_high": 548.63,
-      "atr_ref": 23.5067,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
+        "Router=SESSION_LEADER in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -622,11 +499,11 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 890001698894.1893,
+          "market_cap": 993875296680.7648,
           "interest_bearing_debt_proxy": 4276000000.0,
           "cash_interest_deposit_proxy": 13111000000.0,
-          "debt_to_market_cap": 0.0048,
-          "cash_proxy_to_market_cap": 0.0147,
+          "debt_to_market_cap": 0.0043,
+          "cash_proxy_to_market_cap": 0.0132,
           "interest_income_proxy": null,
           "total_revenue": 11536000000.0,
           "impure_income_proxy_ratio": null
@@ -640,50 +517,50 @@
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 93,
+      "score": 96,
       "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 73,
+      "runner_up_score": 78,
       "status": "PAPER_ENTRY",
-      "entry": 336.4,
-      "stop": 325.44,
-      "target1": 356.13,
-      "target2": 369.28,
-      "risk_pct": 3.26,
-      "day_change_pct": -0.18,
-      "relative_volume": 1.27,
-      "bar_relative_volume": 1.03,
-      "ret1h_pct": 0.16,
-      "ret5d_pct": 1.24,
-      "ret20d_pct": 8.06,
-      "distance_20d_high_pct": -0.61,
+      "entry": 338.7,
+      "stop": 327.86,
+      "target1": 358.22,
+      "target2": 371.23,
+      "risk_pct": 3.2,
+      "day_change_pct": 0.76,
+      "relative_volume": 0.89,
+      "bar_relative_volume": 0.2,
+      "ret1h_pct": 0.15,
+      "ret5d_pct": 1.68,
+      "ret20d_pct": 9.47,
+      "distance_20d_high_pct": 0.03,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 64,
-        "VWAP_PULLBACK": 73,
-        "SWING_CONTINUATION": 85,
-        "SESSION_LEADER": 46
+        "MOMENTUM_LEADER": 40,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 41
       },
       "router": {
         "setup": "SWING_CONTINUATION",
-        "routed_score": 89,
-        "raw_score": 85,
+        "routed_score": 92,
+        "raw_score": 90,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 62,
-          "VWAP_PULLBACK": 78,
-          "SWING_CONTINUATION": 89,
-          "SESSION_LEADER": 46
+          "MOMENTUM_LEADER": 42,
+          "BREAKOUT": 70,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 92,
+          "SESSION_LEADER": 44
         }
       },
       "mtf": {
@@ -700,25 +577,25 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Tech stocks today: Apple's iPhone 18 Pro goes on sale, AI safety debate continues",
-          "Apple's iPhone 18 Pro line hits stores with a $100 price bump amid memory crunch, AI pressure",
-          "Apple CEO John Ternus celebrates launch of the iPhone 18"
+          "Apple’s new iPhone Duo: Will consumers bite?",
+          "Smart Ring Maker Oura Launches US IPO",
+          "Broadcom vs. Intel: Which Semiconductor Stock Is a Better Buy in 2026?"
         ],
         "headline_ages_hours": [
-          101.5,
-          3.5,
-          4.7
+          0.9,
+          0.6,
+          1.1
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 335.3,
-      "entry_high": 337.5,
-      "atr_ref": 7.3077,
+      "entry_low": 337.62,
+      "entry_high": 339.79,
+      "atr_ref": 7.2292,
       "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
+        "Router=SWING_CONTINUATION in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -746,11 +623,11 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 4909482062924.194,
+          "market_cap": 4943196364609.985,
           "interest_bearing_debt_proxy": 84344000000.0,
           "cash_interest_deposit_proxy": 62399000000.0,
-          "debt_to_market_cap": 0.0172,
-          "cash_proxy_to_market_cap": 0.0127,
+          "debt_to_market_cap": 0.0171,
+          "cash_proxy_to_market_cap": 0.0126,
           "interest_income_proxy": null,
           "total_revenue": 109417000000.0,
           "impure_income_proxy_ratio": null
@@ -758,56 +635,56 @@
       }
     },
     {
-      "symbol": "NVDA",
-      "group": "SEMICONDUCTORS",
+      "symbol": "AMZN",
+      "group": "MEGA_TECH",
       "source": "most_actives",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "VWAP_PULLBACK",
-      "score": 90,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 55,
+      "score": 94,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 62,
       "status": "PAPER_ENTRY",
-      "entry": 219.53,
-      "stop": 216.9,
-      "target1": 223.75,
-      "target2": 226.12,
+      "entry": 258.28,
+      "stop": 255.18,
+      "target1": 263.24,
+      "target2": 266.03,
       "risk_pct": 1.2,
-      "day_change_pct": 0.09,
-      "relative_volume": 1.03,
-      "bar_relative_volume": 1.26,
-      "ret1h_pct": 0.09,
-      "ret5d_pct": 0.57,
-      "ret20d_pct": 1.24,
-      "distance_20d_high_pct": -6.47,
+      "day_change_pct": 1.8,
+      "relative_volume": 1.12,
+      "bar_relative_volume": 0.13,
+      "ret1h_pct": 0.1,
+      "ret5d_pct": 1.87,
+      "ret20d_pct": -0.14,
+      "distance_20d_high_pct": -3.49,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 35,
-        "VWAP_PULLBACK": 80,
-        "SWING_CONTINUATION": 55,
-        "SESSION_LEADER": 36
+        "MOMENTUM_LEADER": 65,
+        "BREAKOUT": 55,
+        "VWAP_PULLBACK": 88,
+        "SWING_CONTINUATION": 62,
+        "SESSION_LEADER": 63
       },
       "router": {
         "setup": "VWAP_PULLBACK",
-        "routed_score": 86,
-        "raw_score": 80,
+        "routed_score": 90,
+        "raw_score": 88,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 34,
-          "VWAP_PULLBACK": 86,
-          "SWING_CONTINUATION": 58,
-          "SESSION_LEADER": 36
+          "MOMENTUM_LEADER": 69,
+          "BREAKOUT": 58,
+          "VWAP_PULLBACK": 90,
+          "SWING_CONTINUATION": 63,
+          "SESSION_LEADER": 67
         }
       },
       "mtf": {
@@ -824,25 +701,433 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "S&P 500 wavers after best one-day rally in six weeks: AlphaCheck",
-          "Why Salesforce CEO Marc Benioff thinks AI chip king Nvidia is 'exquisite'",
-          "Why Ethereum Jumped 5.8% Today"
+          "UPS Is Today’s Worst Stock in the S&P 500 After Slowed Amazon Shipments",
+          "Sector Update: Tech Stocks Gain Monday Afternoon",
+          "Update: Market Chatter: Amazon Blocks Meta's Muse AI Agent From Retail Site"
         ],
         "headline_ages_hours": [
-          5.3,
-          9.7,
-          0.1
+          0.3,
+          0.6,
+          0.7
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 219.48,
-      "entry_high": 219.58,
-      "atr_ref": 0.4735,
+      "entry_low": 258.19,
+      "entry_high": 258.37,
+      "atr_ref": 0.9071,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 92,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "AMZN",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 2785906173161.9634,
+          "interest_bearing_debt_proxy": 209888000000.0,
+          "cash_interest_deposit_proxy": 143089000000.0,
+          "debt_to_market_cap": 0.0753,
+          "cash_proxy_to_market_cap": 0.0514,
+          "interest_income_proxy": 1135000000.0,
+          "total_revenue": 181519000000.0,
+          "impure_income_proxy_ratio": 0.0063
+        }
+      }
+    },
+    {
+      "symbol": "INTC",
+      "group": "SEMICONDUCTORS",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "MOMENTUM_LEADER",
+      "score": 91,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 81,
+      "status": "PAPER_ENTRY",
+      "entry": 121.19,
+      "stop": 119.74,
+      "target1": 123.52,
+      "target2": 124.83,
+      "risk_pct": 1.2,
+      "day_change_pct": 11.59,
+      "relative_volume": 1.7,
+      "bar_relative_volume": 0.1,
+      "ret1h_pct": -0.32,
+      "ret5d_pct": 24.65,
+      "ret20d_pct": 34.5,
+      "distance_20d_high_pct": 8.78,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 82,
+        "BREAKOUT": 74,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 81,
+        "SESSION_LEADER": 78
+      },
+      "router": {
+        "setup": "MOMENTUM_LEADER",
+        "routed_score": 87,
+        "raw_score": 82,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 87,
+          "BREAKOUT": 78,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 83,
+          "SESSION_LEADER": 83
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Stock market today: Nasdaq surges 2%, Dow and S&P 500 gain as chip stocks rally, oil prices fall",
+          "Nvidia’s AI CPU Push Threatens Intel and AMD",
+          "Update: US Equity Indexes Advance as Communication Services, Technology Giants Jump Amid Slumping Crude Oil"
+        ],
+        "headline_ages_hours": [
+          10.5,
+          0.2,
+          0.5
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 78,
+      "entry_low": 121.1,
+      "entry_high": 121.28,
+      "atr_ref": 0.9111,
+      "decision_reason": [
+        "Router=MOMENTUM_LEADER in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 91,
+        "pass": true,
+        "reasons": []
+      }
+    },
+    {
+      "symbol": "DE",
+      "group": "INDUSTRIALS",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 88,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 78,
+      "status": "PAPER_ENTRY",
+      "entry": 691.67,
+      "stop": 666.3,
+      "target1": 737.33,
+      "target2": 767.77,
+      "risk_pct": 3.67,
+      "day_change_pct": 1.12,
+      "relative_volume": 0.87,
+      "bar_relative_volume": 0.09,
+      "ret1h_pct": 0.03,
+      "ret5d_pct": 1.5,
+      "ret20d_pct": 6.83,
+      "distance_20d_high_pct": -1.97,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 65,
+        "BREAKOUT": 55,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 82,
+        "SESSION_LEADER": 53
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 84,
+        "raw_score": 82,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 69,
+          "BREAKOUT": 58,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 84,
+          "SESSION_LEADER": 57
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "1 Profitable Stock to Research Further and 2 We Find Risky",
+          "1 Large-Cap Stock with Promising Prospects and 2 We Turn Down",
+          "Should Caterpillar's Tariff Bill Worry You More Than Its Backlog?"
+        ],
+        "headline_ages_hours": [
+          4.6,
+          5.8,
+          70.0
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 689.13,
+      "entry_high": 694.2,
+      "atr_ref": 16.9115,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 100,
+        "pass": true,
+        "reasons": []
+      }
+    },
+    {
+      "symbol": "RBLX",
+      "group": "MEDIA_TELECOM",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SESSION_LEADER",
+      "score": 84,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 60,
+      "status": "PAPER_ENTRY",
+      "entry": 50.97,
+      "stop": 50.35,
+      "target1": 51.94,
+      "target2": 52.49,
+      "risk_pct": 1.2,
+      "day_change_pct": 6.58,
+      "relative_volume": 1.21,
+      "bar_relative_volume": 0.21,
+      "ret1h_pct": -0.28,
+      "ret5d_pct": -0.63,
+      "ret20d_pct": 32.83,
+      "distance_20d_high_pct": -0.63,
+      "above_vwap": true,
+      "daily_trend": false,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 60,
+        "BREAKOUT": 54,
+        "VWAP_PULLBACK": 56,
+        "SWING_CONTINUATION": 58,
+        "SESSION_LEADER": 75
+      },
+      "router": {
+        "setup": "SESSION_LEADER",
+        "routed_score": 80,
+        "raw_score": 75,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 64,
+          "BREAKOUT": 57,
+          "VWAP_PULLBACK": 57,
+          "SWING_CONTINUATION": 59,
+          "SESSION_LEADER": 80
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": false
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Roblox shares rise as JPMorgan notes surge in weekend platform engagement",
+          "Roblox (RBLX) Is Up 5.1% After Launching “Roblox Everywhere” Standalone Apps Initiative Has The Bull Case Changed?",
+          "Roblox (RBLX) Plans Standalone Games. Can its Business Expand Beyond its App?"
+        ],
+        "headline_ages_hours": [
+          4.4,
+          50.3,
+          96.2
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 78,
+      "entry_low": 50.93,
+      "entry_high": 51.0,
+      "atr_ref": 0.3128,
+      "decision_reason": [
+        "Router=SESSION_LEADER in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 73,
+        "pass": true,
+        "reasons": []
+      }
+    },
+    {
+      "symbol": "MDB",
+      "group": "CLOUD_SECURITY",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 84,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 75,
+      "status": "PAPER_ENTRY",
+      "entry": 399.28,
+      "stop": 394.49,
+      "target1": 406.95,
+      "target2": 411.26,
+      "risk_pct": 1.2,
+      "day_change_pct": 4.1,
+      "relative_volume": 1.09,
+      "bar_relative_volume": 0.18,
+      "ret1h_pct": 0.07,
+      "ret5d_pct": 4.33,
+      "ret20d_pct": -7.43,
+      "distance_20d_high_pct": -13.0,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 75,
+        "BREAKOUT": 55,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 55,
+        "SESSION_LEADER": 71
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 80,
+        "raw_score": 78,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 80,
+          "BREAKOUT": 58,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 56,
+          "SESSION_LEADER": 76
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Why MongoDB (MDB) Stock Is Up Today",
+          "Snowflake Vs.MongoDB: Choose This One for The Rest of 2026",
+          "Is MongoDB (MDB) a Buy as Wall Street Analysts Look Optimistic?"
+        ],
+        "headline_ages_hours": [
+          92.0,
+          99.3,
+          101.1
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 399.05,
+      "entry_high": 399.51,
+      "atr_ref": 2.2789,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
@@ -860,436 +1145,56 @@
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 89,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 65,
-      "status": "PAPER_ENTRY",
-      "entry": 150.8,
-      "stop": 145.55,
-      "target1": 160.24,
-      "target2": 166.54,
-      "risk_pct": 3.48,
-      "day_change_pct": -0.06,
-      "relative_volume": 1.92,
-      "bar_relative_volume": 0.88,
-      "ret1h_pct": -0.45,
-      "ret5d_pct": 4.93,
-      "ret20d_pct": 5.13,
-      "distance_20d_high_pct": -1.11,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 47,
-        "BREAKOUT": 45,
-        "VWAP_PULLBACK": 65,
-        "SWING_CONTINUATION": 81,
-        "SESSION_LEADER": 28
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 85,
-        "raw_score": 81,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 46,
-          "BREAKOUT": 44,
-          "VWAP_PULLBACK": 70,
-          "SWING_CONTINUATION": 85,
-          "SESSION_LEADER": 28
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": false,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Gilead Strengthens HIV Growth Platform with Expanded Latin America Access",
-          "4 Biotech Stocks to Watch as Potential Takeover Targets",
-          "Investors Heavily Search Gilead Sciences, Inc. (GILD): Here is What You Need to Know"
-        ],
-        "headline_ages_hours": [
-          2.6,
-          3.0,
-          30.5
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 150.28,
-      "entry_high": 151.32,
-      "atr_ref": 3.497,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 100,
-        "pass": true,
-        "reasons": []
-      }
-    },
-    {
-      "symbol": "ISRG",
-      "group": "HEALTHCARE",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 85,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 77,
-      "status": "PAPER_ENTRY",
-      "entry": 393.61,
-      "stop": 388.89,
-      "target1": 401.17,
-      "target2": 405.42,
-      "risk_pct": 1.2,
-      "day_change_pct": 2.63,
-      "relative_volume": 1.45,
-      "bar_relative_volume": 0.75,
-      "ret1h_pct": 0.18,
-      "ret5d_pct": 6.63,
-      "ret20d_pct": 5.11,
-      "distance_20d_high_pct": -1.42,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 77,
-        "BREAKOUT": 52,
-        "VWAP_PULLBACK": 66,
-        "SWING_CONTINUATION": 65,
-        "SESSION_LEADER": 81
-      },
-      "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 81,
-        "raw_score": 81,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 75,
-          "BREAKOUT": 50,
-          "VWAP_PULLBACK": 71,
-          "SWING_CONTINUATION": 68,
-          "SESSION_LEADER": 81
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Can Intuitive Surgical Make Up For A Lower Price Per Surgery?",
-          "Should You Buy Medtronic Stock as Its Hugo Surgical Robot Gains Ground?",
-          "Is ISRG Stock Really As Expensive As It Looks?"
-        ],
-        "headline_ages_hours": [
-          6.9,
-          23.8,
-          24.4
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 78,
-      "entry_low": 393.46,
-      "entry_high": 393.76,
-      "atr_ref": 1.534,
-      "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 82,
-        "pass": true,
-        "reasons": []
-      }
-    },
-    {
-      "symbol": "DE",
-      "group": "INDUSTRIALS",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 85,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 43,
-      "status": "PAPER_ENTRY",
-      "entry": 681.8,
-      "stop": 655.91,
-      "target1": 728.42,
-      "target2": 759.5,
-      "risk_pct": 3.8,
-      "day_change_pct": -0.56,
-      "relative_volume": 0.94,
-      "bar_relative_volume": 1.05,
-      "ret1h_pct": 0.16,
-      "ret5d_pct": 0.9,
-      "ret20d_pct": 9.8,
-      "distance_20d_high_pct": -3.43,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 19,
-        "BREAKOUT": 35,
-        "VWAP_PULLBACK": 43,
-        "SWING_CONTINUATION": 77,
-        "SESSION_LEADER": 11
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 81,
-        "raw_score": 77,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 19,
-          "BREAKOUT": 34,
-          "VWAP_PULLBACK": 46,
-          "SWING_CONTINUATION": 81,
-          "SESSION_LEADER": 11
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": false,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "KUBTY vs. DE: Which Stock Is the Better Value Option?",
-          "Is Trending Stock Deere & Company (DE) a Buy Now?",
-          "Stocks Soar as Fed Uncertainty Fades: Stock Market Today"
-        ],
-        "headline_ages_hours": [
-          3.8,
-          6.5,
-          23.3
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 679.22,
-      "entry_high": 684.39,
-      "atr_ref": 17.2647,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 100,
-        "pass": true,
-        "reasons": []
-      }
-    },
-    {
-      "symbol": "CAT",
-      "group": "INDUSTRIALS",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
       "setup": "VWAP_PULLBACK",
       "score": 84,
-      "runner_up_setup": "SESSION_LEADER",
-      "runner_up_score": 46,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 70,
       "status": "PAPER_ENTRY",
-      "entry": 805.29,
-      "stop": 795.63,
-      "target1": 820.75,
-      "target2": 829.45,
+      "entry": 151.88,
+      "stop": 150.06,
+      "target1": 154.8,
+      "target2": 156.44,
       "risk_pct": 1.2,
-      "day_change_pct": 0.84,
-      "relative_volume": 1.13,
-      "bar_relative_volume": 0.89,
-      "ret1h_pct": 0.32,
-      "ret5d_pct": -1.62,
-      "ret20d_pct": -1.23,
-      "distance_20d_high_pct": -3.54,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 45,
-        "BREAKOUT": 25,
-        "VWAP_PULLBACK": 78,
-        "SWING_CONTINUATION": 12,
-        "SESSION_LEADER": 46
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 83,
-        "raw_score": 78,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 44,
-          "BREAKOUT": 24,
-          "VWAP_PULLBACK": 83,
-          "SWING_CONTINUATION": 13,
-          "SESSION_LEADER": 46
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Caterpillar’s Robot Trucks Are Heading to Two More Quarries. Should You Buy the Dip Under $800?",
-          "One of These Dividend Aristocrats Pays More. The Other Compounds Faster. Which Is Roth Ready?",
-          "Buy AI-Led EME, PWR and CAT for Long-Term to Gain From Recent Softness"
-        ],
-        "headline_ages_hours": [
-          4.9,
-          5.2,
-          8.3
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 805.08,
-      "entry_high": 805.5,
-      "atr_ref": 2.0579,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 70,
-        "pass": true,
-        "reasons": []
-      }
-    },
-    {
-      "symbol": "MRK",
-      "group": "HEALTHCARE",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 81,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 55,
-      "status": "PAPER_ENTRY",
-      "entry": 146.54,
-      "stop": 144.78,
-      "target1": 149.35,
-      "target2": 150.94,
-      "risk_pct": 1.2,
-      "day_change_pct": -0.41,
-      "relative_volume": 1.08,
-      "bar_relative_volume": 2.79,
-      "ret1h_pct": 0.0,
-      "ret5d_pct": 1.83,
-      "ret20d_pct": -1.63,
-      "distance_20d_high_pct": -6.6,
+      "day_change_pct": 1.18,
+      "relative_volume": 0.92,
+      "bar_relative_volume": 0.35,
+      "ret1h_pct": 0.2,
+      "ret5d_pct": 3.74,
+      "ret20d_pct": 3.94,
+      "distance_20d_high_pct": -0.87,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 35,
-        "VWAP_PULLBACK": 75,
-        "SWING_CONTINUATION": 50,
-        "SESSION_LEADER": 31
+        "MOMENTUM_LEADER": 65,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 70,
+        "SESSION_LEADER": 53
       },
       "router": {
         "setup": "VWAP_PULLBACK",
         "routed_score": 80,
-        "raw_score": 75,
+        "raw_score": 78,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 34,
+          "MOMENTUM_LEADER": 69,
+          "BREAKOUT": 70,
           "VWAP_PULLBACK": 80,
-          "SWING_CONTINUATION": 52,
-          "SESSION_LEADER": 31
+          "SWING_CONTINUATION": 71,
+          "SESSION_LEADER": 57
         }
       },
       "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
+        "status": "PASS_STRONG",
+        "adjustment": 6,
         "checks": {
           "15m": true,
           "60m": true,
@@ -1301,30 +1206,30 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Merck Stock Nearly Doubled Without A Change In Its Revenue Growth",
-          "‘The Age of Cures’ Review: What the  Chemist Ordered",
-          "Pfizer’s Dividend Yield Is Enormous. But Is the Payout Still Growing?"
+          "BMY vs GILD: Which Biotech Stock Looks More Attractive Now?",
+          "Novo Nordisk Stock Drops 5.6% as 2030 Goals Match Peers",
+          "Lakefront Biotherapeutics Targets 2027 Registrational Trials for Gamgertamig"
         ],
         "headline_ages_hours": [
-          1.3,
-          4.0,
-          4.4
+          2.6,
+          6.2,
+          9.5
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 146.51,
-      "entry_high": 146.57,
-      "atr_ref": 0.3317,
+      "entry_low": 151.84,
+      "entry_high": 151.92,
+      "atr_ref": 0.4268,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS",
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 68,
+        "score": 80,
         "pass": true,
         "reasons": [
           "LOW_SESSION_RVOL"
@@ -1332,152 +1237,55 @@
       }
     },
     {
-      "symbol": "JNJ",
-      "group": "HEALTHCARE",
+      "symbol": "PLTR",
+      "group": "CLOUD_SECURITY",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "VWAP_PULLBACK",
-      "score": 85,
-      "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 62,
-      "status": "OBSERVE",
-      "entry": 271.68,
-      "stop": 268.42,
-      "target1": 276.9,
-      "target2": 279.83,
-      "risk_pct": 1.2,
-      "day_change_pct": 0.54,
-      "relative_volume": 1.43,
-      "bar_relative_volume": 1.41,
-      "ret1h_pct": 0.08,
-      "ret5d_pct": 2.3,
-      "ret20d_pct": 1.61,
-      "distance_20d_high_pct": -3.32,
-      "above_vwap": true,
-      "daily_trend": true,
-      "extended": true,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 52,
-        "BREAKOUT": 57,
-        "VWAP_PULLBACK": 76,
-        "SWING_CONTINUATION": 62,
-        "SESSION_LEADER": 47
-      },
-      "router": {
-        "setup": "VWAP_PULLBACK",
-        "routed_score": 81,
-        "raw_score": 76,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 51,
-          "BREAKOUT": 55,
-          "VWAP_PULLBACK": 81,
-          "SWING_CONTINUATION": 65,
-          "SESSION_LEADER": 47
-        }
-      },
-      "mtf": {
-        "status": "PASS_STRONG",
-        "adjustment": 6,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Merck Stock Nearly Doubled Without A Change In Its Revenue Growth",
-          "Can AstraZeneca's Broad Pipeline Offset Recent Setbacks?",
-          "J&J Up 18% in Three Months: Buy, Sell or Hold the Stock?"
-        ],
-        "headline_ages_hours": [
-          1.3,
-          6.1,
-          6.4
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 74,
-      "entry_low": 271.62,
-      "entry_high": 271.74,
-      "atr_ref": 0.5687,
-      "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=PASS_STRONG",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 67,
-        "pass": false,
-        "reasons": [
-          "EXTENDED"
-        ]
-      }
-    },
-    {
-      "symbol": "MU",
-      "group": "SEMICONDUCTORS",
-      "source": "most_actives",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "VWAP_PULLBACK",
-      "score": 85,
+      "score": 84,
       "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 62,
-      "status": "OBSERVE",
-      "entry": 1006.21,
-      "stop": 994.14,
-      "target1": 1025.53,
-      "target2": 1036.4,
+      "runner_up_score": 70,
+      "status": "PAPER_ENTRY",
+      "entry": 181.58,
+      "stop": 179.4,
+      "target1": 185.07,
+      "target2": 187.03,
       "risk_pct": 1.2,
-      "day_change_pct": 2.94,
-      "relative_volume": 1.28,
-      "bar_relative_volume": 0.98,
-      "ret1h_pct": 0.03,
-      "ret5d_pct": 3.17,
-      "ret20d_pct": 3.27,
-      "distance_20d_high_pct": -3.47,
+      "day_change_pct": 2.22,
+      "relative_volume": 0.84,
+      "bar_relative_volume": 0.08,
+      "ret1h_pct": -0.13,
+      "ret5d_pct": 4.78,
+      "ret20d_pct": 0.92,
+      "distance_20d_high_pct": -3.62,
       "above_vwap": true,
       "daily_trend": true,
-      "extended": true,
+      "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 50,
-        "BREAKOUT": 57,
-        "VWAP_PULLBACK": 76,
+        "MOMENTUM_LEADER": 70,
+        "BREAKOUT": 45,
+        "VWAP_PULLBACK": 78,
         "SWING_CONTINUATION": 62,
-        "SESSION_LEADER": 61
+        "SESSION_LEADER": 57
       },
       "router": {
         "setup": "VWAP_PULLBACK",
-        "routed_score": 81,
-        "raw_score": 76,
+        "routed_score": 80,
+        "raw_score": 78,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 49,
-          "BREAKOUT": 55,
-          "VWAP_PULLBACK": 81,
-          "SWING_CONTINUATION": 65,
+          "MOMENTUM_LEADER": 74,
+          "BREAKOUT": 47,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 63,
           "SESSION_LEADER": 61
         }
       },
@@ -1495,281 +1303,87 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Stock Market Today: Dow Wavers; Two Healthcare Names Shine In IBD 50 (Live Coverage)",
-          "Micron Adds 1.3% as Intel Extends Memory Scarcity Into 2027",
-          "Jim Cramer Calls Intel (INTC) the Best Stock in Show and Micron (MU) No. 2"
+          "OpenAI and Anthropic Weighed Mutual AI Tests. Palantir CEO Says One May Never List",
+          "Beat the Market Like Zacks: PBF, Palantir, Adobe in Focus",
+          "Palantir CEO Alex Karp Says Only Washington Can Cap AI Liability: 'These Businesses Have to Be Nationalized'"
         ],
         "headline_ages_hours": [
-          0.5,
-          1.1,
-          1.2
+          0.6,
+          6.4,
+          7.8
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 1005.83,
-      "entry_high": 1006.59,
-      "atr_ref": 3.841,
+      "entry_low": 181.51,
+      "entry_high": 181.65,
+      "atr_ref": 0.7209,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
+        "Router=VWAP_PULLBACK in RISK_ON",
         "MTF=PASS_STRONG",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 67,
-        "pass": false,
+        "score": 71,
+        "pass": true,
         "reasons": [
-          "EXTENDED"
+          "LOW_SESSION_RVOL"
         ]
       }
     },
     {
-      "symbol": "AMAT",
-      "group": "SEMICONDUCTORS",
-      "source": "day_gainers",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 74,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 67,
-      "status": "OBSERVE",
-      "entry": 437.37,
-      "stop": 432.12,
-      "target1": 445.77,
-      "target2": 450.49,
-      "risk_pct": 1.2,
-      "day_change_pct": 4.78,
-      "relative_volume": 1.29,
-      "bar_relative_volume": 0.61,
-      "ret1h_pct": 0.56,
-      "ret5d_pct": -4.21,
-      "ret20d_pct": -11.88,
-      "distance_20d_high_pct": -13.18,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": true,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 45,
-        "BREAKOUT": 42,
-        "VWAP_PULLBACK": 54,
-        "SWING_CONTINUATION": 5,
-        "SESSION_LEADER": 73
-      },
-      "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 73,
-        "raw_score": 73,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 44,
-          "BREAKOUT": 41,
-          "VWAP_PULLBACK": 58,
-          "SWING_CONTINUATION": 5,
-          "SESSION_LEADER": 73
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Chip Stocks Hit Ceiling During Sector Rebound. Macom Is A Standout.",
-          "KLAC Gains From AI Infrastructure: Can It Outpace AMAT & ASML?",
-          "Lam Research Climbs 5% as Chip Equipment Names Outrun the Sector; Applied Materials Rises 4%, KLA Corp. Gains 3%"
-        ],
-        "headline_ages_hours": [
-          1.9,
-          2.2,
-          2.5
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 78,
-      "entry_low": 437.19,
-      "entry_high": 437.55,
-      "atr_ref": 1.8086,
-      "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
-        "MTF=PASS",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 45,
-        "pass": false,
-        "reasons": [
-          "EXTENDED"
-        ]
-      }
-    },
-    {
-      "symbol": "LRCX",
-      "group": "SEMICONDUCTORS",
-      "source": "day_gainers",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SESSION_LEADER",
-      "score": 74,
-      "runner_up_setup": "MOMENTUM_LEADER",
-      "runner_up_score": 55,
-      "status": "OBSERVE",
-      "entry": 283.95,
-      "stop": 280.55,
-      "target1": 289.41,
-      "target2": 292.47,
-      "risk_pct": 1.2,
-      "day_change_pct": 5.44,
-      "relative_volume": 1.16,
-      "bar_relative_volume": 0.95,
-      "ret1h_pct": 0.58,
-      "ret5d_pct": -4.78,
-      "ret20d_pct": -8.56,
-      "distance_20d_high_pct": -11.86,
-      "above_vwap": true,
-      "daily_trend": false,
-      "extended": true,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 55,
-        "BREAKOUT": 40,
-        "VWAP_PULLBACK": 54,
-        "SWING_CONTINUATION": 5,
-        "SESSION_LEADER": 73
-      },
-      "router": {
-        "setup": "SESSION_LEADER",
-        "routed_score": 73,
-        "raw_score": 73,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 54,
-          "BREAKOUT": 39,
-          "VWAP_PULLBACK": 58,
-          "SWING_CONTINUATION": 5,
-          "SESSION_LEADER": 73
-        }
-      },
-      "mtf": {
-        "status": "PASS",
-        "adjustment": 2,
-        "checks": {
-          "15m": true,
-          "60m": true,
-          "daily": false
-        }
-      },
-      "catalyst": {
-        "score": 0,
-        "sentiment": "NEUTRAL_OR_UNKNOWN",
-        "categories": [],
-        "headlines": [
-          "Chip Stocks Hit Ceiling During Sector Rebound. Macom Is A Standout.",
-          "Lam Research Climbs 5% as Chip Equipment Names Outrun the Sector; Applied Materials Rises 4%, KLA Corp. Gains 3%",
-          "Eisman Says Buy Micron And SK Hynix. “In This Knife Fight You Want To Be The One Selling The Knives”"
-        ],
-        "headline_ages_hours": [
-          1.9,
-          2.5,
-          4.8
-        ],
-        "contributions": [],
-        "positive_hits": 0,
-        "negative_hits": 0
-      },
-      "threshold": 78,
-      "entry_low": 283.84,
-      "entry_high": 284.07,
-      "atr_ref": 1.1773,
-      "decision_reason": [
-        "Router=SESSION_LEADER in MIXED",
-        "MTF=PASS",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 45,
-        "pass": false,
-        "reasons": [
-          "EXTENDED"
-        ]
-      }
-    },
-    {
-      "symbol": "PLTR",
-      "group": "CLOUD_SECURITY",
+      "symbol": "ABBV",
+      "group": "HEALTHCARE",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "VWAP_PULLBACK",
-      "score": 73,
+      "score": 84,
       "runner_up_setup": "SWING_CONTINUATION",
-      "runner_up_score": 55,
-      "status": "OBSERVE",
-      "entry": 177.02,
-      "stop": 174.9,
-      "target1": 180.42,
-      "target2": 182.33,
+      "runner_up_score": 70,
+      "status": "PAPER_ENTRY",
+      "entry": 265.72,
+      "stop": 262.53,
+      "target1": 270.82,
+      "target2": 273.69,
       "risk_pct": 1.2,
-      "day_change_pct": 0.44,
-      "relative_volume": 0.88,
-      "bar_relative_volume": 1.1,
-      "ret1h_pct": 0.25,
-      "ret5d_pct": 5.87,
-      "ret20d_pct": 1.77,
-      "distance_20d_high_pct": -6.02,
+      "day_change_pct": 0.67,
+      "relative_volume": 0.82,
+      "bar_relative_volume": 0.21,
+      "ret1h_pct": 0.09,
+      "ret5d_pct": 1.51,
+      "ret20d_pct": 0.29,
+      "distance_20d_high_pct": -0.4,
       "above_vwap": true,
       "daily_trend": true,
-      "extended": true,
+      "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 40,
-        "BREAKOUT": 45,
-        "VWAP_PULLBACK": 68,
-        "SWING_CONTINUATION": 55,
-        "SESSION_LEADER": 29
+        "MOMENTUM_LEADER": 55,
+        "BREAKOUT": 57,
+        "VWAP_PULLBACK": 78,
+        "SWING_CONTINUATION": 70,
+        "SESSION_LEADER": 41
       },
       "router": {
         "setup": "VWAP_PULLBACK",
-        "routed_score": 73,
-        "raw_score": 68,
+        "routed_score": 80,
+        "raw_score": 78,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 39,
-          "BREAKOUT": 44,
-          "VWAP_PULLBACK": 73,
-          "SWING_CONTINUATION": 58,
-          "SESSION_LEADER": 29
+          "MOMENTUM_LEADER": 58,
+          "BREAKOUT": 60,
+          "VWAP_PULLBACK": 80,
+          "SWING_CONTINUATION": 71,
+          "SESSION_LEADER": 44
         }
       },
       "mtf": {
@@ -1782,105 +1396,99 @@
         }
       },
       "catalyst": {
-        "score": -4,
-        "sentiment": "NEGATIVE",
-        "categories": [
-          "LITIGATION"
-        ],
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
         "headlines": [
-          "Is Palantir's Lead Over Its Peers Already Priced In?",
-          "PLTR's 110% Commercial Revenue Surge Defines Its Q2 Growth",
-          "What Happens To Snowflake Stock If AI Keeps Costing It Margin?"
+          "Novo Nordisk shares plunge over 7% as new targets fail to reassure investors",
+          "Novo Sets Long-Term Targets Ahead of Semaglutide Patent Expirations",
+          "What Would It Take For Pfizer To Cut Its Dividend?"
         ],
         "headline_ages_hours": [
-          1.5,
-          1.7,
-          3.2
+          2.6,
+          2.8,
+          4.3
         ],
-        "contributions": [
-          -4
-        ],
+        "contributions": [],
         "positive_hits": 0,
-        "negative_hits": 1
+        "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 176.94,
-      "entry_high": 177.1,
-      "atr_ref": 0.763,
+      "entry_low": 265.65,
+      "entry_high": 265.79,
+      "atr_ref": 0.6736,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
+        "Router=VWAP_PULLBACK in RISK_ON",
         "MTF=PASS_STRONG",
-        "Catalyst=NEGATIVE",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 55,
-        "pass": false,
+        "score": 80,
+        "pass": true,
         "reasons": [
-          "LOW_SESSION_RVOL",
-          "EXTENDED"
+          "LOW_SESSION_RVOL"
         ]
       }
     },
     {
-      "symbol": "NET",
-      "group": "CLOUD_SECURITY",
+      "symbol": "TGT",
+      "group": "CONSUMER_RETAIL",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 71,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 51,
-      "status": "OBSERVE",
-      "entry": 321.42,
-      "stop": 295.71,
-      "target1": 367.7,
-      "target2": 398.56,
-      "risk_pct": 8.0,
-      "day_change_pct": -3.75,
-      "relative_volume": 0.96,
-      "bar_relative_volume": 0.95,
-      "ret1h_pct": -0.15,
-      "ret5d_pct": 4.86,
-      "ret20d_pct": 15.24,
-      "distance_20d_high_pct": -4.6,
+      "setup": "VWAP_PULLBACK",
+      "score": 83,
+      "runner_up_setup": "MOMENTUM_LEADER",
+      "runner_up_score": 50,
+      "status": "PAPER_ENTRY",
+      "entry": 158.41,
+      "stop": 156.51,
+      "target1": 161.45,
+      "target2": 163.16,
+      "risk_pct": 1.2,
+      "day_change_pct": 0.14,
+      "relative_volume": 0.55,
+      "bar_relative_volume": 0.26,
+      "ret1h_pct": 0.01,
+      "ret5d_pct": -0.18,
+      "ret20d_pct": -4.25,
+      "distance_20d_high_pct": -7.24,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 29,
-        "BREAKOUT": 15,
-        "VWAP_PULLBACK": 51,
-        "SWING_CONTINUATION": 77,
-        "SESSION_LEADER": 15
+        "MOMENTUM_LEADER": 55,
+        "BREAKOUT": 35,
+        "VWAP_PULLBACK": 80,
+        "SWING_CONTINUATION": 40,
+        "SESSION_LEADER": 31
       },
       "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 81,
-        "raw_score": 77,
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 82,
+        "raw_score": 80,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 28,
-          "BREAKOUT": 15,
-          "VWAP_PULLBACK": 55,
-          "SWING_CONTINUATION": 81,
-          "SESSION_LEADER": 15
+          "MOMENTUM_LEADER": 58,
+          "BREAKOUT": 37,
+          "VWAP_PULLBACK": 82,
+          "SWING_CONTINUATION": 41,
+          "SESSION_LEADER": 33
         }
       },
       "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
+        "status": "PASS",
+        "adjustment": 2,
         "checks": {
-          "15m": false,
-          "60m": false,
+          "15m": true,
+          "60m": true,
           "daily": true
         }
       },
@@ -1889,237 +1497,322 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Can Rising Adoption of Agentic AI Accelerate NET's Revenue Growth?",
-          "Crusoe raises $3.9B to build massive data centers and small modular ‘AI factories’",
-          "Cloudflare (NET) Exceeds Market Returns: Some Facts to Consider"
+          "Target Uses AI Personalization to Deepen Digital Guest Engagement",
+          "Can Walmart Turn Healthcare Expansion Into Deeper Engagement?",
+          "Key Christmas retailer files for Chapter 11 bankrutpcy"
         ],
         "headline_ages_hours": [
-          5.4,
-          20.1,
-          21.7
+          2.3,
+          3.9,
+          28.4
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 318.8,
-      "entry_high": 324.04,
-      "atr_ref": 17.4623,
+      "entry_low": 158.37,
+      "entry_high": 158.45,
+      "atr_ref": 0.3937,
       "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 70,
-        "pass": false,
+        "score": 68,
+        "pass": true,
         "reasons": [
-          "MTF_FAIL"
+          "LOW_SESSION_RVOL"
         ]
       }
     },
     {
-      "symbol": "META",
-      "group": "MEGA_TECH",
-      "source": "seed_universe",
-      "sector": "",
-      "sharia_status": "PRECHECK_PASS",
-      "setup": "SWING_CONTINUATION",
-      "score": 65,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 41,
-      "status": "OBSERVE",
-      "entry": 670.62,
-      "stop": 639.59,
-      "target1": 726.47,
-      "target2": 763.71,
-      "risk_pct": 4.63,
-      "day_change_pct": -1.71,
-      "relative_volume": 1.24,
-      "bar_relative_volume": 0.51,
-      "ret1h_pct": -0.32,
-      "ret5d_pct": 3.51,
-      "ret20d_pct": 22.89,
-      "distance_20d_high_pct": -2.1,
-      "above_vwap": false,
-      "daily_trend": true,
-      "extended": false,
-      "engine": "V7-Catalyst-Router-MTF",
-      "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 10,
-        "BREAKOUT": 27,
-        "VWAP_PULLBACK": 41,
-        "SWING_CONTINUATION": 75,
-        "SESSION_LEADER": 10
-      },
-      "router": {
-        "setup": "SWING_CONTINUATION",
-        "routed_score": 79,
-        "raw_score": 75,
-        "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
-        },
-        "adjusted_scores": {
-          "MOMENTUM_LEADER": 10,
-          "BREAKOUT": 26,
-          "VWAP_PULLBACK": 44,
-          "SWING_CONTINUATION": 79,
-          "SESSION_LEADER": 10
-        }
-      },
-      "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
-        "checks": {
-          "15m": false,
-          "60m": false,
-          "daily": true
-        }
-      },
-      "catalyst": {
-        "score": -4,
-        "sentiment": "NEGATIVE",
-        "categories": [
-          "LITIGATION"
-        ],
-        "headlines": [
-          "'Astonishing theft of unprecedented proportions': NYT vs. OpenAI, Microsoft lawsuit",
-          "Meta Platforms Just Ripped 23% in a Month: Take Profits, or Buy More?",
-          "Aptos SVP warns quantum threat is closer than you think"
-        ],
-        "headline_ages_hours": [
-          5.7,
-          0.7,
-          1.2
-        ],
-        "contributions": [
-          -4
-        ],
-        "positive_hits": 0,
-        "negative_hits": 1
-      },
-      "threshold": 74,
-      "entry_low": 667.52,
-      "entry_high": 673.72,
-      "atr_ref": 20.6858,
-      "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
-        "MTF=FAIL",
-        "Catalyst=NEGATIVE",
-        "Confidence score de-saturated (cap 99)"
-      ],
-      "entry_quality": {
-        "score": 70,
-        "pass": false,
-        "reasons": [
-          "MTF_FAIL"
-        ]
-      }
-    },
-    {
-      "symbol": "MSFT",
-      "group": "MEGA_TECH",
+      "symbol": "REGN",
+      "group": "HEALTHCARE",
       "source": "seed_universe",
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "VWAP_PULLBACK",
-      "score": 64,
-      "runner_up_setup": "BREAKOUT",
-      "runner_up_score": 52,
-      "status": "OBSERVE",
-      "entry": 495.16,
-      "stop": 489.22,
-      "target1": 504.67,
-      "target2": 510.01,
+      "score": 79,
+      "runner_up_setup": "VWAP_PULLBACK",
+      "runner_up_score": 76,
+      "status": "PAPER_ENTRY",
+      "entry": 799.39,
+      "stop": 789.79,
+      "target1": 814.73,
+      "target2": 823.37,
       "risk_pct": 1.2,
-      "day_change_pct": -0.52,
-      "relative_volume": 1.21,
-      "bar_relative_volume": 0.75,
-      "ret1h_pct": -0.05,
-      "ret5d_pct": -0.08,
-      "ret20d_pct": 2.93,
-      "distance_20d_high_pct": -4.33,
+      "day_change_pct": 1.85,
+      "relative_volume": 1.37,
+      "bar_relative_volume": 0.08,
+      "ret1h_pct": 0.08,
+      "ret5d_pct": 0.71,
+      "ret20d_pct": -4.16,
+      "distance_20d_high_pct": -7.0,
       "above_vwap": true,
       "daily_trend": true,
       "extended": false,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 43,
-        "BREAKOUT": 37,
-        "VWAP_PULLBACK": 73,
-        "SWING_CONTINUATION": 42,
-        "SESSION_LEADER": 40
+        "MOMENTUM_LEADER": 62,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 76,
+        "SWING_CONTINUATION": 55,
+        "SESSION_LEADER": 63
       },
       "router": {
         "setup": "VWAP_PULLBACK",
         "routed_score": 78,
-        "raw_score": 73,
+        "raw_score": 76,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 42,
-          "BREAKOUT": 36,
+          "MOMENTUM_LEADER": 66,
+          "BREAKOUT": 70,
           "VWAP_PULLBACK": 78,
-          "SWING_CONTINUATION": 44,
-          "SESSION_LEADER": 40
+          "SWING_CONTINUATION": 56,
+          "SESSION_LEADER": 67
         }
       },
       "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
+        "status": "PASS",
+        "adjustment": 2,
         "checks": {
           "15m": true,
-          "60m": false,
+          "60m": true,
           "daily": true
         }
       },
       "catalyst": {
-        "score": -4,
-        "sentiment": "NEGATIVE",
-        "categories": [
-          "LITIGATION"
-        ],
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
         "headlines": [
-          "'Astonishing theft of unprecedented proportions': NYT vs. OpenAI, Microsoft lawsuit",
-          "Core & Main (CNM) Is Up 5.0% After Buybacks, M&A Pipeline Updates and Guidance Reaffirmation - Has The Bull Case Changed?",
-          "Intel vs. SK Hynix: Which Chip Stock Is Worth Chasing After This Week's Surge?"
+          "Telix to Buy Germany's ITM Isotope in Deal Worth Up to $2.35 Billion",
+          "Sanofi Eyes €25B Dupixent Future, Expands M&A Hunt Ahead of Patent Loss",
+          "Can Intellia's Pipeline Progress Create Long-Term Value Amid Rivalry?"
         ],
         "headline_ages_hours": [
-          5.7,
-          0.3,
-          0.3
+          7.3,
+          34.5,
+          76.8
         ],
-        "contributions": [
-          -4
-        ],
+        "contributions": [],
         "positive_hits": 0,
-        "negative_hits": 1
+        "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 495.05,
-      "entry_high": 495.27,
-      "atr_ref": 1.0804,
+      "entry_low": 799.15,
+      "entry_high": 799.62,
+      "atr_ref": 2.3113,
       "decision_reason": [
-        "Router=VWAP_PULLBACK in MIXED",
-        "MTF=FAIL",
-        "Catalyst=NEGATIVE",
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 53,
+        "score": 80,
+        "pass": true,
+        "reasons": []
+      }
+    },
+    {
+      "symbol": "NET",
+      "group": "CLOUD_SECURITY",
+      "source": "day_gainers",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 96,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 79,
+      "status": "OBSERVE",
+      "entry": 347.11,
+      "stop": 319.98,
+      "target1": 395.94,
+      "target2": 428.5,
+      "risk_pct": 7.82,
+      "day_change_pct": 7.27,
+      "relative_volume": 1.3,
+      "bar_relative_volume": 0.09,
+      "ret1h_pct": -0.16,
+      "ret5d_pct": 5.13,
+      "ret20d_pct": 18.48,
+      "distance_20d_high_pct": 2.68,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": true,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 57,
+        "BREAKOUT": 69,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 58
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 92,
+        "raw_score": 90,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 60,
+          "BREAKOUT": 72,
+          "VWAP_PULLBACK": 67,
+          "SWING_CONTINUATION": 92,
+          "SESSION_LEADER": 62
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Fastly Soars 14% on AI Firewall Launch; Cloudflare Climbs 7%, Datadog Rises 5%",
+          "Is It Worth Investing in Cloudflare (NET) Based on Wall Street's Bullish Views?",
+          "Cloudflare (NET) Stock Looks Rich After Its Huge Three Year Run"
+        ],
+        "headline_ages_hours": [
+          0.5,
+          5.1,
+          27.3
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 344.4,
+      "entry_high": 349.82,
+      "atr_ref": 18.0859,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 75,
         "pass": false,
         "reasons": [
-          "MTF_FAIL"
+          "EXTENDED"
+        ]
+      }
+    },
+    {
+      "symbol": "QCOM",
+      "group": "SEMICONDUCTORS",
+      "source": "day_gainers",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "SWING_CONTINUATION",
+      "score": 96,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 79,
+      "status": "OBSERVE",
+      "entry": 193.3,
+      "stop": 180.1,
+      "target1": 217.06,
+      "target2": 232.91,
+      "risk_pct": 6.83,
+      "day_change_pct": 8.77,
+      "relative_volume": 1.18,
+      "bar_relative_volume": 0.18,
+      "ret1h_pct": 0.58,
+      "ret5d_pct": 7.37,
+      "ret20d_pct": 20.32,
+      "distance_20d_high_pct": 0.48,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": true,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 55,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 73
+      },
+      "router": {
+        "setup": "SWING_CONTINUATION",
+        "routed_score": 92,
+        "raw_score": 90,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 58,
+          "BREAKOUT": 70,
+          "VWAP_PULLBACK": 67,
+          "SWING_CONTINUATION": 92,
+          "SESSION_LEADER": 78
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Update: Equities Rise Intraday as Chip Stocks Rally",
+          "Arm’s Shift From Royalties to Silicon Manufacturing Could Reshape Chip Economics",
+          "Qualcomm Jumps 7% as AI Interconnect Demo Points Past Handsets; Skyworks and Qorvo Sit Out the Rally"
+        ],
+        "headline_ages_hours": [
+          0.7,
+          1.0,
+          1.7
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 191.98,
+      "entry_high": 194.62,
+      "atr_ref": 8.8016,
+      "decision_reason": [
+        "Router=SWING_CONTINUATION in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 75,
+        "pass": false,
+        "reasons": [
+          "EXTENDED"
         ]
       }
     },
@@ -2130,58 +1823,58 @@
       "sector": "",
       "sharia_status": "PRECHECK_PASS",
       "setup": "SWING_CONTINUATION",
-      "score": 61,
-      "runner_up_setup": "VWAP_PULLBACK",
-      "runner_up_score": 43,
+      "score": 96,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 67,
       "status": "OBSERVE",
-      "entry": 239.19,
-      "stop": 220.05,
-      "target1": 273.63,
-      "target2": 296.6,
-      "risk_pct": 8.0,
-      "day_change_pct": -2.65,
-      "relative_volume": 0.6,
-      "bar_relative_volume": 1.16,
-      "ret1h_pct": -0.18,
-      "ret5d_pct": 15.72,
-      "ret20d_pct": 25.69,
-      "distance_20d_high_pct": -4.46,
-      "above_vwap": false,
+      "entry": 248.46,
+      "stop": 228.61,
+      "target1": 284.2,
+      "target2": 308.02,
+      "risk_pct": 7.99,
+      "day_change_pct": 4.55,
+      "relative_volume": 0.89,
+      "bar_relative_volume": 0.12,
+      "ret1h_pct": 0.08,
+      "ret5d_pct": 5.55,
+      "ret20d_pct": 29.44,
+      "distance_20d_high_pct": -0.73,
+      "above_vwap": true,
       "daily_trend": true,
-      "extended": false,
+      "extended": true,
       "engine": "V7-Catalyst-Router-MTF",
       "raw_strategy_scores": {
-        "MOMENTUM_LEADER": 25,
-        "BREAKOUT": 15,
-        "VWAP_PULLBACK": 63,
-        "SWING_CONTINUATION": 68,
-        "SESSION_LEADER": 15
+        "MOMENTUM_LEADER": 60,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 90,
+        "SESSION_LEADER": 59
       },
       "router": {
         "setup": "SWING_CONTINUATION",
-        "routed_score": 71,
-        "raw_score": 68,
+        "routed_score": 92,
+        "raw_score": 90,
         "weights": {
-          "SESSION_LEADER": 1.0,
-          "MOMENTUM_LEADER": 0.98,
-          "BREAKOUT": 0.97,
-          "VWAP_PULLBACK": 1.07,
-          "SWING_CONTINUATION": 1.05
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
         },
         "adjusted_scores": {
-          "MOMENTUM_LEADER": 24,
-          "BREAKOUT": 15,
+          "MOMENTUM_LEADER": 64,
+          "BREAKOUT": 70,
           "VWAP_PULLBACK": 67,
-          "SWING_CONTINUATION": 71,
-          "SESSION_LEADER": 15
+          "SWING_CONTINUATION": 92,
+          "SESSION_LEADER": 63
         }
       },
       "mtf": {
-        "status": "FAIL",
-        "adjustment": -10,
+        "status": "PASS_STRONG",
+        "adjustment": 6,
         "checks": {
-          "15m": false,
-          "60m": false,
+          "15m": true,
+          "60m": true,
           "daily": true
         }
       },
@@ -2190,51 +1883,343 @@
         "sentiment": "NEUTRAL_OR_UNKNOWN",
         "categories": [],
         "headlines": [
-          "Cybersecurity Stock Fortinet Forms Rare Pattern, Flirts With Buy Point",
-          "SailPoint’s (SAIL) Falcon Next-Gen SIEM Arrangement Fits Its Broader Identity Security Push",
-          "ZS, CRWD, PANW Stock In Focus — Cybersecurity Firms Lead Weekly Nasdaq 100 Gains As AI Security Debate Intensifies"
+          "Cybersecurity Stocks Extend Gains on AI Safety Warnings: CrowdStrike and Okta Rise 4%, Palo Alto Ticks Up",
+          "Can Falcon Flex Momentum Keep Driving CrowdStrike's ARR Growth?",
+          "Zscaler's AI Bookings Jump 50%: Can AI Products Drive Growth?"
         ],
         "headline_ages_hours": [
-          0.1,
-          1.0,
-          1.5
+          1.5,
+          4.2,
+          5.5
         ],
         "contributions": [],
         "positive_hits": 0,
         "negative_hits": 0
       },
       "threshold": 74,
-      "entry_low": 237.26,
-      "entry_high": 241.12,
-      "atr_ref": 12.8527,
+      "entry_low": 246.47,
+      "entry_high": 250.45,
+      "atr_ref": 13.236,
       "decision_reason": [
-        "Router=SWING_CONTINUATION in MIXED",
+        "Router=SWING_CONTINUATION in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 75,
+        "pass": false,
+        "reasons": [
+          "EXTENDED"
+        ]
+      }
+    },
+    {
+      "symbol": "META",
+      "group": "MEGA_TECH",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "BREAKOUT",
+      "score": 95,
+      "runner_up_setup": "SWING_CONTINUATION",
+      "runner_up_score": 81,
+      "status": "OBSERVE",
+      "entry": 747.38,
+      "stop": 738.41,
+      "target1": 761.73,
+      "target2": 769.8,
+      "risk_pct": 1.2,
+      "day_change_pct": 12.26,
+      "relative_volume": 2.73,
+      "bar_relative_volume": 0.19,
+      "ret1h_pct": 0.45,
+      "ret5d_pct": 12.3,
+      "ret20d_pct": 35.92,
+      "distance_20d_high_pct": 8.22,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": true,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 60,
+        "BREAKOUT": 87,
+        "VWAP_PULLBACK": 66,
+        "SWING_CONTINUATION": 81,
+        "SESSION_LEADER": 49
+      },
+      "router": {
+        "setup": "BREAKOUT",
+        "routed_score": 91,
+        "raw_score": 87,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 64,
+          "BREAKOUT": 91,
+          "VWAP_PULLBACK": 67,
+          "SWING_CONTINUATION": 83,
+          "SESSION_LEADER": 52
+        }
+      },
+      "mtf": {
+        "status": "PASS_STRONG",
+        "adjustment": 6,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Stock market today: Nasdaq surges 2%, Dow and S&P 500 gain as chip stocks rally, oil prices fall",
+          "Trump and Xi dine with AI titans and Meta takes the stage: What to watch this week",
+          "Meta Stock Jumps as Wells Fargo Underwrites the AI Story"
+        ],
+        "headline_ages_hours": [
+          10.5,
+          8.6,
+          0.1
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 76,
+      "entry_low": 746.89,
+      "entry_high": 747.87,
+      "atr_ref": 4.9347,
+      "decision_reason": [
+        "Router=BREAKOUT in RISK_ON",
+        "MTF=PASS_STRONG",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 75,
+        "pass": false,
+        "reasons": [
+          "EXTENDED"
+        ]
+      }
+    },
+    {
+      "symbol": "MSFT",
+      "group": "MEGA_TECH",
+      "source": "seed_universe",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 91,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 57,
+      "status": "OBSERVE",
+      "entry": 497.95,
+      "stop": 491.97,
+      "target1": 507.51,
+      "target2": 512.89,
+      "risk_pct": 1.2,
+      "day_change_pct": 0.84,
+      "relative_volume": 1.26,
+      "bar_relative_volume": 0.12,
+      "ret1h_pct": -0.21,
+      "ret5d_pct": -1.48,
+      "ret20d_pct": 3.04,
+      "distance_20d_high_pct": -3.8,
+      "above_vwap": true,
+      "daily_trend": true,
+      "extended": true,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 35,
+        "BREAKOUT": 47,
+        "VWAP_PULLBACK": 88,
+        "SWING_CONTINUATION": 47,
+        "SESSION_LEADER": 33
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 90,
+        "raw_score": 88,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 37,
+          "BREAKOUT": 49,
+          "VWAP_PULLBACK": 90,
+          "SWING_CONTINUATION": 48,
+          "SESSION_LEADER": 35
+        }
+      },
+      "mtf": {
+        "status": "PASS",
+        "adjustment": 2,
+        "checks": {
+          "15m": true,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Why Higher Rates Are Becoming NVIDIA’s Biggest Threat",
+          "Sector Update: Tech Stocks Gain Monday Afternoon",
+          "Microsoft and Anthropic dominate Nscale's $103B IPO contract backlog"
+        ],
+        "headline_ages_hours": [
+          0.5,
+          0.6,
+          1.0
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 497.82,
+      "entry_high": 498.07,
+      "atr_ref": 1.2434,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in RISK_ON",
+        "MTF=PASS",
+        "Confidence score de-saturated (cap 99)"
+      ],
+      "entry_quality": {
+        "score": 46,
+        "pass": false,
+        "reasons": [
+          "EXTENDED"
+        ]
+      }
+    },
+    {
+      "symbol": "MU",
+      "group": "SEMICONDUCTORS",
+      "source": "most_actives",
+      "sector": "",
+      "sharia_status": "PRECHECK_PASS",
+      "setup": "VWAP_PULLBACK",
+      "score": 72,
+      "runner_up_setup": "BREAKOUT",
+      "runner_up_score": 79,
+      "status": "OBSERVE",
+      "entry": 1042.87,
+      "stop": 1030.36,
+      "target1": 1062.89,
+      "target2": 1074.16,
+      "risk_pct": 1.2,
+      "day_change_pct": 2.66,
+      "relative_volume": 1.17,
+      "bar_relative_volume": 0.1,
+      "ret1h_pct": 0.33,
+      "ret5d_pct": 12.86,
+      "ret20d_pct": 7.87,
+      "distance_20d_high_pct": 0.04,
+      "above_vwap": false,
+      "daily_trend": true,
+      "extended": false,
+      "engine": "V7-Catalyst-Router-MTF",
+      "raw_strategy_scores": {
+        "MOMENTUM_LEADER": 60,
+        "BREAKOUT": 67,
+        "VWAP_PULLBACK": 80,
+        "SWING_CONTINUATION": 73,
+        "SESSION_LEADER": 48
+      },
+      "router": {
+        "setup": "VWAP_PULLBACK",
+        "routed_score": 82,
+        "raw_score": 80,
+        "weights": {
+          "SESSION_LEADER": 1.07,
+          "MOMENTUM_LEADER": 1.06,
+          "BREAKOUT": 1.05,
+          "VWAP_PULLBACK": 1.02,
+          "SWING_CONTINUATION": 1.02
+        },
+        "adjusted_scores": {
+          "MOMENTUM_LEADER": 64,
+          "BREAKOUT": 70,
+          "VWAP_PULLBACK": 82,
+          "SWING_CONTINUATION": 74,
+          "SESSION_LEADER": 51
+        }
+      },
+      "mtf": {
+        "status": "FAIL",
+        "adjustment": -10,
+        "checks": {
+          "15m": false,
+          "60m": true,
+          "daily": true
+        }
+      },
+      "catalyst": {
+        "score": 0,
+        "sentiment": "NEUTRAL_OR_UNKNOWN",
+        "categories": [],
+        "headlines": [
+          "Why Micron and Dell stocks may have more juice than Nvidia",
+          "Micron Stock Flashes Signal Before Earnings",
+          "Not Nvidia. Not Micron. Meet the AI Infrastructure Stock That Could Triple in Just 3 Years"
+        ],
+        "headline_ages_hours": [
+          4.1,
+          0.2,
+          1.0
+        ],
+        "contributions": [],
+        "positive_hits": 0,
+        "negative_hits": 0
+      },
+      "threshold": 74,
+      "entry_low": 1042.37,
+      "entry_high": 1043.37,
+      "atr_ref": 5.0459,
+      "decision_reason": [
+        "Router=VWAP_PULLBACK in RISK_ON",
         "MTF=FAIL",
         "Confidence score de-saturated (cap 99)"
       ],
       "entry_quality": {
-        "score": 60,
+        "score": 37,
         "pass": false,
         "reasons": [
-          "MTF_FAIL"
+          "MTF_FAIL",
+          "BELOW_VWAP"
         ]
       }
     }
   ],
   "paper_metrics": {
-    "samples": 12,
-    "win_rate": 33.3,
-    "expectancy_r": -0.275,
-    "profit_factor": 0.54,
-    "total_r": -3.3,
+    "samples": 14,
+    "win_rate": 42.9,
+    "expectancy_r": -0.085,
+    "profit_factor": 0.83,
+    "total_r": -1.19,
     "max_drawdown_r": 3.968,
-    "realized_pnl_dollars": -1356.65,
-    "unrealized_pnl_dollars": 471.4
+    "realized_pnl_dollars": -451.56,
+    "unrealized_pnl_dollars": 169.44
   },
   "paper_state_counts": {
-    "pending": 0,
-    "open": 3,
-    "closed": 12,
+    "pending": 2,
+    "open": 1,
+    "closed": 14,
     "rejected": 10
   },
   "design": {
@@ -2258,16 +2243,16 @@
     "status": "COLLECTING_FORWARD_DATA",
     "live_execution_authorized": false,
     "clean_forward_stats": {
-      "samples": 9,
-      "win_rate": 33.3,
-      "expectancy_r": -0.223,
-      "profit_factor": 0.62,
-      "total_r": -2.01,
+      "samples": 11,
+      "win_rate": 45.5,
+      "expectancy_r": 0.009,
+      "profit_factor": 1.02,
+      "total_r": 0.1,
       "max_drawdown_r": 3.968
     },
     "gates": {
       "closed_trades_gte_30": false,
-      "expectancy_positive": false,
+      "expectancy_positive": true,
       "profit_factor_gte_1_30": false,
       "max_drawdown_lte_8R": true
     },
@@ -2287,11 +2272,11 @@
         "max_drawdown_r": 1.0
       },
       "SWING_CONTINUATION": {
-        "samples": 3,
-        "win_rate": 33.3,
-        "expectancy_r": -0.658,
-        "profit_factor": 0.01,
-        "total_r": -1.97,
+        "samples": 5,
+        "win_rate": 60.0,
+        "expectancy_r": 0.027,
+        "profit_factor": 1.07,
+        "total_r": 0.14,
         "max_drawdown_r": 1.974
       },
       "VWAP_PULLBACK": {
@@ -2305,11 +2290,11 @@
     },
     "by_regime": {
       "MIXED": {
-        "samples": 7,
-        "win_rate": 14.3,
-        "expectancy_r": -0.519,
-        "profit_factor": 0.31,
-        "total_r": -3.63,
+        "samples": 9,
+        "win_rate": 33.3,
+        "expectancy_r": -0.169,
+        "profit_factor": 0.71,
+        "total_r": -1.52,
         "max_drawdown_r": 4.233
       },
       "RISK_ON": {

@@ -1,124 +1,31 @@
 {
   "engine": "V7-Catalyst-Router-MTF",
   "mode": "RESEARCH_PAPER_ONLY",
-  "pending": [],
-  "open": [
-    {
-      "symbol": "ABBV",
-      "setup": "SWING_CONTINUATION",
-      "signal_at": "2026-09-14T17:44:07.502092+00:00",
-      "signal_day": "2026-09-14",
-      "signal_entry": 261.46,
-      "signal_stop": 252.66,
-      "signal_target1": 277.32,
-      "atr_ref": 5.8706,
-      "score": 90,
-      "mtf": "PASS_STRONG",
-      "catalyst": "NEUTRAL_OR_UNKNOWN",
-      "status": "OPEN",
-      "group": "HEALTHCARE",
-      "shares": 55,
-      "portfolio_risk": {
-        "allowed": true,
-        "reason": "RISK_APPROVED",
-        "shares": 55,
-        "position_value": 14380.3,
-        "risk_dollars": 484.0,
-        "risk_pct_equity": 0.484,
-        "open_risk_before": 1009.86,
-        "open_risk_after": 1493.86,
-        "group_risk_before": 0,
-        "limits": {
-          "risk_per_trade_pct": 0.5,
-          "max_open_risk_pct": 1.5,
-          "max_group_risk_pct": 1.0,
-          "max_position_pct": 25.0,
-          "max_pair_correlation": 0.85
-        },
-        "correlation": {
-          "max_correlation": 0.256,
-          "peer": "AAPL",
-          "pass": true
-        }
-      },
-      "paper_epoch": "V7.2_FORWARD_2026-09-09",
-      "signal_regime": "MIXED",
-      "entry_quality": {
-        "score": 100,
-        "pass": true,
-        "reasons": []
-      },
-      "sharia_research": {
-        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
-        "certified": false,
-        "symbol": "ABBV",
-        "status": "RESEARCH_PASS_PARTIAL",
-        "reasons": [
-          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
-        ],
-        "thresholds": {
-          "debt_to_market_cap": 0.3,
-          "cash_proxy_to_market_cap": 0.3,
-          "impure_income_to_revenue": 0.05
-        },
-        "business_activity": {
-          "status": "PASS",
-          "prohibited_term_hits": []
-        },
-        "financials": {
-          "market_cap": 462039314451.1482,
-          "interest_bearing_debt_proxy": 70822000000.0,
-          "cash_interest_deposit_proxy": 6569000000.0,
-          "debt_to_market_cap": 0.1533,
-          "cash_proxy_to_market_cap": 0.0142,
-          "interest_income_proxy": 67000000.0,
-          "total_revenue": 16990000000.0,
-          "impure_income_proxy_ratio": 0.0039
-        }
-      },
-      "revalidated_score": 90,
-      "revalidated_mtf": "PASS_STRONG",
-      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
-      "revalidated_at": "2026-09-14T14:39:58.737325-04:00",
-      "entry": 261.7315,
-      "stop": 252.9315,
-      "target1": 277.5715,
-      "opened_at": "2026-09-14 17:45:00+00:00",
-      "last_processed": "2026-09-18 19:39:56+00:00",
-      "bars_held": 125,
-      "mark": 264.655,
-      "mae_r": -0.447,
-      "mfe_r": 0.524,
-      "unrealized_r": 0.332,
-      "mae_dollars": -216.51,
-      "mfe_dollars": 253.47,
-      "unrealized_pnl_dollars": 160.79,
-      "observed_bars": 113
-    },
+  "pending": [
     {
       "symbol": "AMD",
-      "setup": "SWING_CONTINUATION",
-      "signal_at": "2026-09-16T15:12:12.441517+00:00",
-      "signal_day": "2026-09-16",
-      "signal_entry": 522.71,
-      "signal_stop": 487.73,
-      "signal_target1": 585.67,
-      "atr_ref": 23.3194,
-      "score": 90,
+      "setup": "SESSION_LEADER",
+      "signal_at": "2026-09-21T18:33:31.543346+00:00",
+      "signal_day": "2026-09-21",
+      "signal_entry": 608.8,
+      "signal_stop": 601.49,
+      "signal_target1": 620.49,
+      "atr_ref": 3.2262,
+      "score": 99,
       "mtf": "PASS_STRONG",
       "catalyst": "NEUTRAL_OR_UNKNOWN",
-      "status": "OPEN",
+      "status": "PENDING_NEXT_BAR",
       "group": "SEMICONDUCTORS",
-      "shares": 12,
+      "shares": 41,
       "portfolio_risk": {
         "allowed": true,
         "reason": "RISK_APPROVED",
-        "shares": 12,
-        "position_value": 6272.52,
-        "risk_dollars": 419.76,
-        "risk_pct_equity": 0.42,
-        "open_risk_before": 1070.14,
-        "open_risk_after": 1489.9,
+        "shares": 41,
+        "position_value": 24960.8,
+        "risk_dollars": 299.71,
+        "risk_pct_equity": 0.3,
+        "open_risk_before": 493.2,
+        "open_risk_after": 792.91,
         "group_risk_before": 0,
         "limits": {
           "risk_per_trade_pct": 0.5,
@@ -128,13 +35,13 @@
           "max_pair_correlation": 0.85
         },
         "correlation": {
-          "max_correlation": -0.213,
+          "max_correlation": -0.195,
           "peer": "AAPL",
           "pass": true
         }
       },
       "paper_epoch": "V7.2_FORWARD_2026-09-09",
-      "signal_regime": "MIXED",
+      "signal_regime": "RISK_ON",
       "entry_quality": {
         "score": 100,
         "pass": true,
@@ -159,35 +66,93 @@
           "prohibited_term_hits": []
         },
         "financials": {
-          "market_cap": 853342650436.6892,
+          "market_cap": 993875296680.7648,
           "interest_bearing_debt_proxy": 4276000000.0,
           "cash_interest_deposit_proxy": 13111000000.0,
-          "debt_to_market_cap": 0.005,
-          "cash_proxy_to_market_cap": 0.0154,
+          "debt_to_market_cap": 0.0043,
+          "cash_proxy_to_market_cap": 0.0132,
           "interest_income_proxy": null,
           "total_revenue": 11536000000.0,
           "impure_income_proxy_ratio": null
         }
-      },
-      "revalidated_score": 90,
-      "revalidated_mtf": "PASS_STRONG",
-      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
-      "revalidated_at": "2026-09-16T13:33:45.449190-04:00",
-      "entry": 523.6231,
-      "stop": 488.6431,
-      "target1": 586.5871,
-      "opened_at": "2026-09-16 15:15:00+00:00",
-      "last_processed": "2026-09-18 19:40:00+00:00",
-      "bars_held": 76,
-      "mark": 546.61,
-      "mae_r": -0.502,
-      "mfe_r": 0.838,
-      "unrealized_r": 0.657,
-      "mae_dollars": -210.88,
-      "mfe_dollars": 351.92,
-      "unrealized_pnl_dollars": 275.84,
-      "observed_bars": 71
+      }
     },
+    {
+      "symbol": "AMZN",
+      "setup": "VWAP_PULLBACK",
+      "signal_at": "2026-09-21T18:33:31.543346+00:00",
+      "signal_day": "2026-09-21",
+      "signal_entry": 258.28,
+      "signal_stop": 255.18,
+      "signal_target1": 263.24,
+      "atr_ref": 0.9071,
+      "score": 94,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "PENDING_NEXT_BAR",
+      "group": "MEGA_TECH",
+      "shares": 96,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 96,
+        "position_value": 24794.88,
+        "risk_dollars": 297.6,
+        "risk_pct_equity": 0.298,
+        "open_risk_before": 792.91,
+        "open_risk_after": 1090.51,
+        "group_risk_before": 493.2,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": 0.031,
+          "peer": "AMD",
+          "pass": true
+        }
+      },
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "RISK_ON",
+      "entry_quality": {
+        "score": 92,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "AMZN",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 2785906173161.9634,
+          "interest_bearing_debt_proxy": 209888000000.0,
+          "cash_interest_deposit_proxy": 143089000000.0,
+          "debt_to_market_cap": 0.0753,
+          "cash_proxy_to_market_cap": 0.0514,
+          "interest_income_proxy": 1135000000.0,
+          "total_revenue": 181519000000.0,
+          "impure_income_proxy_ratio": 0.0063
+        }
+      }
+    }
+  ],
+  "open": [
     {
       "symbol": "AAPL",
       "setup": "SWING_CONTINUATION",
@@ -270,16 +235,16 @@
       "stop": 323.9346,
       "target1": 354.6226,
       "opened_at": "2026-09-18 17:00:00+00:00",
-      "last_processed": "2026-09-18 19:40:00+00:00",
-      "bars_held": 12,
-      "mark": 336.075,
-      "mae_r": -0.036,
-      "mfe_r": 0.146,
-      "unrealized_r": 0.108,
-      "mae_dollars": -17.76,
-      "mfe_dollars": 72.24,
-      "unrealized_pnl_dollars": 53.12,
-      "observed_bars": 12
+      "last_processed": "2026-09-21 18:33:21+00:00",
+      "bars_held": 35,
+      "mark": 338.66,
+      "mae_r": -0.168,
+      "mfe_r": 0.398,
+      "unrealized_r": 0.344,
+      "mae_dollars": -83.01,
+      "mfe_dollars": 196.44,
+      "unrealized_pnl_dollars": 169.44,
+      "observed_bars": 34
     }
   ],
   "closed": [
@@ -1338,6 +1303,201 @@
       "closed_at": "2026-09-17 19:15:00+00:00",
       "r": -1.0,
       "pnl_dollars": -296.7
+    },
+    {
+      "symbol": "ABBV",
+      "setup": "SWING_CONTINUATION",
+      "signal_at": "2026-09-14T17:44:07.502092+00:00",
+      "signal_day": "2026-09-14",
+      "signal_entry": 261.46,
+      "signal_stop": 252.66,
+      "signal_target1": 277.32,
+      "atr_ref": 5.8706,
+      "score": 90,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "CLOSED",
+      "group": "HEALTHCARE",
+      "shares": 55,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 55,
+        "position_value": 14380.3,
+        "risk_dollars": 484.0,
+        "risk_pct_equity": 0.484,
+        "open_risk_before": 1009.86,
+        "open_risk_after": 1493.86,
+        "group_risk_before": 0,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": 0.256,
+          "peer": "AAPL",
+          "pass": true
+        }
+      },
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "MIXED",
+      "entry_quality": {
+        "score": 100,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "ABBV",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 462039314451.1482,
+          "interest_bearing_debt_proxy": 70822000000.0,
+          "cash_interest_deposit_proxy": 6569000000.0,
+          "debt_to_market_cap": 0.1533,
+          "cash_proxy_to_market_cap": 0.0142,
+          "interest_income_proxy": 67000000.0,
+          "total_revenue": 16990000000.0,
+          "impure_income_proxy_ratio": 0.0039
+        }
+      },
+      "revalidated_score": 90,
+      "revalidated_mtf": "PASS_STRONG",
+      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
+      "revalidated_at": "2026-09-14T14:39:58.737325-04:00",
+      "entry": 261.7315,
+      "stop": 252.9315,
+      "target1": 277.5715,
+      "opened_at": "2026-09-14 17:45:00+00:00",
+      "last_processed": "2026-09-21 14:00:00+00:00",
+      "bars_held": 130,
+      "mark": 264.655,
+      "mae_r": -0.447,
+      "mfe_r": 0.524,
+      "unrealized_r": 0.332,
+      "mae_dollars": -216.51,
+      "mfe_dollars": 253.47,
+      "unrealized_pnl_dollars": 160.79,
+      "observed_bars": 113,
+      "exit": 264.45,
+      "exit_reason": "TIME_EXIT",
+      "closed_at": "2026-09-21 14:15:00+00:00",
+      "r": 0.309,
+      "pnl_dollars": 149.52
+    },
+    {
+      "symbol": "AMD",
+      "setup": "SWING_CONTINUATION",
+      "signal_at": "2026-09-16T15:12:12.441517+00:00",
+      "signal_day": "2026-09-16",
+      "signal_entry": 522.71,
+      "signal_stop": 487.73,
+      "signal_target1": 585.67,
+      "atr_ref": 23.3194,
+      "score": 90,
+      "mtf": "PASS_STRONG",
+      "catalyst": "NEUTRAL_OR_UNKNOWN",
+      "status": "CLOSED",
+      "group": "SEMICONDUCTORS",
+      "shares": 12,
+      "portfolio_risk": {
+        "allowed": true,
+        "reason": "RISK_APPROVED",
+        "shares": 12,
+        "position_value": 6272.52,
+        "risk_dollars": 419.76,
+        "risk_pct_equity": 0.42,
+        "open_risk_before": 1070.14,
+        "open_risk_after": 1489.9,
+        "group_risk_before": 0,
+        "limits": {
+          "risk_per_trade_pct": 0.5,
+          "max_open_risk_pct": 1.5,
+          "max_group_risk_pct": 1.0,
+          "max_position_pct": 25.0,
+          "max_pair_correlation": 0.85
+        },
+        "correlation": {
+          "max_correlation": -0.213,
+          "peer": "AAPL",
+          "pass": true
+        }
+      },
+      "paper_epoch": "V7.2_FORWARD_2026-09-09",
+      "signal_regime": "MIXED",
+      "entry_quality": {
+        "score": 100,
+        "pass": true,
+        "reasons": []
+      },
+      "sharia_research": {
+        "method": "AAOIFI_SS21_STYLE_RESEARCH_PARTIAL",
+        "certified": false,
+        "symbol": "AMD",
+        "status": "RESEARCH_PASS_PARTIAL",
+        "reasons": [
+          "IMPURE_INCOME_NOT_FULLY_DISCLOSED_IN_FREE_DATA",
+          "NOT_A_FORMAL_SHARIA_CERTIFICATION"
+        ],
+        "thresholds": {
+          "debt_to_market_cap": 0.3,
+          "cash_proxy_to_market_cap": 0.3,
+          "impure_income_to_revenue": 0.05
+        },
+        "business_activity": {
+          "status": "PASS",
+          "prohibited_term_hits": []
+        },
+        "financials": {
+          "market_cap": 853342650436.6892,
+          "interest_bearing_debt_proxy": 4276000000.0,
+          "cash_interest_deposit_proxy": 13111000000.0,
+          "debt_to_market_cap": 0.005,
+          "cash_proxy_to_market_cap": 0.0154,
+          "interest_income_proxy": null,
+          "total_revenue": 11536000000.0,
+          "impure_income_proxy_ratio": null
+        }
+      },
+      "revalidated_score": 90,
+      "revalidated_mtf": "PASS_STRONG",
+      "revalidated_catalyst": "NEUTRAL_OR_UNKNOWN",
+      "revalidated_at": "2026-09-16T13:33:45.449190-04:00",
+      "entry": 523.6231,
+      "stop": 488.6431,
+      "target1": 586.5871,
+      "opened_at": "2026-09-16 15:15:00+00:00",
+      "last_processed": "2026-09-18 19:45:00+00:00",
+      "bars_held": 78,
+      "mark": 546.61,
+      "mae_r": -0.502,
+      "mfe_r": 0.838,
+      "unrealized_r": 0.657,
+      "mae_dollars": -210.88,
+      "mfe_dollars": 351.92,
+      "unrealized_pnl_dollars": 275.84,
+      "observed_bars": 71,
+      "exit": 586.5871,
+      "exit_reason": "TARGET1",
+      "closed_at": "2026-09-21 13:30:00+00:00",
+      "r": 1.8,
+      "pnl_dollars": 755.57
     }
   ],
   "rejected": [
@@ -1661,41 +1821,41 @@
     }
   ],
   "metrics": {
-    "samples": 12,
-    "win_rate": 33.3,
-    "expectancy_r": -0.275,
-    "profit_factor": 0.54,
-    "total_r": -3.3,
+    "samples": 14,
+    "win_rate": 42.9,
+    "expectancy_r": -0.085,
+    "profit_factor": 0.83,
+    "total_r": -1.19,
     "max_drawdown_r": 3.968,
-    "realized_pnl_dollars": -1356.65,
-    "unrealized_pnl_dollars": 489.75
+    "realized_pnl_dollars": -451.56,
+    "unrealized_pnl_dollars": 169.44
   },
-  "updated_at": "2026-09-18T19:40:02.240716+00:00",
+  "updated_at": "2026-09-21T18:33:31.793762+00:00",
   "portfolio_ledger": {
     "paper_starting_equity": 100000.0,
-    "equity_mark": 99133.1,
-    "realized_pnl_dollars": -1356.65,
-    "unrealized_pnl_dollars": 489.75,
-    "open_risk_dollars": 1396.96,
-    "open_risk_pct": 1.397,
-    "open_positions": 3,
-    "updated_at": "2026-09-18T19:40:02.240627+00:00"
+    "equity_mark": 99717.88,
+    "realized_pnl_dollars": -451.56,
+    "unrealized_pnl_dollars": 169.44,
+    "open_risk_dollars": 493.2,
+    "open_risk_pct": 0.493,
+    "open_positions": 1,
+    "updated_at": "2026-09-21T18:33:31.331946+00:00"
   },
   "validation": {
     "paper_epoch": "V7.2_FORWARD_2026-09-09",
     "status": "COLLECTING_FORWARD_DATA",
     "live_execution_authorized": false,
     "clean_forward_stats": {
-      "samples": 9,
-      "win_rate": 33.3,
-      "expectancy_r": -0.223,
-      "profit_factor": 0.62,
-      "total_r": -2.01,
+      "samples": 11,
+      "win_rate": 45.5,
+      "expectancy_r": 0.009,
+      "profit_factor": 1.02,
+      "total_r": 0.1,
       "max_drawdown_r": 3.968
     },
     "gates": {
       "closed_trades_gte_30": false,
-      "expectancy_positive": false,
+      "expectancy_positive": true,
       "profit_factor_gte_1_30": false,
       "max_drawdown_lte_8R": true
     },
@@ -1715,11 +1875,11 @@
         "max_drawdown_r": 1.0
       },
       "SWING_CONTINUATION": {
-        "samples": 3,
-        "win_rate": 33.3,
-        "expectancy_r": -0.658,
-        "profit_factor": 0.01,
-        "total_r": -1.97,
+        "samples": 5,
+        "win_rate": 60.0,
+        "expectancy_r": 0.027,
+        "profit_factor": 1.07,
+        "total_r": 0.14,
         "max_drawdown_r": 1.974
       },
       "VWAP_PULLBACK": {
@@ -1733,11 +1893,11 @@
     },
     "by_regime": {
       "MIXED": {
-        "samples": 7,
-        "win_rate": 14.3,
-        "expectancy_r": -0.519,
-        "profit_factor": 0.31,
-        "total_r": -3.63,
+        "samples": 9,
+        "win_rate": 33.3,
+        "expectancy_r": -0.169,
+        "profit_factor": 0.71,
+        "total_r": -1.52,
         "max_drawdown_r": 4.233
       },
       "RISK_ON": {
