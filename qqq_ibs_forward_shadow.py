@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import pandas as pd
 import yfinance as yf
@@ -13,7 +14,8 @@ ASSUMED_ROUNDTRIP_COST_BPS = 30.0
 
 
 def download() -> pd.DataFrame:
-    x = yf.download("QQQ", period="5y", interval="1d", auto_adjust=True,
+    end = (datetime.now(timezone.utc) + timedelta(days=2)).date().isoformat()
+    x = yf.download("QQQ", start="2021-01-01", end=end, interval="1d", auto_adjust=True,
                     progress=False, threads=False, timeout=30)
     if isinstance(x.columns, pd.MultiIndex):
         x.columns = x.columns.get_level_values(0)
@@ -167,6 +169,16 @@ def main():
         }
     else:
         result = replay(x)
+    # Never let a stale upstream response roll the forward clock backward.
+    if OUT.exists() and result.get("as_of"):
+        try:
+            previous = json.loads(OUT.read_text(encoding="utf-8"))
+            prev_as_of = previous.get("as_of")
+            if prev_as_of and pd.Timestamp(prev_as_of) > pd.Timestamp(result["as_of"]):
+                print(json.dumps({"status":"STALE_SOURCE_IGNORED","download_as_of":result["as_of"],"kept_as_of":prev_as_of}, indent=2))
+                return
+        except Exception:
+            pass
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2), encoding="utf-8")
     print(json.dumps(result, indent=2))
