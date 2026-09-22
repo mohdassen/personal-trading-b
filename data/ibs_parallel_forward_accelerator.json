@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-18",
+  "as_of": "2026-09-22",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,18 +34,24 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 0,
-    "avg_net_return": null,
-    "win_rate": null,
-    "profit_factor": null
+    "trades": 1,
+    "avg_net_return": 0.002092,
+    "win_rate": 1.0,
+    "profit_factor": 999.0
   },
-  "unique_symbols_with_closed_trades": 0,
+  "unique_symbols_with_closed_trades": 1,
   "cluster_evidence": {
-    "unique_signal_clusters": 0,
-    "avg_cluster_return": null,
-    "cluster_profit_factor": null,
-    "max_cluster_drawdown": null,
-    "clusters": []
+    "unique_signal_clusters": 1,
+    "avg_cluster_return": 0.002092,
+    "cluster_profit_factor": 999.0,
+    "max_cluster_drawdown": 0.0,
+    "clusters": [
+      {
+        "signal_date": "2026-09-18",
+        "symbols": 1,
+        "cluster_return": 0.002092
+      }
+    ]
   },
   "states": [
     {
@@ -130,32 +136,47 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "NO_SIGNAL",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-09-22",
+        "close": 161.809998,
+        "lower_band": 162.658795,
+        "ibs": 0.123734
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": []
     },
     {
       "symbol": "BKNG",
-      "last_decision": "NO_SIGNAL",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-09-22",
+        "close": 164.220001,
+        "lower_band": 166.750614,
+        "ibs": 0.285827
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": []
     },
     {
       "symbol": "MCD",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-09-18",
-        "close": 248.240005,
-        "lower_band": 248.810812,
-        "ibs": 0.210718
-      },
+      "last_decision": "EXIT_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
       "open_position": null,
-      "trades": []
+      "trades": [
+        {
+          "symbol": "MCD",
+          "signal_date": "2026-09-18",
+          "entry_date": "2026-09-21",
+          "exit_signal_date": "2026-09-21",
+          "exit_date": "2026-09-22",
+          "gross_return": 0.005092,
+          "net_return": 0.002092
+        }
+      ]
     }
   ],
   "decision_rule": "Pass only if every locked gate is met before the deadline. Otherwise reject/replace; no waiting extension."
