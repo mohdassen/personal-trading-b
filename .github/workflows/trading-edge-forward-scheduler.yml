@@ -1,6 +1,7 @@
 name: Trading Edge Forward Scheduler
 
 on:
+  # freshness-v2: research scripts reject stale upstream daily data
   workflow_dispatch:
   push:
     branches: [main]
