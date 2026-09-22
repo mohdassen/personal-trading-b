@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 from collections import defaultdict
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 import math
 import pandas as pd
@@ -21,7 +22,8 @@ SYMBOLS = [
 
 
 def _download(symbol: str) -> pd.DataFrame:
-    x = yf.download(symbol, period="5y", interval="1d", auto_adjust=True,
+    end = (datetime.now(timezone.utc) + timedelta(days=2)).date().isoformat()
+    x = yf.download(symbol, start="2021-01-01", end=end, interval="1d", auto_adjust=True,
                     progress=False, threads=False, timeout=30)
     if x.empty:
         return x
@@ -236,6 +238,16 @@ def main():
         "decision_rule":"Pass only if every locked gate is met before the deadline. Otherwise reject/replace; no waiting extension.",
     }
 
+    # Never let a stale upstream response roll the forward clock backward.
+    if OUT.exists() and result.get("as_of"):
+        try:
+            previous = json.loads(OUT.read_text(encoding="utf-8"))
+            prev_as_of = previous.get("as_of")
+            if prev_as_of and pd.Timestamp(prev_as_of) > pd.Timestamp(result["as_of"]):
+                print(json.dumps({"status":"STALE_SOURCE_IGNORED","download_as_of":result["as_of"],"kept_as_of":prev_as_of}, indent=2))
+                return
+        except Exception:
+            pass
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(result,indent=2),encoding="utf-8")
     print(json.dumps({
