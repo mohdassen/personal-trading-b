@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-22",
+  "as_of": "2026-09-23",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -138,10 +138,10 @@
       "symbol": "ABNB",
       "last_decision": "BUY_NEXT_OPEN",
       "pending_entry": {
-        "signal_date": "2026-09-22",
-        "close": 161.809998,
-        "lower_band": 162.658795,
-        "ibs": 0.123734
+        "signal_date": "2026-09-23",
+        "close": 149.580002,
+        "lower_band": 162.427795,
+        "ibs": 0.051786
       },
       "pending_exit": null,
       "open_position": null,
@@ -149,21 +149,27 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-09-22",
-        "close": 164.220001,
-        "lower_band": 166.750614,
-        "ibs": 0.285827
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-09-23"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-09-22",
+        "entry_date": "2026-09-23",
+        "entry_price": 161.91000366210938
+      },
       "trades": []
     },
     {
       "symbol": "MCD",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-09-23",
+        "close": 238.320007,
+        "lower_band": 247.780562,
+        "ibs": 0.2629
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
