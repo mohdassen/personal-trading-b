@@ -1,0 +1,39 @@
+name: Market IBS All Stocks Scan
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [research/edge-discovery-proof]
+    paths:
+      - market_ibs_all_stocks_scan.py
+      - .github/workflows/market-ibs-all-stocks-scan.yml
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile market_ibs_all_stocks_scan.py
+      - name: Scan current U.S.-listed stocks with frozen exact IBS rule
+        run: python market_ibs_all_stocks_scan.py
+      - name: Persist scan result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market_ibs_all_stocks_scan.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "research: update full-market IBS breadth scan"
+          git pull --rebase origin research/edge-discovery-proof
+          git push origin HEAD:research/edge-discovery-proof
