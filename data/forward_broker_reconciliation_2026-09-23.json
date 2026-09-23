@@ -1,0 +1,38 @@
+{
+  "as_of_riyadh": "2026-09-23T20:03:57+03:00",
+  "as_of_new_york": "2026-09-23T13:03:57-04:00",
+  "source": "Alpaca IEX via ChatGPT connector",
+  "note": "Intraday audit only. Strategy decisions remain close-based and next-open; today's open positions are not closed evidence yet.",
+  "closed_trade_audit": {
+    "MCD": {
+      "signal_date": "2026-09-18",
+      "broker_entry_open_2026_09_21": 249.56,
+      "broker_exit_open_2026_09_22": 250.39,
+      "gross_return": 0.00332585,
+      "net_return_after_30bps": 0.00032585,
+      "official_yahoo_shadow_net_return": 0.002092,
+      "interpretation": "positive on both sources, but broker-feed profit is much smaller; preserve discrepancy as execution realism evidence"
+    }
+  },
+  "open_trade_audit": {
+    "ABNB": {
+      "signal_date": "2026-09-22",
+      "broker_entry_open_2026_09_23": 158.81,
+      "latest_iex_price": 151.62,
+      "intraday_gross_return": -0.04527423,
+      "status": "OPEN_SHADOW_NOT_FINAL"
+    },
+    "BKNG": {
+      "signal_date": "2026-09-22",
+      "broker_entry_open_2026_09_23": 161.91,
+      "latest_iex_price": 156.085,
+      "intraday_gross_return": -0.03597678,
+      "status": "OPEN_SHADOW_NOT_FINAL"
+    }
+  },
+  "QQQ": {
+    "latest_iex_price": 738.59,
+    "status": "NO_FORWARD_ENTRY_SIGNAL"
+  },
+  "live_execution": "LOCKED"
+}
