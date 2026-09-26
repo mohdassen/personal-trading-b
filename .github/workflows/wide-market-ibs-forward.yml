@@ -1,0 +1,33 @@
+name: Wide Market IBS Forward
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 21 * * 1-5'
+permissions:
+  contents: write
+jobs:
+  scan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile wide_market_ibs_forward.py
+      - name: Run wide-market frozen forward scanner
+        run: python wide_market_ibs_forward.py
+      - name: Persist immutable forward ledger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/wide_market_ibs_forward.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "forward: update wide-market IBS ledger"
+          git pull --rebase origin research/edge-discovery-proof
+          git push origin HEAD:research/edge-discovery-proof
