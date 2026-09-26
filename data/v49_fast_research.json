@@ -1,7 +1,7 @@
 {
   "engine": "V4.9-Fast-Research-Diagnostics",
   "mode": "RESEARCH_ONLY_DO_NOT_TRADE",
-  "updated_at": "2026-09-24T23:58:02.914628+00:00",
+  "updated_at": "2026-09-26T00:03:07.100683+00:00",
   "status": "HEALTHY_ACTIVITY",
   "sessions_observed": 15,
   "last5": {
@@ -14,9 +14,9 @@
       "TREND": 232,
       "NEAR_52W": 156,
       "ABS_MOM": 152,
-      "NOT_CHASED": 91,
+      "NOT_CHASED": 95,
       "LEADERSHIP": 69,
-      "RISK": 17
+      "RISK": 16
     }
   },
   "decision_rule": {
@@ -2207,31 +2207,30 @@
     },
     {
       "session": "2026-09-24",
-      "captured_at": "2026-09-24T23:58:02.914628+00:00",
+      "captured_at": "2026-09-26T00:03:07.100683+00:00",
       "universe": 79,
       "candidate_count": 4,
       "rejection_counts": {
         "BASE:REL_STRENGTH": 9,
         "BASE:ABS_MOM+REL_STRENGTH": 3,
-        "BASE:TREND+REL_STRENGTH": 7,
+        "BASE:TREND+REL_STRENGTH": 6,
         "BASE:TREND+ABS_MOM+REL_STRENGTH+NOT_CHASED": 1,
         "BASE:TREND+REL_STRENGTH+NEAR_52W": 4,
-        "BASE:NOT_CHASED": 2,
-        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W": 12,
-        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W+NOT_CHASED": 10,
-        "BASE:TREND+ABS_MOM+REL_STRENGTH+RISK": 1,
+        "BASE:NOT_CHASED": 3,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W": 11,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W+NOT_CHASED": 11,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NOT_CHASED+RISK": 1,
         "BASE:TREND+NOT_CHASED": 1,
         "BASE:TREND+NEAR_52W": 2,
         "BASE:TREND+NEAR_52W+NOT_CHASED+RISK": 1,
         "BASE:TREND+ABS_MOM+REL_STRENGTH": 4,
-        "BASE:RISK": 1,
-        "BASE:NOT_CHASED+RISK": 1,
         "RISK_TOO_WIDE": 2,
+        "BASE:NOT_CHASED+RISK": 1,
         "BASE:REL_STRENGTH+NOT_CHASED": 1,
         "BASE:REL_STRENGTH+RISK": 1,
         "BASE:TREND+NEAR_52W+NOT_CHASED": 1,
         "CANDIDATE": 4,
-        "BASE:TREND+REL_STRENGTH+NOT_CHASED": 1,
+        "BASE:TREND+REL_STRENGTH+NOT_CHASED": 2,
         "SHARIA_PRECHECK": 10
       },
       "base_gate_failure_counts": {
@@ -2239,33 +2238,41 @@
         "TREND": 45,
         "ABS_MOM": 31,
         "NEAR_52W": 30,
-        "NOT_CHASED": 19,
-        "RISK": 5
+        "NOT_CHASED": 23,
+        "RISK": 4
       },
       "top_near_candidates": [
         {
-          "symbol": "TGT",
-          "score": 90,
-          "reason": "CANDIDATE",
+          "symbol": "PANW",
+          "score": 94,
+          "reason": "RISK_TOO_WIDE",
           "failed_base_gates": [],
-          "mom12_rank": 0.937,
-          "mom6_rank": 0.861
+          "mom12_rank": 0.873,
+          "mom6_rank": 0.987
         },
         {
           "symbol": "ROKU",
-          "score": 89,
+          "score": 90,
           "reason": "CANDIDATE",
           "failed_base_gates": [],
-          "mom12_rank": 0.823,
+          "mom12_rank": 0.835,
           "mom6_rank": 0.911
         },
         {
           "symbol": "MRK",
-          "score": 87,
+          "score": 89,
+          "reason": "CANDIDATE",
+          "failed_base_gates": [],
+          "mom12_rank": 0.937,
+          "mom6_rank": 0.759
+        },
+        {
+          "symbol": "TGT",
+          "score": 89,
           "reason": "CANDIDATE",
           "failed_base_gates": [],
           "mom12_rank": 0.924,
-          "mom6_rank": 0.734
+          "mom6_rank": 0.835
         },
         {
           "symbol": "LLY",
@@ -2276,19 +2283,11 @@
           "mom6_rank": 0.81
         },
         {
-          "symbol": "DDOG",
-          "score": 86,
-          "reason": "RISK_TOO_WIDE",
-          "failed_base_gates": [],
-          "mom12_rank": 0.848,
-          "mom6_rank": 0.924
-        },
-        {
           "symbol": "SNOW",
           "score": 76,
           "reason": "RISK_TOO_WIDE",
           "failed_base_gates": [],
-          "mom12_rank": 0.734,
+          "mom12_rank": 0.722,
           "mom6_rank": 0.962
         },
         {
@@ -2302,16 +2301,6 @@
           "mom6_rank": 0.975
         },
         {
-          "symbol": "PANW",
-          "score": 89,
-          "reason": "BASE:RISK",
-          "failed_base_gates": [
-            "RISK"
-          ],
-          "mom12_rank": 0.873,
-          "mom6_rank": 0.987
-        },
-        {
           "symbol": "MU",
           "score": 87,
           "reason": "BASE:NOT_CHASED",
@@ -2322,24 +2311,34 @@
           "mom6_rank": 1.0
         },
         {
+          "symbol": "DDOG",
+          "score": 81,
+          "reason": "BASE:NOT_CHASED",
+          "failed_base_gates": [
+            "NOT_CHASED"
+          ],
+          "mom12_rank": 0.848,
+          "mom6_rank": 0.924
+        },
+        {
           "symbol": "JNJ",
           "score": 70,
           "reason": "BASE:REL_STRENGTH",
           "failed_base_gates": [
             "REL_STRENGTH"
           ],
-          "mom12_rank": 0.81,
-          "mom6_rank": 0.494
+          "mom12_rank": 0.823,
+          "mom6_rank": 0.443
         },
         {
           "symbol": "VRTX",
-          "score": 66,
+          "score": 67,
           "reason": "BASE:REL_STRENGTH",
           "failed_base_gates": [
             "REL_STRENGTH"
           ],
-          "mom12_rank": 0.747,
-          "mom6_rank": 0.595
+          "mom12_rank": 0.759,
+          "mom6_rank": 0.57
         },
         {
           "symbol": "ABBV",
@@ -2348,8 +2347,8 @@
           "failed_base_gates": [
             "REL_STRENGTH"
           ],
-          "mom12_rank": 0.544,
-          "mom6_rank": 0.759
+          "mom12_rank": 0.557,
+          "mom6_rank": 0.747
         }
       ]
     }
