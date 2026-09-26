@@ -1,6 +1,10 @@
 name: Wide Market IBS Forward
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/wide-market-ibs-forward.yml
   schedule:
     - cron: '45 21 * * 1-5'
 permissions:
@@ -22,6 +26,22 @@ jobs:
       - run: python -m py_compile wide_market_ibs_forward.py
       - name: Run wide-market frozen forward scanner
         run: python wide_market_ibs_forward.py
+      - name: Validate frozen ledger before persistence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/wide_market_ibs_forward.json')
+          if not p.exists(): raise SystemExit('ledger missing')
+          d=json.loads(p.read_text())
+          assert d['rule_version']=='IBS-FROZEN-2026-09-18-r1'
+          assert d['epoch']=='2026-09-28'
+          assert d['cost_bps_roundtrip']==30.0
+          assert d['live_execution']=='LOCKED'
+          assert d['universe_size']>=200
+          assert d['download_error_rate']<=0.20
+          print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
+          PY
       - name: Persist immutable forward ledger
         run: |
           git config user.name "github-actions[bot]"
