@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-24",
+  "as_of": "2026-09-25",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,17 +34,17 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 2,
-    "avg_net_return": -0.017936,
-    "win_rate": 0.5,
-    "profit_factor": 0.055
+    "trades": 3,
+    "avg_net_return": -0.017018,
+    "win_rate": 0.3333,
+    "profit_factor": 0.039
   },
   "unique_symbols_with_closed_trades": 2,
   "cluster_evidence": {
-    "unique_signal_clusters": 2,
-    "avg_cluster_return": -0.017936,
-    "cluster_profit_factor": 0.055,
-    "max_cluster_drawdown": 0.038,
+    "unique_signal_clusters": 3,
+    "avg_cluster_return": -0.017018,
+    "cluster_profit_factor": 0.039,
+    "max_cluster_drawdown": 0.0526,
     "clusters": [
       {
         "signal_date": "2026-09-18",
@@ -55,6 +55,11 @@
         "signal_date": "2026-09-22",
         "symbols": 1,
         "cluster_return": -0.037964
+      },
+      {
+        "signal_date": "2026-09-23",
+        "symbols": 1,
+        "cluster_return": -0.015182
       }
     ]
   },
@@ -141,9 +146,11 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-09-25"
+      },
       "open_position": {
         "signal_date": "2026-09-22",
         "entry_date": "2026-09-23",
@@ -171,16 +178,10 @@
     },
     {
       "symbol": "MCD",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-09-24"
-      },
-      "open_position": {
-        "signal_date": "2026-09-23",
-        "entry_date": "2026-09-24",
-        "entry_price": 239.6999969482422
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "MCD",
@@ -190,6 +191,15 @@
           "exit_date": "2026-09-22",
           "gross_return": 0.005092,
           "net_return": 0.002092
+        },
+        {
+          "symbol": "MCD",
+          "signal_date": "2026-09-23",
+          "entry_date": "2026-09-24",
+          "exit_signal_date": "2026-09-24",
+          "exit_date": "2026-09-25",
+          "gross_return": -0.012182,
+          "net_return": -0.015182
         }
       ]
     }
