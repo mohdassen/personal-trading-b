@@ -6,7 +6,7 @@ on:
     paths:
       - .github/workflows/wide-market-ibs-forward.yml
   schedule:
-    - cron: '45 21 * * 1-5'
+    - cron: '45 22 * * 1-5'
 permissions:
   contents: write
 jobs:
@@ -40,6 +40,11 @@ jobs:
           assert d['live_execution']=='LOCKED'
           assert d['universe_size']>=200
           assert d['download_error_rate']<=0.20
+          from datetime import date
+          latest=date.fromisoformat(d['latest_downloaded_market_date'])
+          today=date.today()
+          if (today-latest).days > 3:
+              raise SystemExit(f'stale market data: latest={latest} today={today}')
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
       - name: Persist immutable forward ledger
