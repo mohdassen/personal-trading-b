@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-28",
+  "as_of": "2026-09-29",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -74,15 +74,16 @@
     },
     {
       "symbol": "TSLA",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-09-28",
-        "close": 357.450012,
-        "lower_band": 358.248996,
-        "ibs": 0.051467
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-09-29"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-09-28",
+        "entry_date": "2026-09-29",
+        "entry_price": 358.3999938964844
+      },
       "trades": []
     },
     {
@@ -187,15 +188,16 @@
     },
     {
       "symbol": "MCD",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-09-28",
-        "close": 233.600006,
-        "lower_band": 247.238748,
-        "ibs": 0.087061
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-09-29"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-09-28",
+        "entry_date": "2026-09-29",
+        "entry_price": 232.1999969482422
+      },
       "trades": [
         {
           "symbol": "MCD",
