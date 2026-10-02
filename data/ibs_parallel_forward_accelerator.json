@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,17 +34,17 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 4,
-    "avg_net_return": -0.019124,
-    "win_rate": 0.25,
-    "profit_factor": 0.027
+    "trades": 6,
+    "avg_net_return": -0.015217,
+    "win_rate": 0.3333,
+    "profit_factor": 0.079
   },
-  "unique_symbols_with_closed_trades": 3,
+  "unique_symbols_with_closed_trades": 4,
   "cluster_evidence": {
-    "unique_signal_clusters": 3,
-    "avg_cluster_return": -0.014931,
-    "cluster_profit_factor": 0.045,
-    "max_cluster_drawdown": 0.0464,
+    "unique_signal_clusters": 4,
+    "avg_cluster_return": -0.013049,
+    "cluster_profit_factor": 0.039,
+    "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
         "signal_date": "2026-09-18",
@@ -60,6 +60,11 @@
         "signal_date": "2026-09-23",
         "symbols": 1,
         "cluster_return": -0.015182
+      },
+      {
+        "signal_date": "2026-09-28",
+        "symbols": 2,
+        "cluster_return": -0.007403999999999999
       }
     ]
   },
@@ -74,17 +79,21 @@
     },
     {
       "symbol": "TSLA",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-09-29"
-      },
-      "open_position": {
-        "signal_date": "2026-09-28",
-        "entry_date": "2026-09-29",
-        "entry_price": 358.3999938964844
-      },
-      "trades": []
+      "pending_exit": null,
+      "open_position": null,
+      "trades": [
+        {
+          "symbol": "TSLA",
+          "signal_date": "2026-09-28",
+          "entry_date": "2026-09-29",
+          "exit_signal_date": "2026-09-29",
+          "exit_date": "2026-09-30",
+          "gross_return": -0.01755,
+          "net_return": -0.02055
+        }
+      ]
     },
     {
       "symbol": "NOW",
@@ -188,16 +197,10 @@
     },
     {
       "symbol": "MCD",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-09-29"
-      },
-      "open_position": {
-        "signal_date": "2026-09-28",
-        "entry_date": "2026-09-29",
-        "entry_price": 232.1999969482422
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "MCD",
@@ -216,6 +219,15 @@
           "exit_date": "2026-09-25",
           "gross_return": -0.012182,
           "net_return": -0.015182
+        },
+        {
+          "symbol": "MCD",
+          "signal_date": "2026-09-28",
+          "entry_date": "2026-09-29",
+          "exit_signal_date": "2026-09-29",
+          "exit_date": "2026-09-30",
+          "gross_return": 0.008742,
+          "net_return": 0.005742
         }
       ]
     }
