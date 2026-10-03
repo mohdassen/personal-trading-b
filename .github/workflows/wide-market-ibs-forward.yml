@@ -5,8 +5,10 @@ on:
     branches: [main]
     paths:
       - .github/workflows/wide-market-ibs-forward.yml
+  # Run after the US session has had ample time to settle in Yahoo daily data.
+  # Tue-Sat 06:30 UTC processes the prior US trading session.
   schedule:
-    - cron: '45 22 * * 1-5'
+    - cron: '30 6 * * 2-6'
 permissions:
   contents: write
 jobs:
@@ -31,6 +33,7 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
+          from datetime import date, timedelta
           p=Path('data/wide_market_ibs_forward.json')
           if not p.exists(): raise SystemExit('ledger missing')
           d=json.loads(p.read_text())
@@ -40,14 +43,16 @@ jobs:
           assert d['live_execution']=='LOCKED'
           assert d['universe_size']>=200
           assert d['download_error_rate']<=0.20
-          from datetime import date
           latest=date.fromisoformat(d['latest_downloaded_market_date'])
           today=date.today()
-          if (today-latest).days > 3:
-              raise SystemExit(f'stale market data: latest={latest} today={today}')
+          expected=today-timedelta(days=1)
+          while expected.weekday() >= 5:
+              expected-=timedelta(days=1)
+          if latest < expected:
+              raise SystemExit(f'stale market data: latest={latest} expected_at_least={expected} today={today}')
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
-      - name: Persist immutable forward ledger
+      - name: Persist forward state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
