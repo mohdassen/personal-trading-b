@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-09-30",
+  "as_of": "2026-10-01",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -79,8 +79,13 @@
     },
     {
       "symbol": "TSLA",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-01",
+        "close": 354.109985,
+        "lower_band": 359.226993,
+        "ibs": 0.051752
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
