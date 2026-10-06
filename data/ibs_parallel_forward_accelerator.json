@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-01",
+  "as_of": "2026-10-05",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 6,
-    "avg_net_return": -0.015217,
-    "win_rate": 0.3333,
-    "profit_factor": 0.079
+    "trades": 7,
+    "avg_net_return": -0.009933,
+    "win_rate": 0.4286,
+    "profit_factor": 0.299
   },
   "unique_symbols_with_closed_trades": 4,
   "cluster_evidence": {
-    "unique_signal_clusters": 4,
-    "avg_cluster_return": -0.013049,
-    "cluster_profit_factor": 0.039,
+    "unique_signal_clusters": 5,
+    "avg_cluster_return": -0.006085,
+    "cluster_profit_factor": 0.44,
     "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
@@ -65,6 +65,11 @@
         "signal_date": "2026-09-28",
         "symbols": 2,
         "cluster_return": -0.007403999999999999
+      },
+      {
+        "signal_date": "2026-10-01",
+        "symbols": 1,
+        "cluster_return": 0.021772
       }
     ]
   },
@@ -79,13 +84,8 @@
     },
     {
       "symbol": "TSLA",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-10-01",
-        "close": 354.109985,
-        "lower_band": 359.226993,
-        "ibs": 0.051752
-      },
+      "last_decision": "EXIT_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
       "open_position": null,
       "trades": [
@@ -97,6 +97,15 @@
           "exit_date": "2026-09-30",
           "gross_return": -0.01755,
           "net_return": -0.02055
+        },
+        {
+          "symbol": "TSLA",
+          "signal_date": "2026-10-01",
+          "entry_date": "2026-10-02",
+          "exit_signal_date": "2026-10-02",
+          "exit_date": "2026-10-05",
+          "gross_return": 0.024772,
+          "net_return": 0.021772
         }
       ]
     },
