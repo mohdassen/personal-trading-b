@@ -52,6 +52,33 @@ jobs:
               raise SystemExit(f'stale market data: latest={latest} expected_at_least={expected} today={today}')
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
+      - name: Telegram signal notification
+        if: ${{ secrets.TELEGRAM_BOT_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != '' }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          from pathlib import Path
+          d=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
+          buys=sorted({x['symbol'] for x in d.get('pending_entries',[])})
+          exits=sorted({x['symbol'] for x in d.get('pending_exits',[])})
+          if not buys and not exits:
+              print('No BUY/EXIT signals; Telegram skipped')
+              raise SystemExit(0)
+          parts=['Trading Bot — PAPER SIGNALS', f"Market date: {d.get('latest_downloaded_market_date','?')}"]
+          if buys: parts.append('BUY: '+', '.join(buys))
+          if exits: parts.append('EXIT: '+', '.join(exits))
+          parts.append('Paper/Forward only — Real Money LOCKED')
+          msg='\\n'.join(parts)
+          token=os.environ['TELEGRAM_BOT_TOKEN']; chat=os.environ['TELEGRAM_CHAT_ID']
+          data=urllib.parse.urlencode({'chat_id':chat,'text':msg}).encode()
+          req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage',data=data)
+          with urllib.request.urlopen(req,timeout=20) as r:
+              if r.status != 200: raise SystemExit(f'Telegram HTTP {r.status}')
+          print('Telegram signal sent')
+          PY
       - name: Persist forward state
         run: |
           git config user.name "github-actions[bot]"
