@@ -53,7 +53,6 @@ jobs:
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
       - name: Telegram signal notification
-        if: ${{ secrets.TELEGRAM_BOT_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != '' }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -72,7 +71,10 @@ jobs:
           if exits: parts.append('EXIT: '+', '.join(exits))
           parts.append('Paper/Forward only — Real Money LOCKED')
           msg='\\n'.join(parts)
-          token=os.environ['TELEGRAM_BOT_TOKEN']; chat=os.environ['TELEGRAM_CHAT_ID']
+          token=os.environ.get('TELEGRAM_BOT_TOKEN',''); chat=os.environ.get('TELEGRAM_CHAT_ID','')
+          if not token or not chat:
+              print('Telegram secrets unavailable; notification skipped')
+              raise SystemExit(0)
           data=urllib.parse.urlencode({'chat_id':chat,'text':msg}).encode()
           req=urllib.request.Request(f'https://api.telegram.org/bot{token}/sendMessage',data=data)
           with urllib.request.urlopen(req,timeout=20) as r:
