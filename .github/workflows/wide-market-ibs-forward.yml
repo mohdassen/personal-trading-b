@@ -56,7 +56,32 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/wide_market_ibs_forward.json
+          # Maintain a canonical closed-trade ledger on the forward branch.
+          # It is derived from the state snapshot but may only grow; any mutation/removal fails closed.
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          state=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
+          out=Path('data/wide_market_ibs_closed_trades.jsonl')
+          current=[t for s in state['states'].values() for t in s['trades']]
+          current.sort(key=lambda t:(t['exit_date'],t['symbol'],t['signal_date'],t['entry_date']))
+          old=[]
+          if out.exists():
+              old=[json.loads(x) for x in out.read_text().splitlines() if x.strip()]
+              # Every previously committed closed trade must still exist byte-for-byte.
+              canon=lambda x: json.dumps(x,sort_keys=True,separators=(',',':'))
+              curset={canon(x) for x in current}
+              missing=[x for x in old if canon(x) not in curset]
+              if missing:
+                  raise SystemExit(f'immutable trade ledger violation: {len(missing)} historical trades changed/disappeared')
+          oldkeys={(x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) for x in old}
+          new=[x for x in current if (x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) not in oldkeys]
+          with out.open('a',encoding='utf-8') as f:
+              for x in new:
+                  f.write(json.dumps(x,sort_keys=True,separators=(',',':'))+'\\n')
+          print(f'immutable closed-trade ledger: old={len(old)} appended={len(new)} total={len(old)+len(new)}')
+          PY
+          git add data/wide_market_ibs_forward.json data/wide_market_ibs_closed_trades.jsonl
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "forward: update wide-market IBS ledger"
           git pull --rebase origin research/edge-discovery-proof
