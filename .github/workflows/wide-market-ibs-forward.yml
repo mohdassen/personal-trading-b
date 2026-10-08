@@ -67,10 +67,16 @@ jobs:
           if not buys and not exits:
               print('No BUY/EXIT signals; Telegram skipped')
               raise SystemExit(0)
-          parts=['Trading Bot — PAPER SIGNALS', f"Market date: {d.get('latest_downloaded_market_date','?')}"]
-          if buys: parts.append('BUY: '+', '.join(buys))
-          if exits: parts.append('EXIT: '+', '.join(exits))
-          parts.append('Paper/Forward only — Real Money LOCKED')
+          date=d.get('latest_downloaded_market_date','غير معروف')
+          parts=['📊 تقرير البوت التجريبي',f'📅 جلسة السوق: {date}','']
+          parts.append(f'🟢 إشارات دخول تجريبية: {len(buys)}')
+          parts.extend('• '+s for s in buys)
+          parts.append('')
+          parts.append(f'🟠 إشارات خروج تجريبية: {len(exits)}')
+          parts.extend('• '+s for s in exits)
+          parts.extend(['','⏳ هذه إشارات معلقة وليست صفقات منفذة.',
+                        '💵 سعر التنفيذ والربح/الخسارة لا يُعرفان إلا بعد تسجيل التنفيذ.',
+                        '🔒 التداول الحقيقي مغلق — Paper Trading فقط.'])
           msg='\\n'.join(parts)
           token=os.environ.get('TELEGRAM_BOT_TOKEN',''); chat=os.environ.get('TELEGRAM_CHAT_ID','')
           if not token or not chat:
