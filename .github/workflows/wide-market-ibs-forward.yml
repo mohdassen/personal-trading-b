@@ -64,19 +64,34 @@ jobs:
           d=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
           buys=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_entries',[])})
           exits=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_exits',[])})
+          # Fail closed: no stock may be described as Sharia-compliant without
+          # an independently maintained, dated approval record.
+          approval_path=Path('config/sharia_approved.json')
+          approvals=json.loads(approval_path.read_text()) if approval_path.exists() else {}
+          approved={s for s,record in approvals.items() if isinstance(record,dict) and record.get('approved') is True and record.get('review_date') and record.get('source')}
+          buys=[s for s in buys if s in approved]
+          exits=[s for s in exits if s in approved]
           if not buys and not exits:
-              print('No BUY/EXIT signals; Telegram skipped')
+              print('No independently Sharia-verified signals; no actionable alert sent')
               raise SystemExit(0)
           date=d.get('latest_downloaded_market_date','غير معروف')
-          parts=['📊 تقرير البوت التجريبي',f'📅 جلسة السوق: {date}','']
-          parts.append(f'🟢 إشارات دخول تجريبية: {len(buys)}')
-          parts.extend('• '+s for s in buys)
-          parts.append('')
-          parts.append(f'🟠 إشارات خروج تجريبية: {len(exits)}')
-          parts.extend('• '+s for s in exits)
-          parts.extend(['','⏳ هذه إشارات معلقة وليست صفقات منفذة.',
-                        '💵 سعر التنفيذ والربح/الخسارة لا يُعرفان إلا بعد تسجيل التنفيذ.',
-                        '🔒 التداول الحقيقي مغلق — Paper Trading فقط.'])
+          parts=['📊 إشارات استراتيجية IBS — تداول تجريبي',f'📅 تاريخ جلسة الإشارة: {date}',
+                 '⚠️ أسعار الإغلاق مرجعية وليست أسعار تنفيذ أو أوامر سوق.','']
+          for heading,symbols in [('🟢 إشارات شراء معلقة',buys),('🟠 إشارات خروج معلقة',exits)]:
+              parts.append(f'{heading}: {len(symbols)}')
+              for s in symbols:
+                  st=d.get('states',{}).get(s,{})
+                  pe=st.get('pending_entry') or {}
+                  pos=st.get('position') or {}
+                  reference=pe.get('close')
+                  details=f' | إغلاق يوم الإشارة: ${reference}' if reference is not None else ''
+                  if pos.get('entry_price') is not None and heading.startswith('🟠'):
+                      details+=f" | دخول تجريبي مسجل: ${pos['entry_price']:.2f}"
+                  parts.append(f'• {s}{details}')
+              parts.append('')
+          parts.extend(['🔎 فلتر شرعي: موافقة موثقة لكل رمز مع تاريخ ومصدر.',
+                        '⏳ إشارة يومية وليست سعر دخول لحظي؛ لا تتبع السعر دون تحقق.',
+                        '🔒 لا أوامر حقيقية — PAPER ONLY.'])
           msg='\\n'.join(parts)
           token=os.environ.get('TELEGRAM_BOT_TOKEN',''); chat=os.environ.get('TELEGRAM_CHAT_ID','')
           if not token or not chat:
