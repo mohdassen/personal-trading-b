@@ -53,6 +53,7 @@ jobs:
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
       - name: Telegram signal notification
+        continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -61,8 +62,8 @@ jobs:
           import json, os, urllib.parse, urllib.request
           from pathlib import Path
           d=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
-          buys=sorted({x['symbol'] for x in d.get('pending_entries',[])})
-          exits=sorted({x['symbol'] for x in d.get('pending_exits',[])})
+          buys=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_entries',[])})
+          exits=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_exits',[])})
           if not buys and not exits:
               print('No BUY/EXIT signals; Telegram skipped')
               raise SystemExit(0)
