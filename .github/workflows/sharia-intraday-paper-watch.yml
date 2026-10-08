@@ -1,0 +1,25 @@
+name: Sharia Intraday Paper Watch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0,30 13-20 * * 1-5'
+permissions:
+  contents: read
+jobs:
+  watch:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile sharia_intraday_watch.py
+      - name: Read-only paper signal watch
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python sharia_intraday_watch.py
