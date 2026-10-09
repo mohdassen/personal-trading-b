@@ -52,6 +52,8 @@ jobs:
               raise SystemExit(f'stale market data: latest={latest} expected_at_least={expected} today={today}')
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
+      - name: Audit IBS ledger robustness
+        run: python audit_ibs_robustness.py
       - name: Telegram signal notification
         continue-on-error: true
         env:
