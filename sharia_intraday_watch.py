@@ -11,7 +11,7 @@ state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
 valid=set(state.get("states",{}))
 signals=[("BUY",s) for s in state.get("pending_entries",[]) if s in valid]
 signals +=[("EXIT",s) for s in state.get("pending_exits",[]) if s in valid]
-print("Verified symbols:",len(valid),"Eligible pending signals:",len(signals))
+print("Monitored symbols:",len(valid),"Pending paper signals:",len(signals))
 messages=[]
 for side,symbol in signals:
     bars=yf.Ticker(symbol).history(period="2d",interval="5m",prepost=True)
