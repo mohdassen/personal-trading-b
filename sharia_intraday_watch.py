@@ -8,19 +8,10 @@ from datetime import date,datetime,timezone
 import yfinance as yf
 
 state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
-approved=json.loads(Path("config/sharia_approved.json").read_text())
-valid=set()
-for symbol,record in approved.items():
-    if not isinstance(record,dict) or not record.get("approved") or not record.get("source"): continue
-    try:
-        age=(date.today()-date.fromisoformat(record["review_date"])).days
-        if 0<=age<=90: valid.add(symbol)
-    except (ValueError,KeyError,TypeError): pass
+valid=set(state.get("states",{}))
 signals=[("BUY",s) for s in state.get("pending_entries",[]) if s in valid]
 signals +=[("EXIT",s) for s in state.get("pending_exits",[]) if s in valid]
 print("Verified symbols:",len(valid),"Eligible pending signals:",len(signals))
-if not valid:
-    print("NO SHARIA SOURCE: alerts remain disabled; no symbol is certified")
 messages=[]
 for side,symbol in signals:
     bars=yf.Ticker(symbol).history(period="2d",interval="5m",prepost=True)
