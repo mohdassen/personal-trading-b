@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 import pandas as pd
 import yfinance as yf
@@ -27,7 +28,12 @@ def dl(symbol):
     x=x[['Open','High','Low','Close','Volume']].dropna().copy()
     idx=pd.DatetimeIndex(x.index)
     if idx.tz is not None:idx=idx.tz_convert(None)
-    x.index=idx.normalize();return x.sort_index()
+    x.index=idx.normalize()
+    # Exclude the incomplete US session from EOD-confirmed signals.
+    ny=datetime.now(ZoneInfo('America/New_York'))
+    if (ny.hour,ny.minute)<(16,15):
+        x=x.loc[x.index.date<ny.date()]
+    return x.sort_index()
 
 
 def prep(x):
