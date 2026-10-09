@@ -64,16 +64,6 @@ jobs:
           d=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
           buys=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_entries',[])})
           exits=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_exits',[])})
-          # Fail closed: no stock may be described as Sharia-compliant without
-          # an independently maintained, dated approval record.
-          approval_path=Path('config/sharia_approved.json')
-          approvals=json.loads(approval_path.read_text()) if approval_path.exists() else {}
-          approved={s for s,record in approvals.items() if isinstance(record,dict) and record.get('approved') is True and record.get('review_date') and record.get('source')}
-          buys=[s for s in buys if s in approved]
-          exits=[s for s in exits if s in approved]
-          if not buys and not exits:
-              print('No independently Sharia-verified signals; no actionable alert sent')
-              raise SystemExit(0)
           date=d.get('latest_downloaded_market_date','غير معروف')
           parts=['📊 إشارات استراتيجية IBS — تداول تجريبي',f'📅 تاريخ جلسة الإشارة: {date}',
                  '⚠️ أسعار الإغلاق مرجعية وليست أسعار تنفيذ أو أوامر سوق.','']
@@ -89,10 +79,10 @@ jobs:
                       details+=f" | دخول تجريبي مسجل: ${pos['entry_price']:.2f}"
                   parts.append(f'• {s}{details}')
               parts.append('')
-          parts.extend(['🔎 فلتر شرعي: موافقة موثقة لكل رمز مع تاريخ ومصدر.',
+          parts.extend(['📌 إشارات بحث تجريبية، وليست أوامر تداول.',
                         '⏳ إشارة يومية وليست سعر دخول لحظي؛ لا تتبع السعر دون تحقق.',
                         '🔒 لا أوامر حقيقية — PAPER ONLY.'])
-          msg='\\n'.join(parts)
+          msg=chr(10).join(parts)
           token=os.environ.get('TELEGRAM_BOT_TOKEN',''); chat=os.environ.get('TELEGRAM_CHAT_ID','')
           if not token or not chat:
               print('Telegram secrets unavailable; notification skipped')
