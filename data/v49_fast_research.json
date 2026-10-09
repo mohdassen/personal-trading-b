@@ -1,20 +1,20 @@
 {
   "engine": "V4.9-Fast-Research-Diagnostics",
   "mode": "RESEARCH_ONLY_DO_NOT_TRADE",
-  "updated_at": "2026-10-08T01:13:47.559754+00:00",
+  "updated_at": "2026-10-09T01:20:51.608539+00:00",
   "status": "HEALTHY_ACTIVITY",
-  "sessions_observed": 22,
+  "sessions_observed": 23,
   "last5": {
     "sessions": 5,
     "candidate_sessions": 4,
-    "total_candidates": 7,
+    "total_candidates": 6,
     "dominant_bottleneck": "REL_STRENGTH",
     "base_gate_failures": {
-      "REL_STRENGTH": 268,
-      "TREND": 249,
+      "REL_STRENGTH": 272,
+      "TREND": 248,
       "NEAR_52W": 158,
-      "ABS_MOM": 147,
-      "NOT_CHASED": 114,
+      "ABS_MOM": 146,
+      "NOT_CHASED": 104,
       "RISK": 10
     }
   },
@@ -3374,6 +3374,157 @@
           ],
           "mom12_rank": 0.785,
           "mom6_rank": 0.228
+        }
+      ]
+    },
+    {
+      "session": "2026-10-07",
+      "captured_at": "2026-10-09T01:20:51.608539+00:00",
+      "universe": 79,
+      "candidate_count": 1,
+      "rejection_counts": {
+        "BASE:REL_STRENGTH": 11,
+        "BASE:ABS_MOM+REL_STRENGTH": 2,
+        "BASE:TREND+REL_STRENGTH": 6,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NOT_CHASED": 2,
+        "BASE:TREND+REL_STRENGTH+NEAR_52W": 6,
+        "BASE:NOT_CHASED": 3,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W+NOT_CHASED": 5,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH+NEAR_52W": 15,
+        "BASE:TREND+ABS_MOM+REL_STRENGTH": 4,
+        "BASE:TREND+NEAR_52W": 3,
+        "RISK_TOO_WIDE": 2,
+        "BASE:TREND+NEAR_52W+RISK": 1,
+        "BASE:ABS_MOM+REL_STRENGTH+NEAR_52W": 1,
+        "BASE:REL_STRENGTH+NOT_CHASED": 2,
+        "BASE:TREND+REL_STRENGTH+NEAR_52W+RISK": 1,
+        "BASE:TREND": 3,
+        "SHARIA_PRECHECK": 10,
+        "CANDIDATE": 1,
+        "BASE:TREND+REL_STRENGTH+NEAR_52W+NOT_CHASED": 1
+      },
+      "base_gate_failure_counts": {
+        "REL_STRENGTH": 56,
+        "TREND": 47,
+        "NEAR_52W": 33,
+        "ABS_MOM": 29,
+        "NOT_CHASED": 13,
+        "RISK": 2
+      },
+      "top_near_candidates": [
+        {
+          "symbol": "MU",
+          "score": 93,
+          "reason": "RISK_TOO_WIDE",
+          "failed_base_gates": [],
+          "mom12_rank": 1.0,
+          "mom6_rank": 1.0
+        },
+        {
+          "symbol": "MRK",
+          "score": 79,
+          "reason": "CANDIDATE",
+          "failed_base_gates": [],
+          "mom12_rank": 0.924,
+          "mom6_rank": 0.684
+        },
+        {
+          "symbol": "SNOW",
+          "score": 75,
+          "reason": "RISK_TOO_WIDE",
+          "failed_base_gates": [],
+          "mom12_rank": 0.722,
+          "mom6_rank": 0.987
+        },
+        {
+          "symbol": "AMD",
+          "score": 92,
+          "reason": "BASE:NOT_CHASED",
+          "failed_base_gates": [
+            "NOT_CHASED"
+          ],
+          "mom12_rank": 0.975,
+          "mom6_rank": 0.975
+        },
+        {
+          "symbol": "CRWD",
+          "score": 87,
+          "reason": "BASE:NOT_CHASED",
+          "failed_base_gates": [
+            "NOT_CHASED"
+          ],
+          "mom12_rank": 0.911,
+          "mom6_rank": 0.962
+        },
+        {
+          "symbol": "PANW",
+          "score": 85,
+          "reason": "BASE:NOT_CHASED",
+          "failed_base_gates": [
+            "NOT_CHASED"
+          ],
+          "mom12_rank": 0.848,
+          "mom6_rank": 0.949
+        },
+        {
+          "symbol": "TGT",
+          "score": 72,
+          "reason": "BASE:TREND",
+          "failed_base_gates": [
+            "TREND"
+          ],
+          "mom12_rank": 0.937,
+          "mom6_rank": 0.81
+        },
+        {
+          "symbol": "ROKU",
+          "score": 71,
+          "reason": "BASE:TREND",
+          "failed_base_gates": [
+            "TREND"
+          ],
+          "mom12_rank": 0.823,
+          "mom6_rank": 0.886
+        },
+        {
+          "symbol": "DE",
+          "score": 65,
+          "reason": "BASE:REL_STRENGTH",
+          "failed_base_gates": [
+            "REL_STRENGTH"
+          ],
+          "mom12_rank": 0.835,
+          "mom6_rank": 0.506
+        },
+        {
+          "symbol": "COP",
+          "score": 61,
+          "reason": "BASE:REL_STRENGTH",
+          "failed_base_gates": [
+            "REL_STRENGTH"
+          ],
+          "mom12_rank": 0.81,
+          "mom6_rank": 0.443
+        },
+        {
+          "symbol": "ABNB",
+          "score": 59,
+          "reason": "BASE:TREND",
+          "failed_base_gates": [
+            "TREND"
+          ],
+          "mom12_rank": 0.785,
+          "mom6_rank": 0.797
+        },
+        {
+          "symbol": "CVX",
+          "score": 59,
+          "reason": "BASE:REL_STRENGTH",
+          "failed_base_gates": [
+            "REL_STRENGTH"
+          ],
+          "mom12_rank": 0.759,
+          "mom6_rank": 0.468
         }
       ]
     }
