@@ -54,6 +54,8 @@ jobs:
           PY
       - name: Audit IBS ledger robustness
         run: python audit_ibs_robustness.py
+      - name: Audit capital-constrained portfolio proxy
+        run: python audit_ibs_portfolio_proxy.py
       - name: Telegram signal notification
         continue-on-error: true
         env:
