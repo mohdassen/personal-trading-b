@@ -4,7 +4,7 @@ import os
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from datetime import date,datetime,timezone
+from datetime import datetime,timezone
 import yfinance as yf
 
 state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
@@ -24,7 +24,13 @@ for side,symbol in signals:
         print(side,symbol,"stale quote");continue
     price=round(float(bars.iloc[-1]["Close"]),2)
     print(side,symbol,"reference price",price,"timestamp",ts.isoformat())
-    messages.append(f"{side} {symbol} | indicative quote USD {price} | {ts.isoformat()}")
+    detail=state["states"].get(symbol,{})
+    pending=detail.get("pending_entry") or {}
+    position=detail.get("position") or {}
+    signal_date=pending.get("signal_date") if side=="BUY" else (detail.get("pending_exit") or {}).get("signal_date")
+    context=f" | signal close USD {pending['close']}" if side=="BUY" and pending.get("close") is not None else ""
+    context+=f" | paper entry USD {position['entry_price']:.2f}" if side=="EXIT" and position.get("entry_price") is not None else ""
+    messages.append(f"{side} {symbol} | quote USD {price} | signal {signal_date} | {ts.isoformat()}{context} | reference only, no target or stop defined")
 
 if messages:
     token=os.environ.get("TELEGRAM_BOT_TOKEN")
