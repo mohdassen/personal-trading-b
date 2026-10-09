@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-06",
+  "as_of": "2026-10-07",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -211,15 +211,16 @@
     },
     {
       "symbol": "MCD",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-10-06",
-        "close": 232.449997,
-        "lower_band": 240.144003,
-        "ibs": 0.288461
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-10-07"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-10-06",
+        "entry_date": "2026-10-07",
+        "entry_price": 231.85000610351562
+      },
       "trades": [
         {
           "symbol": "MCD",
