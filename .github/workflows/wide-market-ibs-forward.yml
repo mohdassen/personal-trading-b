@@ -119,17 +119,16 @@ jobs:
           old=[]
           if out.exists():
               raw=out.read_text()
-          raw=raw.replace(chr(92)+'n'+'{',chr(10)+'{').replace(chr(92)+'n',chr(10))
-          old=[json.loads(x) for x in raw.splitlines() if x.strip()]
-          if len(old)!=len({(x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) for x in old}):
-              raise SystemExit('duplicate legacy trades; refusing repair')
-          out.write_text(''.join(json.dumps(x,sort_keys=True,separators=(',',':'))+chr(10) for x in old),encoding='utf-8')
-              # Every previously committed closed trade must still exist byte-for-byte.
+              raw=raw.replace(chr(92)+'n'+'{',chr(10)+'{').replace(chr(92)+'n',chr(10))
+              old=[json.loads(x) for x in raw.splitlines() if x.strip()]
+              if len(old)!=len({(x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) for x in old}):
+                  raise SystemExit('duplicate legacy trades; refusing repair')
               canon=lambda x: json.dumps(x,sort_keys=True,separators=(',',':'))
               curset={canon(x) for x in current}
               missing=[x for x in old if canon(x) not in curset]
               if missing:
                   raise SystemExit(f'immutable trade ledger violation: {len(missing)} historical trades changed/disappeared')
+              out.write_text(''.join(canon(x)+chr(10) for x in old),encoding='utf-8')
           oldkeys={(x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) for x in old}
           new=[x for x in current if (x['symbol'],x['signal_date'],x['entry_date'],x['exit_date']) not in oldkeys]
           with out.open('a',encoding='utf-8') as f:
