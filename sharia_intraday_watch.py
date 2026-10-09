@@ -19,6 +19,8 @@ for symbol,record in approved.items():
 signals=[("BUY",s) for s in state.get("pending_entries",[]) if s in valid]
 signals +=[("EXIT",s) for s in state.get("pending_exits",[]) if s in valid]
 print("Verified symbols:",len(valid),"Eligible pending signals:",len(signals))
+if not valid:
+    print("NO SHARIA SOURCE: alerts remain disabled; no symbol is certified")
 messages=[]
 for side,symbol in signals:
     bars=yf.Ticker(symbol).history(period="2d",interval="5m",prepost=True)
