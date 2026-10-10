@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-07",
+  "as_of": "2026-10-08",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 7,
-    "avg_net_return": -0.009933,
-    "win_rate": 0.4286,
-    "profit_factor": 0.299
+    "trades": 8,
+    "avg_net_return": -0.009411,
+    "win_rate": 0.375,
+    "profit_factor": 0.282
   },
   "unique_symbols_with_closed_trades": 4,
   "cluster_evidence": {
-    "unique_signal_clusters": 5,
-    "avg_cluster_return": -0.006085,
-    "cluster_profit_factor": 0.44,
+    "unique_signal_clusters": 6,
+    "avg_cluster_return": -0.006031,
+    "cluster_profit_factor": 0.397,
     "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
@@ -70,6 +70,11 @@
         "signal_date": "2026-10-01",
         "symbols": 1,
         "cluster_return": 0.021772
+      },
+      {
+        "signal_date": "2026-10-06",
+        "symbols": 1,
+        "cluster_return": -0.00576
       }
     ]
   },
@@ -211,16 +216,10 @@
     },
     {
       "symbol": "MCD",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-10-07"
-      },
-      "open_position": {
-        "signal_date": "2026-10-06",
-        "entry_date": "2026-10-07",
-        "entry_price": 231.85000610351562
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "MCD",
@@ -248,6 +247,15 @@
           "exit_date": "2026-09-30",
           "gross_return": 0.008742,
           "net_return": 0.005742
+        },
+        {
+          "symbol": "MCD",
+          "signal_date": "2026-10-06",
+          "entry_date": "2026-10-07",
+          "exit_signal_date": "2026-10-07",
+          "exit_date": "2026-10-08",
+          "gross_return": -0.00276,
+          "net_return": -0.00576
         }
       ]
     }
