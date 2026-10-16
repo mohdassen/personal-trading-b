@@ -34,7 +34,6 @@ if __name__=="__main__":
     assert size_trade(100,98)["shares"]==2
     assert size_trade(100,98,open_exposure=500)["allowed"] is False
     assert size_trade(100,98,realized_daily_pnl=-15)["allowed"] is False
-    assert size_trade(100,101) if False else True
     try:size_trade(100,101)
     except ValueError:pass
     else:raise AssertionError("invalid stop accepted")
