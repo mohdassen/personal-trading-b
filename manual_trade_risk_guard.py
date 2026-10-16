@@ -23,7 +23,7 @@ def size_trade(entry, stop, *, equity=CAPITAL_USD, open_exposure=0.0,
     if available_cash is None:available_cash=equity-open_exposure
     if not isfinite(available_cash) or available_cash<0:
         raise ValueError("invalid available cash")
-    cap=min(MAX_POSITION_USD,MAX_TOTAL_EXPOSURE_USD-open_exposure,available_cash)
+    cap=min(MAX_POSITION_USD,MAX_TOTAL_EXPOSURE_USD-open_exposure,available_cash,equity*0.25)
     qty=max(0,min(floor(cap/entry),floor(MAX_TRADE_RISK_USD/(entry-stop))))
     if qty==0:return {"allowed":False,"reason":"risk or cash constraints","shares":0}
     return {"allowed":True,"shares":qty,"notional_usd":round(qty*entry,2),
