@@ -23,6 +23,17 @@ jobs:
       - run: python -m py_compile sharia_intraday_watch.py manual_trade_risk_guard.py
       - name: Risk sizing self-test
         run: python manual_trade_risk_guard.py
+      - name: Verify paper monitor safety contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('sharia_intraday_watch.py').read_text()
+          assert 'BLOCKED: stale market snapshot' in s
+          assert 'REAL BUY BLOCKED' in s
+          assert 'Telegram rejected alert' in s
+          assert '.alert-sent-marker' in s
+          print('Paper monitor safety contract PASS')
+          PY
       - name: Compute signal fingerprint
         id: fingerprint
         run: |
