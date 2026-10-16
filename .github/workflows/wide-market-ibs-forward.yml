@@ -52,10 +52,6 @@ jobs:
               raise SystemExit(f'stale market data: latest={latest} expected_at_least={expected} today={today}')
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
-      - name: Audit IBS ledger robustness
-        run: python audit_ibs_robustness.py
-      - name: Audit capital-constrained portfolio proxy
-        run: python audit_ibs_portfolio_proxy.py
       - name: Telegram signal notification
         continue-on-error: true
         env:
@@ -130,6 +126,8 @@ jobs:
                   f.write(json.dumps(x,sort_keys=True,separators=(',',':'))+chr(10))
           print(f'immutable closed-trade ledger: old={len(old)} appended={len(new)} total={len(old)+len(new)}')
           PY
+          python audit_ibs_robustness.py
+          python audit_ibs_portfolio_proxy.py
           git add data/wide_market_ibs_forward.json data/wide_market_ibs_closed_trades.jsonl
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "forward: update wide-market IBS ledger"
