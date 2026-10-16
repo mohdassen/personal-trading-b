@@ -5,9 +5,18 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from datetime import datetime,timezone
+from zoneinfo import ZoneInfo
 import yfinance as yf
 
 state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
+market_day=state.get("latest_downloaded_market_date")
+if not market_day:
+    raise SystemExit("BLOCKED: no dated market snapshot")
+ny=datetime.now(ZoneInfo("America/New_York"))
+last_day=datetime.fromisoformat(market_day).date()
+# Allow Friday signals over weekends, but never older than three calendar days.
+if (ny.date()-last_day).days>3 or last_day>ny.date():
+    raise SystemExit(f"BLOCKED: stale market snapshot {market_day}")
 valid=set(state.get("states",{}))
 signals=[("BUY",s) for s in state.get("pending_entries",[]) if s in valid]
 signals +=[("EXIT",s) for s in state.get("pending_exits",[]) if s in valid]
@@ -40,5 +49,8 @@ if messages:
         data=urllib.parse.urlencode({"chat_id":chat,"text":msg}).encode()
         request=urllib.request.Request("https://api.telegram.org/bot"+token+"/sendMessage",data=data)
         with urllib.request.urlopen(request,timeout=20) as response:
-            print("Telegram HTTP",response.status)
-    else: print("Telegram credentials unavailable")
+            if response.status!=200: raise RuntimeError(f"Telegram HTTP {response.status}")
+            payload=json.load(response)
+            if not payload.get("ok"): raise RuntimeError("Telegram rejected alert")
+            print("Telegram confirmed message id",payload.get("result",{}).get("message_id"))
+    else: raise SystemExit("BLOCKED: Telegram credentials unavailable")
