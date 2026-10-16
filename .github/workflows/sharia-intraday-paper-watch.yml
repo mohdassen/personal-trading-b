@@ -21,8 +21,8 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python -m py_compile sharia_intraday_watch.py manual_trade_risk_guard.py
-      - name: Risk sizing self-test
-        run: python manual_trade_risk_guard.py
+      - name: Risk sizing unit tests
+        run: python -m unittest -v test_manual_trade_risk_guard.py
       - name: Verify paper monitor safety contract
         run: |
           python - <<'PY'
