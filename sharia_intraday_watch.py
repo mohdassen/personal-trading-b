@@ -7,7 +7,6 @@ from pathlib import Path
 from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
 import yfinance as yf
-from manual_trade_risk_guard import size_trade
 
 state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
 market_day=state.get("latest_downloaded_market_date")
