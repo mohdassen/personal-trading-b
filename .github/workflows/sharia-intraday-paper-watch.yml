@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0,30 13-20 * * 1-5'
+concurrency:
+  group: intraday-paper-alert-single-flight
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
