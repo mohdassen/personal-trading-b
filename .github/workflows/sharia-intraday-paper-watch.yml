@@ -44,9 +44,8 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           python sharia_intraday_watch.py
-          touch .alert-sent-marker
       - name: Remember sent signal notification
-        if: steps.alertcache.outputs.cache-hit != 'true'
+        if: steps.alertcache.outputs.cache-hit != 'true' && hashFiles('.alert-sent-marker') != ''
         uses: actions/cache/save@v4
         with:
           path: .alert-sent-marker
