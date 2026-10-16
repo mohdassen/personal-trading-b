@@ -20,8 +20,34 @@ jobs:
       - run: python -m py_compile sharia_intraday_watch.py manual_trade_risk_guard.py
       - name: Risk sizing self-test
         run: python manual_trade_risk_guard.py
+      - name: Compute signal fingerprint
+        id: fingerprint
+        run: |
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          d=json.loads(Path('data/wide_market_ibs_forward.json').read_text())
+          payload={'date':d.get('latest_downloaded_market_date'), 'buy':sorted(d.get('pending_entries',[])), 'exit':sorted(d.get('pending_exits',[]))}
+          digest=hashlib.sha256(json.dumps(payload,sort_keys=True).encode()).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'],'a') as out:out.write('hash='+digest+'\n')
+          PY
+      - name: Check prior signal notification
+        id: alertcache
+        uses: actions/cache/restore@v4
+        with:
+          path: .alert-sent-marker
+          key: intraday-paper-alert-${{ steps.fingerprint.outputs.hash }}
       - name: Read-only paper signal watch
+        if: steps.alertcache.outputs.cache-hit != 'true'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python sharia_intraday_watch.py
+        run: |
+          python sharia_intraday_watch.py
+          touch .alert-sent-marker
+      - name: Remember sent signal notification
+        if: steps.alertcache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .alert-sent-marker
+          key: intraday-paper-alert-${{ steps.fingerprint.outputs.hash }}
