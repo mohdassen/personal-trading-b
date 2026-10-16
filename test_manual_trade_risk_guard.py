@@ -8,6 +8,10 @@ class RiskGuardTests(unittest.TestCase):
         self.assertTrue(x["allowed"])
         self.assertEqual(x["shares"],2)
         self.assertLessEqual(x["planned_stop_risk_usd"],5)
+    def test_position_cap_scales_with_equity(self):
+        x=size_trade(20,19,equity=200)
+        self.assertTrue(x['allowed'])
+        self.assertLessEqual(x['notional_usd'],50)
     def test_no_cash(self):
         self.assertFalse(size_trade(100,98,open_exposure=500)["allowed"])
     def test_daily_limit(self):
