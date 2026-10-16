@@ -53,4 +53,5 @@ if messages:
             payload=json.load(response)
             if not payload.get("ok"): raise RuntimeError("Telegram rejected alert")
             print("Telegram confirmed message id",payload.get("result",{}).get("message_id"))
+            Path(".alert-sent-marker").write_text(str(payload.get("result",{}).get("message_id","sent")))
     else: raise SystemExit("BLOCKED: Telegram credentials unavailable")
