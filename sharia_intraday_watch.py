@@ -7,6 +7,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
 import yfinance as yf
+from manual_trade_risk_guard import size_trade
 
 state=json.loads(Path("data/wide_market_ibs_forward.json").read_text())
 market_day=state.get("latest_downloaded_market_date")
@@ -39,7 +40,8 @@ for side,symbol in signals:
     signal_date=pending.get("signal_date") if side=="BUY" else (detail.get("pending_exit") or {}).get("signal_date")
     context=f" | signal close USD {pending['close']}" if side=="BUY" and pending.get("close") is not None else ""
     context+=f" | paper entry USD {position['entry_price']:.2f}" if side=="EXIT" and position.get("entry_price") is not None else ""
-    messages.append(f"{side} {symbol} | quote USD {price} | signal {signal_date} | {ts.isoformat()}{context} | reference only, no target or stop defined")
+    risk_note=" | REAL BUY BLOCKED: frozen IBS has no validated stop, sizing or live fill" if side=="BUY" else " | EXIT is paper-state only; check actual broker holdings"
+    messages.append(f"{side} {symbol} | quote USD {price} | signal {signal_date} | {ts.isoformat()}{context}{risk_note}")
 
 if messages:
     token=os.environ.get("TELEGRAM_BOT_TOKEN")
