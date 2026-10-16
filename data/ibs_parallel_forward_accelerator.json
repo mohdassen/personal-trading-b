@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-15",
+  "as_of": "2026-10-16",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -87,14 +87,19 @@
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
-        "entry_price": 718.5399780273438
+        "entry_price": 718.5499877929688
       },
       "trades": []
     },
     {
       "symbol": "TSLA",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-16",
+        "close": 354.720001,
+        "lower_band": 364.002997,
+        "ibs": 0.254606
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
@@ -128,8 +133,13 @@
     },
     {
       "symbol": "PANW",
-      "last_decision": "NO_SIGNAL",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-16",
+        "close": 342.0,
+        "lower_band": 389.254468,
+        "ibs": 0.06763
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": []
@@ -142,7 +152,7 @@
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
-        "entry_price": 243.61000061035156
+        "entry_price": 243.11000061035156
       },
       "trades": []
     },
