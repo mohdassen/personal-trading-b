@@ -5,10 +5,10 @@ validated trading plan; the frozen IBS strategy does not define one.
 """
 from math import floor, isfinite
 
-CAPITAL_USD = 1000.0
-MAX_POSITION_USD = 250.0
+CAPITAL_USD = 3000.0
+MAX_POSITION_USD = 750.0
 MAX_TRADE_RISK_USD = 5.0
-MAX_TOTAL_EXPOSURE_USD = 500.0
+MAX_TOTAL_EXPOSURE_USD = 1500.0
 MAX_DAILY_LOSS_USD = 15.0
 
 def size_trade(entry, stop, *, equity=CAPITAL_USD, open_exposure=0.0,
