@@ -12,8 +12,13 @@ class RiskGuardTests(unittest.TestCase):
         x=size_trade(20,19,equity=200)
         self.assertTrue(x['allowed'])
         self.assertLessEqual(x['notional_usd'],50)
+    def test_3000_account_caps(self):
+        from manual_trade_risk_guard import CAPITAL_USD, MAX_POSITION_USD, MAX_TOTAL_EXPOSURE_USD
+        self.assertEqual(CAPITAL_USD,3000)
+        self.assertEqual(MAX_POSITION_USD,750)
+        self.assertEqual(MAX_TOTAL_EXPOSURE_USD,1500)
     def test_no_cash(self):
-        self.assertFalse(size_trade(100,98,open_exposure=500)["allowed"])
+        self.assertFalse(size_trade(100,98,open_exposure=1500)["allowed"])
     def test_daily_limit(self):
         self.assertFalse(size_trade(100,98,realized_daily_pnl=-15)["allowed"])
     def test_remaining_daily_risk_budget(self):
@@ -28,12 +33,12 @@ class RiskGuardTests(unittest.TestCase):
             with self.subTest(stop=stop),self.assertRaises(ValueError):
                 size_trade(100,stop)
     def test_expensive_share(self):
-        self.assertFalse(size_trade(300,290)["allowed"])
+        self.assertFalse(size_trade(800,790)["allowed"])
     def test_nonfinite(self):
         with self.assertRaises(ValueError):
             size_trade(float("nan"),98)
     def test_exposure_cap(self):
-        x=size_trade(20,19,open_exposure=480)
+        x=size_trade(20,19,open_exposure=1480)
         self.assertTrue(x["allowed"])
         self.assertEqual(x["shares"],1)
     def test_no_guarantee_of_stop_fill(self):
