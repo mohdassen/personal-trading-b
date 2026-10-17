@@ -9,7 +9,7 @@ CAPITAL_USD = 3000.0
 MAX_POSITION_USD = 750.0
 MAX_TRADE_RISK_USD = 5.0
 MAX_TOTAL_EXPOSURE_USD = 1500.0
-MAX_DAILY_LOSS_USD = 15.0
+MAX_DAILY_LOSS_USD = 100.0
 
 def size_trade(entry, stop, *, equity=CAPITAL_USD, open_exposure=0.0,
                realized_daily_pnl=0.0, available_cash=None):
@@ -34,7 +34,7 @@ def size_trade(entry, stop, *, equity=CAPITAL_USD, open_exposure=0.0,
 if __name__=="__main__":
     assert size_trade(100,98)["shares"]==2
     assert size_trade(100,98,open_exposure=1500)["allowed"] is False
-    assert size_trade(100,98,realized_daily_pnl=-15)["allowed"] is False
+    assert size_trade(100,98,realized_daily_pnl=-100)["allowed"] is False
     try:size_trade(100,101)
     except ValueError:pass
     else:raise AssertionError("invalid stop accepted")
