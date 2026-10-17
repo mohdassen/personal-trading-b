@@ -20,14 +20,14 @@ class RiskGuardTests(unittest.TestCase):
     def test_no_cash(self):
         self.assertFalse(size_trade(100,98,open_exposure=1500)["allowed"])
     def test_daily_limit(self):
-        self.assertFalse(size_trade(100,98,realized_daily_pnl=-15)["allowed"])
+        self.assertFalse(size_trade(100,98,realized_daily_pnl=-100)["allowed"])
     def test_remaining_daily_risk_budget(self):
-        x=size_trade(20,19,realized_daily_pnl=-14)
+        x=size_trade(20,19,realized_daily_pnl=-99)
         self.assertTrue(x['allowed'])
         self.assertEqual(x['shares'],1)
         self.assertLessEqual(x['planned_stop_risk_usd'],1)
     def test_daily_risk_exhausted(self):
-        self.assertFalse(size_trade(20,19,realized_daily_pnl=-14.5)['allowed'])
+        self.assertFalse(size_trade(20,19,realized_daily_pnl=-99.5)['allowed'])
     def test_invalid_stop(self):
         for stop in (100,101,-1):
             with self.subTest(stop=stop),self.assertRaises(ValueError):
