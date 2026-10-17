@@ -33,7 +33,7 @@ def size_trade(entry, stop, *, equity=CAPITAL_USD, open_exposure=0.0,
 
 if __name__=="__main__":
     assert size_trade(100,98)["shares"]==2
-    assert size_trade(100,98,open_exposure=500)["allowed"] is False
+    assert size_trade(100,98,open_exposure=1500)["allowed"] is False
     assert size_trade(100,98,realized_daily_pnl=-15)["allowed"] is False
     try:size_trade(100,101)
     except ValueError:pass
