@@ -31,9 +31,9 @@ for day in sorted(events):
     for t in entries:active[(t["symbol"],t["entry_date"])]=t
     max_concurrent=max(max_concurrent,len(active))
     daily.append({"date":day,"capital_proxy":round(capital,6),"open_positions":len(active)})
-unaffordable=sum(float(t.get("entry_price",0))>250 for t in trades)
-print("Trades requiring a share above the $250 position cap:",unaffordable)
-print("WARNING: This proxy cannot validate a $1000 cash portfolio or a stop loss.")
+unaffordable=sum(float(t.get("entry_price",0))>750 for t in trades)
+print("Trades requiring a share above the $750 position cap:",unaffordable)
+print("WARNING: This proxy cannot validate a $3000 cash portfolio or a stop loss.")
 print(json.dumps({"closed_trades":len(trades),"max_concurrent_closed_trade_positions":max_concurrent,
  "capital_proxy":round(capital,6),"events":len(daily),
  "warning":"Proxy excludes open positions and interim marks, and cannot establish true portfolio P/L or max drawdown."},indent=2))
