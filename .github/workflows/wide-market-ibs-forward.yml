@@ -129,6 +129,7 @@ jobs:
           python audit_ibs_robustness.py
           python audit_ibs_portfolio_proxy.py
           python audit_ibs_cash_portfolio.py
+          python ibs_portfolio_daily_snapshot.py
           python -m unittest -v test_manual_trade_risk_guard.py
           git add data/wide_market_ibs_forward.json data/wide_market_ibs_closed_trades.jsonl
           if git diff --cached --quiet; then exit 0; fi
