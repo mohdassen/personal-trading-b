@@ -3,6 +3,7 @@ import json
 import os
 import urllib.parse
 import urllib.request
+import urllib.error
 from pathlib import Path
 from datetime import datetime,timezone
 from zoneinfo import ZoneInfo
@@ -50,9 +51,12 @@ if messages:
             msg="PAPER WATCH - NOT LIVE TRADING ORDERS\\n"+"\\n".join(messages[offset:offset+10])
             data=urllib.parse.urlencode({"chat_id":chat,"text":msg}).encode()
             request=urllib.request.Request("https://api.telegram.org/bot"+token+"/sendMessage",data=data)
-            with urllib.request.urlopen(request,timeout=20) as response:
-                if response.status!=200: raise RuntimeError(f"Telegram HTTP {response.status}")
-                payload=json.load(response)
+            try:
+                with urllib.request.urlopen(request,timeout=20) as response:
+                    if response.status!=200: raise RuntimeError(f"Telegram HTTP {response.status}")
+                    payload=json.load(response)
+            except urllib.error.HTTPError as error:
+                raise RuntimeError(f"Telegram HTTP {error.code}: {error.read(512).decode(errors='replace')}") from error
                 if not payload.get("ok"): raise RuntimeError("Telegram rejected alert")
                 print("Telegram confirmed message id",payload.get("result",{}).get("message_id"))
         Path(".alert-sent-marker").write_text("sent")
