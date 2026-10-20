@@ -46,7 +46,7 @@ if messages:
     token=os.environ.get("TELEGRAM_BOT_TOKEN")
     chat=os.environ.get("TELEGRAM_CHAT_ID")
     if token and chat:
-        msg="PAPER WATCH - NOT LIVE TRADING ORDERS\n"+"\n".join(messages)
+        msg="PAPER WATCH - NOT LIVE TRADING ORDERS\n"+"\n".join(messages[:10])
         data=urllib.parse.urlencode({"chat_id":chat,"text":msg}).encode()
         request=urllib.request.Request("https://api.telegram.org/bot"+token+"/sendMessage",data=data)
         with urllib.request.urlopen(request,timeout=20) as response:
