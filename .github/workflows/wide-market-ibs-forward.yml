@@ -73,13 +73,13 @@ jobs:
                 d['states'][s]['pending_entry']['lower_band'])
               if d['states'][s].get('pending_entry') and d['states'][s]['pending_entry'].get('lower_band',0)>0 else 0,
               s))
-          parts.append(f'🟢 أبرز 5 إشارات بحثية من {len(buys)} (ليست توصيات شراء):')
-          for s in ranked[:5]:
+          parts.append(f'🟢 أبرز 3 إشارات بحثية من {len(buys)} (ليست توصيات شراء):')
+          for s in ranked[:3]:
               pe=d['states'][s].get('pending_entry') or {}
               price=float(pe.get('close') or 0)
               qty=int(min(750,1500,3000*0.25)//price) if price>0 else 0
               parts.append(f'• {s} | إغلاق مرجعي: ${price:.2f} | حد نظري: {qty} سهم | غير معتمد للتنفيذ: لا وقف خسارة مختبر')
-          parts.append(f'باقي إشارات الشراء: {max(0,len(buys)-5)} | ترتيب بحثي لا يقيس احتمالات الربح')
+          parts.append(f'باقي إشارات الشراء: {max(0,len(buys)-3)} | ترتيب بحثي لا يقيس احتمالات الربح')
           parts.append(f'🟠 إشارات خروج تجريبية: {len(exits)}')
           for s in exits:
               pos=d['states'].get(s,{}).get('position') or {}
