@@ -65,33 +65,8 @@ jobs:
           buys=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_entries',[])})
           exits=sorted({x if isinstance(x,str) else x['symbol'] for x in d.get('pending_exits',[])})
           date=d.get('latest_downloaded_market_date','غير معروف')
-          parts=['📊 إشارات استراتيجية IBS — تداول تجريبي',f'📅 تاريخ جلسة الإشارة: {date}',
-                 '⚠️ أسعار الإغلاق مرجعية وليست أسعار تنفيذ أو أوامر سوق.','']
-          # Research-only priority: deepest close below the frozen lower band first.
-          ranked=sorted(buys,key=lambda s:(
-              -((d['states'][s]['pending_entry']['lower_band']-d['states'][s]['pending_entry']['close'])/
-                d['states'][s]['pending_entry']['lower_band'])
-              if d['states'][s].get('pending_entry') and d['states'][s]['pending_entry'].get('lower_band',0)>0 else 0,
-              s))
-          parts.append(f'🟢 أبرز 3 إشارات بحثية من {len(buys)} (ليست توصيات شراء):')
-          for s in ranked[:3]:
-              pe=d['states'][s].get('pending_entry') or {}
-              price=float(pe.get('close') or 0)
-              qty=int(min(750,1500,3000*0.25)//price) if price>0 else 0
-              parts.append(f'• {s} | إغلاق مرجعي: ${price:.2f} | حد نظري: {qty} سهم | غير معتمد للتنفيذ: لا وقف خسارة مختبر')
-          parts.append(f'باقي إشارات الشراء: {max(0,len(buys)-3)} | ترتيب بحثي لا يقيس احتمالات الربح')
-          parts.append(f'🟠 إشارات خروج تجريبية: {len(exits)}')
-          for s in exits:
-              pos=d['states'].get(s,{}).get('position') or {}
-              entry=pos.get('entry_price')
-              parts.append(f'• {s} | دخول تجريبي: ${float(entry):.2f}' if entry is not None else f'• {s}')
-          parts.append('⚠️ لا تبع قبل مطابقة الإشارة مع حيازاتك الفعلية.')
-          parts.append('⚠️ الأعداد نظرية لكل سهم منفردًا؛ ليست محفظة مشتركة أو أوامر.')
-          parts.append('')
-          parts.extend(['📌 إشارات بحث تجريبية، وليست أوامر تداول.',
-                        '⏳ إشارة يومية وليست سعر دخول لحظي؛ لا تتبع السعر دون تحقق.',
-                        '🔒 لا أوامر حقيقية — PAPER ONLY.'])
-          msg=chr(10).join(parts)
+          from ibs_daily_report import build
+          report, msg = build(d)
           token=os.environ.get('TELEGRAM_BOT_TOKEN',''); chat=os.environ.get('TELEGRAM_CHAT_ID','')
           if not token or not chat:
               print('Telegram secrets unavailable; notification skipped')
