@@ -53,6 +53,7 @@ jobs:
           print('ledger validation PASS', {k:d[k] for k in ('universe_size','latest_downloaded_market_date','download_error_rate','stats')})
           PY
       - name: Telegram signal notification
+        # Format loaded from ibs_daily_report.py on research branch
         continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
