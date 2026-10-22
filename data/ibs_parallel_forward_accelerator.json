@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-19",
+  "as_of": "2026-10-20",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 8,
-    "avg_net_return": -0.009411,
-    "win_rate": 0.375,
-    "profit_factor": 0.282
+    "trades": 9,
+    "avg_net_return": -0.004727,
+    "win_rate": 0.4444,
+    "profit_factor": 0.594
   },
   "unique_symbols_with_closed_trades": 4,
   "cluster_evidence": {
-    "unique_signal_clusters": 6,
-    "avg_cluster_return": -0.006031,
-    "cluster_profit_factor": 0.397,
+    "unique_signal_clusters": 7,
+    "avg_cluster_return": -0.000491,
+    "cluster_profit_factor": 0.943,
     "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
@@ -75,6 +75,11 @@
         "signal_date": "2026-10-06",
         "symbols": 1,
         "cluster_return": -0.00576
+      },
+      {
+        "signal_date": "2026-10-16",
+        "symbols": 1,
+        "cluster_return": 0.032748
       }
     ]
   },
@@ -93,16 +98,10 @@
     },
     {
       "symbol": "TSLA",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-10-19"
-      },
-      "open_position": {
-        "signal_date": "2026-10-16",
-        "entry_date": "2026-10-19",
-        "entry_price": 357.5
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "TSLA",
@@ -121,6 +120,15 @@
           "exit_date": "2026-10-05",
           "gross_return": 0.024772,
           "net_return": 0.021772
+        },
+        {
+          "symbol": "TSLA",
+          "signal_date": "2026-10-16",
+          "entry_date": "2026-10-19",
+          "exit_signal_date": "2026-10-19",
+          "exit_date": "2026-10-20",
+          "gross_return": 0.035748,
+          "net_return": 0.032748
         }
       ]
     },
