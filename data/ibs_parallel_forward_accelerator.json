@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-20",
+  "as_of": "2026-10-21",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -86,9 +86,11 @@
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-10-21"
+      },
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
@@ -142,9 +144,11 @@
     },
     {
       "symbol": "PANW",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-10-21"
+      },
       "open_position": {
         "signal_date": "2026-10-16",
         "entry_date": "2026-10-19",
@@ -154,9 +158,11 @@
     },
     {
       "symbol": "CRWD",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-10-21"
+      },
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
@@ -178,9 +184,11 @@
     },
     {
       "symbol": "DDOG",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-10-21"
+      },
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
@@ -190,9 +198,11 @@
     },
     {
       "symbol": "NET",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-10-21"
+      },
       "open_position": {
         "signal_date": "2026-10-14",
         "entry_date": "2026-10-15",
@@ -210,8 +220,13 @@
     },
     {
       "symbol": "UBER",
-      "last_decision": "NO_SIGNAL",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-21",
+        "close": 67.620003,
+        "lower_band": 68.111601,
+        "ibs": 0.139038
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": []
