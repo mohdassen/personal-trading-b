@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-27",
+  "as_of": "2026-10-28",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -274,8 +274,13 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-28",
+        "close": 166.044998,
+        "lower_band": 168.162807,
+        "ibs": 0.262418
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
@@ -292,15 +297,16 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-10-27",
-        "close": 150.139999,
-        "lower_band": 156.410002,
-        "ibs": 0.075631
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-10-28"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-10-27",
+        "entry_date": "2026-10-28",
+        "entry_price": 148.89999389648438
+      },
       "trades": [
         {
           "symbol": "BKNG",
