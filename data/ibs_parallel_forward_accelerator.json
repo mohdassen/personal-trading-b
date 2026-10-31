@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 16,
-    "avg_net_return": 0.000498,
-    "win_rate": 0.5,
-    "profit_factor": 1.066
+    "trades": 17,
+    "avg_net_return": 0.000964,
+    "win_rate": 0.5294,
+    "profit_factor": 1.135
   },
   "unique_symbols_with_closed_trades": 11,
   "cluster_evidence": {
-    "unique_signal_clusters": 9,
-    "avg_cluster_return": -4.7e-05,
-    "cluster_profit_factor": 0.993,
+    "unique_signal_clusters": 10,
+    "avg_cluster_return": 0.000799,
+    "cluster_profit_factor": 1.133,
     "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
@@ -90,6 +90,11 @@
         "signal_date": "2026-10-21",
         "symbols": 1,
         "cluster_return": 0.012122
+      },
+      {
+        "signal_date": "2026-10-27",
+        "symbols": 1,
+        "cluster_return": 0.008417
       }
     ]
   },
@@ -150,8 +155,13 @@
     },
     {
       "symbol": "NOW",
-      "last_decision": "NO_SIGNAL",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-10-29",
+        "close": 109.669998,
+        "lower_band": 144.548,
+        "ibs": 0.077223
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": []
@@ -274,15 +284,14 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-10-28",
-        "close": 166.044998,
-        "lower_band": 168.162807,
-        "ibs": 0.262418
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-10-28",
+        "entry_date": "2026-10-29",
+        "entry_price": 167.19000244140625
+      },
       "trades": [
         {
           "symbol": "ABNB",
@@ -297,16 +306,10 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-10-28"
-      },
-      "open_position": {
-        "signal_date": "2026-10-27",
-        "entry_date": "2026-10-28",
-        "entry_price": 148.89999389648438
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "BKNG",
@@ -316,6 +319,15 @@
           "exit_date": "2026-09-24",
           "gross_return": -0.034964,
           "net_return": -0.037964
+        },
+        {
+          "symbol": "BKNG",
+          "signal_date": "2026-10-27",
+          "entry_date": "2026-10-28",
+          "exit_signal_date": "2026-10-28",
+          "exit_date": "2026-10-29",
+          "gross_return": 0.011417,
+          "net_return": 0.008417
         }
       ]
     },
