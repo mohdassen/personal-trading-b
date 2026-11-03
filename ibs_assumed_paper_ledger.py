@@ -81,6 +81,27 @@ def record(state, ledger_path=LEDGER, closed_path=CLOSED, snapshot_path=SNAPSHOT
               "paper_sells":sum(e["action"]=="SELL" for e in all_events),
               "new_events":len(additions),"portfolio_nav_usd":None,
               "warning":"Assumed fills only. NAV and unrealized P/L unavailable without independently verified market prices."}
+    # Same-session signal close is a research proxy, NOT a verified live quote.
+    marks={}
+    for symbol,(qty,entry,signal_date) in holdings.items():
+        p=state.get("states",{}).get(symbol,{}).get("pending_entry")
+        if p and p.get("signal_date")==date and float(p.get("close",0))>0:
+            price=float(p["close"])
+            marks[symbol]={"price":round(price,4),"quantity":qty,
+                           "market_value_usd":round(qty*price,2),
+                           "unrealized_pnl_usd":round(qty*(price-entry),2),
+                           "source":"same_session_signal_close_proxy","as_of":date}
+    if len(marks)==len(holdings):
+        snapshot["portfolio_nav_usd"]=round(cash+sum(x["market_value_usd"] for x in marks.values()),2)
+        snapshot["unrealized_pnl_usd"]=round(sum(x["unrealized_pnl_usd"] for x in marks.values()),2)
+        snapshot["total_pnl_usd"]=round(snapshot["portfolio_nav_usd"]-CAPITAL,2)
+        snapshot["valuation_status"]="INDICATIVE_SAME_SESSION_CLOSE_NOT_LIVE"
+    else:
+        snapshot["unrealized_pnl_usd"]=None
+        snapshot["total_pnl_usd"]=None
+        snapshot["valuation_status"]="INCOMPLETE_MARKS"
+    snapshot["marks"]=marks
+    snapshot["warning"]="Indicative signal-close proxy only; not live or independently verified quotes, fills or broker NAV."
     snapshot_path.parent.mkdir(parents=True,exist_ok=True)
     snapshot_path.write_text(json.dumps(snapshot,indent=2)+"\n")
     return snapshot
