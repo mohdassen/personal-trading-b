@@ -25,7 +25,7 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt
-      - run: python -m py_compile wide_market_ibs_forward.py
+      - run: python -m py_compile wide_market_ibs_forward.py ibs_assumed_paper_ledger.py
       - name: Run wide-market frozen forward scanner
         run: python wide_market_ibs_forward.py
       - name: Validate frozen ledger before persistence
