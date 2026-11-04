@@ -8,15 +8,27 @@
   "universe_duplicates_removed": 1,
   "liquidity_filter": "price>=5 and 20d avg dollar volume>=20M",
   "cost_bps_roundtrip": 30.0,
-  "latest_downloaded_market_date": "2026-11-02",
+  "latest_downloaded_market_date": "2026-11-03",
   "download_error_rate": 0.0169,
   "stats": {
-    "trades": 303,
-    "avg_net_return": 0.00065,
-    "win_rate": 0.5545,
-    "profit_factor": 1.054
+    "trades": 319,
+    "avg_net_return": 0.00071,
+    "win_rate": 0.5517,
+    "profit_factor": 1.06
   },
   "pending_entries": [
+    "JNJ",
+    "CVX",
+    "VRTX",
+    "BA",
+    "COP",
+    "EOG",
+    "MELI",
+    "UL",
+    "DEO",
+    "KMB"
+  ],
+  "open_positions": [
     "MSFT",
     "NVDA",
     "AMZN",
@@ -24,82 +36,64 @@
     "GOOG",
     "AVGO",
     "PLTR",
+    "CRM",
     "AMD",
+    "CSCO",
     "XOM",
     "PANW",
     "CRWD",
     "SNOW",
+    "DDOG",
     "NET",
     "AMAT",
     "MU",
     "LRCX",
     "KLAC",
+    "ROST",
     "VST",
     "ETN",
     "FCX",
     "OXY",
+    "MPC",
+    "ELV",
     "CVS",
+    "CI",
     "COIN",
     "HOOD",
     "RDDT",
     "ARM",
     "SMCI",
+    "ANET",
     "DELL",
     "HPE",
     "HPQ",
     "FTNT",
-    "MDB",
-    "OKTA",
-    "BABA",
-    "PCAR"
-  ],
-  "open_positions": [
-    "META",
-    "ORCL",
-    "CRM",
-    "CSCO",
-    "CAT",
-    "ABNB",
-    "BKNG",
-    "DDOG",
-    "QCOM",
-    "TJX",
-    "ROST",
-    "MPC",
-    "BSX",
-    "ELV",
-    "CI",
-    "RBLX",
-    "ANET",
-    "ADBE",
     "ZS",
     "TEAM",
-    "APP",
+    "MDB",
+    "OKTA",
     "ROKU",
-    "SE",
-    "GPC",
+    "BABA",
     "JCI",
-    "CARR",
-    "TT",
-    "CMI"
+    "PCAR"
   ],
   "pending_exits": [
-    "META",
-    "ORCL",
-    "CAT",
-    "ABNB",
-    "BKNG",
-    "QCOM",
-    "TJX",
-    "BSX",
-    "RBLX",
-    "ADBE",
-    "APP",
-    "SE",
-    "GPC",
-    "CARR",
-    "TT",
-    "CMI"
+    "GOOGL",
+    "GOOG",
+    "AVGO",
+    "LRCX",
+    "KLAC",
+    "VST",
+    "ETN",
+    "CVS",
+    "COIN",
+    "HOOD",
+    "RDDT",
+    "SMCI",
+    "MDB",
+    "ROKU",
+    "BABA",
+    "PCAR"
   ],
   "download_errors": [
     "MMC",
@@ -113,16 +107,15 @@
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MSFT": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 507.12,
-        "ibs": 0.0876,
-        "lower_band": 513.21
+        "entry_date": "2026-11-03",
+        "entry_price": 509.010009765625
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -137,16 +130,15 @@
           "net_return": 0.025199
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NVDA": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 202.06,
-        "ibs": 0.0481,
-        "lower_band": 209.204
+        "entry_date": "2026-11-03",
+        "entry_price": 207.9600067138672
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -172,16 +164,15 @@
           "net_return": 0.021401
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AMZN": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 245.63,
-        "ibs": 0.2905,
-        "lower_band": 249.757
+        "entry_date": "2026-11-03",
+        "entry_price": 248.58999633789062
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -207,17 +198,18 @@
           "net_return": 0.013677
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GOOGL": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 278.99,
-        "ibs": 0.0232,
-        "lower_band": 325.741
+        "entry_date": "2026-11-03",
+        "entry_price": 280.2300109863281
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "GOOGL",
@@ -242,17 +234,18 @@
           "net_return": -0.015922
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GOOG": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 278.04,
-        "ibs": 0.035,
-        "lower_band": 322.3889
+        "entry_date": "2026-11-03",
+        "entry_price": 279.19000244140625
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "GOOG",
@@ -277,18 +270,12 @@
           "net_return": -0.013543
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "META": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 614.4400024414062
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "META",
@@ -322,19 +309,31 @@
           "exit_price": 621.289978,
           "gross_return": -0.000901,
           "net_return": -0.003901
+        },
+        {
+          "symbol": "META",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 614.440002,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 610.76001,
+          "gross_return": -0.005989,
+          "net_return": -0.008989
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AVGO": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 322.23,
-        "ibs": 0.0308,
-        "lower_band": 328.548
+        "entry_date": "2026-11-03",
+        "entry_price": 328.9700012207031
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "AVGO",
@@ -381,7 +380,7 @@
           "net_return": 0.006425
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TSLA": {
       "pending_entry": null,
@@ -422,7 +421,7 @@
           "net_return": 0.032748
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BRK-B": {
       "pending_entry": null,
@@ -441,7 +440,7 @@
           "net_return": -0.001963
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "JPM": {
       "pending_entry": null,
@@ -460,7 +459,7 @@
           "net_return": -0.020211
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LLY": {
       "pending_entry": null,
@@ -479,7 +478,7 @@
           "net_return": 0.031707
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "V": {
       "pending_entry": null,
@@ -498,14 +497,14 @@
           "net_return": 0.026134
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MA": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NFLX": {
       "pending_entry": null,
@@ -557,14 +556,14 @@
           "net_return": -0.03001
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "COST": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "WMT": {
       "pending_entry": null,
@@ -583,18 +582,12 @@
           "net_return": 0.002221
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ORCL": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 125.87999725341797
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "ORCL",
@@ -628,9 +621,20 @@
           "exit_price": 133.119995,
           "gross_return": 0.035873,
           "net_return": 0.032873
+        },
+        {
+          "symbol": "ORCL",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 125.879997,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 122.0,
+          "gross_return": -0.030823,
+          "net_return": -0.033823
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HD": {
       "pending_entry": null,
@@ -660,17 +664,22 @@
           "net_return": -0.004093
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PG": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "JNJ": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 266.17,
+        "ibs": 0.1537,
+        "lower_band": 267.62
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -686,7 +695,7 @@
           "net_return": -0.015183
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BAC": {
       "pending_entry": null,
@@ -727,14 +736,14 @@
           "net_return": -0.003785
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ABBV": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KO": {
       "pending_entry": null,
@@ -764,16 +773,15 @@
           "net_return": 0.037511
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PLTR": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 178.34,
-        "ibs": 0.0223,
-        "lower_band": 183.0273
+        "entry_date": "2026-11-03",
+        "entry_price": 168.17999267578125
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -788,7 +796,7 @@
           "net_return": 0.070612
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CRM": {
       "pending_entry": null,
@@ -799,16 +807,15 @@
       },
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AMD": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 466.84,
-        "ibs": 0.0165,
-        "lower_band": 521.582
+        "entry_date": "2026-11-03",
+        "entry_price": 479.989990234375
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -823,7 +830,7 @@
           "net_return": -0.032444
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CSCO": {
       "pending_entry": null,
@@ -846,7 +853,7 @@
           "net_return": -0.025611
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GE": {
       "pending_entry": null,
@@ -876,7 +883,7 @@
           "net_return": -0.031138
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "IBM": {
       "pending_entry": null,
@@ -917,37 +924,35 @@
           "net_return": 0.022982
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CVX": {
-      "pending_entry": null,
-      "position": null,
-      "pending_exit": null,
-      "trades": [],
-      "last_processed": "2026-11-02"
-    },
-    "XOM": {
       "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 179.67,
-        "ibs": 0.0,
-        "lower_band": 179.799
+        "signal_date": "2026-11-03",
+        "close": 225.27,
+        "ibs": 0.2613,
+        "lower_band": 226.181
       },
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
+    },
+    "XOM": {
+      "pending_entry": null,
+      "position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 178.0
+      },
+      "pending_exit": null,
+      "trades": [],
+      "last_processed": "2026-11-03"
     },
     "CAT": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 630.0
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "CAT",
@@ -959,9 +964,20 @@
           "exit_price": 721.369995,
           "gross_return": -0.094007,
           "net_return": -0.097007
+        },
+        {
+          "symbol": "CAT",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 630.0,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 618.940002,
+          "gross_return": -0.017556,
+          "net_return": -0.020556
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GS": {
       "pending_entry": null,
@@ -991,7 +1007,7 @@
           "net_return": 0.005074
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MS": {
       "pending_entry": null,
@@ -1043,14 +1059,14 @@
           "net_return": 0.025699
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AXP": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MRK": {
       "pending_entry": null,
@@ -1080,7 +1096,7 @@
           "net_return": 0.063538
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MCD": {
       "pending_entry": null,
@@ -1110,7 +1126,7 @@
           "net_return": -0.01215
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DIS": {
       "pending_entry": null,
@@ -1129,7 +1145,7 @@
           "net_return": 5.4e-05
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UBER": {
       "pending_entry": null,
@@ -1148,31 +1164,31 @@
           "net_return": 0.012122
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ABNB": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-28",
-        "entry_date": "2026-10-29",
-        "entry_price": 167.19000244140625
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
-      "trades": [],
-      "last_processed": "2026-11-02"
+      "position": null,
+      "pending_exit": null,
+      "trades": [
+        {
+          "symbol": "ABNB",
+          "signal_date": "2026-10-28",
+          "entry_date": "2026-10-29",
+          "entry_price": 167.190002,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 170.940002,
+          "gross_return": 0.02243,
+          "net_return": 0.01943
+        }
+      ],
+      "last_processed": "2026-11-03"
     },
     "BKNG": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 150.91000366210938
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "BKNG",
@@ -1184,9 +1200,20 @@
           "exit_price": 150.600006,
           "gross_return": 0.011417,
           "net_return": 0.008417
+        },
+        {
+          "symbol": "BKNG",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 150.910004,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 154.990005,
+          "gross_return": 0.027036,
+          "net_return": 0.024036
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NOW": {
       "pending_entry": null,
@@ -1205,16 +1232,15 @@
           "net_return": -0.042219
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PANW": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 351.72,
-        "ibs": 0.0734,
-        "lower_band": 365.103
+        "entry_date": "2026-11-03",
+        "entry_price": 351.3699951171875
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1229,16 +1255,15 @@
           "net_return": -0.001371
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CRWD": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 241.81,
-        "ibs": 0.122,
-        "lower_band": 242.4308
+        "entry_date": "2026-11-03",
+        "entry_price": 244.1750030517578
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1253,16 +1278,15 @@
           "net_return": -0.005098
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SNOW": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 290.68,
-        "ibs": 0.1445,
-        "lower_band": 305.4427
+        "entry_date": "2026-11-03",
+        "entry_price": 284.79998779296875
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1277,7 +1301,7 @@
           "net_return": 0.006718
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DDOG": {
       "pending_entry": null,
@@ -1300,16 +1324,15 @@
           "net_return": 0.038293
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NET": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 265.17,
-        "ibs": 0.0712,
-        "lower_band": 295.4056
+        "entry_date": "2026-11-03",
+        "entry_price": 268.5
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1324,23 +1347,22 @@
           "net_return": 0.009719
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SHOP": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AMAT": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 374.53,
-        "ibs": 0.0493,
-        "lower_band": 386.489
+        "entry_date": "2026-11-03",
+        "entry_price": 387.07000732421875
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1355,16 +1377,15 @@
           "net_return": -0.221734
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MU": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 833.59,
-        "ibs": 0.0692,
-        "lower_band": 889.5877
+        "entry_date": "2026-11-03",
+        "entry_price": 859.9299926757812
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -1379,18 +1400,12 @@
           "net_return": 0.05369
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "QCOM": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 166.44000244140625
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "QCOM",
@@ -1402,9 +1417,20 @@
           "exit_price": 173.630005,
           "gross_return": -0.06085,
           "net_return": -0.06385
+        },
+        {
+          "symbol": "QCOM",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 166.440002,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 164.210007,
+          "gross_return": -0.013398,
+          "net_return": -0.016398
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TXN": {
       "pending_entry": null,
@@ -1423,17 +1449,18 @@
           "net_return": 0.004622
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LRCX": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 227.56,
-        "ibs": 0.157,
-        "lower_band": 243.192
+        "entry_date": "2026-11-03",
+        "entry_price": 235.02000427246094
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "LRCX",
@@ -1447,17 +1474,18 @@
           "net_return": -0.294028
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KLAC": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 153.11,
-        "ibs": 0.0384,
-        "lower_band": 154.708
+        "entry_date": "2026-11-03",
+        "entry_price": 158.22000122070312
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "KLAC",
@@ -1471,7 +1499,7 @@
           "net_return": -0.207401
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ADI": {
       "pending_entry": null,
@@ -1490,7 +1518,7 @@
           "net_return": -0.019919
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "INTU": {
       "pending_entry": null,
@@ -1509,7 +1537,7 @@
           "net_return": -0.012963
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ADP": {
       "pending_entry": null,
@@ -1539,14 +1567,14 @@
           "net_return": 0.012132
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ISRG": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "REGN": {
       "pending_entry": null,
@@ -1565,10 +1593,15 @@
           "net_return": 0.023989
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "VRTX": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 530.76,
+        "ibs": 0.0491,
+        "lower_band": 532.786
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -1584,7 +1617,7 @@
           "net_return": 0.039023
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GILD": {
       "pending_entry": null,
@@ -1603,7 +1636,7 @@
           "net_return": 0.021579
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AMGN": {
       "pending_entry": null,
@@ -1622,7 +1655,7 @@
           "net_return": 0.024517
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TMUS": {
       "pending_entry": null,
@@ -1696,7 +1729,7 @@
           "net_return": 0.0214
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CMCSA": {
       "pending_entry": null,
@@ -1737,7 +1770,7 @@
           "net_return": 0.037965
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PEP": {
       "pending_entry": null,
@@ -1767,7 +1800,7 @@
           "net_return": 0.017474
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SBUX": {
       "pending_entry": null,
@@ -1786,7 +1819,7 @@
           "net_return": 0.009279
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NKE": {
       "pending_entry": null,
@@ -1805,7 +1838,7 @@
           "net_return": 0.010333
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LOW": {
       "pending_entry": null,
@@ -1824,7 +1857,7 @@
           "net_return": 0.004641
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TGT": {
       "pending_entry": null,
@@ -1843,18 +1876,12 @@
           "net_return": 0.039529
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TJX": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 140.8000030517578
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "TJX",
@@ -1866,9 +1893,20 @@
           "exit_price": 139.929993,
           "gross_return": 0.006835,
           "net_return": 0.003835
+        },
+        {
+          "symbol": "TJX",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 140.800003,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 140.029999,
+          "gross_return": -0.005469,
+          "net_return": -0.008469
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ROST": {
       "pending_entry": null,
@@ -1891,14 +1929,14 @@
           "net_return": 0.009851
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MAR": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CMG": {
       "pending_entry": null,
@@ -1961,14 +1999,14 @@
           "net_return": 0.080215
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "YUM": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DHI": {
       "pending_entry": null,
@@ -1998,7 +2036,7 @@
           "net_return": 0.018026
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LEN": {
       "pending_entry": null,
@@ -2028,7 +2066,7 @@
           "net_return": -0.029232
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PHM": {
       "pending_entry": null,
@@ -2058,7 +2096,7 @@
           "net_return": -0.029292
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NEE": {
       "pending_entry": null,
@@ -2077,7 +2115,7 @@
           "net_return": 0.012497
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DUK": {
       "pending_entry": null,
@@ -2096,7 +2134,7 @@
           "net_return": 0.002812
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SO": {
       "pending_entry": null,
@@ -2115,14 +2153,14 @@
           "net_return": 0.010069
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AEP": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EXC": {
       "pending_entry": null,
@@ -2141,7 +2179,7 @@
           "net_return": 0.005441
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CEG": {
       "pending_entry": null,
@@ -2182,17 +2220,18 @@
           "net_return": -0.003039
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "VST": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 134.61,
-        "ibs": 0.0636,
-        "lower_band": 139.9724
+        "entry_date": "2026-11-03",
+        "entry_price": 135.9949951171875
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "VST",
@@ -2217,17 +2256,18 @@
           "net_return": 0.010232
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ETN": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 366.07,
-        "ibs": 0.1635,
-        "lower_band": 366.133
+        "entry_date": "2026-11-03",
+        "entry_price": 379.54998779296875
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "ETN",
@@ -2241,14 +2281,14 @@
           "net_return": -0.041368
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HON": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RTX": {
       "pending_entry": null,
@@ -2267,7 +2307,7 @@
           "net_return": -0.018184
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LMT": {
       "pending_entry": null,
@@ -2286,7 +2326,7 @@
           "net_return": -0.008871
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NOC": {
       "pending_entry": null,
@@ -2327,17 +2367,22 @@
           "net_return": 0.007994
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GD": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BA": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 173.31,
+        "ibs": 0.0126,
+        "lower_band": 180.165
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -2375,7 +2420,7 @@
           "net_return": -0.001452
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DE": {
       "pending_entry": null,
@@ -2416,14 +2461,14 @@
           "net_return": -0.004944
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UNP": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UPS": {
       "pending_entry": null,
@@ -2442,7 +2487,7 @@
           "net_return": 0.000942
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "FDX": {
       "pending_entry": null,
@@ -2461,7 +2506,7 @@
           "net_return": 0.008857
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "WM": {
       "pending_entry": null,
@@ -2502,7 +2547,7 @@
           "net_return": 0.037752
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RSG": {
       "pending_entry": null,
@@ -2521,14 +2566,14 @@
           "net_return": -0.021864
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LIN": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "APD": {
       "pending_entry": null,
@@ -2547,7 +2592,7 @@
           "net_return": -0.016645
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SHW": {
       "pending_entry": null,
@@ -2566,23 +2611,22 @@
           "net_return": 0.023883
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ECL": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "FCX": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 62.97,
-        "ibs": 0.0573,
-        "lower_band": 64.3468
+        "entry_date": "2026-11-03",
+        "entry_price": 62.83000183105469
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -2597,7 +2641,7 @@
           "net_return": 0.018682
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NUE": {
       "pending_entry": null,
@@ -2616,7 +2660,7 @@
           "net_return": 0.017546
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "STLD": {
       "pending_entry": null,
@@ -2635,10 +2679,15 @@
           "net_return": 0.028144
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "COP": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 144.4,
+        "ibs": 0.2424,
+        "lower_band": 146.289
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -2654,10 +2703,15 @@
           "net_return": 0.008162
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EOG": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 155.17,
+        "ibs": 0.1508,
+        "lower_band": 157.2026
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -2673,23 +2727,22 @@
           "net_return": 0.009901
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SLB": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "OXY": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 60.72,
-        "ibs": 0.0741,
-        "lower_band": 61.336
+        "entry_date": "2026-11-03",
+        "entry_price": 60.0
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -2704,7 +2757,7 @@
           "net_return": 0.031351
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MPC": {
       "pending_entry": null,
@@ -2727,7 +2780,7 @@
           "net_return": 0.025592
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "VLO": {
       "pending_entry": null,
@@ -2746,7 +2799,7 @@
           "net_return": 0.003021
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PSX": {
       "pending_entry": null,
@@ -2776,7 +2829,7 @@
           "net_return": 0.033225
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KMI": {
       "pending_entry": null,
@@ -2795,7 +2848,7 @@
           "net_return": 0.031942
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "WMB": {
       "pending_entry": null,
@@ -2825,14 +2878,14 @@
           "net_return": 0.041448
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TMO": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DHR": {
       "pending_entry": null,
@@ -2851,7 +2904,7 @@
           "net_return": 0.044329
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ABT": {
       "pending_entry": null,
@@ -2881,7 +2934,7 @@
           "net_return": -0.022889
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MDT": {
       "pending_entry": null,
@@ -2900,25 +2953,19 @@
           "net_return": -0.011317
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SYK": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BSX": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 42.06999969482422
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "BSX",
@@ -2930,23 +2977,34 @@
           "exit_price": 41.5,
           "gross_return": -0.02284,
           "net_return": -0.02584
+        },
+        {
+          "symbol": "BSX",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 42.07,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 43.869999,
+          "gross_return": 0.042786,
+          "net_return": 0.039786
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EW": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UNH": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ELV": {
       "pending_entry": null,
@@ -2969,17 +3027,18 @@
           "net_return": 0.011527
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CVS": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 88.51,
-        "ibs": 0.2299,
-        "lower_band": 89.7363
+        "entry_date": "2026-11-03",
+        "entry_price": 88.43000030517578
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "CVS",
@@ -2993,7 +3052,7 @@
           "net_return": -0.008849
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CI": {
       "pending_entry": null,
@@ -3004,7 +3063,7 @@
       },
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HUM": {
       "pending_entry": null,
@@ -3023,14 +3082,14 @@
           "net_return": 0.041817
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PFE": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BMY": {
       "pending_entry": null,
@@ -3049,7 +3108,7 @@
           "net_return": 0.026352
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ZTS": {
       "pending_entry": null,
@@ -3068,7 +3127,7 @@
           "net_return": 0.001196
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CB": {
       "pending_entry": null,
@@ -3087,7 +3146,7 @@
           "net_return": 0.013787
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PGR": {
       "pending_entry": null,
@@ -3106,7 +3165,7 @@
           "net_return": 0.006525
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ALL": {
       "pending_entry": null,
@@ -3125,7 +3184,7 @@
           "net_return": 0.023184
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TRV": {
       "pending_entry": null,
@@ -3144,7 +3203,7 @@
           "net_return": 0.031017
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MMC": {
       "pending_entry": null,
@@ -3158,7 +3217,7 @@
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SCHW": {
       "pending_entry": null,
@@ -3210,14 +3269,14 @@
           "net_return": 0.002603
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BLK": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SPGI": {
       "pending_entry": null,
@@ -3236,7 +3295,7 @@
           "net_return": 0.036159
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ICE": {
       "pending_entry": null,
@@ -3255,7 +3314,7 @@
           "net_return": 0.073535
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CME": {
       "pending_entry": null,
@@ -3285,7 +3344,7 @@
           "net_return": 0.034123
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "COF": {
       "pending_entry": null,
@@ -3304,7 +3363,7 @@
           "net_return": -0.009377
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "USB": {
       "pending_entry": null,
@@ -3323,7 +3382,7 @@
           "net_return": -0.035071
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PNC": {
       "pending_entry": null,
@@ -3342,7 +3401,7 @@
           "net_return": -0.014954
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TFC": {
       "pending_entry": null,
@@ -3361,7 +3420,7 @@
           "net_return": -0.015529
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BK": {
       "pending_entry": null,
@@ -3409,7 +3468,7 @@
           "net_return": 0.022275
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "WFC": {
       "pending_entry": null,
@@ -3428,14 +3487,14 @@
           "net_return": -0.007589
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PYPL": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SQ": {
       "pending_entry": null,
@@ -3445,14 +3504,15 @@
       "last_processed": null
     },
     "COIN": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 137.83,
-        "ibs": 0.2852,
-        "lower_band": 157.571
+        "entry_date": "2026-11-03",
+        "entry_price": 138.32000732421875
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "COIN",
@@ -3477,17 +3537,18 @@
           "net_return": 0.075325
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HOOD": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 83.84,
-        "ibs": 0.122,
-        "lower_band": 91.3215
+        "entry_date": "2026-11-03",
+        "entry_price": 84.875
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "HOOD",
@@ -3534,18 +3595,12 @@
           "net_return": 0.003612
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RBLX": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 42.900001525878906
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "RBLX",
@@ -3557,9 +3612,20 @@
           "exit_price": 41.209999,
           "gross_return": -0.016468,
           "net_return": -0.019468
+        },
+        {
+          "symbol": "RBLX",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 42.900002,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 43.375,
+          "gross_return": 0.011072,
+          "net_return": 0.008072
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DASH": {
       "pending_entry": null,
@@ -3578,17 +3644,18 @@
           "net_return": 0.038475
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RDDT": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 90.97,
-        "ibs": 0.0883,
-        "lower_band": 141.9165
+        "entry_date": "2026-11-03",
+        "entry_price": 92.11000061035156
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "RDDT",
@@ -3624,16 +3691,15 @@
           "net_return": -0.231549
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ARM": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 196.79,
-        "ibs": 0.0607,
-        "lower_band": 209.0879
+        "entry_date": "2026-11-03",
+        "entry_price": 200.9600067138672
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -3659,17 +3725,18 @@
           "net_return": -0.142531
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SMCI": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 30.44,
-        "ibs": 0.0526,
-        "lower_band": 32.257
+        "entry_date": "2026-11-03",
+        "entry_price": 31.190000534057617
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "SMCI",
@@ -3705,7 +3772,7 @@
           "net_return": 0.005165
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ANET": {
       "pending_entry": null,
@@ -3728,16 +3795,15 @@
           "net_return": -0.05338
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DELL": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 392.78,
-        "ibs": 0.0465,
-        "lower_band": 445.1962
+        "entry_date": "2026-11-03",
+        "entry_price": 400.25
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -3752,16 +3818,15 @@
           "net_return": -0.024434
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HPE": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 51.19,
-        "ibs": 0.0735,
-        "lower_band": 54.5226
+        "entry_date": "2026-11-03",
+        "entry_price": 52.2599983215332
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -3776,16 +3841,15 @@
           "net_return": -0.0696
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "HPQ": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 28.43,
-        "ibs": 0.0701,
-        "lower_band": 31.185
+        "entry_date": "2026-11-03",
+        "entry_price": 28.329999923706055
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -3800,7 +3864,7 @@
           "net_return": 0.044247
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ACN": {
       "pending_entry": null,
@@ -3830,25 +3894,19 @@
           "net_return": 0.075255
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SAP": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ADBE": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 249.9600067138672
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "ADBE",
@@ -3860,16 +3918,27 @@
           "exit_price": 245.100006,
           "gross_return": -0.000408,
           "net_return": -0.003408
+        },
+        {
+          "symbol": "ADBE",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 249.960007,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 248.800003,
+          "gross_return": -0.004641,
+          "net_return": -0.007641
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ADSK": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CDNS": {
       "pending_entry": null,
@@ -3910,7 +3979,7 @@
           "net_return": 0.027595
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SNPS": {
       "pending_entry": null,
@@ -3940,16 +4009,15 @@
           "net_return": 0.024967
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "FTNT": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 126.21,
-        "ibs": 0.0406,
-        "lower_band": 169.718
+        "entry_date": "2026-11-03",
+        "entry_price": 128.1999969482422
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -3964,7 +4032,7 @@
           "net_return": 0.01583
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ZS": {
       "pending_entry": null,
@@ -3987,7 +4055,7 @@
           "net_return": 0.107
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TEAM": {
       "pending_entry": null,
@@ -3998,17 +4066,18 @@
       },
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MDB": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 330.43,
-        "ibs": 0.0404,
-        "lower_band": 346.3523
+        "entry_date": "2026-11-03",
+        "entry_price": 329.8299865722656
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "MDB",
@@ -4044,16 +4113,15 @@
           "net_return": -0.008024
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "OKTA": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 184.87,
-        "ibs": 0.0765,
-        "lower_band": 198.9928
+        "entry_date": "2026-11-03",
+        "entry_price": 183.75
       },
-      "position": null,
       "pending_exit": null,
       "trades": [
         {
@@ -4068,14 +4136,14 @@
           "net_return": 0.085524
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DOCU": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TWLO": {
       "pending_entry": null,
@@ -4094,7 +4162,7 @@
           "net_return": 6.6e-05
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TTD": {
       "pending_entry": null,
@@ -4113,18 +4181,12 @@
           "net_return": 0.02141
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "APP": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 234.52499389648438
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "APP",
@@ -4158,9 +4220,20 @@
           "exit_price": 268.274994,
           "gross_return": -0.041875,
           "net_return": -0.044875
+        },
+        {
+          "symbol": "APP",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 234.524994,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 231.25,
+          "gross_return": -0.013964,
+          "net_return": -0.016964
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SPOT": {
       "pending_entry": null,
@@ -4201,7 +4274,7 @@
           "net_return": 0.054821
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ROKU": {
       "pending_entry": null,
@@ -4210,16 +4283,18 @@
         "entry_date": "2026-10-29",
         "entry_price": 154.75999450683594
       },
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PARA": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "WBD": {
       "pending_entry": null,
@@ -4267,7 +4342,7 @@
           "net_return": 0.011567
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GM": {
       "pending_entry": null,
@@ -4286,7 +4361,7 @@
           "net_return": 0.005171
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RIVN": {
       "pending_entry": null,
@@ -4349,35 +4424,35 @@
           "net_return": 0.051155
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LCID": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CCL": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "RCL": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NCLH": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DAL": {
       "pending_entry": null,
@@ -4396,7 +4471,7 @@
           "net_return": -0.008761
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UAL": {
       "pending_entry": null,
@@ -4426,7 +4501,7 @@
           "net_return": -0.029238
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AAL": {
       "pending_entry": null,
@@ -4467,7 +4542,7 @@
           "net_return": -0.037053
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "LUV": {
       "pending_entry": null,
@@ -4497,14 +4572,14 @@
           "net_return": 0.0267
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EXPE": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "TCOM": {
       "pending_entry": null,
@@ -4556,10 +4631,15 @@
           "net_return": 0.025914
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MELI": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 1662.16,
+        "ibs": 0.1723,
+        "lower_band": 1764.809
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -4586,18 +4666,12 @@
           "net_return": -0.013694
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SE": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 75.20999908447266
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "SE",
@@ -4631,9 +4705,20 @@
           "exit_price": 72.589996,
           "gross_return": -0.034707,
           "net_return": -0.037707
+        },
+        {
+          "symbol": "SE",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 75.209999,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 76.504997,
+          "gross_return": 0.017218,
+          "net_return": 0.014218
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PDD": {
       "pending_entry": null,
@@ -4663,17 +4748,18 @@
           "net_return": 0.021731
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BABA": {
-      "pending_entry": {
+      "pending_entry": null,
+      "position": {
         "signal_date": "2026-11-02",
-        "close": 101.5,
-        "ibs": 0.0063,
-        "lower_band": 103.5697
+        "entry_date": "2026-11-03",
+        "entry_price": 101.82499694824219
       },
-      "position": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "BABA",
@@ -4720,7 +4806,7 @@
           "net_return": -0.006205
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "JD": {
       "pending_entry": null,
@@ -4761,7 +4847,7 @@
           "net_return": 0.012061
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "BIDU": {
       "pending_entry": null,
@@ -4813,7 +4899,7 @@
           "net_return": -0.012872
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NVO": {
       "pending_entry": null,
@@ -4832,7 +4918,7 @@
           "net_return": -0.007233
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AZN": {
       "pending_entry": null,
@@ -4873,7 +4959,7 @@
           "net_return": 0.053581
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "NVS": {
       "pending_entry": null,
@@ -4903,7 +4989,7 @@
           "net_return": 0.005663
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "SNY": {
       "pending_entry": null,
@@ -4944,10 +5030,15 @@
           "net_return": -0.021694
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "UL": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 64.81,
+        "ibs": 0.037,
+        "lower_band": 64.959
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -4963,10 +5054,15 @@
           "net_return": -0.001997
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DEO": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 94.05,
+        "ibs": 0.1191,
+        "lower_band": 94.2803
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -4982,14 +5078,14 @@
           "net_return": 0.010859
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PM": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MO": {
       "pending_entry": null,
@@ -5008,7 +5104,7 @@
           "net_return": 0.00026
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MDLZ": {
       "pending_entry": null,
@@ -5027,7 +5123,7 @@
           "net_return": -0.008517
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KHC": {
       "pending_entry": null,
@@ -5057,7 +5153,7 @@
           "net_return": -0.003
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GIS": {
       "pending_entry": null,
@@ -5076,17 +5172,22 @@
           "net_return": -0.016835
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CL": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KMB": {
-      "pending_entry": null,
+      "pending_entry": {
+        "signal_date": "2026-11-03",
+        "close": 104.46,
+        "ibs": 0.0092,
+        "lower_band": 106.848
+      },
       "position": null,
       "pending_exit": null,
       "trades": [
@@ -5102,7 +5203,7 @@
           "net_return": -0.009833
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EL": {
       "pending_entry": null,
@@ -5132,7 +5233,7 @@
           "net_return": 0.033367
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MNST": {
       "pending_entry": null,
@@ -5151,7 +5252,7 @@
           "net_return": 0.027769
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CELH": {
       "pending_entry": null,
@@ -5170,7 +5271,7 @@
           "net_return": 0.018868
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DG": {
       "pending_entry": null,
@@ -5189,21 +5290,21 @@
           "net_return": 0.045744
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "DLTR": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "KR": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ACI": {
       "pending_entry": null,
@@ -5233,7 +5334,7 @@
           "net_return": -0.013663
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ORLY": {
       "pending_entry": null,
@@ -5252,7 +5353,7 @@
           "net_return": -0.007479
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "AZO": {
       "pending_entry": null,
@@ -5271,18 +5372,12 @@
           "net_return": 0.011762
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GPC": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 122.01000213623047
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "GPC",
@@ -5305,9 +5400,20 @@
           "exit_price": 125.660004,
           "gross_return": 0.04213,
           "net_return": 0.03913
+        },
+        {
+          "symbol": "GPC",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 122.010002,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 123.5,
+          "gross_return": 0.012212,
+          "net_return": 0.009212
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ODFL": {
       "pending_entry": null,
@@ -5326,21 +5432,21 @@
           "net_return": -0.055181
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "FAST": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "URI": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PWR": {
       "pending_entry": null,
@@ -5359,14 +5465,14 @@
           "net_return": -0.111342
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "GWW": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ITW": {
       "pending_entry": null,
@@ -5385,14 +5491,14 @@
           "net_return": 0.017574
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "EMR": {
       "pending_entry": null,
       "position": null,
       "pending_exit": null,
       "trades": [],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "MMM": {
       "pending_entry": null,
@@ -5422,7 +5528,7 @@
           "net_return": 0.014994
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "JCI": {
       "pending_entry": null,
@@ -5445,31 +5551,31 @@
           "net_return": 0.0014
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CARR": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 54.099998474121094
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
-      "trades": [],
-      "last_processed": "2026-11-02"
+      "position": null,
+      "pending_exit": null,
+      "trades": [
+        {
+          "symbol": "CARR",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 54.099998,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 55.52,
+          "gross_return": 0.026248,
+          "net_return": 0.023248
+        }
+      ],
+      "last_processed": "2026-11-03"
     },
     "TT": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 415.32000732421875
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
+      "position": null,
+      "pending_exit": null,
       "trades": [
         {
           "symbol": "TT",
@@ -5481,9 +5587,20 @@
           "exit_price": 461.649994,
           "gross_return": 0.039144,
           "net_return": 0.036144
+        },
+        {
+          "symbol": "TT",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 415.320007,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 418.98999,
+          "gross_return": 0.008837,
+          "net_return": 0.005837
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "PH": {
       "pending_entry": null,
@@ -5513,7 +5630,7 @@
           "net_return": 0.004652
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "ROK": {
       "pending_entry": null,
@@ -5532,7 +5649,7 @@
           "net_return": 0.027286
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "IR": {
       "pending_entry": null,
@@ -5551,30 +5668,37 @@
           "net_return": 0.003933
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     },
     "CMI": {
       "pending_entry": null,
-      "position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 507.6700134277344
-      },
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
-      "trades": [],
-      "last_processed": "2026-11-02"
-    },
-    "PCAR": {
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 102.74,
-        "ibs": 0.1768,
-        "lower_band": 104.767
-      },
       "position": null,
       "pending_exit": null,
+      "trades": [
+        {
+          "symbol": "CMI",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "entry_price": 507.670013,
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "exit_price": 508.470001,
+          "gross_return": 0.001576,
+          "net_return": -0.001424
+        }
+      ],
+      "last_processed": "2026-11-03"
+    },
+    "PCAR": {
+      "pending_entry": null,
+      "position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 103.41000366210938
+      },
+      "pending_exit": {
+        "signal_date": "2026-11-03"
+      },
       "trades": [
         {
           "symbol": "PCAR",
@@ -5599,7 +5723,7 @@
           "net_return": -0.005323
         }
       ],
-      "last_processed": "2026-11-02"
+      "last_processed": "2026-11-03"
     }
   },
   "integrity": "append-only state; frozen metadata checked; duplicate trades rejected; prior fills/trades are never recomputed from later historical revisions"
