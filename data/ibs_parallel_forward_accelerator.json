@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-11-02",
+  "as_of": "2026-11-03",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 18,
-    "avg_net_return": -0.001435,
-    "win_rate": 0.5,
-    "profit_factor": 0.842
+    "trades": 20,
+    "avg_net_return": 0.000881,
+    "win_rate": 0.55,
+    "profit_factor": 1.108
   },
   "unique_symbols_with_closed_trades": 12,
   "cluster_evidence": {
-    "unique_signal_clusters": 11,
-    "avg_cluster_return": -0.003111,
-    "cluster_profit_factor": 0.665,
+    "unique_signal_clusters": 13,
+    "avg_cluster_return": 0.000711,
+    "cluster_profit_factor": 1.09,
     "max_cluster_drawdown": 0.0535,
     "clusters": [
       {
@@ -97,24 +97,33 @@
         "cluster_return": 0.008417
       },
       {
+        "signal_date": "2026-10-28",
+        "symbols": 1,
+        "cluster_return": 0.01943
+      },
+      {
         "signal_date": "2026-10-29",
         "symbols": 1,
         "cluster_return": -0.042219
+      },
+      {
+        "signal_date": "2026-10-30",
+        "symbols": 1,
+        "cluster_return": 0.024036
       }
     ]
   },
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 681.090027,
-        "lower_band": 704.365033,
-        "ibs": 0.039791
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 684.3900146484375
+      },
       "trades": [
         {
           "symbol": "QQQ",
@@ -183,15 +192,14 @@
     },
     {
       "symbol": "PANW",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 351.720001,
-        "lower_band": 365.103003,
-        "ibs": 0.073439
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 351.3699951171875
+      },
       "trades": [
         {
           "symbol": "PANW",
@@ -206,15 +214,14 @@
     },
     {
       "symbol": "CRWD",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 241.809998,
-        "lower_band": 242.430803,
-        "ibs": 0.122024
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 244.1750030517578
+      },
       "trades": [
         {
           "symbol": "CRWD",
@@ -229,15 +236,14 @@
     },
     {
       "symbol": "SNOW",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 290.679993,
-        "lower_band": 305.442685,
-        "ibs": 0.144509
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 284.79998779296875
+      },
       "trades": [
         {
           "symbol": "SNOW",
@@ -274,15 +280,14 @@
     },
     {
       "symbol": "NET",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-02",
-        "close": 265.170013,
-        "lower_band": 295.405597,
-        "ibs": 0.071158
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-02",
+        "entry_date": "2026-11-03",
+        "entry_price": 268.5
+      },
       "trades": [
         {
           "symbol": "NET",
@@ -323,16 +328,10 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
-      "open_position": {
-        "signal_date": "2026-10-28",
-        "entry_date": "2026-10-29",
-        "entry_price": 167.19000244140625
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "ABNB",
@@ -342,21 +341,24 @@
           "exit_date": "2026-09-28",
           "gross_return": -0.022442,
           "net_return": -0.025442
+        },
+        {
+          "symbol": "ABNB",
+          "signal_date": "2026-10-28",
+          "entry_date": "2026-10-29",
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "gross_return": 0.02243,
+          "net_return": 0.01943
         }
       ]
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-02"
-      },
-      "open_position": {
-        "signal_date": "2026-10-30",
-        "entry_date": "2026-11-02",
-        "entry_price": 150.91000366210938
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "BKNG",
@@ -375,6 +377,15 @@
           "exit_date": "2026-10-29",
           "gross_return": 0.011417,
           "net_return": 0.008417
+        },
+        {
+          "symbol": "BKNG",
+          "signal_date": "2026-10-30",
+          "entry_date": "2026-11-02",
+          "exit_signal_date": "2026-11-02",
+          "exit_date": "2026-11-03",
+          "gross_return": 0.027036,
+          "net_return": 0.024036
         }
       ]
     },
