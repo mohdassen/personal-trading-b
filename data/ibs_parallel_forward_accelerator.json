@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "COLLECTING_FORWARD_EVIDENCE",
-  "as_of": "2026-11-03",
+  "as_of": "2026-11-04",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -116,9 +116,11 @@
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-04"
+      },
       "open_position": {
         "signal_date": "2026-11-02",
         "entry_date": "2026-11-03",
@@ -174,8 +176,13 @@
     },
     {
       "symbol": "NOW",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-11-04",
+        "close": 108.809998,
+        "lower_band": 144.437,
+        "ibs": 0.123762
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
