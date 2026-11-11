@@ -1,27 +1,62 @@
 {
-  "market_date": "2026-11-09",
+  "market_date": "2026-11-10",
   "starting_capital_usd": 3000.0,
-  "cash_usd": 1717.03,
-  "realized_pnl_usd": 13.52,
+  "cash_usd": 1612.18,
+  "realized_pnl_usd": 75.47,
   "open_positions": {
     "FTNT": {
       "quantity": 5,
       "assumed_entry_price": 126.21,
       "signal_date": "2026-11-02"
     },
-    "AMAT": {
+    "CMI": {
+      "quantity": 1,
+      "assumed_entry_price": 454.18,
+      "signal_date": "2026-11-10"
+    },
+    "GOOGL": {
+      "quantity": 1,
+      "assumed_entry_price": 287.38,
+      "signal_date": "2026-11-10"
+    },
+    "MNST": {
       "quantity": 2,
-      "assumed_entry_price": 332.72,
-      "signal_date": "2026-11-06"
+      "assumed_entry_price": 45.34,
+      "signal_date": "2026-11-10"
     }
   },
-  "paper_buys": 10,
-  "paper_sells": 8,
-  "new_events": 1,
+  "paper_buys": 13,
+  "paper_sells": 9,
+  "new_events": 4,
   "portfolio_nav_usd": null,
   "warning": "Indicative signal-close proxy only; not live or independently verified quotes, fills or broker NAV.",
   "unrealized_pnl_usd": null,
   "total_pnl_usd": null,
   "valuation_status": "INCOMPLETE_MARKS",
-  "marks": {}
+  "marks": {
+    "CMI": {
+      "price": 454.18,
+      "quantity": 1,
+      "market_value_usd": 454.18,
+      "unrealized_pnl_usd": 0.0,
+      "source": "same_session_signal_close_proxy",
+      "as_of": "2026-11-10"
+    },
+    "GOOGL": {
+      "price": 287.38,
+      "quantity": 1,
+      "market_value_usd": 287.38,
+      "unrealized_pnl_usd": 0.0,
+      "source": "same_session_signal_close_proxy",
+      "as_of": "2026-11-10"
+    },
+    "MNST": {
+      "price": 45.34,
+      "quantity": 2,
+      "market_value_usd": 90.68,
+      "unrealized_pnl_usd": 0.0,
+      "source": "same_session_signal_close_proxy",
+      "as_of": "2026-11-10"
+    }
+  }
 }
