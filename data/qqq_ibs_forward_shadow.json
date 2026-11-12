@@ -3,21 +3,15 @@
   "frozen_rule_version": "2026-09-18-r1",
   "epoch": "2026-09-18",
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
-  "as_of": "2026-11-09",
-  "last_decision": "EXIT_NEXT_OPEN",
+  "as_of": "2026-11-10",
+  "last_decision": "EXIT_FILLED_SHADOW",
   "pending_entry": null,
-  "pending_exit": {
-    "signal_date": "2026-11-09"
-  },
-  "open_position": {
-    "signal_date": "2026-11-06",
-    "entry_date": "2026-11-09",
-    "entry_price": 662.6400146484375
-  },
-  "realized_trade_count": 2,
-  "realized_win_rate": 0.0,
-  "realized_avg_net_return_30bps": -0.007366,
-  "realized_profit_factor": 0.0,
+  "pending_exit": null,
+  "open_position": null,
+  "realized_trade_count": 3,
+  "realized_win_rate": 0.3333,
+  "realized_avg_net_return_30bps": -0.00093,
+  "realized_profit_factor": 0.811,
   "realized_trades": [
     {
       "signal_date": "2026-10-14",
@@ -38,17 +32,27 @@
       "exit_price": 683.119995,
       "gross_return": -0.001856,
       "net_return_30bps": -0.004856
+    },
+    {
+      "signal_date": "2026-11-06",
+      "entry_date": "2026-11-09",
+      "entry_price": 662.640015,
+      "exit_signal_date": "2026-11-09",
+      "exit_date": "2026-11-10",
+      "exit_price": 672.539978,
+      "gross_return": 0.01494,
+      "net_return_30bps": 0.01194
     }
   ],
   "latest_bar": {
-    "date": "2026-11-09",
-    "open": 662.640015,
-    "high": 682.47998,
-    "low": 662.02002,
-    "close": 679.349976,
-    "lower_band": 697.302014,
-    "ibs": 0.847018,
-    "sma300": 655.576734
+    "date": "2026-11-10",
+    "open": 672.539978,
+    "high": 680.950012,
+    "low": 667.049988,
+    "close": 674.76001,
+    "lower_band": 696.288013,
+    "ibs": 0.554677,
+    "sma300": 655.951524
   },
   "rules": {
     "entry": "after close: Close < 10-day high - 2.5 * 25-day average range AND IBS < 0.30; shadow fill next open",
