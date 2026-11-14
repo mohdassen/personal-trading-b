@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-11",
+  "as_of": "2026-11-13",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,17 +34,17 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 27,
-    "avg_net_return": -0.006992,
-    "win_rate": 0.5556,
-    "profit_factor": 0.588
+    "trades": 29,
+    "avg_net_return": -0.008657,
+    "win_rate": 0.5517,
+    "profit_factor": 0.535
   },
   "unique_symbols_with_closed_trades": 12,
   "cluster_evidence": {
-    "unique_signal_clusters": 17,
-    "avg_cluster_return": -0.007134,
+    "unique_signal_clusters": 18,
+    "avg_cluster_return": -0.006986,
     "cluster_profit_factor": 0.541,
-    "max_cluster_drawdown": 0.1802,
+    "max_cluster_drawdown": 0.1996,
     "clusters": [
       {
         "signal_date": "2026-09-18",
@@ -113,8 +113,8 @@
       },
       {
         "signal_date": "2026-11-02",
-        "symbols": 3,
-        "cluster_return": 0.014085666666666665
+        "symbols": 4,
+        "cluster_return": -0.009880000000000002
       },
       {
         "signal_date": "2026-11-04",
@@ -130,6 +130,11 @@
         "signal_date": "2026-11-06",
         "symbols": 1,
         "cluster_return": 0.01194
+      },
+      {
+        "signal_date": "2026-11-10",
+        "symbols": 1,
+        "cluster_return": 0.019493
       }
     ]
   },
@@ -244,16 +249,10 @@
     },
     {
       "symbol": "PANW",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-11"
-      },
-      "open_position": {
-        "signal_date": "2026-11-02",
-        "entry_date": "2026-11-03",
-        "entry_price": 351.3699951171875
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "PANW",
@@ -263,6 +262,15 @@
           "exit_date": "2026-10-22",
           "gross_return": 0.001629,
           "net_return": -0.001371
+        },
+        {
+          "symbol": "PANW",
+          "signal_date": "2026-11-02",
+          "entry_date": "2026-11-03",
+          "exit_signal_date": "2026-11-11",
+          "exit_date": "2026-11-12",
+          "gross_return": -0.078777,
+          "net_return": -0.081777
         }
       ]
     },
@@ -317,15 +325,14 @@
     },
     {
       "symbol": "DDOG",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-11",
-        "close": 184.380005,
-        "lower_band": 239.725992,
-        "ibs": 0.246429
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-11",
+        "entry_date": "2026-11-12",
+        "entry_price": 178.70199584960938
+      },
       "trades": [
         {
           "symbol": "DDOG",
@@ -429,16 +436,15 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_NEXT_OPEN",
-      "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-11"
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-11-13",
+        "close": 159.580002,
+        "lower_band": 159.956999,
+        "ibs": 0.15521
       },
-      "open_position": {
-        "signal_date": "2026-11-10",
-        "entry_date": "2026-11-11",
-        "entry_price": 157.8300018310547
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "BKNG",
@@ -466,6 +472,15 @@
           "exit_date": "2026-11-03",
           "gross_return": 0.027036,
           "net_return": 0.024036
+        },
+        {
+          "symbol": "BKNG",
+          "signal_date": "2026-11-10",
+          "entry_date": "2026-11-11",
+          "exit_signal_date": "2026-11-11",
+          "exit_date": "2026-11-12",
+          "gross_return": 0.022493,
+          "net_return": 0.019493
         }
       ]
     },
