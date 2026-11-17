@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-16",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -141,8 +141,13 @@
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-11-16",
+        "close": 661.75,
+        "lower_band": 669.044006,
+        "ibs": 0.108827
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
@@ -325,9 +330,11 @@
     },
     {
       "symbol": "DDOG",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-16"
+      },
       "open_position": {
         "signal_date": "2026-11-11",
         "entry_date": "2026-11-12",
@@ -436,15 +443,16 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-13",
-        "close": 159.580002,
-        "lower_band": 159.956999,
-        "ibs": 0.15521
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-11-16"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-13",
+        "entry_date": "2026-11-16",
+        "entry_price": 160.85000610351562
+      },
       "trades": [
         {
           "symbol": "BKNG",
