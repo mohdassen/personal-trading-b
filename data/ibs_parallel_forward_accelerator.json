@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-17",
+  "as_of": "2026-11-18",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,17 +34,17 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 31,
-    "avg_net_return": -0.010487,
-    "win_rate": 0.5161,
-    "profit_factor": 0.471
+    "trades": 32,
+    "avg_net_return": -0.010348,
+    "win_rate": 0.5,
+    "profit_factor": 0.466
   },
   "unique_symbols_with_closed_trades": 12,
   "cluster_evidence": {
-    "unique_signal_clusters": 20,
-    "avg_cluster_return": -0.009989,
-    "cluster_profit_factor": 0.426,
-    "max_cluster_drawdown": 0.2117,
+    "unique_signal_clusters": 21,
+    "avg_cluster_return": -0.009802,
+    "cluster_profit_factor": 0.419,
+    "max_cluster_drawdown": 0.2165,
     "clusters": [
       {
         "signal_date": "2026-09-18",
@@ -145,22 +145,21 @@
         "signal_date": "2026-11-13",
         "symbols": 1,
         "cluster_return": -0.028365
+      },
+      {
+        "signal_date": "2026-11-16",
+        "symbols": 1,
+        "cluster_return": -0.006046
       }
     ]
   },
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-17"
-      },
-      "open_position": {
-        "signal_date": "2026-11-16",
-        "entry_date": "2026-11-17",
-        "entry_price": 663.0499877929688
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "QQQ",
@@ -188,6 +187,15 @@
           "exit_date": "2026-11-10",
           "gross_return": 0.01494,
           "net_return": 0.01194
+        },
+        {
+          "symbol": "QQQ",
+          "signal_date": "2026-11-16",
+          "entry_date": "2026-11-17",
+          "exit_signal_date": "2026-11-17",
+          "exit_date": "2026-11-18",
+          "gross_return": -0.003046,
+          "net_return": -0.006046
         }
       ]
     },
@@ -238,15 +246,16 @@
     },
     {
       "symbol": "NOW",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-17",
-        "close": 92.900002,
-        "lower_band": 98.413,
-        "ibs": 0.124821
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-11-18"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-17",
+        "entry_date": "2026-11-18",
+        "entry_price": 93.0
+      },
       "trades": [
         {
           "symbol": "NOW",
@@ -297,9 +306,11 @@
     },
     {
       "symbol": "CRWD",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-18"
+      },
       "open_position": {
         "signal_date": "2026-11-02",
         "entry_date": "2026-11-03",
@@ -435,15 +446,14 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-17",
-        "close": 180.940002,
-        "lower_band": 184.468997,
-        "ibs": 0.077532
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-17",
+        "entry_date": "2026-11-18",
+        "entry_price": 179.2899932861328
+      },
       "trades": [
         {
           "symbol": "ABNB",
@@ -467,8 +477,13 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-11-18",
+        "close": 153.279999,
+        "lower_band": 160.146997,
+        "ibs": 0.272171
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
