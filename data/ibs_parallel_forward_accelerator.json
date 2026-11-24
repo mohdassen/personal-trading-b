@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-23",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 35,
-    "avg_net_return": -0.010813,
-    "win_rate": 0.4857,
-    "profit_factor": 0.44
+    "trades": 38,
+    "avg_net_return": -0.008668,
+    "win_rate": 0.5,
+    "profit_factor": 0.521
   },
-  "unique_symbols_with_closed_trades": 12,
+  "unique_symbols_with_closed_trades": 13,
   "cluster_evidence": {
-    "unique_signal_clusters": 23,
-    "avg_cluster_return": -0.011203,
-    "cluster_profit_factor": 0.365,
+    "unique_signal_clusters": 24,
+    "avg_cluster_return": -0.010054,
+    "cluster_profit_factor": 0.406,
     "max_cluster_drawdown": 0.2566,
     "clusters": [
       {
@@ -160,22 +160,21 @@
         "signal_date": "2026-11-18",
         "symbols": 1,
         "cluster_return": -0.030923
+      },
+      {
+        "signal_date": "2026-11-19",
+        "symbols": 3,
+        "cluster_return": 0.016358
       }
     ]
   },
   "states": [
     {
       "symbol": "QQQ",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-20"
-      },
-      "open_position": {
-        "signal_date": "2026-11-19",
-        "entry_date": "2026-11-20",
-        "entry_price": 638.8400268554688
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "QQQ",
@@ -212,20 +211,30 @@
           "exit_date": "2026-11-18",
           "gross_return": -0.003046,
           "net_return": -0.006046
+        },
+        {
+          "symbol": "QQQ",
+          "signal_date": "2026-11-19",
+          "entry_date": "2026-11-20",
+          "exit_signal_date": "2026-11-20",
+          "exit_date": "2026-11-23",
+          "gross_return": 0.02683,
+          "net_return": 0.02383
         }
       ]
     },
     {
       "symbol": "TSLA",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-20",
-        "close": 345.820007,
-        "lower_band": 365.871991,
-        "ibs": 0.050424
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-11-23"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-20",
+        "entry_date": "2026-11-23",
+        "entry_price": 374.739990234375
+      },
       "trades": [
         {
           "symbol": "TSLA",
@@ -267,15 +276,16 @@
     },
     {
       "symbol": "NOW",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-20",
-        "close": 87.610001,
-        "lower_band": 91.839996,
-        "ibs": 0.046392
+      "last_decision": "EXIT_NEXT_OPEN",
+      "pending_entry": null,
+      "pending_exit": {
+        "signal_date": "2026-11-23"
       },
-      "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-20",
+        "entry_date": "2026-11-23",
+        "entry_price": 91.0999984741211
+      },
       "trades": [
         {
           "symbol": "NOW",
@@ -362,9 +372,11 @@
     },
     {
       "symbol": "SNOW",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-23"
+      },
       "open_position": {
         "signal_date": "2026-11-19",
         "entry_date": "2026-11-20",
@@ -429,15 +441,14 @@
     },
     {
       "symbol": "NET",
-      "last_decision": "BUY_NEXT_OPEN",
-      "pending_entry": {
-        "signal_date": "2026-11-20",
-        "close": 274.959991,
-        "lower_band": 278.797491,
-        "ibs": 0.104353
-      },
+      "last_decision": "ENTRY_FILLED_SHADOW",
+      "pending_entry": null,
       "pending_exit": null,
-      "open_position": null,
+      "open_position": {
+        "signal_date": "2026-11-20",
+        "entry_date": "2026-11-23",
+        "entry_price": 299.010009765625
+      },
       "trades": [
         {
           "symbol": "NET",
@@ -461,30 +472,28 @@
     },
     {
       "symbol": "SHOP",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-20"
-      },
-      "open_position": {
-        "signal_date": "2026-11-19",
-        "entry_date": "2026-11-20",
-        "entry_price": 130.2899932861328
-      },
-      "trades": []
+      "pending_exit": null,
+      "open_position": null,
+      "trades": [
+        {
+          "symbol": "SHOP",
+          "signal_date": "2026-11-19",
+          "entry_date": "2026-11-20",
+          "exit_signal_date": "2026-11-20",
+          "exit_date": "2026-11-23",
+          "gross_return": 0.039911,
+          "net_return": 0.036911
+        }
+      ]
     },
     {
       "symbol": "UBER",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-20"
-      },
-      "open_position": {
-        "signal_date": "2026-11-19",
-        "entry_date": "2026-11-20",
-        "entry_price": 65.7699966430664
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "UBER",
@@ -494,6 +503,15 @@
           "exit_date": "2026-10-23",
           "gross_return": 0.015122,
           "net_return": 0.012122
+        },
+        {
+          "symbol": "UBER",
+          "signal_date": "2026-11-19",
+          "entry_date": "2026-11-20",
+          "exit_signal_date": "2026-11-20",
+          "exit_date": "2026-11-23",
+          "gross_return": -0.008667,
+          "net_return": -0.011667
         }
       ]
     },
@@ -530,8 +548,13 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_FILLED_SHADOW",
-      "pending_entry": null,
+      "last_decision": "BUY_NEXT_OPEN",
+      "pending_entry": {
+        "signal_date": "2026-11-23",
+        "close": 144.940002,
+        "lower_band": 150.905995,
+        "ibs": 0.013647
+      },
       "pending_exit": null,
       "open_position": null,
       "trades": [
