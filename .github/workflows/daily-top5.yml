@@ -1,0 +1,37 @@
+name: Daily Top 5 Research Picks
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/daily-top5.yml']
+  schedule:
+    - cron: '0 13,14 * * 1-5'
+permissions:
+  contents: read
+jobs:
+  picks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/edge-discovery-proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Scan and notify
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          python -m py_compile daily_top5.py
+          if [ "$EVENT" = schedule ] && [ "$(TZ=America/New_York date +%H)" != 09 ]; then exit 0; fi
+          python daily_top5.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-top5-report
+          path: data/daily_top5_latest.json
+          if-no-files-found: ignore
