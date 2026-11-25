@@ -23,7 +23,18 @@ def analyze(x):
     price=float(c.iloc[-1]); risk=float(atr.iloc[-1])
     return dict(reference_close=round(price,2),entry_reference=round(price,2),target_reference=round(price+risk,2),stop_reference=round(price-risk,2),historical_win_rate=round(p,4),lower_confidence=round(lower,4),sample=n,mean_net_return=round(float(hist.mean()),6),date=str(x.index[-1].date()))
 
+def prior_evidence():
+    # IBS outcomes are a different strategy: use only as a weak ranking tie-break,
+    # never as the probability of the new next-session strategy.
+    groups={}
+    for line in Path("data/wide_market_ibs_closed_trades.jsonl").read_text().splitlines():
+        if not line.strip():continue
+        t=json.loads(line)
+        groups.setdefault(t["symbol"],[]).append(t)
+    return groups
+
 def main():
+    prior=prior_evidence()
     rows=[]; dates=[]; errors=0
     for s in SYMBOLS:
         try:
@@ -31,14 +42,18 @@ def main():
             if len(x)<100:raise ValueError("insufficient bars")
             dates.append(str(x.index[-1].date()))
             r=analyze(x)
-            if r:rows.append(dict(symbol=s,**r))
+            if r:
+                old=[float(t["net_return"]) for t in prior.get(s,[]) if t["exit_date"]<r["date"]]
+                r["prior_ibs_count"]=len(old)
+                r["prior_ibs_shrunk_return"]=sum(old)/(len(old)+20)
+                rows.append(dict(symbol=s,**r))
         except Exception as e:
             errors+=1; print(s,type(e).__name__,flush=True)
     if not dates or errors/len(SYMBOLS)>.2:raise RuntimeError("data coverage failure")
     date=max(dates)
     if (datetime.now(ZoneInfo("America/New_York")).date()-datetime.fromisoformat(date).date()).days>4:raise RuntimeError("stale data")
-    picks=sorted((r for r in rows if r["date"]==date),key=lambda r:(r["lower_confidence"],r["mean_net_return"]),reverse=True)[:5]
-    report=dict(as_of=date,mode="RESEARCH_ONLY",picks=picks,errors=errors,universe=len(SYMBOLS))
+    picks=sorted((r for r in rows if r["date"]==date),key=lambda r:(r["lower_confidence"],r["mean_net_return"],r["prior_ibs_shrunk_return"]),reverse=True)[:5]
+    report=dict(as_of=date,mode="RESEARCH_ONLY",picks=picks,errors=errors,universe=len(SYMBOLS),prior_ibs_trades=sum(map(len,prior.values())))
     out=Path("data/daily_top5_latest.json");out.parent.mkdir(exist_ok=True);out.write_text(json.dumps(report,indent=2))
     lines=[f"فرص الأسهم الأمريكية | إغلاق {date} | تجريبي"]
     for r in picks:
