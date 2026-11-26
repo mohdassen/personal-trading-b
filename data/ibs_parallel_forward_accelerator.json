@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -34,16 +34,16 @@
     "deadline": "2026-11-06"
   },
   "overall": {
-    "trades": 41,
-    "avg_net_return": -0.007463,
-    "win_rate": 0.5122,
-    "profit_factor": 0.566
+    "trades": 42,
+    "avg_net_return": -0.007194,
+    "win_rate": 0.5238,
+    "profit_factor": 0.572
   },
   "unique_symbols_with_closed_trades": 13,
   "cluster_evidence": {
-    "unique_signal_clusters": 25,
-    "avg_cluster_return": -0.009551,
-    "cluster_profit_factor": 0.412,
+    "unique_signal_clusters": 26,
+    "avg_cluster_return": -0.009036,
+    "cluster_profit_factor": 0.421,
     "max_cluster_drawdown": 0.2566,
     "clusters": [
       {
@@ -170,6 +170,11 @@
         "signal_date": "2026-11-20",
         "symbols": 2,
         "cluster_return": 0.0015295000000000013
+      },
+      {
+        "signal_date": "2026-11-23",
+        "symbols": 1,
+        "cluster_return": 0.003831
       }
     ]
   },
@@ -562,16 +567,10 @@
     },
     {
       "symbol": "BKNG",
-      "last_decision": "EXIT_NEXT_OPEN",
+      "last_decision": "EXIT_FILLED_SHADOW",
       "pending_entry": null,
-      "pending_exit": {
-        "signal_date": "2026-11-24"
-      },
-      "open_position": {
-        "signal_date": "2026-11-23",
-        "entry_date": "2026-11-24",
-        "entry_price": 144.92999267578125
-      },
+      "pending_exit": null,
+      "open_position": null,
       "trades": [
         {
           "symbol": "BKNG",
@@ -626,6 +625,15 @@
           "exit_date": "2026-11-20",
           "gross_return": -0.027923,
           "net_return": -0.030923
+        },
+        {
+          "symbol": "BKNG",
+          "signal_date": "2026-11-23",
+          "entry_date": "2026-11-24",
+          "exit_signal_date": "2026-11-24",
+          "exit_date": "2026-11-25",
+          "gross_return": 0.006831,
+          "net_return": 0.003831
         }
       ]
     },
