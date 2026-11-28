@@ -6,7 +6,7 @@
   "mode": "FORWARD_SHADOW_ONLY_NO_ORDERS",
   "live_execution": "LOCKED",
   "status": "TIMEBOX_EXPIRED_NO_PROOF",
-  "as_of": "2026-11-25",
+  "as_of": "2026-11-27",
   "symbols": [
     "QQQ",
     "TSLA",
@@ -460,9 +460,11 @@
     },
     {
       "symbol": "NET",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-27"
+      },
       "open_position": {
         "signal_date": "2026-11-20",
         "entry_date": "2026-11-23",
@@ -536,9 +538,11 @@
     },
     {
       "symbol": "ABNB",
-      "last_decision": "ENTRY_FILLED_SHADOW",
+      "last_decision": "EXIT_NEXT_OPEN",
       "pending_entry": null,
-      "pending_exit": null,
+      "pending_exit": {
+        "signal_date": "2026-11-27"
+      },
       "open_position": {
         "signal_date": "2026-11-17",
         "entry_date": "2026-11-18",
